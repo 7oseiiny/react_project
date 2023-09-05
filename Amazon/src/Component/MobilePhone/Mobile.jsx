@@ -419,7 +419,7 @@ export default function Mobile() {
             <h2 className="fw-bold fs-2">Cell Phones</h2>
             <img src="../assets/images/ha.jpg" className="img-fluid veiw" width="100%" />
             <div className="bg-primary mt-4 p-3 d-lg-flex d-sm-none small " style={{ width: '100%', height: '80px' }}>
-              <p className="h5 fw-bold">Enjoy FREE delivery, exclusive deals, award-winning TV and more
+              <p className="h6 fw-bold">Enjoy FREE delivery, exclusive deals, award-winning TV and more
                 Join today</p>
               <button type="button" className="btn btn-warning btn-sm  ms-5 bootn">Try Prime FREE htmlFor 30 days</button>
             </div>
