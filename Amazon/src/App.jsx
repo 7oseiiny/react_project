@@ -5,6 +5,7 @@ import Mobile from "./Component/MobilePhone/mobile"
 import AppLayout from "./Component/AppLayout/AppLayout"
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import Home from "./Component/Home/Home"
+import { Container } from "react-bootstrap"
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,10 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
+    <Container fluid>
+
    <RouterProvider router={router} />
+    </Container>
     </>
   )
 }
