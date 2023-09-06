@@ -4,27 +4,42 @@ import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
 import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
-// import { BsStarHalf } from "react-icons/bs";
+import { BsStarHalf } from "react-icons/bs";
 import Slider from "react-slick";
 import './Fashion.css'
 import Badge from 'react-bootstrap/Badge';
-
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 export default function Fashion() {
-
-  const settings = {
-    className: "center",
-    infinite: true,
-    centerPadding: "60px",
+  var settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
     slidesToShow: 4,
-    swipeToSlide: true,
-    slideToScroll: 1,
-    afterChange: function (index) {
-      console.log(
-        `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
-      );
-    }
+    slidesToScroll: 1,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: false
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+
+    ]
   };
 
   return (
@@ -207,109 +222,148 @@ export default function Fashion() {
           <div>
             <Slider {...settings}>
 
-              
-                <div className="card border-0" >
-                  <img src="../assets/images/o10.jpg" className="card-img-top" alt="..."style={{ width: '8rem', height: '12rem' ,marginLeft:'65px'}}/>
-                  <div className="card-body">
-                    <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">Up to 32% off </Badge> Deal
-                    </p>
-                    <p className='fw-bold '>Save on Casio</p>
-                  </div>
-                </div>
-              
-                <div className="card border-0" >
-                  <img src="../assets/images/o11.jpg" className="card-img-top" alt="..."style={{ width: '8rem', height: '12rem' ,marginLeft:'65px'}}/>
-                  <div className="card-body">
-                    <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">Up to 32% off </Badge> Deal
-                    </p>
-                    <p className='fw-bold '>Save on Men, & Women</p>
-                  </div>
-                </div>
-              
-                <div className="card border-0" >
-                  <img src="../assets/images/o22.jpg" className="card-img-top" alt="..."style={{ width: '8rem', height: '12rem' ,marginLeft:'65px'}}/>
-                  <div className="card-body">
-                    <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">Up to 32% off </Badge> Deal
-                    </p>
-                    <p className='fw-bold '>Save on Kids Sleep Wear</p>
-                  </div>
-                </div>
-              
-                <div className="card border-0" >
-                  <img src="../assets/images/o13.jpg" className="card-img-top" alt="..."style={{ width: '8rem', height: '12rem' ,marginLeft:'65px'}}/>
-                  <div className="card-body">
-                    <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">EGP 139 and under</Badge> Deal
-                    </p>
-                    <p className='fw-bold '>Save on Stitch Socks</p>
-                  </div>
-                </div>
-              
-                <div className="card border-0" >
-                  <img src="../assets/images/o14.jpg" className="card-img-top" alt="..."style={{ width: '8rem', height: '12rem' ,marginLeft:'65px'}}/>
-                  <div className="card-body">
-                    <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">Up to 16% off </Badge> Deal
-                    </p>
-                    <p className='fw-bold '>Save on Watches</p>
-                  </div>
-                </div>
-              
-                <div className="card border-0" >
-                  <img src="../assets/images/o19.jpg" className="card-img-top" alt="..."style={{ width: '8rem', height: '12rem' ,marginLeft:'65px'}}/>
-                  <div className="card-body">
-                    <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">Up to 24% off </Badge> Deal
-                    </p>
-                    <p className='fw-bold '>Save on Men waer</p>
-                  </div>
-                </div>
-              
-                <div className="card border-0" >
-                  <img src="../assets/images/o16.jpg" className="card-img-top" alt="..."style={{ width: '8rem', height: '12rem' ,marginLeft:'65px'}}/>
-                  <div className="card-body">
-                    <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">Up to 20% off </Badge> Deal
-                    </p>
-                    <p className='fw-bold '>Save on Men Pullovers</p>
-                  </div>
-                </div>
-              
-                <div className="card border-0" >
-                  <img src="../assets/images/o17.jpg" className="card-img-top" alt="..."style={{ width: '8rem', height: '12rem' ,marginLeft:'65px'}}/>
-                  <div className="card-body">
-                    <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">Up to 22% off </Badge> Deal
-                    </p>
-                    <p className='fw-bold '>Save on Kida socks</p>
-                  </div>
-                </div>
-              
-                <div className="card border-0" >
-                  <img src="../assets/images/o18.jpg" className="card-img-top" alt="..."style={{ width: '8rem', height: '12rem' ,marginLeft:'65px'}}/>
-                  <div className="card-body">
-                    <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">Up to 18% off </Badge> Deal
-                    </p>
-                    <p className='fw-bold '>Save on Levi's women</p>
-                  </div>
-                </div>
 
-            
-                
+              <div className="card border-0" >
+                <img src="../assets/images/o10.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
+                <div className="card-body">
+                  <p className="card-text fw-bolder colorfont ">
+                    <Badge bg="danger">Up to 32% off </Badge> Deal
+                  </p>
+                  <p className='fw-bold '>Save on Casio</p>
+                </div>
+              </div>
+
+              <div className="card border-0" >
+                <img src="../assets/images/o11.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
+                <div className="card-body">
+                  <p className="card-text fw-bolder colorfont ">
+                    <Badge bg="danger">Up to 32% off </Badge> Deal
+                  </p>
+                  <p className='fw-bold '>Save on Men, & Women</p>
+                </div>
+              </div>
+
+              <div className="card border-0" >
+                <img src="../assets/images/o22.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
+                <div className="card-body">
+                  <p className="card-text fw-bolder colorfont ">
+                    <Badge bg="danger">Up to 32% off </Badge> Deal
+                  </p>
+                  <p className='fw-bold '>Save on Kids Sleep Wear</p>
+                </div>
+              </div>
+
+              <div className="card border-0" >
+                <img src="../assets/images/o13.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
+                <div className="card-body">
+                  <p className="card-text fw-bolder colorfont ">
+                    <Badge bg="danger">EGP 139 and under</Badge> Deal
+                  </p>
+                  <p className='fw-bold '>Save on Stitch Socks</p>
+                </div>
+              </div>
+
+              <div className="card border-0" >
+                <img src="../assets/images/o14.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
+                <div className="card-body">
+                  <p className="card-text fw-bolder colorfont ">
+                    <Badge bg="danger">Up to 16% off </Badge> Deal
+                  </p>
+                  <p className='fw-bold '>Save on Watches</p>
+                </div>
+              </div>
+
+              <div className="card border-0" >
+                <img src="../assets/images/o19.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
+                <div className="card-body">
+                  <p className="card-text fw-bolder colorfont ">
+                    <Badge bg="danger">Up to 24% off </Badge> Deal
+                  </p>
+                  <p className='fw-bold '>Save on Men waer</p>
+                </div>
+              </div>
+
+              <div className="card border-0" >
+                <img src="../assets/images/o16.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
+                <div className="card-body">
+                  <p className="card-text fw-bolder colorfont ">
+                    <Badge bg="danger">Up to 20% off </Badge> Deal
+                  </p>
+                  <p className='fw-bold '>Save on Men Pullovers</p>
+                </div>
+              </div>
+
+              <div className="card border-0" >
+                <img src="../assets/images/o17.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
+                <div className="card-body">
+                  <p className="card-text fw-bolder colorfont ">
+                    <Badge bg="danger">Up to 22% off </Badge> Deal
+                  </p>
+                  <p className='fw-bold '>Save on Kida socks</p>
+                </div>
+              </div>
+
+              <div className="card border-0" >
+                <img src="../assets/images/o18.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
+                <div className="card-body">
+                  <p className="card-text fw-bolder colorfont ">
+                    <Badge bg="danger">Up to 18% off </Badge> Deal
+                  </p>
+                  <p className='fw-bold '>Save on Levi's women</p>
+                </div>
+              </div>
             </Slider>
           </div>
 
+          <img src="../assets/images/o1o.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} />
+          <img src="../assets/images/o2.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} />
+          <img src="../assets/images/o3.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} />
+          <img src="../assets/images/qq1.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} />
+          <img src="../assets/images/o4.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} />
+          <img src="../assets/images/o5.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} />
 
 
+          <Container>
+            <Row>
+              <Col> <img src="../assets/images/oo1.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col> <img src="../assets/images/oo2.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+            </Row>
+            <Row>
+              <Col> <img src="../assets/images/o7.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col> <img src="../assets/images/o8.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col> <img src="../assets/images/o9.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+            </Row>
+            <Row>
+              <Col> <img src="../assets/images/deep1.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col> <img src="../assets/images/deep2.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col> <img src="../assets/images/deep3.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col> <img src="../assets/images/deep4.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col> <img src="../assets/images/deep5.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col> <img src="../assets/images/deep6.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
 
+            </Row>
+            <Row>
+              <Col> <img src="../assets/images/deep7.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col> <img src="../assets/images/deep8.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col> <img src="../assets/images/deep9.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col> <img src="../assets/images/deep10.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col> <img src="../assets/images/deep11.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col> <img src="../assets/images/deep12.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
 
+            </Row>
+          </Container>
 
+          <img src="../assets/images/o5.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} />
 
-
+          <Container>
+            <h3 className='text-center m-3'>Shop by Price</h3>
+            <Row>
+              <Col> <img src="../assets/images/za1.gif" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col> <img src="../assets/images/za2.gif" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col> <img src="../assets/images/za3.gif" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col> <img src="../assets/images/za4.gif" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+            </Row>
+          </Container>
 
 
           {/* ending counteiner  */}
