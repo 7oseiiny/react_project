@@ -1,12 +1,43 @@
 import './Elec.css'
+import Slider from "react-slick";
+import { BsStarFill } from "react-icons/bs";
+import { BsStar } from "react-icons/bs";
+import { BsStarHalf } from "react-icons/bs";
 
 
 export default function Electronics() {
- 
+  var settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          // infinite: true,
+          // dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          // initialSlide: 2
+        }
+      },
+     
+    ]
+  };
   return (
     <>
    <body>
-  <div className="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+  <div className="offcanvas offcanvas-start" data-bs-scroll="true" tabIndex="-1" id="offcanvasWithBothOptions"
     aria-labelledby="offcanvasWithBothOptionsLabel">
     <div className="offcanvas-header">
       <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
@@ -36,11 +67,11 @@ export default function Electronics() {
     {/* <!-- <div className=""></div> --> */}
   <div className="col-2 mt-2 sideLeft"> 
     <div className="col">
-      <p className="h6 fw-bold">Eligible for free delivery</p>
+      <p className="h6 fw-bold">Eligible htmlFor free delivery</p>
 
       <li className="list-group-item">
-        <input className="form-check-input me-1" type="checkbox" value="" id="f1" />Free Shipping
-        <label className="form-check-label stretched-link w-100" for="f1">
+        <input className="htmlForm-check-input me-1" type="checkbox" value="" id="f1" />Free Shipping
+        <label className="htmlForm-check-label stretched-link w-100" htmlFor="f1">
           All customers get FREE Shipping on orders shipped by Amazon</label>
       </li>
     </div>
@@ -69,72 +100,75 @@ export default function Electronics() {
       <div>
         <h6 className="mt-4 fw-bold">Fulfilled by Amazon</h6>
         <span>
-          <input className="form-check-input me-0" type="checkbox" value="" id="g1" />
-          Fulfilled by Amazon<label className="form-check-label stretched-link w-100" for="g1"></label>
+          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="g1" />
+          Fulfilled by Amazon<label className="htmlForm-check-label stretched-link w-100" htmlFor="g1"></label>
         </span>
       </div>
       <div>
         <p className="h6 fw-bold">Brand</p>
         <span>
-          <input className="form-check-input my-0 me-0" type="checkbox" value="" id="y5" />
-          Other<label className="form-check-label stretched-link w-100 " for="y5"></label>
-          <input className="form-check-input me-0" type="checkbox" value="" id="y6" />
-          SAMSUNG<label className="form-check-label stretched-link w-100 " for="y6"></label>
-          <input className="form-check-input me-0" type="checkbox" value="" id="y7" />
-          HP<label className="form-check-label stretched-link w-100 " for="y7"></label>
-          <input className="form-check-input me-0" type="checkbox" value="" id="y8" />
-          Baseus<label className="form-check-label stretched-link w-100 " for="y8"></label>
-          <input className="form-check-input me-0" type="checkbox" value="" id="y9" />
-          Dell<label className="form-check-label stretched-link w-100 " for="y9"></label>
-          <input className="form-check-input me-0" type="checkbox" value="" id="y10" />
-          Spigen<label className="form-check-label stretched-link w-100 " for="y10"></label>
-          <input className="form-check-input me-0" type="checkbox" value="" id="y11" />
-          JBL<label className="form-check-label stretched-link w-100 " for="y11"></label>
+          <input className="htmlForm-check-input my-0 me-0" type="checkbox" value="" id="y5" />
+          Other<label className="htmlForm-check-label stretched-link w-100 " htmlFor="y5"></label>
+          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="y6" />
+          SAMSUNG<label className="htmlForm-check-label stretched-link w-100 " htmlFor="y6"></label>
+          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="y7" />
+          HP<label className="htmlForm-check-label stretched-link w-100 " htmlFor="y7"></label>
+          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="y8" />
+          Baseus<label className="htmlForm-check-label stretched-link w-100 " htmlFor="y8"></label>
+          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="y9" />
+          Dell<label className="htmlForm-check-label stretched-link w-100 " htmlFor="y9"></label>
+          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="y10" />
+          Spigen<label className="htmlForm-check-label stretched-link w-100 " htmlFor="y10"></label>
+          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="y11" />
+          JBL<label className="htmlForm-check-label stretched-link w-100 " htmlFor="y11"></label>
         </span>
       </div>
       <div>
         <p className="h6 fw-bold">Condition</p>
         <span>
-          <label className="form-check-label stretched-link w-100 " for="g1">New</label>
-          <label className="form-check-label stretched-link w-100 " for="g2">Used</label>
+          <label className="htmlForm-check-label stretched-link w-100 " htmlFor="g1">New</label>
+          <label className="htmlForm-check-label stretched-link w-100 " htmlFor="g2">Used</label>
         </span>
       </div>
        <div>
         <h6 className="mt-4">Avg. Customer Review</h6>
-        <div className="d-inline-block">
-          <i className="fa-solid fa-star text-warning"></i>
-          <i className="fa-solid fa-star text-warning"></i>
-          <i className="fa-solid fa-star text-warning"></i>
-          <i className="fa-solid fa-star text-warning"></i>
-          <i className="fa-solid fa-star text-warning"></i> Only
+        <div>
+        <BsStarFill color='#FFA41C' />
+            <BsStarFill color='#FFA41C' />
+            <BsStarFill color='#FFA41C' />
+            <BsStarFill color='#FFA41C' />
+            <BsStarFill color='#FFA41C' />
+
+           Only
         </div>
-        <div className="d-inline-block">
-          <i className="fa-solid fa-star text-warning"></i>
-          <i className="fa-solid fa-star text-warning"></i>
-          <i className="fa-solid fa-star text-warning"></i>
-          <i className="fa-solid fa-star text-warning"></i>
-          <i className="fa-regular fa-star text-warning"></i>& up
+        <div>
+        <BsStarFill color='#FFA41C' />
+        <BsStarFill color='#FFA41C' />
+        <BsStarFill color='#FFA41C' />
+        <BsStarFill color='#FFA41C' />
+        <BsStar color='#FFA41C' />& up
         </div>
-         <div className="d-inline-block">
-          <i className="fa-solid fa-star text-warning"></i>
-          <i className="fa-solid fa-star text-warning"></i>
-          <i className="fa-solid fa-star text-warning"></i>
-          <i className="fa-regular fa-star text-warning"></i>
-          <i className="fa-regular fa-star text-warning"></i>& Up
+         <div>
+         <BsStarFill color='#FFA41C' />
+         <BsStarFill color='#FFA41C' />
+         <BsStarFill color='#FFA41C' />
+         <BsStar color='#FFA41C' />
+         <BsStar color='#FFA41C' />& Up
         </div>
-         <div className="d-inline-block">
-          <i className="fa-solid fa-star text-warning"></i>
-          <i className="fa-solid fa-star text-warning"></i>
-          <i className="fa-regular fa-star text-warning"></i>
-          <i className="fa-regular fa-star text-warning"></i>
-         <i className="fa-regular fa-star text-warning"></i>& Up
+         <div>
+         <BsStarFill color='#FFA41C' />
+         <BsStarFill color='#FFA41C' />
+          <BsStar color='#FFA41C' />
+          <BsStar color='#FFA41C' />
+          <BsStar color='#FFA41C' />& Up
         </div>
-         <div className="d-inline-block">
-          <i className="fa-solid fa-star text-warning"></i>
-          <i className="fa-regular fa-star text-warning"></i>      
-          <i className="fa-regular fa-star text-warning"></i>
-          <i className="fa-regular fa-star text-warning"></i>  
-          <i className="fa-regular fa-star text-warning"></i>& up
+         <div>
+         <BsStarFill color='#FFA41C' />
+         <BsStar color='#FFA41C' />
+         <BsStar color='#FFA41C' />
+         <BsStar color='#FFA41C' />
+         <BsStar color='#FFA41C' />
+& up
         </div>
       </div>
       <div>
@@ -151,41 +185,41 @@ export default function Electronics() {
         <div>
           <h6 className="mt-4">Deals & Discounts</h6>
           <span>
-            <label className="form-check-label stretched-link w-100 " for="g1">All Discounts</label>
-            <label className="form-check-label stretched-link w-100 " for="g2">Today's Deals</label>
+            <label className="htmlForm-check-label stretched-link w-100 " htmlFor="g1">All Discounts</label>
+            <label className="htmlForm-check-label stretched-link w-100 " htmlFor="g2">Today's Deals</label>
           </span>
         </div>
 
       <div>
         <h6 className="mt-4">Seller</h6>
         <span>
-          <input className="form-check-input me-0" type="checkbox" value="" id="t8" />
-          Amazon.eg<label className="form-check-label stretched-link w-100 " for="t8"></label>
-          <input className="form-check-input me-0" type="checkbox" value="" id="t9" />
-          دلع.موبايلك<label className="form-check-label stretched-link w-100 " for="t9"></label>
-          {/* <!-- <input className="form-check-input me-0" type="checkbox" value="" id="t10" /> */}
-          المعز.ستور <label className="form-check-label stretched-link w-100 " for="t10"></label> 
-          <input className="form-check-input me-0" type="checkbox" value="" id="t11" />
-          High.Quality<label className="form-check-label stretched-link w-100 " for="t11"></label>
-          <input className="form-check-input me-0" type="checkbox" value="" id="t12" />
-          classNamey Phone<label className="form-check-label stretched-link w-100 " for="t12"></label>
-          <input className="form-check-input me-0" type="checkbox" value="" id="t13" />
-          Amazon Warehouse<label className="form-check-label stretched-link w-100 " for="t13"></label>
-          <input className="form-check-input me-0" type="checkbox" value="" id="t14" />
-          GOMAA STORE<label className="form-check-label stretched-link w-100 " for="t14"></label>
-          <input className="form-check-input me-0" type="checkbox" value="" id="t" />
-          Snap-Buy<label className="form-check-label stretched-link w-100 " for="t"></label>
-          <input className="form-check-input me-0" type="checkbox" value="" id="tk" />
-          Fekra.Store-DT<label className="form-check-label stretched-link w-100 " for="tk"></label>
-          <input className="form-check-input me-0" type="checkbox" value="" id="tp" />
-          M.H.M E.Commerce<label className="form-check-label stretched-link w-100 " for="tp"></label>
+          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t8" />
+          Amazon.eg<label className="htmlForm-check-label stretched-link w-100 " htmlFor="t8"></label>
+          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t9" />
+          دلع.موبايلك<label className="htmlForm-check-label stretched-link w-100 " htmlFor="t9"></label>
+          {/* <!-- <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t10" /> */}
+          المعز.ستور <label className="htmlForm-check-label stretched-link w-100 " htmlFor="t10"></label> 
+          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t11" />
+          High.Quality<label className="htmlForm-check-label stretched-link w-100 " htmlFor="t11"></label>
+          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t12" />
+          classNamey Phone<label className="htmlForm-check-label stretched-link w-100 " htmlFor="t12"></label>
+          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t13" />
+          Amazon Warehouse<label className="htmlForm-check-label stretched-link w-100 " htmlFor="t13"></label>
+          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t14" />
+          GOMAA STORE<label className="htmlForm-check-label stretched-link w-100 " htmlFor="t14"></label>
+          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t" />
+          Snap-Buy<label className="htmlForm-check-label stretched-link w-100 " htmlFor="t"></label>
+          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="tk" />
+          Fekra.Store-DT<label className="htmlForm-check-label stretched-link w-100 " htmlFor="tk"></label>
+          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="tp" />
+          M.H.M E.Commerce<label className="htmlForm-check-label stretched-link w-100 " htmlFor="tp"></label>
         </span>
       </div>
       <div>
         <h6 className="mt-3">Availability</h6>
         {/* <span> */}
-          <input className="form-check-input me-0" type="checkbox" value="" id="t8"/>
-          Include Out of Stock<label className="form-check-label stretched-link w-100 " for="t8"></label>
+          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t8"/>
+          Include Out of Stock<label className="htmlForm-check-label stretched-link w-100 " htmlFor="t8"></label>
       </div>
      
 <br/>
@@ -202,6 +236,7 @@ export default function Electronics() {
       <img src="../assets/images/6.PNG" className=" mt-3 img-fluid" alt="..."/> 
       <img className="col-6 " src="../assets/images/1_EN.png" alt="..."/> 
       <img className="col-6 " src="../assets/images/2-EN.png" alt="..."/> 
+
       {/* <img className="mt-2 img-fluid" src="../assets/images/7.PNG" alt="..."/> */}
       <hr className="mt-2"/>
       <h3 className="mt-4 text-center">SHOP BY CATEGORY</h3>
@@ -292,203 +327,121 @@ export default function Electronics() {
         </div>
         <img src="../assets/images/9=.jpg" className="mt-2 img-fluid"/><hr className="mt-3"/>
 <h2>Electronics | New arrivals</h2><hr/>
-<div id="carouselExampleControls1" className="carousel" data-bs-ride="false">
-  <div className="carousel-inner">
-    <div className="carousel-item active">
-      <div className="card" style={{width:  '13rem'}}>
-        <img src="../assets/images/Capture0.PNG" className="card-img-top" alt="..."/>
+<Slider {...settings}>
+<div className="card border-0 ">
+        <img src="../assets/images/Capture0.PNG" className="card-img-top1" alt="..."/>
         <div className="card-body">
-          <p className="card-text fw-bolder">
+          <p className="card-text">
             Soundcore By Anker R50i True Wireless…</p>
-          <p>Soundcore</p>
+          <span>Soundcore</span>
           <div className="d-flex">EGP<sub><h3>1,109</h3></sub>00 
            </div>
            <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP1,399.00</span>
-          <div className="d-inline-block">
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-regular fa-star text-warning"></i>(57)
+          <div>
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarHalf color='#FFA41C' />
+          <BsStar color='#FFA41C' />
+           (57)
          </div>     
                 
               
               </div>
             </div>
-  </div>
-      <div className="carousel-item">
-        <div className="card" style={{width:  '13rem'}}>
-          <img src="../assets/images/Capture1.PNG" className="card-img-top" alt="..."/>
+            <div className="card border-0 ">
+          <img src="../assets/images/Capture1.PNG" className="card-img-top1" alt="..."/>
           <div className="card-body">
-            <p className="card-text fw-bolder">Oraimo Smart watch OSW-16, BrightSilv…</p>
-            <p>oriaimo</p>
+            <p className="card-text-black">Oraimo Smart watch OSW-16, BrightSilv…</p>
+            <span>oriaimo</span>
             <div className="d-flex">EGP<sub><h3>888</h3></sub>00 
              </div>
               <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP1,560.40</span>
-            <div className="d-inline-block">
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-regular fa-star text-warning"></i>(9)
+            <div>    
+            <BsStarFill color='#FFA41C' />
+            <BsStarFill color='#FFA41C' />
+            <BsStarFill color='#FFA41C' />
+          <BsStarHalf color='#FFA41C' />
+          <BsStar color='#FFA41C' />(9)
            </div>     
                   
                 
                 </div>
               </div>
-              
-      </div>
-      <div className="carousel-item">
-        <div className="card" style={{width:  '13rem'}}>
-          <img src="../assets/images/Capture2.PNG" className="card-img-top" alt="..."/>
+              <div className="card border-0 m-3">
+          <img src="../assets/images/Capture2.PNG" className="card-img-top1" alt="..."/>
           <div className="card-body">
-            <p className="card-text fw-bolder">QUANXI M10 Wireless Bluetooth 5.1 Head… </p>
-            <p>XFTOPSEXFTOPSE</p>
+            <p className="card-text">QUANXI M10 Wireless Bluetooth 5.1 Head… </p>
+            <span>XFTOPSEXFTOPSE</span>
             <div className="d-flex">EGP<sub><h3>278</h3></sub>00 
             </div>
-            <div className="d-inline-block">
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-regular fa-star text-warning"></i>(108)
+            <div>
+            <BsStarFill color='#FFA41C' />
+            <BsStarFill color='#FFA41C' />
+            <BsStarFill color='#FFA41C' />
+          <BsStarHalf color='#FFA41C' />
+          <BsStar color='#FFA41C' />(108)
            </div>     
                  
                 
                 </div>
               </div>
-      </div>
-      <div className="carousel-item">
-        <div className="card" style={{width:  '13rem'}}>
-          <img src="../assets/images/Capture3.PNG" className="card-img-top" alt="..."/>
+
+              <div className="card border-0" >
+          <img src="../assets/images/Capture3.PNG" className="card-img-top1" alt="..."/>
           <div className="card-body">
-            <p className="card-text fw-bolder">Portable Desk Fan with Night Light, 3… MOREKAMOREKA</p>
-            <p>MOREKA</p>
+            <p className="card-text">Portable Desk Fan with Night Light, 3… MOREKAMOREKA</p>
+            <span>MOREKA</span>
             <div className="d-flex">EGP<sub><h3>599</h3></sub>00 
             </div> 
-            <div className="d-inline-block">
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-regular fa-star text-warning"></i>(10)
+            <BsStarFill color='#FFA41C' />
+            <BsStarFill color='#FFA41C' />
+          <BsStarHalf color='#FFA41C' />
+          <BsStar color='#FFA41C' />
+          <BsStar color='#FFA41C' />
+
+            <div>
+            (10)
            </div>     
                 </div>
               </div>
-      </div>
-      <div className="carousel-item">
-        <div className="card" style={{width:  '13rem'}}>
-          <img src="../assets/images/Capture4.PNG" className="card-img-top" alt="..."/>
+              <div className="card border-0">
+          <img src="../assets/images/Capture4.PNG" className="card-img-top1" alt="..."/>
           <div className="card-body">
-            <p className="card-text fw-bolder">Reioo 3M Original AirPods 3 Sm Original</p>
-            <p>Reioo</p>
+            <p className="card-text">Reioo 3M Original AirPods 3 Sm Original</p>
+            <span>Reioo</span>
             <div className="d-flex">EGP<sub><h3>540</h3></sub>00 
             </div> 
-            <div className="d-inline-block">
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-regular fa-star text-warning"></i>(7)
+            <div>
+            <BsStarFill color='#FFA41C' />
+            <BsStarFill color='#FFA41C' />
+          <BsStarHalf color='#FFA41C' />
+          <BsStar color='#FFA41C' />
+          <BsStar color='#FFA41C' />(7)
            </div>     
                 
                 </div>
               </div>
-      </div>
-      <div className="carousel-item">
-        <div className="card" style={{width:  '13rem'}}>
-          <img src="../assets/images/Capture6.PNG" className="card-img-top" alt="..."/>
+              <div className="card border-0">
+          <img src="../assets/images/Capture6.PNG" className="card-img-top1" alt="..."/>
           <div className="card-body">
-            <p className="card-text fw-bolder">HD Plus Glass Anti Shock with Black Fr… </p>
-            <p>GenericGeneric</p>
+            <p className="card-text">HD Plus Glass Anti Shock with Black Fr… </p>
+            <span>GenericGeneric</span>
             <div className="d-flex">EGP<sub><h3>48</h3></sub>07 
                <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP65.00</span>
              </div>
-            <div className="d-inline-block">
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-regular fa-star text-warning"></i>(8)
+            <div>
+            <BsStarFill color='#FFA41C' />
+            <BsStarFill color='#FFA41C' />
+            <BsStarFill color='#FFA41C' />
+          <BsStarHalf color='#FFA41C' />
+          <BsStar color='#FFA41C' />(8)
            </div>     
                   
                 
                 </div>
               </div>
-      </div>
-      <div className="carousel-item">
-        <div className="card" style={{width:  '13rem'}}>
-          <img src="../assets/images/Capture7.PNG" className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <p className="card-text fw-bolder">Camelion Super Heavy Duty Batteri… </p>
-            <p>GenericGeneric</p>
-            <div className="d-flex">EGP<sub><h3>45</h3></sub>07 
-             </div>
-            <div className="d-inline-block">
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-regular fa-star text-warning"></i>(3)
-           </div>     
-                  
-                
-                </div>
-              </div>
-      </div>
-      
-        <div className="carousel-item">
-          <div className="card" style={{width:  '13rem'}}>
-            <img src="../assets/images/Capture8.PNG" className="card-img-top" alt="..."/>
-            <div className="card-body">
-              <p className="card-text fw-bolder">LENOK 33W USB C Wall Charger GaN </p>
-              <p>LENOK</p>
-              <div className="d-flex">EGP<sub><h3>399</h3></sub>99 
-                 <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP65.00</span>
-               </div>
-              <div className="d-inline-block">
-                <i className="fa-solid fa-star text-warning"></i>
-                <i className="fa-solid fa-star text-warning"></i>
-                <i className="fa-solid fa-star text-warning"></i>
-                <i className="fa-solid fa-star text-warning"></i>
-                <i className="fa-regular fa-star text-warning"></i>
-             </div>     
-                    
-                  
-                  </div>
-                </div>
-        </div>
-      <div className="carousel-item">
-        <div className="card" style={{width:  '13rem'}}>
-          <img src="../assets/images/Capture9.PNG" className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <p className="card-text fw-bolder">Zubitech Samsung Galaxy A24 5G Clear </p>
-            <p>Zubitech</p>
-            <div className="d-flex">EGP<sub><h3>100</h3></sub>99 
-               <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP65.00</span>
-             </div>
-            <div className="d-inline-block">
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-regular fa-star text-warning"></i>(3)
-           </div>     
-                  
-                
-                </div>
-              </div>
-      </div>
-  </div>
-  <button className="carousel-control-prev" type="button" data-bs-target="#TodayDealsCarousel" data-bs-slide="prev">
-    <i className="rounded-2 p-2 fa-solid fa-angle-left shadow"></i>
-    <span className="visually-hidden">Previous</span>
-  </button>
-  <button className="carousel-control-next" type="button" data-bs-target="#TodayDealsCarousel" data-bs-slide="next">
-    <i className="rounded-2 p-2 shadow fa-solid fa-angle-right"></i>
-    <span className="visually-hidden">Next</span>
-  </button>
-</div>
+</Slider>
 <h2 className="mt-4">Electronics | Best Sellers</h2><hr/>
 <div id="carouselExampleControls" className="carousel" data-bs-ride="false">
   <div className="carousel-inner">
@@ -717,11 +670,12 @@ export default function Electronics() {
           </div>
           <p className="card-text fw-bolder">SAMSUNG Galaxy A04 Dual SIM Smartphone- 3GB RAM, 32GB Storage, LTE, Black - 1 year Warranty</p>
           <div className="d-inline-block">
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-regular fa-star text-warning"></i>
-            <i className="fa-regular fa-star text-warning"></i>31
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarHalf color='#FFA41C' />
+          <BsStar color='#FFA41C' />
+31
           </div>     
                <div className="d-flex">EGP<sub><h3>3,199</h3></sub>00 
                 <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP4,919.00</span></span> 
@@ -748,11 +702,11 @@ export default function Electronics() {
           </div>
           <p className="card-text fw-bolder">SAMSUNG Galaxy A04 Dual SIM Smartphone- 4GB RAM, 64GB Storage, LTE, Black - 1 year Warranty</p>
           <div className="d-inline-block">
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-regular fa-star text-warning"></i>
-            <i className="fa-regular fa-star text-warning"></i>12
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarHalf color='#FFA41C' />
+          <BsStar color='#FFA41C' />12
           </div>     
                <div className="d-flex">EGP<sub><h3>3,699</h3></sub>00 
                <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP5,639.00</span></span> 
@@ -778,11 +732,11 @@ export default function Electronics() {
           </div>
           <p className="card-text fw-bolder">Samsung Galaxy A24 Dual SIM, 4GB RAM, 128GB ROM, 4G LTE - Silver</p>
           <div className="d-inline-block">
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star-half-stroke text-warning"></i>11
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarHalf color='#FFA41C' />
+          <BsStar color='#FFA41C' />11
          </div>     
                <div className="d-flex">EGP<sub><h3>6,444</h3></sub>00 
                <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP7,447.00</span></span> 
@@ -801,11 +755,11 @@ export default function Electronics() {
         <div className="card-body">
           <p className="card-text fw-bolder">Samsung 50 inch 4k uhd smart led tv with built-in receiver and remote control, black - ua50cu7000uxeg</p>
           <div className="d-inline-block">
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-regular fa-star text-warning"></i>19
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarHalf color='#FFA41C' />
+          <BsStar color='#FFA41C' />19
          </div>     
                <div className="d-flex">EGP<sub><h3>10,899</h3></sub>00 
                <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGPl1,299.40</span></span> 
@@ -822,13 +776,13 @@ export default function Electronics() {
       <div className="card" style={{width:  '22rem'}}>
         <img src="../assets/images/r1.PNG" className="card-img-top" alt="..."/>
         <div className="card-body">
-          <p className="card-text fw-bolder">Oraimo Riff Smaller for Comfort True Wireless Earbuds, Black + 12 Months Local Warranty</p>
+          <p className="card-text fw-bolder">Oraimo Riff Smaller htmlFor ComhtmlFort True Wireless Earbuds, Black + 12 Months Local Warranty</p>
           <div className="d-inline-block">
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star-half-stroke text-warning"></i>
-            <i className="fa-regular fa-star text-warning"></i>
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarHalf color='#FFA41C' />
+          <BsStar color='#FFA41C' />
          </div>21   
          <span className="d-flex badge bg-danger"style={{width:  '7rem'}}> Limited time deal</span>
                <div className="d-flex">EGP<sub><h3>599</h3></sub>00 
@@ -848,11 +802,11 @@ export default function Electronics() {
         <div className="card-body">
           <p className="card-text fw-bolder">Samsung 50 inch 4k uhd smart led tv with built-in receiver and remote control, black - ua50cu7000uxeg</p>
           <div className="d-inline-block">
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-regular fa-star text-warning"></i>25
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarHalf color='#FFA41C' />
+          <BsStar color='#FFA41C' />25
          </div>     
                <div className="d-flex">EGP<sub><h3>10,899</h3></sub>00 
                <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGPl1,299.40</span></span> 
@@ -877,11 +831,11 @@ export default function Electronics() {
         </div>
           <p className="card-text fw-bolder">Samsung Galaxy A04e Dual SIM Smartphone - 3GB RAM, 64GB Storage, LTE, Black - 1 year Warranty</p>
           <div className="d-inline-block">
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star-half-stroke text-warning"></i>
-            <i className="fa-regular fa-star text-warning"></i>21
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarHalf color='#FFA41C' />
+          <BsStar color='#FFA41C' />21
          </div>     
                <div className="d-flex">EGP<sub><h3>3,399</h3></sub>00 
                <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP4,9690</span></span> 
@@ -900,11 +854,11 @@ export default function Electronics() {
         <div className="card-body">
           <p className="card-text fw-bolder">Soundcore a3991h11 by anker life p2i true wireless earbuds, ai-enhanced calls, 10mm drivers, 2 eq modes, 28h playtime with fast charging, bluetooth</p>
           <div className="d-inline-block">
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star-half-stroke text-warning"></i>
-            <i className="fa-regular fa-star text-warning"></i>131
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarHalf color='#FFA41C' />
+          <BsStar color='#FFA41C' />131
          </div>  
                <div className="d-flex">EGP<sub><h3>1,089</h3></sub>00 
                <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP1,540,01</span></span> 
@@ -923,11 +877,11 @@ export default function Electronics() {
         <div className="card-body">
           <p className="card-text fw-bolder">Redmi 12 Dual SIM, 4GB RAM, 128GB ROM - Midnight Black</p>
           <div className="d-inline-block">
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-regular fa-star text-warning"></i>4
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
+          <BsStarHalf color='#FFA41C' />
+          <BsStar color='#FFA41C' />4
          </div>     
                <div className="d-flex">EGP<sub><h3>5,999</h3></sub>00 
                <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP11,299.40</span></span> 
@@ -1043,13 +997,13 @@ export default function Electronics() {
           <div className="footer-section-column mb-4">
             <a href="#" className="second-footer-link">
               <span className="first-title-footer">Alexa</span><br/>
-              <span className="second-title-footer">Actionable Analytics <br/> for the Web</span>
+              <span className="second-title-footer">Actionable Analytics <br/> htmlFor the Web</span>
             </a>
           </div>
           <div className="footer-section-column mb-4">
             <a href="#" className="second-footer-link">
               <span className="first-title-footer">Amazon Rapids</span><br/>
-              <span className="second-title-footer">Fun stories for <br/> kids on the go</span>
+              <span className="second-title-footer">Fun stories htmlFor <br/> kids on the go</span>
             </a>
           </div>
           <div className="footer-section-column mb-4">
@@ -1122,14 +1076,14 @@ export default function Electronics() {
           <div className="footer-section-column mb-4 text-light">
             <a href="#" className="second-footer-link">
               <span className="first-title-footer">Amazon Business</span><br/>
-              <span className="second-title-footer">Everything For<br/> Your Business</span>
+              <span className="second-title-footer">Everything htmlFor<br/> Your Business</span>
             </a>
           </div>
           <div className="footer-section-column mb-4">
             <a href="#" className="second-footer-link">
               <span className="first-title-footer">Audible</span><br/>
               <span className="second-title-footer">Listen to Books & Original<br/> Audio
-                Performances</span>
+                PerhtmlFormances</span>
             </a>
           </div>
           <div className="footer-section-column mb-4">

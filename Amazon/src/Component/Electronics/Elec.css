@@ -69,46 +69,34 @@ body{
   h1, h2, h3, h4, h5, h6{
     font-family: newfont;
   }
-.carousel-control-prev,
-.carousel-control-next {
-background-color: #918f8f;
-width: 4vh;
-height: 4vh;
-border-radius: 10%;
-top: 40%;
-transform: translateY(-50%);
+.card-img-top1{
+  height: 25vh;
+  width: 14vw;
 }
-@media (min-width: 768px) {
-.carousel-item {
-  margin-right: 0;
-  flex: 0 0 calc(100%/7);
-  display: block;
-}
-.carousel-inner {
-  display: flex;
-}
-}
+/* .card-body1{
+  font-size: medium;
+} */
 body{
   overflow-x: hidden;
 }
 
-.carousel-item .card {
+/* .carousel-item .card {
 height: 60vh;
 border: 0;
 }
 .carousel-item .card img {
   height: 50%;
-}
+} */
 @media (max-width: 767px) {
 
-.carousel-item {
+/* .carousel-item {
   margin-right: 0;
   flex: 0 0 calc(100%/3);
   display: block;
 }
 .carousel-inner {
   display: flex;
-}
+} */
 .sideLeft{
   display: none;
 }
