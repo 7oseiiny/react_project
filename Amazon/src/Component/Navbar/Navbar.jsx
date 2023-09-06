@@ -110,6 +110,7 @@ function Navbar() {
         <div className=" d-flex justify-content-between  ">
           <div className="">
             <NavLink className="links" to="mobile" style={{ textDecoration: "none", marginLeft: '6px' }}>Mobile Phone</NavLink>
+            <NavLink className="links" to="electronics" style={{ textDecoration: "none", marginLeft: '6px' }}>Electronics</NavLink>
             <NavLink className="links" to="fashion" style={{ textDecoration: "none", marginLeft: '6px' }}>Fashion</NavLink>
           </div>
           <div className=" text-white">Shop deals in Electronics</div>
