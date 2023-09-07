@@ -18,9 +18,7 @@ export default function Electronics() {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
-          // infinite: true,
-          // dots: true
+          slidesToScroll: 1,
         }
       },
       {
@@ -28,7 +26,6 @@ export default function Electronics() {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          // initialSlide: 2
         }
       },
      
@@ -36,7 +33,7 @@ export default function Electronics() {
   };
   return (
     <>
-   <body>
+   
   <div className="offcanvas offcanvas-start" data-bs-scroll="true" tabIndex="-1" id="offcanvasWithBothOptions"
     aria-labelledby="offcanvasWithBothOptionsLabel">
     <div className="offcanvas-header">
@@ -230,7 +227,7 @@ export default function Electronics() {
   <div className="col-10 sideRight">
   <div className="container">
     <div className="row">
-      <h1>Electronics</h1>
+      <h2 className='mt-2'>Electronics</h2>
       {/* <!-- <img src="../assets/images/2x.jpg" className="img-fluid" alt="..."> --> */}
       <img src="../assets/images/XCM_.jpg" className="img-fluid" alt="..."/>
       <img src="../assets/images/6.PNG" className=" mt-3 img-fluid" alt="..."/> 
@@ -436,222 +433,162 @@ export default function Electronics() {
             <BsStarFill color='#FFA41C' />
           <BsStarHalf color='#FFA41C' />
           <BsStar color='#FFA41C' />(8)
-           </div>     
-                  
-                
+           </div>   
+                </div>
+              </div>
+              <div className="card border-0">
+          <img src="../assets/images/777.PNG" className="card-img-top1" alt="..."/>
+          <div className="card-body">
+            <p className="card-text fw-bolder">iLock 3-way wall outlet adapter 350…
+               </p>
+            <span>iLOCK</span>
+            <div className="d-flex">EGP<sub><h3>33</h3></sub>00 
+             </div>
+            <div>
+            <BsStarFill color='#FFA41C'/>
+              <BsStarFill color='#FFA41C'/>
+              <BsStarFill color='#FFA41C'/>
+              <BsStarFill color='#FFA41C'/>
+              <BsStar color='#FFA41C'/>(631)
+           </div>  
                 </div>
               </div>
 </Slider>
 <h2 className="mt-4">Electronics | Best Sellers</h2><hr/>
-<div id="carouselExampleControls" className="carousel" data-bs-ride="false">
-  <div className="carousel-inner">
-    <div className="carousel-item active">
-      <div className="card" style={{width:  '13rem'}}>
-        <img src="../assets/images/111.jpg" className="card-img-top" alt="..."/>
+<Slider {...settings}>
+<div className="card border-0">
+        <img src="../assets/images/111.PNG" className="card-img-top1" alt="..."/>
         <div className="card-body">
-          <p className="card-text fw-bolder">
+          <p className="card-text">
             Adjustable Laptop Stand, Portable...
             </p>
-          <p>MONADIKOS</p>
+          <span>MONADIKOS</span>
           <div className="d-flex">EGP<sub><h3>125</h3></sub>00 
             <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP130.00</span>
            </div>
-          <div className="d-inline-block">
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-solid fa-star text-warning"></i>
-            <i className="fa-regular fa-star text-warning"></i>(2,494)
+          <div>
+           <BsStarFill color='#FFA41C'/>
+           <BsStarFill color='#FFA41C'/>
+           <BsStarFill color='#FFA41C'/>
+           <BsStarFill color='#FFA41C'/>
+           <BsStarHalf color='#FFA41C'/>(2,494)
          </div>     
                 
               
               </div>
             </div>
-  </div>
-      <div className="carousel-item">
-        <div className="card" style={{width:  '13rem'}}>
-          <img src="../assets/images/222.PNG" className="card-img-top" alt="..."/>
+            <div className="card border-0">
+          <img src="../assets/images/222.PNG" className="card-img-top1" alt="..."/>
           <div className="card-body">
-            <p className="card-text fw-bolder">Joyroom JR-BP560 Excellent Series Por…</p>
-            <p>Joyroom</p>
+            <p className="card-text">Joyroom JR-BP560 Excellent Series Por…</p>
+            <span>Joyroom</span>
             <div className="d-flex">EGP<sub><h3>215</h3></sub>00 
               <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP309.43</span>
 
              </div>
-            <div className="d-inline-block">
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-regular fa-star text-warning"></i>(130)
+            <div>
+            <BsStarFill color='#FFA41C'/>
+           <BsStarFill color='#FFA41C'/>
+           <BsStarFill color='#FFA41C'/>
+           <BsStarFill color='#FFA41C'/>
+           <BsStar color='#FFA41C'/> (130)
            </div>     
                   
                 
                 </div>
               </div>
-              
-      </div>
-      <div className="carousel-item">
-        <div className="card" style={{width:  '13rem'}}>
-          <img src="../assets/images/333.PNG" className="card-img-top" alt="..."/>
+           <div className="card border-0">
+          <img src="../assets/images/333.PNG" className="card-img-top1" alt="..."/>
           <div className="card-body">
-            <p className="card-text fw-bolder">Hikvision 64 GB USB Flash Drive - HS-US… </p>
-            <p>Hikvision</p>
+            <p className="card-text">Hikvision 64 GB USB Flash Drive - HS-US… </p>
+            <span>Hikvision</span>
             <div className="d-flex">EGP<sub><h3>92</h3></sub>00 
               <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP111.49</span>
             </div>
             
-            <div className="d-inline-block">
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-regular fa-star text-warning"></i>(10,917)
+            <div>
+              <BsStarFill color='#FFA41C'/>
+              <BsStarFill color='#FFA41C'/>
+              <BsStarFill color='#FFA41C'/>
+              <BsStarFill color='#FFA41C'/>
+              <BsStarHalf color='#FFA41C'/>(10,917)
            </div>     
-                 
-                
                 </div>
               </div>
-      </div>
-      <div className="carousel-item">
-        <div className="card" style={{width:  '13rem'}}>
-          <img src="../assets/images/444.PNG" className="card-img-top" alt="..."/>
+          <div className="card border-0">
+          <img src="../assets/images/444.PNG" className="card-img-top1" alt="..."/>
           <div className="card-body">
-            <p className="card-text fw-bolder">iLOCK Travel Plug adapter Converter -…
+            <p className="card-text">iLOCK Travel Plug adapter Converter -…
               </p>
-            <p>iLOCK</p>
+            <span>iLOCK</span>
             <div className="d-flex">EGP<sub><h3>31</h3></sub>00 
               <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP48.00</span>
             </div> 
-            <div className="d-inline-block">
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-regular fa-star text-warning"></i>(375)
+            <div>
+            <BsStarFill color='#FFA41C'/>
+              <BsStarFill color='#FFA41C'/>
+              <BsStarFill color='#FFA41C'/>
+              <BsStarHalf color='#FFA41C'/>
+              <BsStar color='#FFA41C'/>(375)
            </div>     
                 </div>
               </div>
-      </div>
-      <div className="carousel-item">
-        <div className="card" style={{width:  '13rem'}}>
-          <img src="../assets/images/555.PNG" className="card-img-top" alt="..."/>
+              <div className="card border-0">
+          <img src="../assets/images/555.PNG" className="card-img-top1" alt="..."/>
           <div className="card-body">
-            <p className="card-text fw-bolder">Gp chargeable batteries - 1100 ma…
+            <p className="card-text">Gp chargeable batteries - 1100 ma…
               </p>
-            <p>GP</p>
+            <span>GP</span>
             <div className="d-flex">EGP<sub><h3>43</h3></sub>00 
               <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP104.15</span>
             </div> 
-            <div className="d-inline-block">
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-regular fa-star text-warning"></i>(116)
+            <div>
+            <BsStarFill color='#FFA41C'/>
+              <BsStarFill color='#FFA41C'/>
+              <BsStarFill color='#FFA41C'/>
+              <BsStarHalf color='#FFA41C'/>
+              <BsStar color='#FFA41C'/>(116)
            </div>     
-                
                 </div>
               </div>
-      </div>
-      <div className="carousel-item">
-        <div className="card" style={{width:  '13rem'}}>
-          <img src="../assets/images/666.PNG" className="card-img-top" alt="..."/>
+          <div className="card border-0">
+          <img src="../assets/images/666.PNG" className="card-img-top1" alt="..."/>
           <div className="card-body">
-            <p className="card-text fw-bolder">8.5 Inch digital drawing Tablet han… </p>
-            <p>Newlight</p>
+            <p className="card-text">8.5 Inch digital drawing Tablet han… </p>
+            <span>Newlight</span>
             <div className="d-flex">EGP<sub><h3>60</h3></sub>00 
                <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP71.90</span>
              </div>
-            <div className="d-inline-block">
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-regular fa-star text-warning"></i>(283)
+            <div>
+            <BsStarFill color='#FFA41C'/>
+              <BsStarFill color='#FFA41C'/>
+              <BsStarFill color='#FFA41C'/>
+              <BsStarFill color='#FFA41C'/>
+              <BsStar color='#FFA41C'/>(283)
            </div>     
-                  
-                
                 </div>
               </div>
-      </div>
-      <div className="carousel-item">
-        <div className="card" style={{width:  '13rem'}}>
-          <img src="../assets/images/777.PNG" className="card-img-top" alt="..."/>
+          <div className="card border-0">
+          <img src="../assets/images/777.PNG" className="card-img-top1" alt="..."/>
           <div className="card-body">
             <p className="card-text fw-bolder">iLock 3-way wall outlet adapter 350…
                </p>
-            <p>iLOCK</p>
+            <span>iLOCK</span>
             <div className="d-flex">EGP<sub><h3>33</h3></sub>00 
              </div>
-            <div className="d-inline-block">
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-regular fa-star text-warning"></i>(631)
-           </div>     
-                  
-                
+            <div>
+            <BsStarFill color='#FFA41C'/>
+              <BsStarFill color='#FFA41C'/>
+              <BsStarFill color='#FFA41C'/>
+              <BsStarFill color='#FFA41C'/>
+              <BsStar color='#FFA41C'/>(631)
+           </div>  
                 </div>
               </div>
-      </div>
-      
-        <div className="carousel-item">
-          <div className="card" style={{width:  '13rem'}}>
-            <img src="../assets/images/888.PNG" className="card-img-top" alt="..."/>
-            <div className="card-body">
-              <p className="card-text fw-bolder">LG LED Smart TV 43 inch LM6370 Series Full HD HDR Smart LED TV - 43LM6370PVA </p>
-              <p>LG</p>
-              <div className="d-flex">EGP<sub><h3>8,666</h3></sub>00 
-                 <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP8,999</span>
-               </div>
-              <div className="d-inline-block">
-                <i className="fa-solid fa-star text-warning"></i>
-                <i className="fa-solid fa-star text-warning"></i>
-                <i className="fa-solid fa-star text-warning"></i>
-                <i className="fa-solid fa-star text-warning"></i>
-                <i className="fa-regular fa-star text-warning"></i>(128)
-             </div>     
-                    
-                  
-                  </div>
-                </div>
-        </div>
-      <div className="carousel-item">
-        <div className="card" style={{width:  '13rem'}}>
-          <img src="../assets/images/999.PNG" className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <p className="card-text fw-bolder">Kingston 64GB Exodia USB 3.20 Flash - DTX/64GB </p>
-            <p>Kingston</p>
-            <div className="d-flex">EGP<sub><h3>127</h3></sub>80 
-               <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP234.00</span>
-             </div>
-            <div className="d-inline-block">
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-solid fa-star text-warning"></i>
-              <i className="fa-regular fa-star text-warning"></i>(34,105)
-           </div>     
-                  
-                
-                </div>
-              </div>
-      </div>
-  </div>
-  <button className="carousel-control-prev" type="button" data-bs-target="#TodayDealsCarousel" data-bs-slide="prev">
-    <i className="rounded-2 p-2 fa-solid fa-angle-left shadow"></i>
-    <span className="visually-hidden">Previous</span>
-  </button>
-  <button className="carousel-control-next" type="button" data-bs-target="#TodayDealsCarousel" data-bs-slide="next">
-    <i className="rounded-2 p-2 shadow fa-solid fa-angle-right"></i>
-    <span className="visually-hidden">Next</span>
-  </button>
-</div>
+</Slider>
 <div className="card mt-4">
   <div className="card-body">
-    <p className="fw-normal">1-12 of over 70,000 results for <span className="text-danger fw-bold">Electronics</span></p>
+    <span>1-12 of over 70,000 results for <span className="text-danger fw-bold">Electronics</span></span>
   </div>
   </div>
   </div>		
@@ -664,9 +601,9 @@ export default function Electronics() {
         <img src="../assets/images/best.PNG" className="card-img-top" alt="..."/>
         <div className="card-body">
           <div className="text-center">
-            <input type="radio" style={{width: '25px',height: '25px', accentColor: 'black'}} checked/>
-            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(88, 65, 65)'}} checked/>
-            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(159, 159, 159)'}} checked/>
+            <input type="radio" style={{width: '25px',height: '25px', accentColor: 'black'}} defaultChecked/>
+            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(88, 65, 65)'}} defaultChecked/>
+            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(159, 159, 159)'}} defaultChecked/>
           </div>
           <p className="card-text fw-bolder">SAMSUNG Galaxy A04 Dual SIM Smartphone- 3GB RAM, 32GB Storage, LTE, Black - 1 year Warranty</p>
           <div className="d-inline-block">
@@ -697,8 +634,8 @@ export default function Electronics() {
         <img src="../assets/images/1.PNG" className="card-img-top" alt="..."/>
         <div className="card-body">
           <div className="text-center">
-            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'black'}} checked/>
-            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(201, 201, 208)'}} checked/>
+            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'black'}} defaultChecked/>
+            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(201, 201, 208)'}} defaultChecked/>
           </div>
           <p className="card-text fw-bolder">SAMSUNG Galaxy A04 Dual SIM Smartphone- 4GB RAM, 64GB Storage, LTE, Black - 1 year Warranty</p>
           <div className="d-inline-block">
@@ -727,8 +664,8 @@ export default function Electronics() {
         <img src="../assets/images/3.PNG" className="card-img-top" alt="..."/>
         <div className="card-body">
           <div className="text-center">
-            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(201, 201, 208)'}} checked/>
-            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'black'}} checked/>
+            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(201, 201, 208)'}} defaultChecked/>
+            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'black'}} defaultChecked/>
           </div>
           <p className="card-text fw-bolder">Samsung Galaxy A24 Dual SIM, 4GB RAM, 128GB ROM, 4G LTE - Silver</p>
           <div className="d-inline-block">
@@ -825,9 +762,9 @@ export default function Electronics() {
         <img src="../assets/images/11-.PNG" className="card-img-top" alt="..."/>
         <div className="card-body">
           <div className="text-center">
-          <input type="radio" style={{width: '25px', height: '25px', accentColor: 'black'}} checked/>
-          <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(163, 163, 205)'}} checked/>
-          <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(118, 86, 86)'}} checked/>
+          <input type="radio" style={{width: '25px', height: '25px', accentColor: 'black'}} defaultChecked/>
+          <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(163, 163, 205)'}} defaultChecked/>
+          <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(118, 86, 86)'}} defaultChecked/>
         </div>
           <p className="card-text fw-bolder">Samsung Galaxy A04e Dual SIM Smartphone - 3GB RAM, 64GB Storage, LTE, Black - 1 year Warranty</p>
           <div className="d-inline-block">
@@ -963,7 +900,7 @@ export default function Electronics() {
     <div className="container amazon-footer-logo-area p-4">
       <div className="row pt-2 pb-2 justify-content-center text-center">
         <div className="col-md-5 footer-lg-img">
-          <img src="../img/image20.png" alt="amazon logo"/>
+          <img src="../assets/images/logoo1.png" alt="amazon logo"/>
         </div>
         <div className="col-md-7 icons d-flex gap-2 text-center ">
           <div className="border btn m-0 p-0">
@@ -1230,7 +1167,7 @@ export default function Electronics() {
     </div>
   </footer>
 </div>
-</body>
+
     </>
   )
   }

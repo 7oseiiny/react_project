@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import Home from "./Component/Home/Home"
 import { Container } from "react-bootstrap"
 import Electronics from "./Component/Electronics/Elec"
+import VideoGames from "./Component/VideoGames/Vgames"
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,8 @@ const router = createBrowserRouter([
         {index:true ,element:<Fashion/>},
         {path:'kids',element:<KidsBaby/>},
         {path:'men',element:<Men/>},]},
+        { path: "/videogames", element: <VideoGames/>},
+
     ]
   }
 ])
