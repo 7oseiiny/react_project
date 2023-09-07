@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <>
 
-      <div className="container-fluid p-2 bg-dark">
+      <div className="container-fluid px-0 bg-dark">
         <div className="row m-0 align-items-center">
           <div className="col-12 col-md-2 logo d-flex flex-wrap">
             <img className="col-6" src="../assets/images/logoo1.png" alt="logo" />
