@@ -1,10 +1,13 @@
-/* 
+
 :root {
     --first-footer-color: #232f3e;
     --second-footer-color: #131A22;
     --greyT-decoration-color: #999;
-} */
+}
+body{
+    overflow-x: hidden;
 
+}
 
 .signinbtn {
     background: linear-gradient(to bottom, #f7dfa5, #e6ab16);
@@ -55,7 +58,7 @@
 }
 
 .footer-link {
-    color: white;
+    color: white !important;
     text-decoration: none;
 }
 
@@ -92,6 +95,7 @@
 /*second footer section css start */
 .second-footer-sec {
     background-color: var(--second-footer-color);
+    color:white !important;
 }
 
 .footer-section-column {
@@ -101,7 +105,9 @@
 
 .footer-section-column a,
 .footer-section-column span {
-    text-decoration: none;
+    text-decoration: none !important;
+    color:#999 !important;
+
 }
 
 .footer-section-column a:hover,
