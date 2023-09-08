@@ -1,7 +1,4 @@
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { NavLink } from 'react-router-dom';
 import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import Slider from "react-slick";
@@ -45,16 +42,6 @@ export default function Fashion() {
   return (
     <>
 
-
-      <Navbar bg="light" data-bs-theme="light">
-        <Container>
-          <Nav className="me-auto">
-            <NavLink style={{ textDecoration: "none", marginLeft: '6px', color: 'black' }} to="/">Amazon Fashion</NavLink>
-            <NavLink style={{ textDecoration: "none", marginLeft: '6px', color: 'black' }} to="kids">Kids & Baby</NavLink>
-            <NavLink style={{ textDecoration: "none", marginLeft: '6px', color: 'black' }} to="men">Men</NavLink>
-          </Nav>
-        </Container>
-      </Navbar>
 
       <div className="row container-fluid m-0 justify-content-center">
         {/* left Side  */}
