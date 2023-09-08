@@ -224,7 +224,7 @@ export default function Prime() {
           </h3>
         </div>
       </div>
-      <h1 className="h1" className="text-center p-5" style={{color:"rgb(26,152,255)"}}>
+      <h1 className="h1 text-center p-5" style={{color:"rgb(26,152,255)"}}>
         Choose your plan
       </h1>
 
