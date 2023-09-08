@@ -9,10 +9,10 @@ import React from 'react'
 import TodayDealsPage from './Component/TodayDeals/TodayDealsPage';
 import Coupons from './Component/TodayDeals/coupons';
 import TodayDeals from './Component/TodayDeals/TodayDeals';
-import { Provider } from "react-redux"
+import { Provider } from "react-redux";
 import store from './../store/store';
-import VideoGames from "./Component/VideoGames/Vgames"
-
+import VideoGames from "./Component/VideoGames/Vgames";
+import Electronics from "./Component/Electronics/Elec";
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -30,7 +30,8 @@ const router = createBrowserRouter([
           {index:true,element:<TodayDeals/>},
           {path:"coupons",element:<Coupons/>}
         ] },
-        {path:'videogames',element:<VideoGames/>}
+        {path:'videogames',element:<VideoGames/>},
+        {path:'electronics',element:<Electronics/>},
     ]
   }
 ])
