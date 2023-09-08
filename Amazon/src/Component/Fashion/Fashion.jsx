@@ -4,14 +4,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
 import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
-
 import Slider from "react-slick";
 import './Fashion.css'
 import Badge from 'react-bootstrap/Badge';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import React from 'react'
-
+import '../TodayDeals/todayDealsLiftSide/leftSide.css'
+import { FaStar, FaRegStar } from "react-icons/fa6";
 export default function Fashion() {
   var settings = {
     dots: false,
@@ -58,151 +58,229 @@ export default function Fashion() {
 
       <div className="row container-fluid m-0 justify-content-center">
         {/* left Side  */}
-        <div className="col-2 sideLeft">
-          <div className="col">
-            <p className="h6 fw-bold">Eligible htmlFor free delivery</p>
-
-            <li className="list-group-item">
-              <input className="form-check-input me-1" type="checkbox" value="" id="f1" />Free Shipping
-              <label className="htmlForm-check-label stretched-link w-100" htmlFor="f1">
+        <section className="col-xl-2 col-md-3 col-4 leftSide ps-xl-4 ps-1">
+          <section className="leftSideSections pb-3">
+            <h6>Eligible htmlFor free delivery</h6>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="col-1" type="checkbox" name="primeCheckbox" id="primeCheckbox" />
+              <label className="col-10" htmlFor="primeCheckbox"><i className="fa-solid fa-check text-warning"></i>
                 All customers get FREE Shipping on orders shipped by Amazon</label>
-            </li>
-          </div>
-
-
-          <ul className="list-group side">
-            <br />
-            <p className="h6 fw-bold">Category</p>
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                  d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-              </svg> Fashion
             </span>
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                  d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-              </svg> Men
-            </span>
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                  d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-              </svg> Women
-            </span>
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                  d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-              </svg> Girls
-            </span>
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                  d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-              </svg> Baby
-            </span>
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                  d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-              </svg> Boys
-            </span>
-            <p className="h6 fw-bold">Fulfilled by Amazon</p>
-            <span>
-              <input className="form-check-input me-0" type="checkbox" value="" id="g1" />
-              Fulfilled by Amazon<label className="htmlForm-check-label stretched-link w-100 " htmlFor="g1"></label>
-            </span>
-          </ul>
-
-          {/* Customer Review   */}
-
-          <p className="h6 fw-bold">Color</p>
-
-          <div>
-            <div className="square black"></div>
-            <div className="square gray"></div>
-            <div className="square white"></div>
-            <div className="square bro"></div>
-            <div className="square red"></div>
-            <div className="square pink"></div>
-            <div className="square orange"></div>
-            <div className="square yellow"></div>
-            <div className="square green"></div>
-            <div className="square blue"></div>
-            <div className="square darkblue"></div>
-            <div className="square purple"></div>
-            <div className="square bage"></div>
-            <div className="square bage1"></div>
-            <div className="square bage2"></div>
-
-          </div>
 
 
-          <div>
-            <p className="h6 fw-bold">Avg. Customer Review</p>
-            <div className="d-inline-block">
-              <BsStarFill color='#FFA41C' />
-              <BsStarFill color='#FFA41C' />
-              <BsStarFill color='#FFA41C' />
-              <BsStarFill color='#FFA41C' />
-              <BsStarFill color='#FFA41C' />
+          </section>
+          <section className="leftSideSections pb-3">
+            <h2>Category</h2>
+            <h6>Fashion</h6>
+            <a href="#" className='text-dark'> Women</a><br />
+            <a href="#" className='text-dark'>  Men</a><br />
+            <a href="#" className='text-dark'>Girls</a><br />
+            <a href="#" className='text-dark'>Boys</a><br />
+            <a href="#" className='text-dark'>Baby</a><br />
+            <a href="#" className='text-dark'>Luggage & Travel Gear</a><br />
+            <a href="#" className='text-dark'>Novelty & Special Use</a><br />
+            <a href="#" className='text-dark'>Shoe, Jewelry & Watch </a><br />
+            <a href="#" className='text-dark'>Accessories</a><br />
 
-            </div><small className="fw-bold">Only</small>
-          </div>
-          <div>
-            <div className="d-inline-block">
-              <BsStarFill color='#FFA41C' />
-              <BsStarFill color='#FFA41C' />
-              <BsStarFill color='#FFA41C' />
-              <BsStarFill color='#FFA41C' />
-              <BsStar color='#FFA41C' />
-            </div><small className="fw-bold">& Up</small>
-          </div>
-          <div>
+            <p className="h6 fw-bold mt-4">Color</p>
+           
+
             <div>
-              <div className="d-inline-block">
-                <BsStarFill color='#FFA41C' />
-                <BsStarFill color='#FFA41C' />
-                <BsStarFill color='#FFA41C' />
-                <BsStar color='#FFA41C' />
-                <BsStar color='#FFA41C' />
-              </div><small className="fw-bold">& Up</small>
+              <div className="square black"></div>
+              <div className="square gray"></div>
+              <div className="square white"></div>
+              <div className="square bro"></div>
+              <div className="square red"></div>
+              <div className="square pink"></div>
+              <div className="square orange"></div>
+              <div className="square yellow"></div>
+              <div className="square green"></div>
+              <div className="square blue"></div>
+              <div className="square darkblue"></div>
+              <div className="square purple"></div>
+              <div className="square bage"></div>
+              <div className="square bage1"></div>
+              <div className="square bage2"></div>
+
             </div>
-          </div>
-          <div>
-            <div>
-              <div className="d-inline-block">
-                <BsStarFill color='#FFA41C' />
-                <BsStarFill color='#FFA41C' />
-                <BsStar color='#FFA41C' />
-                <BsStar color='#FFA41C' />
-                <BsStar color='#FFA41C' />
-              </div><small className="fw-bold">& Up</small>
-            </div>
-          </div>
-          <div>
-            <div>
-              <div>
-                <div className="d-inline-block">
-                  <BsStarFill color='#FFA41C' />
-                  <BsStar color='#FFA41C' />
-                  <BsStar color='#FFA41C' />
-                  <BsStar color='#FFA41C' />
-                  <BsStar color='#FFA41C' />
-                </div><small className="fw-bold">& Up</small>
-              </div>
-            </div>
-          </div>
-          {/* End  Customer Review   */}
-        </div>
+
+            <p className="h6 fw-bold mt-4">Fulfilled by Amazon</p>
+
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="AutomotiveCheckbox"
+                id="AutomotiveCheckbox" />
+              <label className="col-10 " htmlFor="AutomotiveCheckbox">
+              Fulfilled by Amazon</label>
+            </span>
+
+            <p className="h6 fw-bold mt-4">Brand</p>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyFashionCheckbox"
+                id="BabyFashionCheckbox" />
+              <label className="col-10 " htmlFor="BabyFashionCheckbox">
+               adidas</label>
+            </span>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyProductsCheckbox"
+                id="BabyProductsCheckbox" />
+              <label className="col-10 " htmlFor="BabyProductsCheckbox">
+                Conttonil</label>
+            </span>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BeautyCheckbox" id="BeautyCheckbox" />
+              <label className="col-10 " htmlFor="BeautyCheckbox">
+                Casio</label>
+            </span>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BooksCheckbox" id="BooksCheckbox" />
+              <label className="col-10 " htmlFor="BooksCheckbox">
+                American Eagle</label>
+            </span>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BoysFashionCheckbox"
+                id="BoysFashionCheckbox" />
+              <label className="col-10 " htmlFor="BoysFashionCheckbox">
+                Carina</label>
+            </span>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="Computers,Components&Accessories"
+                id="ComputersComponents&Accessories" />
+              <label className="col-10 " htmlFor="ComputersComponents&Accessories">
+               Grinta</label>
+            </span>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="ElectronicsCheckbox"
+                id="ElectronicsCheckbox" />
+              <label className="col-10 " htmlFor="ElectronicsCheckbox">
+                Dice</label>
+            </span>
+
+
+
+          </section>
+          <section className="d-flex flex-column pb-3">
+            <h2>Condition</h2>
+            <a href="#" className='text-dark'> New</a>
+            <a href="#" className='text-dark'>Used</a>
+          </section>
+
+          <section className="d-flex flex-column pb-3">
+            <h2>Average customer review</h2>
+            <span>
+              <FaStar className="checkedStar" />
+              <FaStar className="checkedStar" />
+              <FaStar className="checkedStar" />
+              <FaStar className="checkedStar" />
+              <FaRegStar /><span className="averageReview">& up</span>
+            </span>
+            <span>
+              <FaStar className="checkedStar" />
+              <FaStar className="checkedStar" />
+              <FaStar className="checkedStar" />
+              <FaRegStar />
+              <FaRegStar /><span className="averageReview">& up</span>
+            </span>
+            <span>
+              <FaStar className="checkedStar" />
+              <FaStar className="checkedStar" />
+              <FaRegStar />
+              <FaRegStar />
+              <FaRegStar /><span className="averageReview">& up</span>
+            </span>
+            <span>
+              <FaStar className="checkedStar" />
+              <FaRegStar />
+              <FaRegStar />
+              <FaRegStar />
+              <FaRegStar /><span className="averageReview">& up</span>
+            </span>
+
+          </section>
+
+          <section className="d-flex flex-column pb-3">
+            <h4>Price</h4>
+            
+            <a href="#" className='text-dark'>Up to 25 EGP</a>
+            <a href="#" className='text-dark'>25 to 50 EGP</a>
+            <a href="#" className='text-dark'>50 to 100 EGP </a>
+            <a href="#" className='text-dark'>100 to 200 EGP</a>
+            <a href="#" className='text-dark'>200 to 300 EGP</a>
+            <a href="#" className='text-dark'>300 to 400 EGP</a>
+            <a href="#" className='text-dark'>400 EGP & above</a>
+          </section>
+          <section className="d-flex flex-column pb-3">
+            <h5>Deals & Discounts</h5>
+            
+            <a href="#"  className='text-dark'>All Discounts</a>
+            <a href="#"  className='text-dark'>Todays Deals</a>
+        </section>
+
+
+
+        <p className="h6 fw-bold mt-4">Seller</p>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyFashionCheckbox"
+                id="BabyFashionCheckbox" />
+              <label className="col-10 " htmlFor="BabyFashionCheckbox">
+               Amazon.eg</label>
+            </span>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyProductsCheckbox"
+                id="BabyProductsCheckbox" />
+              <label className="col-10 " htmlFor="BabyProductsCheckbox">
+              Maleeka Marketplace</label>
+            </span>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyProductsCheckbox"
+                id="BabyProductsCheckbox" />
+              <label className="col-10 " htmlFor="BabyProductsCheckbox">
+              Octa_EGY⭐⭐⭐⭐</label>
+            </span>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BeautyCheckbox" id="BeautyCheckbox" />
+              <label className="col-10 " htmlFor="BeautyCheckbox">
+              Amazon Warehouse</label>
+            </span>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BooksCheckbox" id="BooksCheckbox" />
+              <label className="col-10 " htmlFor="BooksCheckbox">
+                American Eagle</label>
+            </span>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BoysFashionCheckbox"
+                id="BoysFashionCheckbox" />
+              <label className="col-10 " htmlFor="BoysFashionCheckbox">
+              Cotton-Home</label>
+            </span>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="Computers,Components&Accessories"
+                id="ComputersComponents&Accessories" />
+              <label className="col-10 " htmlFor="ComputersComponents&Accessories">
+              General.commerce</label>
+            </span>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="ElectronicsCheckbox"
+                id="ElectronicsCheckbox" />
+              <label className="col-10 " htmlFor="ElectronicsCheckbox">
+              Sugar2022</label>
+            </span>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="ElectronicsCheckbox"
+                id="ElectronicsCheckbox" />
+              <label className="col-10 " htmlFor="ElectronicsCheckbox">
+              ⭐Home-Smart⭐</label>
+            </span>
+            <span className="d-flex flex-row justify-content-around align-items-baseline">
+              <input className="CategoryCheckBoxes col-1" type="checkbox" name="ElectronicsCheckbox"
+                id="ElectronicsCheckbox" />
+              <label className="col-10 " htmlFor="ElectronicsCheckbox">
+              Sugar2022</label>
+            </span>
+
+
+
+        </section>
+
         {/* Right side  */}
         < div className="col-10  sideRight justify-content-center align-content-center " >
 
