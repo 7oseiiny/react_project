@@ -39,30 +39,7 @@ const router = createBrowserRouter([
 ])
 
 
-      { index: true, element: <Home /> },
-      { path: "/mobile", element: <Mobile /> },
-      {
-        path: "/fashion",
-        element: <Fashion />,
-        children: [
-          { index: true, element: <Fashion /> },
-          { path: "kids", element: <KidsBaby /> },
-          { path: "men", element: <Men /> },
-        ],
-      },
-      {
-        path: "todayDeals",
-        element: <TodayDealsPage />,
-        children: [
-          { index: true, element: <TodayDeals /> },
-          { path: "coupons", element: <Coupons /> },
-        ],
-      },
-      { path: "videogames", element: <VideoGames /> },
-      { path: "prime", element: <Prime/> },
-    ],
-  },
-]);
+
 
 function App() {
   return (
