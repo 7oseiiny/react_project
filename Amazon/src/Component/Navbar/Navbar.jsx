@@ -2,7 +2,7 @@ import './Navbar.css'
 import { MdLocationPin } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
-
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 function Navbar() {
   return (
@@ -109,9 +109,12 @@ function Navbar() {
       <div className="container-fluid  navv p-2">
         <div className=" d-flex justify-content-between  ">
           <div className="">
+            <NavLink className="links" to="todayDeals" style={{ textDecoration: "none", marginLeft: '6px' }}>Today's Deals</NavLink>
             <NavLink className="links" to="mobile" style={{ textDecoration: "none", marginLeft: '6px' }}>Mobile Phone</NavLink>
             <NavLink className="links" to="electronics" style={{ textDecoration: "none", marginLeft: '6px' }}>Electronics</NavLink>
             <NavLink className="links" to="fashion" style={{ textDecoration: "none", marginLeft: '6px' }}>Fashion</NavLink>
+            <NavLink className="links" to="videogames" style={{ textDecoration: "none", marginLeft: '6px' }}>VideoGames</NavLink>
+
           </div>
           <div className=" text-white">Shop deals in Electronics</div>
         </div>
