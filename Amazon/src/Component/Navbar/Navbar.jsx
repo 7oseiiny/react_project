@@ -114,6 +114,7 @@ function Navbar() {
             <NavLink className="links" to="electronics" style={{ textDecoration: "none", marginLeft: '6px' }}>Electronics</NavLink>
             <NavLink className="links" to="fashion" style={{ textDecoration: "none", marginLeft: '6px' }}>Fashion</NavLink>
             <NavLink className="links" to="videogames" style={{ textDecoration: "none", marginLeft: '6px' }}>VideoGames</NavLink>
+            <NavLink className="links" to="prime" style={{ textDecoration: "none", marginLeft: '6px' }}>prime</NavLink>
 
           </div>
           <div className=" text-white">Shop deals in Electronics</div>
