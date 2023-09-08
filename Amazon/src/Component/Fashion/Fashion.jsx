@@ -230,6 +230,7 @@ export default function Fashion() {
                     <Badge bg="danger">Up to 32% off </Badge> Deal
                   </p>
                   <p className='fw-bold '>Save on Casio</p>
+                  <img src="../assets/images/images.png" width="70px" height="25px" />
                 </div>
               </div>
 
@@ -240,6 +241,7 @@ export default function Fashion() {
                     <Badge bg="danger">Up to 32% off </Badge> Deal
                   </p>
                   <p className='fw-bold '>Save on Men, & Women</p>
+                  <img src="../assets/images/images.png" width="70px" height="25px" />
                 </div>
               </div>
 
@@ -250,6 +252,7 @@ export default function Fashion() {
                     <Badge bg="danger">Up to 32% off </Badge> Deal
                   </p>
                   <p className='fw-bold '>Save on Kids Sleep Wear</p>
+                  <img src="../assets/images/images.png" width="70px" height="25px" />
                 </div>
               </div>
 
@@ -260,6 +263,7 @@ export default function Fashion() {
                     <Badge bg="danger">EGP 139 and under</Badge> Deal
                   </p>
                   <p className='fw-bold '>Save on Stitch Socks</p>
+                  <img src="../assets/images/images.png" width="70px" height="25px" />
                 </div>
               </div>
 
@@ -270,6 +274,7 @@ export default function Fashion() {
                     <Badge bg="danger">Up to 16% off </Badge> Deal
                   </p>
                   <p className='fw-bold '>Save on Watches</p>
+                  <img src="../assets/images/images.png" width="70px" height="25px" />
                 </div>
               </div>
 
@@ -280,6 +285,7 @@ export default function Fashion() {
                     <Badge bg="danger">Up to 24% off </Badge> Deal
                   </p>
                   <p className='fw-bold '>Save on Men waer</p>
+                  <img src="../assets/images/images.png" width="70px" height="25px" />
                 </div>
               </div>
 
@@ -290,6 +296,7 @@ export default function Fashion() {
                     <Badge bg="danger">Up to 20% off </Badge> Deal
                   </p>
                   <p className='fw-bold '>Save on Men Pullovers</p>
+                  <img src="../assets/images/images.png" width="70px" height="25px" />
                 </div>
               </div>
 
@@ -300,6 +307,7 @@ export default function Fashion() {
                     <Badge bg="danger">Up to 22% off </Badge> Deal
                   </p>
                   <p className='fw-bold '>Save on Kida socks</p>
+                  <img src="../assets/images/images.png" width="70px" height="25px" />
                 </div>
               </div>
 
@@ -310,6 +318,7 @@ export default function Fashion() {
                     <Badge bg="danger">Up to 18% off </Badge> Deal
                   </p>
                   <p className='fw-bold '>Save on Levi's women</p>
+                  <img src="../assets/images/images.png" width="70px" height="25px" />
                 </div>
               </div>
             </Slider>
@@ -365,6 +374,159 @@ export default function Fashion() {
             </Row>
           </Container>
 
+          <h3 className='text-center m-3'>Shop by brand</h3>
+          <img src="../assets/images/many.PNG" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} />
+
+
+          <div className="card mt-4">
+            <div className="card-body">
+              <p className="fw-normal">1-12 of over 50,000 results for  <span className="text-danger fw-bold">Fashion</span></p>
+            </div>
+          </div>
+
+
+          <div className="container">
+            <div className="row">
+
+              <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
+                <div className="card border-0" style={{ width: '20rem', height: '17rem' }}>
+                  <img src="../assets/images/a1.webp" className="card-img-top h-57 " />
+                  <div className="d-inline-block">
+                    <p className="card-text">White wipes</p>
+                    <BsStarFill color='#FFA41C' />
+                    <BsStarFill color='#FFA41C' />
+                    <BsStarFill color='#FFA41C' />
+                    <BsStarFill color='#FFA41C' />
+                    <BsStar color='#FFA41C' />
+                  </div>
+                  <div className="d-flex">EGP <sub>
+                    <h3>21</h3>
+                  </sub>00
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
+                <div className="card border-0" style={{ width: '20rem', height: '17rem' }}>
+                  <img src="../assets/images/sa1.jpg" className="card-img-top h-57 " />
+                  <div className="d-inline-block">
+                    <p className="card-text">Black shoe</p>
+                    <BsStarFill color='#FFA41C' />
+                    <BsStarFill color='#FFA41C' />
+                    <BsStarFill color='#FFA41C' />
+                    <BsStarFill color='#FFA41C' />
+                    <BsStarFill color='#FFA41C' />
+                  </div>
+                  <div className="d-flex">EGP <sub>
+                    <h3>200</h3>
+                  </sub>00
+                  </div>
+
+                </div>
+              </div>
+
+              <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
+                <div className="card border-0" style={{ width: '20rem', height: '17rem' }}>
+                  <img src="../assets/images/o21.jpg" className="card-img-top h-57 " />
+                  <div className="d-inline-block">
+                    <p className="card-text mt-5"> Black shoe </p>
+                    <BsStarFill color='#FFA41C' />
+                    <BsStarFill color='#FFA41C' />
+                    <BsStarFill color='#FFA41C' />
+                    <BsStarFill color='#FFA41C' />
+                    <BsStar color='#FFA41C' />
+                  </div>
+                  <div className="d-flex">EGP <sub>
+                    <h3>1000</h3>
+                  </sub>00
+                  </div>
+                </div>
+              </div>
+              {/* row 2  */}
+
+              <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
+                <div className="card border-0" style={{ width: '20rem', height: '15rem' }}>
+                  <img src="../assets/images/a3.webp" className="card-img-top h-57 " />
+
+                  <div className="d-inline-block">
+                    <p className="card-text mt-1">Cap</p>
+                    <BsStarFill color='#FFA41C' />
+                    <BsStarFill color='#FFA41C' />
+                    <BsStarFill color='#FFA41C' />
+                    <BsStar color='#FFA41C' />
+                    <BsStar color='#FFA41C' />
+                  </div>
+                  <div className="d-flex">EGP <sub>
+                    <h3>65</h3>
+                  </sub>00
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
+                <div className="card border-0" style={{ width: '20rem', height: '15rem' }}>
+                  <img src="../assets/images/a6.webp" className="card-img-top h-57 " />
+                  <div className="d-inline-block">
+                    <p className="card-text mt-2">SAVFOX Wallet</p>
+                    <BsStarFill color='#FFA41C' />
+                    <BsStarFill color='#FFA41C' />
+                    <BsStarFill color='#FFA41C' />
+                    <BsStar color='#FFA41C' />
+                    <BsStar color='#FFA41C' />
+                  </div>
+                  <div className="d-flex">EGP <sub>
+                    <h3>230</h3>
+                  </sub>00
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
+                <div className="card border-0" style={{ width: '20rem', height: '20rem' }}>
+                  <img src="../assets/images/a7.webp" className="card-img-top h-57 " />
+                  <div className="d-inline-block">
+                    <p className="card-text mt-4">Storage Bags</p>
+                    <BsStarFill color='#FFA41C' />
+                    <BsStarFill color='#FFA41C' />
+                    <BsStarFill color='#FFA41C' />
+                    <BsStarFill color='#FFA41C' />
+                    <BsStar color='#FFA41C' />
+                  </div>
+                  <div className="d-flex">EGP <sub>
+                    <h3>199</h3>
+                  </sub>00
+                  </div>
+
+                </div>
+              </div>
+
+              {/* 3 row  */}
+
+
+
+              {/* 4 row   */}
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+          </div>
+
+
+
+
+
+          <div className="d-grid gap-2">
+            <button className="btn mt-4 mb-5" style={{ backgroundColor: '#ebeaea', color: 'rgb(62, 110, 130)' }} type="button"><h5>See all results</h5>
+            </button>
+          </div>
 
           {/* ending counteiner  */}
         </div>
