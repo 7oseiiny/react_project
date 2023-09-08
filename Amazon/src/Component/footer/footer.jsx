@@ -26,7 +26,7 @@ function FooterCom() {
             </div>
         </section>
       <Row className='first-footer-sec  '>
-        <div className='cont w-50'>
+        <div className='cont w-75'>
 
         <Col xs={3}>
           <h6 className="footer-column  text-light">Get to Know Us</h6>
@@ -75,8 +75,8 @@ function FooterCom() {
         </Col>
         </div>
       </Row>
-      <div className="footer-line "></div>
-      <div className="bg-dark justify-content-center d-flex p-5  align-items-center" >
+      {/* <div className="footer-line "></div> */}
+      <div style={{backgroundColor:"rgb(35,47,62)"}} className=" justify-content-center d-flex p-5  align-items-center" >
           <img className='mx-5' style={{width:"200px"}} src="../assets/images/ahlogo.png" alt="amazon logo" />
           {/* <DropdownButton id="locale-dropdown" title="English">
               <DropdownItem eventKey="en">English</DropdownItem>
