@@ -109,6 +109,7 @@ function Navbar() {
       <div className="container-fluid  navv p-2">
         <div className=" d-flex justify-content-between  ">
           <div className="">
+            <NavLink className="links" to="todayDeals" style={{ textDecoration: "none", marginLeft: '6px' }}>Today's Deals</NavLink>
             <NavLink className="links" to="mobile" style={{ textDecoration: "none", marginLeft: '6px' }}>Mobile Phone</NavLink>
             <NavLink className="links" to="fashion" style={{ textDecoration: "none", marginLeft: '6px' }}>Fashion</NavLink>
           </div>
