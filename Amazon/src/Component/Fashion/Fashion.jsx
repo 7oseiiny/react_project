@@ -4,13 +4,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
 import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
-import { BsStarHalf } from "react-icons/bs";
+
 import Slider from "react-slick";
 import './Fashion.css'
 import Badge from 'react-bootstrap/Badge';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import React from 'react'
 
 export default function Fashion() {
   var settings = {
@@ -317,7 +317,7 @@ export default function Fashion() {
                   <p className="card-text fw-bolder colorfont ">
                     <Badge bg="danger">Up to 18% off </Badge> Deal
                   </p>
-                  <p className='fw-bold '>Save on Levi's women</p>
+                  <p className='fw-bold '>Save on Levis women</p>
                   <img src="../assets/images/images.png" width="70px" height="25px" />
                 </div>
               </div>

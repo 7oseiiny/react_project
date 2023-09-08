@@ -2,13 +2,13 @@ import './Navbar.css'
 import { MdLocationPin } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
-
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 function Navbar() {
   return (
     <>
 
-      <div className="container-fluid p-2 bg-dark">
+      <div className="container-fluid px-0 bg-dark">
         <div className="row m-0 align-items-center">
           <div className="col-12 col-md-2 logo d-flex flex-wrap">
             <img className="col-6" src="../assets/images/logoo1.png" alt="logo" />
@@ -39,7 +39,7 @@ function Navbar() {
                 <div className="dropdown">
                   <a className="btn text-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="./img/egypt_round_icon_640.png" width="20px" alt="" />
+                    <img src="../assets/images/egypt_round_icon_640.png" width="45px" alt="" />
                     EG
                   </a>
                   <ul className="dropdown-menu px-2 " aria-labelledby="dropdownMenuLink">
@@ -109,9 +109,12 @@ function Navbar() {
       <div className="container-fluid  navv p-2">
         <div className=" d-flex justify-content-between  ">
           <div className="">
+            <NavLink className="links" to="todayDeals" style={{ textDecoration: "none", marginLeft: '6px' }}>Today's Deals</NavLink>
             <NavLink className="links" to="mobile" style={{ textDecoration: "none", marginLeft: '6px' }}>Mobile Phone</NavLink>
             <NavLink className="links" to="electronics" style={{ textDecoration: "none", marginLeft: '6px' }}>Electronics</NavLink>
             <NavLink className="links" to="fashion" style={{ textDecoration: "none", marginLeft: '6px' }}>Fashion</NavLink>
+            <NavLink className="links" to="videogames" style={{ textDecoration: "none", marginLeft: '6px' }}>VideoGames</NavLink>
+
           </div>
           <div className=" text-white">Shop deals in Electronics</div>
         </div>
