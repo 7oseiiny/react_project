@@ -208,7 +208,7 @@ function FooterCom() {
                         <div className="footer-section-column mb-4">
                             <a href="#" className="second-footer-link">
                                 <span className="first-title-footer">East Dane</span><br />
-                                <span className="second-title-footer">Designer Men's<br /> Fashion</span>
+                                <span className="second-title-footer">Designer Men s<br /> Fashion</span>
                             </a>
                         </div>
                         <div className="footer-section-column mb-4">
