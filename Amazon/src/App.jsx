@@ -13,6 +13,7 @@ import { Provider } from "react-redux";
 import store from "./../store/store";
 import VideoGames from "./Component/VideoGames/Vgames";
 import Prime from "./Component/prime/Prime";
+import Electronics from "./Component/Electronics/Elec";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "/mobile", element: <Mobile /> },
+      {path:'electronics',element:<Electronics/>},
       {
         path: "/fashion",
         element: <Fashion />,
