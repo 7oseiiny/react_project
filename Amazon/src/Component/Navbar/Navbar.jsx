@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <>
 
-      <div className="container-fluid p-2 bg-dark">
+      <div className="container-fluid px-0 bg-dark">
         <div className="row m-0 align-items-center">
           <div className="col-12 col-md-2 logo d-flex flex-wrap">
             <img className="col-6" src="../assets/images/logoo1.png" alt="logo" />
@@ -111,7 +111,10 @@ function Navbar() {
           <div className="">
             <NavLink className="links" to="todayDeals" style={{ textDecoration: "none", marginLeft: '6px' }}>Today's Deals</NavLink>
             <NavLink className="links" to="mobile" style={{ textDecoration: "none", marginLeft: '6px' }}>Mobile Phone</NavLink>
+            <NavLink className="links" to="electronics" style={{ textDecoration: "none", marginLeft: '6px' }}>Electronics</NavLink>
             <NavLink className="links" to="fashion" style={{ textDecoration: "none", marginLeft: '6px' }}>Fashion</NavLink>
+            <NavLink className="links" to="videogames" style={{ textDecoration: "none", marginLeft: '6px' }}>VideoGames</NavLink>
+
           </div>
           <div className=" text-white">Shop deals in Electronics</div>
         </div>

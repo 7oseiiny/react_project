@@ -70,51 +70,20 @@
 
 
 
-
-
-
-.MultiCarousel {
-    float: left !important;
-    overflow: hidden !important;
-    padding: 15px !important;
-    width: 100% !important;
-    position: relative !important;
+.colorfont{
+    color:#DC3545;
+    
 }
+.slick-prev:before,
+.slick-next:before
+{
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
 
-.MultiCarousel .MultiCarousel-inner {
-    transition: 1s ease all !important;
-    float: left !important;
-}
+    opacity: .75;
+    color: #060606;
 
-.MultiCarousel .MultiCarousel-inner .item {
-    float: left !important;
-}
-
-.MultiCarousel .MultiCarousel-inner .item>div {
-    text-align: center !important;
-    padding: 10px !important;
-    margin: 10px !important;
-    background: #f1f1f1 !important;
-    color: #666 !important;
-}
-
-.MultiCarousel .leftLst,
-.MultiCarousel .rightLst {
-    position: absolute !important;
-    border-radius: 50% !important;
-    top: calc(50% - 20px) !important;
-}
-
-.MultiCarousel .leftLst {
-    left: 0 !important;
-}
-
-.MultiCarousel .rightLst {
-    right: 0 !important;
-}
-
-.MultiCarousel .leftLst.over,
-.MultiCarousel .rightLst.over {
-    pointer-events: none !important;
-    background: #ccc !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
