@@ -78,7 +78,7 @@ function FooterCom() {
       <div className="footer-line "></div>
       <Row className="amazon-footer-logo-area p-4">
         <Col xs={5}>
-          <img src="./img/New folder/image20.png" alt="amazon logo" />
+          <img src=".../assets/images/image2020.png" alt="amazon logo" />
         </Col>
         <Col xs={7}>
           {/* <DropdownButton id="locale-dropdown" title="English">

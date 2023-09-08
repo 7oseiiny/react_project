@@ -39,7 +39,7 @@ function Navbar() {
                 <div className="dropdown">
                   <a className="btn text-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="./img/egypt_round_icon_640.png" width="20px" alt="" />
+                    <img src="../assets/images/egypt_round_icon_640.png" width="45px" alt="" />
                     EG
                   </a>
                   <ul className="dropdown-menu px-2 " aria-labelledby="dropdownMenuLink">
