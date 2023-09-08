@@ -75,7 +75,7 @@ function FooterCom() {
         </Col>
         </div>
       </Row>
-      <div className="footer-line "></div>
+      {/* <div className="footer-line "></div> */}
       <div className="bg-dark justify-content-center d-flex p-5  align-items-center" >
           <img className='mx-5' style={{width:"200px"}} src="../assets/images/ahlogo.png" alt="amazon logo" />
           {/* <DropdownButton id="locale-dropdown" title="English">
