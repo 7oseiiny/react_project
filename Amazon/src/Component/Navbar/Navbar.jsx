@@ -2,7 +2,7 @@ import './Navbar.css'
 import { MdLocationPin } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
-
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 function Navbar() {
   return (

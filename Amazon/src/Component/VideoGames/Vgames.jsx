@@ -3,6 +3,7 @@ import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import './Vgames.css'
+import React from "react";
 
 export default function VideoGames() {
   return( 

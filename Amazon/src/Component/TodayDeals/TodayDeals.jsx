@@ -52,17 +52,7 @@ export default function TodayDeals() {
                     </span>
                     <Sliders numberOfItems={(screenWidth > 1200) ? 6 : (screenWidth < 1200 && screenWidth > 768) ? 3 : (screenWidth < 768 && screenWidth > 500) ? 2 : 1} />
                 </div>
-                <hr/>
-                    <div className="container-fluid">
-                        <div className="row">
-                            <div className="d-flex flex-column align-items-center">
-                                <span>See personalized recommendations</span>
-                                <button className="btn btn-warning col-md-2 col-3 fw-bold">Sign in</button>
-                                <span>New customer? <a href="#" className="link-success text-decoration-none">Start here.</a></span>
-                            </div>
-                        </div>
-                    </div>
-            
+              
         </>
     )
 }
