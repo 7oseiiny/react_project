@@ -3,9 +3,22 @@ import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import './Vgames.css'
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function VideoGames() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return( 
   <>
    <div className="offcanvas offcanvas-start" data-bs-scroll="true" tabIndex="-1" id="offcanvasWithBothOptions"
@@ -35,7 +48,7 @@ export default function VideoGames() {
         <a className="nav-link text-dark" href="#">Home Entertainment Systems</a>
       </li>
     </ul>
-    <section className="col-xl-2 col-md-3 col-4 leftSide ps-xl-4 ps-1">
+    <section className="col-2 leftSide ps-xl-4 ps-1">
     <section className="d-flex flex-column">
         <h6 className="mt-3">New Arrivals</h6>
         <span>
@@ -250,16 +263,28 @@ export default function VideoGames() {
       </section>
   <div className="col-10 sideRight">
   <Container>
-    <Row>
-    <h2 className="mt-2">Video Games</h2>
-      <img src="../assets/images/new.jpg" className="img-fluid" alt="..."/>
-      <img src="../assets/images/1top.jpg" className="img-fluid mt-3" alt="..."/>
-      {/* row-cols-md-2 row-cols-lg-3 */}
-     <div className="d-flex ">
-     <img src="../assets/images/2play.jpg" className=" imgRow  " alt="..."/>
-      <img src="../assets/images/3nintendo.jpg" className=" imgRow  " alt="..."/>
-      <img src="../assets/images/4xbox.jpg" className=" imgRow  " alt="..."/>
-     </div>
+      <Row>
+        <h2 className="mt-2">Video Games</h2>
+        <img src="../assets/images/new.jpg" className="img-fluid" alt="..." />
+        <div className={windowWidth <= 990 ? "div2" : "div1"}>
+          {windowWidth <= 990 ? (
+            <div className=" div2">
+              <img src="../assets/images/play (4).jpg" className="img-fluid mt-3" alt="..." />
+              <img src="../assets/images/play 1.jpg" className="img-fluid" alt="..." />
+              <img src="../assets/images/play 2.jpg" className="img-fluid" alt="..." />
+              <img src="../assets/images/play (3).jpg" className="img-fluid" alt="..." />
+            </div>
+          ) : (
+            <div className="div1">
+              <img src="../assets/images/1top.jpg" className="img-fluid mt-3" alt="..." />
+              <div className="d-flex">
+                <img src="../assets/images/2play.jpg" className="imgRow" alt="..." />
+                <img src="../assets/images/3nintendo.jpg" className="imgRow" alt="..." />
+                <img src="../assets/images/4xbox.jpg" className="imgRow" alt="..." />
+              </div>
+            </div>
+          )}
+        </div>
      <img src="../assets/images/5top.jpg" className="img-fluid" alt="..."/>
      <div className="d-flex">
      <img src="../assets/images/6gaming.jpg" className=" imgRow  " alt="..."/>

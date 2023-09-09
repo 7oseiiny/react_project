@@ -14,7 +14,7 @@ import SliderCards from './sliderCards';
 export default function Sliders(props) {
     const imgSrc='./assets/todayDealsImage/';
     return (
-        <>
+        <div style={{maxHeight:"650px"}}>
             <Splide options={{ perPage: props.numberOfItems, rewind: true, pagination: false }}>
                 <SplideSlide>
                     <SliderCards img={`${imgSrc}playStation.jpg`} title={"Disc Edition Face Plates Cover Skins Shell Panels for PS5 Console, Playstation 5 Accessori..."} fullStar={4} emptyStar={1} reviews={"1,001"} deal={true} price={"1,119.20"}/>
@@ -53,7 +53,7 @@ export default function Sliders(props) {
                     <SliderCards img={`${imgSrc}legon5pro.jpg`} title={"Legion 5 Pro 16ACH6H Gaming Laptop Ryzen7- 5800H 16 WQXGA 3070 8GB-2x 8GB Ram-ITB SSD- Windows 11..."} fullStar={0} emptyStar={0} halfStar={0} reviews={"5"} deal={false} price={"71,820.00"}/>
                 </SplideSlide>
             </Splide>
-        </>
+        </div>
     )
 }
 Sliders.propTypes = {

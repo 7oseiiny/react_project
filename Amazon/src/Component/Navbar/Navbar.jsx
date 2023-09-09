@@ -116,6 +116,7 @@ function Navbar() {
             <NavLink className="links px-2" to="videogames" style={{ textDecoration: "none",  }}>VideoGames</NavLink>
             <NavLink className="links px-2" to="prime" style={{ textDecoration: "none",  }}>prime</NavLink>
             <NavLink className="links px-2" to="Monitor" style={{ textDecoration: "none",  }}>Monitor</NavLink>
+            <NavLink className="links" to="books" style={{ textDecoration: "none", marginLeft: '6px' }}>books</NavLink>
 
           </div>
         </div>

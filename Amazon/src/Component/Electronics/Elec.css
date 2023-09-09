@@ -97,7 +97,7 @@ border: 0;
 .carousel-inner {
   display: flex;
 } */
-.sideLeft{
+.leftSide{
   display: none;
 }
 }

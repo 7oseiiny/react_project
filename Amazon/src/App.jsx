@@ -16,41 +16,49 @@ import Prime from "./Component/prime/Prime";
 import Electronics from "./Component/Electronics/Elec";
 import FashionPage from "./Component/Fashion/fashionPage";
 import Monitor from "./Component/monitor/monitor";
+import Books from "./Component/books/Books";
+import HomeProducts from './Component/HomeProducts/HomeProducts';
+import HomeDecor from './Component/HomeProducts/HomeDecor/HomeDecor';
+import Main from './Component/HomeProducts/Main/Main';
 
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
     children: [
-      { index: true, element: <Home /> },
-      { path: "/mobile", element: <Mobile /> },
-      {path:'electronics',element:<Electronics/>},
-      {
-        path: "fashion",
-        element: <FashionPage />,
-        children: [
-          { index: true, element: <Fashion /> },
-          { path: "kids", element: <KidsBaby /> },
-          { path: "men", element: <Men /> },
-        ],
-      },
-      {
-        path: "todayDeals",
-        element: <TodayDealsPage />,
-        children: [
-          { index: true, element: <TodayDeals /> },
-          { path: "coupons", element: <Coupons /> },
-        ],
-      },
-      { path: "videogames", element: <VideoGames /> },
-      { path: "prime", element: <Prime/> },
-      {
-        path:"Monitor",element: <Monitor />
-      }
-    
-    
+      { index: true, element: <Home/>},
+      { path: "/mobile", element: <Mobile/>},
+        { path: 'todayDeals', element: <TodayDealsPage />,children:[
+          {index:true,element:<TodayDeals/>},
+          {path:"coupons",element:<Coupons/>}
+        ] },
+        { path: 'HomeProducts', element: <HomeProducts />,children:[
+          {index:true,element:<Main/>},
+          {path:"Decor",element:<HomeDecor/>}
+        ] },
+        {path:'videogames',element:<VideoGames/>},
+        {path:'electronics',element:<Electronics/>},
+        {path:'electronics',element:<Electronics/>},
+  {
+    path: "fashion",
+    element: <FashionPage />,
+    children: [
+      { index: true, element: <Fashion /> },
+      { path: "kids", element: <KidsBaby /> },
+      { path: "men", element: <Men /> },
     ],
-  }
-]);
+  },
+  { path: "videogames", element: <VideoGames /> },
+{ path: "prime", element: <Prime/> },
+{ path: "books", element: <Books/> },
+{
+  path:"Monitor",element: <Monitor />
+}
+    ]
+  },
+  
+])
+
+
 
 function App() {
   return (

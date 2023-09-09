@@ -45,8 +45,8 @@ export default function Fashion() {
 
       <div className="row container-fluid m-0 justify-content-center">
         {/* left Side  */}
-        <section className="col-xl-2 col-md-3 col-4 leftSide ps-xl-4 ps-1">
-          <section className="leftSideSections pb-3">
+        <section className="col-xl-2 col-md-3 col-4 leftSide-fashion ps-xl-4 ps-1">
+          <section className="leftSideSections pb-3 mt-4 ">
             <h6>Eligible htmlFor free delivery</h6>
             <span className="d-flex flex-row justify-content-around align-items-baseline">
               <input className="col-1" type="checkbox" name="primeCheckbox" id="primeCheckbox" />
@@ -269,7 +269,7 @@ export default function Fashion() {
         </section>
 
         {/* Right side  */}
-        < div className="col-10  sideRight justify-content-center align-content-center " >
+        < div className="col-xl-10 col-md-9 col-8 container-fluid  sideRight justify-content-center align-content-center mt-4 " >
 
           <h2 className="fw-bold fs-2">Fashion</h2>
           <div className="bg-primary mt-4 p-3 d-lg-flex d-sm-none small mb-2" style={{ width: '100%', height: '80px' }}>

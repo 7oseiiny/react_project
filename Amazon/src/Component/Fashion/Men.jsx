@@ -13,7 +13,7 @@ export default function Men() {
 
       <div className="row container-fluid m-0 justify-content-center">
         {/* left Side  */}
-        <section className="col-2  leftSide ps-ps-1">
+        <section className="col-2  leftSide ps-ps-1 mt-4">
           <section className="leftSideSections pb-3">
             <h6>Eligible htmlFor free delivery</h6>
             <span className="d-flex flex-row justify-content-around align-items-baseline">
@@ -242,7 +242,7 @@ export default function Men() {
 
 
   {/* Right Side  */}
-        < div className="col-10  sideRight justify-content-center align-content-center " >
+        < div className="col-10  sideRight justify-content-center align-content-center mt-4 " >
 
 <h2 className="fw-bold fs-2">Men Fashion</h2>
 <div className="bg-primary mt-4 p-3 d-lg-flex d-sm-none small mb-2" style={{ width: '100%', height: '80px' }}>
@@ -250,28 +250,28 @@ export default function Men() {
     Join today</p>
   <button type="button" className="btn btn-warning btn-sm  ms-5 bootn">Try Prime FREE htmlFor 30 days</button>
 </div>
-<img src="../assets/images/o1.jpeg" className="img-fluid veiw mt-2" width="100%" />
+<img src="../assets/images/o1.jpeg" className="img-fluid  mt-2" width="100%" />
 
-<img src="../assets/images/men1.jpg" className="img-fluid veiw mt-2" width="100%" style={{ marginBottom: '20px' }} />
-<img src="../assets/images/men2.jpg" className="img-fluid veiw mt-2" width="100%" style={{ marginBottom: '20px' }} />
-<img src="../assets/images/men3.jpg" className="img-fluid veiw mt-2" width="100%" style={{ marginBottom: '20px' }} />
-<img src="../assets/images/men4.PNG" className="img-fluid veiw mt-2" width="100%" style={{ marginBottom: '20px' }} />
-<img src="../assets/images/men5.PNG" className="img-fluid veiw mt-2" width="100%" style={{ marginBottom: '20px' }} />
-<img src="../assets/images/men6.PNG" className="img-fluid veiw mt-2" width="100%" style={{ marginBottom: '20px' }} />
-<img src="../assets/images/men7.jpg" className="img-fluid veiw mt-2" width="100%" style={{ marginBottom: '20px' }} />
-<img src="../assets/images/men8.jpg" className="img-fluid veiw mt-2" width="100%" style={{ marginBottom: '20px' }} />
+<img src="../assets/images/men1.jpg" className="img-fluid  mt-2" width="100%" style={{ marginBottom: '20px' }} />
+<img src="../assets/images/men2.jpg" className="img-fluid  mt-2" width="100%" style={{ marginBottom: '20px' }} />
+<img src="../assets/images/men3.jpg" className="img-fluid  mt-2" width="100%" style={{ marginBottom: '20px' }} />
+<img src="../assets/images/men4.PNG" className="img-fluid  mt-2" width="100%" style={{ marginBottom: '20px' }} />
+<img src="../assets/images/men5.PNG" className="img-fluid  mt-2" width="100%" style={{ marginBottom: '20px' }} />
+<img src="../assets/images/men6.PNG" className="img-fluid  mt-2" width="100%" style={{ marginBottom: '20px' }} />
+<img src="../assets/images/men7.jpg" className="img-fluid  mt-2" width="100%" style={{ marginBottom: '20px' }} />
+<img src="../assets/images/men8.jpg" className="img-fluid  mt-2" width="100%" style={{ marginBottom: '20px' }} />
 
 <Container>
   <Row>
-    <Col> <img src="../assets/images/deep1.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-    <Col> <img src="../assets/images/deep2.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-    <Col> <img src="../assets/images/deep3.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-    <Col> <img src="../assets/images/deep4.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+    <Col> <img src="../assets/images/pr1.jpg" className="img-fluid " width="100%" style={{ marginBottom: '20px' }} /></Col>
+    <Col> <img src="../assets/images/pr2.jpg" className="img-fluid " width="100%" style={{ marginBottom: '20px' }} /></Col>
+    <Col> <img src="../assets/images/pr3.jpg" className="img-fluid " width="100%" style={{ marginBottom: '20px' }} /></Col>
+    <Col> <img src="../assets/images/pr4.jpg" className="img-fluid " width="100%" style={{ marginBottom: '20px' }} /></Col>
   </Row>
 </Container>
 
 <h3 className='text-center m-3'>Shop by brand</h3>
-<img src="../assets/images/many.PNG" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} />
+<img src="../assets/images/many.PNG" className="img-fluid " width="100%" style={{ marginBottom: '20px' }} />
 
 <div className="card mt-2">
   <div className="card-body">
