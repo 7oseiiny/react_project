@@ -7,7 +7,7 @@ const productSlice = createSlice({
             {
                 id:1,
                 img: "https://m.media-amazon.com/images/I/71ZrrTcZkhL._AC_SL1500_.jpg",
-                title: "Bestway power steel rectangular swimming pool,56456", newPrice: 20049,
+                title: "Bestway power steel rectangular swimming pool", newPrice: 20049,
                 discount: '6%',
                 oldPrice: 21329,
                 AboutThisItem: [
@@ -17,12 +17,12 @@ const productSlice = createSlice({
                     "Perfect for developing kid's imagination and manual dexterity",
                     "It helps improving motor skills, hand- eye coordination",
                     "Perfect for developing kid's imagination and manual dexterity"
-                ]
+                ],
             },
             {
                 id:2,
                 img: "https://m.media-amazon.com/images/I/41CoWXycuaL._AC_SL1112_.jpg",
-                title: "Joyroom JR-T03S Air TWS Wireless Bluetooth Earphone Dual-core Chip, Instant Connection, Stable Transmission Without Delay- White",
+                title: "Joyroom JR-T03S Air Promotions",
                 newPrice: 599,
                 discount: "42%",
                 oldPrice: 1041,
@@ -65,7 +65,7 @@ const productSlice = createSlice({
             {
                 id:5,
                 img: "https://m.media-amazon.com/images/I/61FKVerMRWL._AC_SX679_.jpg",
-                title: "Casio Men's Dial Stainless Steel Band Watch - MTP-1374D-1AVDF",
+                title: "Casio Men's Dial Stainless Steel Band Watch",
                 newPrice: 2589,
                 discount: "29%",
                 oldPrice: 3655,
@@ -81,7 +81,7 @@ const productSlice = createSlice({
             {
                 id:6,
                 img: "https://m.media-amazon.com/images/I/71G7SpdCQ4L._AC_SX679_.jpg",
-                title: "Adidas Sport Optimist Sun Logo Sportswear Graphic T-Shirt (Short Sleeve) for Men",
+                title: "Adidas Sport  for Men",
                 newPrice: 1209,
                 discount: "29%",
                 oldPrice: 1699,
@@ -98,7 +98,7 @@ const productSlice = createSlice({
               {
                 id:7,
                 img: "https://m.media-amazon.com/images/I/71sziuRW5CL._AC_SL1500_.jpg",
-                title: "Samsung Galaxy A04s Dual SIM Black 3GB RAM 32GB LTE - Middle East Version, Wi-Fi",
+                title: "Samsung Galaxy A04s",
                 newPrice: 3637,
                 discount: "4%",
                 oldPrice: 3777,
@@ -116,9 +116,7 @@ const productSlice = createSlice({
               {
                 id:8,
                 img: "https://m.media-amazon.com/images/I/71HJKKkA5RL._AC_SX535_.jpg",
-                brand: "New Balance",
-                model: "574",
-                category: "Men's Lifestyle Shoes",
+                title: "New Balance",
                 newPrice: 3039,
                 discount: "20%",
                 oldPrice: 3799,
@@ -130,26 +128,21 @@ const productSlice = createSlice({
               },
               {
                 id:9,
-                img: "https://m.media-amazon.com/images/I/61FKVerMRWL._AC_SX679_.jpg",
-                title: "Casio Men's Dial Stainless Steel Band Watch - MTP-1374D-1AVDF",
-                newPrice: 2589,
-                discount: "29%",
-                oldPrice: 3655,
+                img: "https://m.media-amazon.com/images/I/81usWyy7zxL._AC_SY879_.jpg",
+                title: "Marc by Marc Jacobs Women's",
+                newPrice: 2009,
+                discount: "10%",
+                oldPrice: 2209,
                 AboutThisItem: [
-                  "Dial Color: Black",
-                  "Band Color: Silver",
-                  "Brand: Venice",
-                  "Display type: Analog",
-                  "Special feature: Chronograph",
-                  "Style: Bracelet",
-                  "Target gender: Female",
-                  "Watch movement type: Quartz"
+                  "Movement Type: Quartz",
+                  "Display type: analogue  ",
+                  "Case Material: Stainless Steel",
                 ]
               },
               {
                 id:10,
                 img: "https://m.media-amazon.com/images/I/71Va1t96fZL._AC_SL1500_.jpg",
-                title: "INtex CURTAINS HOUSE 100% Blackout Curtains - Thermal Insulated Blackout Fabric - Two Layers Fully Darkness Curtain Burgundy Red 130W X 260L CM",
+                title: "INtex CURTAINS HOUSE 100% Blackout Curtains",
                 newPrice: 473,
                 discount: "10%",
                 oldPrice: 526,

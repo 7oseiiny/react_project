@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
+import React from 'react';
 
 
 export default function Electronics() {

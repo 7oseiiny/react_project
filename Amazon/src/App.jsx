@@ -12,6 +12,10 @@ import TodayDeals from './Component/TodayDeals/TodayDeals';
 import { Provider } from "react-redux"
 import store from './../store/store';
 import VideoGames from "./Component/VideoGames/Vgames"
+import HomeProducts from "./Component/HomeProducts/HomeProducts"
+import Main from "./Component/HomeProducts/Main/Main"
+import HomeDecor from "./Component/HomeProducts/HomeDecor/HomeDecor"
+import Electronics from "./Component/Electronics/Elec"
 
 const router = createBrowserRouter([
   {
@@ -30,7 +34,12 @@ const router = createBrowserRouter([
           {index:true,element:<TodayDeals/>},
           {path:"coupons",element:<Coupons/>}
         ] },
-        {path:'videogames',element:<VideoGames/>}
+        { path: 'HomeProducts', element: <HomeProducts />,children:[
+          {index:true,element:<Main/>},
+          {path:"Decor",element:<HomeDecor/>}
+        ] },
+        {path:'videogames',element:<VideoGames/>},
+        {path:'electronics',element:<Electronics/>}
     ]
   }
 ])
