@@ -35,10 +35,8 @@ const router = createBrowserRouter([
           {path:"Decor",element:<HomeDecor/>}
         ] },
         {path:'videogames',element:<VideoGames/>},
-        {path:'electronics',element:<Electronics/>}
-    ]
-  },
-  {path:'electronics',element:<Electronics/>},
+        {path:'electronics',element:<Electronics/>},
+        {path:'electronics',element:<Electronics/>},
   {
     path: "fashion",
     element: <FashionPage />,
@@ -51,6 +49,9 @@ const router = createBrowserRouter([
   { path: "videogames", element: <VideoGames /> },
 { path: "prime", element: <Prime/> },
 { path: "books", element: <Books/> },
+    ]
+  },
+  
 ])
 
 
