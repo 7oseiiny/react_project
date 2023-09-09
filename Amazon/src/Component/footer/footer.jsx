@@ -75,30 +75,35 @@ function FooterCom() {
         </Col>
         </div>
       </Row>
-      {/* <div className="footer-line "></div> */}
-      <div style={{backgroundColor:"rgb(35,47,62)"}} className=" justify-content-center d-flex p-5  align-items-center" >
-          <img className='mx-5' style={{width:"200px"}} src="../assets/images/ahlogo.png" alt="amazon logo" />
-          {/* <DropdownButton id="locale-dropdown" title="English">
-              <DropdownItem eventKey="en">English</DropdownItem>
-              <DropdownItem eventKey="de">German</DropdownItem>
-              <DropdownItem eventKey="fr">French</DropdownItem>
+      <div className="footer-line "></div>
+      <Row className="amazon-footer-logo-area p-4">
+        <Col xs={5}>
+          <img src="../assets/images/image2020.png" alt="amazon logo" className='amzaon2' />
+        </Col>
+        <Col xs={7} className='d-flex '>
+          <DropdownButton id="locale-dropdown" title="English" className='bgbtn me-2'>
+              <Dropdown.Item eventKey="en">English</Dropdown.Item>
+              <Dropdown.Item eventKey="de">German</Dropdown.Item>
+              <Dropdown.Item eventKey="fr">French</Dropdown.Item>
             </DropdownButton>
-            <DropdownButton id="currency-dropdown" title="$ USD - U.S. Dollar">
-              <DropdownItem eventKey="USD">$ USD - U.S. Dollar</DropdownItem>
-              <DropdownItem eventKey="EUR">€ EUR - Euro</DropdownItem>
-              <DropdownItem eventKey="GBP">£ GBP - British Pound</DropdownItem>
-            </DropdownButton> */}
-          <DropdownButton id="dropdown-item-button " title="English">
+            <DropdownButton id="currency-dropdown" title="$ USD - U.S. Dollar" className='bgbtn'>
+              <Dropdown.Item eventKey="USD">$ USD - U.S. Dollar</Dropdown.Item>
+              <Dropdown.Item eventKey="EUR">€ EUR - Euro</Dropdown.Item>
+              <Dropdown.Item eventKey="GBP">£ GBP - British Pound</Dropdown.Item>
+            </DropdownButton>
+     
+          {/* <DropdownButton id="dropdown-item-button" title="English">
             <Dropdown.ItemText>Dropdown item text</Dropdown.ItemText>
             <Dropdown.Item as="button">English</Dropdown.Item>
             <Dropdown.Item as="button">German </Dropdown.Item>
             <Dropdown.Item as="button">French </Dropdown.Item>
           </DropdownButton>
-          <div className=" mx-5 d-flex text-center align-items-center">
-            <img className='mx-3 align-items-center' src="../assets/images/usa.jpg" alt="USA LOGO" width="30rem" height="20rem" />
-            <p className="text-light text-center ">United States</p>
-          </div>
-      </div>
+          <div className="d-flex text-center">
+            <img src="" alt="USA LOGO" width="30rem" height="20rem" />
+            <p className="text-light text-center">United States</p>
+          </div> */}
+        </Col>
+      </Row>
       <div className="second-footer-sec pt-5 pb-5 ">
             <div className="container text-decoration-none">
                 <div className="row">

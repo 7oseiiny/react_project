@@ -14,6 +14,7 @@ import store from "./../store/store";
 import VideoGames from "./Component/VideoGames/Vgames";
 import Prime from "./Component/prime/Prime";
 import Electronics from "./Component/Electronics/Elec";
+import FashionPage from "./Component/Fashion/fashionPage";
 import Books from "./Component/books/Books";
 
 const router = createBrowserRouter([
@@ -24,8 +25,8 @@ const router = createBrowserRouter([
       { path: "/mobile", element: <Mobile /> },
       {path:'electronics',element:<Electronics/>},
       {
-        path: "/fashion",
-        element: <Fashion />,
+        path: "fashion",
+        element: <FashionPage />,
         children: [
           { index: true, element: <Fashion /> },
           { path: "kids", element: <KidsBaby /> },
