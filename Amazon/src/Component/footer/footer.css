@@ -76,6 +76,16 @@ body{
     border-top: 1px solid #3a4553 !important;
     /* margin-top: 20px; */
 }
+.amazon-footer-logo-area button{
+    background-color: #232f3e;
+    border: #848688 1px solid;
+    
+}
+.amazon-footer-logo-area{
+    background-color: #232f3e;
+}
+
+
 
 .amazon-footer-logo-area .icons .border {
     border: solid 0.1em #848688 !important;
@@ -114,4 +124,10 @@ body{
 .footer-section-column span:hover {
     text-decoration: underline;
     text-decoration-color: var(--greyT-decoration-color);
+}
+.amzaon2{
+    color: #3a4553;
+}
+.bgbtn{
+    background-color: #3a4553;
 }
