@@ -26,7 +26,7 @@ function FooterCom() {
             </div>
         </section>
       <Row className='first-footer-sec  '>
-        <div className='cont w-50'>
+        <div className='cont w-75'>
 
         <Col xs={3}>
           <h6 className="footer-column  text-light">Get to Know Us</h6>
