@@ -232,13 +232,13 @@ export default function Home() {
                     data-bs-interval="false">
                     <div className="carousel-inner">
                         <div className="carousel-item active">
-                            <img src="..." className="d-block w-100" alt="..." />
+                            <img src="../assets/images/sec1.jpg" className="d-block w-100" alt="..." />
                         </div>
                         <div className="carousel-item">
-                            <img src="..." className="d-block w-100" alt="..." />
+                            <img src="../assets/images/sec2.jpg" className="d-block w-100" alt="..." />
                         </div>
                         <div className="carousel-item">
-                            <img src="..." className="d-block w-100" alt="..." />
+                            <img src="../assets/images/sec3.jpg" className="d-block w-100" alt="..." />
                         </div>
                     </div>
                     <button className="carousel-control-prev" type="button"

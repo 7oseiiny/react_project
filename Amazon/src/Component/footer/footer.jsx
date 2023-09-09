@@ -25,85 +25,94 @@ function FooterCom() {
                 <a className="back-to-top text-decoration-none text-light " href="#">Back to top</a>
             </div>
         </section>
-      <Row className='first-footer-sec  '>
-        <div className='cont w-75'>
+        <div className="container-fluid">
+            <Row className='first-footer-sec  '>
+                <div className='cont w-75'>
 
-        <Col xs={3}>
-          <h6 className="footer-column  text-light">Get to Know Us</h6>
-          <ul className="footer-ul p-0">
-            <li className='footer-li'><a className='footer-link' href="#">Careers</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Blog</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">About Amazon</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Investor Relations</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Amazon Devices</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Amazon Tours</a></li>
-          </ul>
-        </Col>
-        <Col xs={3}>
-          <h6 className="footer-column  text-light">Make Money with Us</h6>
-          <ul className="footer-ul p-0">
-            <li className='footer-li'><a className='footer-link' href="#">Sell products on Amazon</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Sell apps on Amazon</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Become an Affiliate</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Advertise Your Products</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Self-Publish with Us</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Host an Amazon Hub</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">See More Make Money with Us</a></li>
-          </ul>
-        </Col>
-        <Col xs={3}>
-          <h6 className="footer-column  text-light">Amazon Payment Products</h6>
-          <ul className="footer-ul p-0">
-            <li className='footer-li'><a className='footer-link' href="#">Amazon Business Card</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Shop with Points</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Reload Your Balance</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Amazon Currency Converter</a></li>
-          </ul>
-        </Col>
-        <Col xs={3}>
-          <h6 className="footer-column  text-light">Let Us Help You</h6>
-          <ul className="footer-ul p-0">
-            <li className='footer-li'><a className='footer-link' href="#">Amazon and COVID-19</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Your Account</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Your Orders</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Shipping Rates & Policies</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Returns & Replacements</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Manage Your Content and Devices</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Amazon Assistant</a></li>
-            <li className='footer-li'><a className='footer-link' href="#">Help</a></li>
-          </ul>
-        </Col>
+                <Col xs={3}>
+                <h6 className="footer-column  text-light">Get to Know Us</h6>
+                <ul className="footer-ul p-0">
+                    <li className='footer-li'><a className='footer-link' href="#">Careers</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Blog</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">About Amazon</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Investor Relations</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Amazon Devices</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Amazon Tours</a></li>
+                </ul>
+                </Col>
+                <Col xs={3}>
+                <h6 className="footer-column  text-light">Make Money with Us</h6>
+                <ul className="footer-ul p-0">
+                    <li className='footer-li'><a className='footer-link' href="#">Sell products on Amazon</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Sell apps on Amazon</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Become an Affiliate</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Advertise Your Products</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Self-Publish with Us</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Host an Amazon Hub</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">See More Make Money with Us</a></li>
+                </ul>
+                </Col>
+                <Col xs={3}>
+                <h6 className="footer-column  text-light">Amazon Payment Products</h6>
+                <ul className="footer-ul p-0">
+                    <li className='footer-li'><a className='footer-link' href="#">Amazon Business Card</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Shop with Points</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Reload Your Balance</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Amazon Currency Converter</a></li>
+                </ul>
+                </Col>
+                <Col xs={3}>
+                <h6 className="footer-column  text-light">Let Us Help You</h6>
+                <ul className="footer-ul p-0">
+                    <li className='footer-li'><a className='footer-link' href="#">Amazon and COVID-19</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Your Account</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Your Orders</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Shipping Rates & Policies</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Returns & Replacements</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Manage Your Content and Devices</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Amazon Assistant</a></li>
+                    <li className='footer-li'><a className='footer-link' href="#">Help</a></li>
+                </ul>
+                </Col>
+                </div>
+            </Row>
+            <div className="footer-line "></div>
+            <Row className="amazon-footer-logo-area p-4 ">
+                <Col xs="12" md="5" className='d-flex justify-content-center justify-md-content-end'>
+                <img src="../assets/images/image2020.png" alt="amazon logo" className='amzaon2' />
+                </Col>
+                <Col xs="12" md="7"  className='d-flex align-items-center justify-content-center justify-md-content-end flex-column flex-md-row'>
+                <DropdownButton id="locale-dropdown" title="English" className=' me-2'>
+                    <Dropdown.Item eventKey="en">English</Dropdown.Item>
+                    <Dropdown.Item eventKey="de">German</Dropdown.Item>
+                    <Dropdown.Item eventKey="fr">French</Dropdown.Item>
+                    </DropdownButton>
+                    <DropdownButton id="currency-dropdown" title="$ USD - U.S. Dollar" >
+                    <Dropdown.Item eventKey="USD">$ USD - U.S. Dollar</Dropdown.Item>
+                    <Dropdown.Item eventKey="EUR">€ EUR - Euro</Dropdown.Item>
+                    <Dropdown.Item eventKey="GBP">£ GBP - British Pound</Dropdown.Item>
+                    </DropdownButton>
+                    <DropdownButton id="currency-dropdown" title= " United States" className='flag '>
+                    <Dropdown.Item eventKey="USD">
+                    <img src='../assets/images/us.png' width={15} /> 
+                        
+                        United States</Dropdown.Item>
+
+                    </DropdownButton>
+            
+                {/* <DropdownButton id="dropdown-item-button" title="English">
+                    <Dropdown.ItemText>Dropdown item text</Dropdown.ItemText>
+                    <Dropdown.Item as="button">English</Dropdown.Item>
+                    <Dropdown.Item as="button">German </Dropdown.Item>
+                    <Dropdown.Item as="button">French </Dropdown.Item>
+                </DropdownButton>
+                <div className="d-flex text-center">
+                    <img src="" alt="USA LOGO" width="30rem" height="20rem" />
+                    <p className="text-light text-center">United States</p>
+                </div> */}
+                </Col>
+            </Row>
         </div>
-      </Row>
-      <div className="footer-line "></div>
-      <Row className="amazon-footer-logo-area p-4">
-        <Col xs={5}>
-          <img src="../assets/images/image2020.png" alt="amazon logo" className='amzaon2' />
-        </Col>
-        <Col xs={7} className='d-flex '>
-          <DropdownButton id="locale-dropdown" title="English" className='bgbtn me-2'>
-              <Dropdown.Item eventKey="en">English</Dropdown.Item>
-              <Dropdown.Item eventKey="de">German</Dropdown.Item>
-              <Dropdown.Item eventKey="fr">French</Dropdown.Item>
-            </DropdownButton>
-            <DropdownButton id="currency-dropdown" title="$ USD - U.S. Dollar" className='bgbtn'>
-              <Dropdown.Item eventKey="USD">$ USD - U.S. Dollar</Dropdown.Item>
-              <Dropdown.Item eventKey="EUR">€ EUR - Euro</Dropdown.Item>
-              <Dropdown.Item eventKey="GBP">£ GBP - British Pound</Dropdown.Item>
-            </DropdownButton>
-     
-          {/* <DropdownButton id="dropdown-item-button" title="English">
-            <Dropdown.ItemText>Dropdown item text</Dropdown.ItemText>
-            <Dropdown.Item as="button">English</Dropdown.Item>
-            <Dropdown.Item as="button">German </Dropdown.Item>
-            <Dropdown.Item as="button">French </Dropdown.Item>
-          </DropdownButton>
-          <div className="d-flex text-center">
-            <img src="" alt="USA LOGO" width="30rem" height="20rem" />
-            <p className="text-light text-center">United States</p>
-          </div> */}
-        </Col>
-      </Row>
       <div className="second-footer-sec pt-5 pb-5 ">
             <div className="container text-decoration-none">
                 <div className="row">
