@@ -97,15 +97,15 @@ border: 0;
 .carousel-inner {
   display: flex;
 } */
-.sideLeft{
+.leftSide{
   display: none;
 }
 }
 
-.sideLeft{
-border-right:1px solid gray;
-height: 185rem;
-}
+.leftSide{
+  border-right:1px solid gray;
+  height: 135rem;
+  }
 .nav-page:hover{
   border: 1px solid white ;
 }

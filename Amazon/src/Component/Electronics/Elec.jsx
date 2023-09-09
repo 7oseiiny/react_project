@@ -5,7 +5,6 @@ import { BsStar } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import React from 'react';
 
-
 export default function Electronics() {
   var settings = {
     dots: false,
@@ -63,20 +62,15 @@ export default function Electronics() {
       </li>
     </ul>
     {/* <!-- <div className=""></div> --> */}
-  <div className="col-2 mt-2 sideLeft"> 
-    <div className="col">
-      <p className="h6 fw-bold">Eligible htmlFor free delivery</p>
-
-      <li className="list-group-item">
-        <input className="htmlForm-check-input me-1" type="checkbox" value="" id="f1" />Free Shipping
-        <label className="htmlForm-check-label stretched-link w-100" htmlFor="f1">
-          All customers get FREE Shipping on orders shipped by Amazon</label>
-      </li>
-    </div>
-
-    <ul className="list-group side">
-      <br/>
-      <h5 className=" fw-bold">Category</h5>
+    <section className=" col-2 leftSide ps-xl-4 ps-1">
+        <header className="d-flex flex-column mt-3 pb-3">
+        <p className="h6 fw-bold">Eligible for free delivery</p>
+        </header>
+        <section className="leftSideSections">
+            <input className="col-1" type="checkbox" name="primeCheckbox" id="primeCheckbox" />Free Shipping
+            <label className="col-10 " htmlFor="primeCheckbox"><i className="fa-solid fa-check text-warning"></i>
+            All customers get FREE Shipping on orders shipped by Amazon</label>
+           <h6 className=" fw-bold mt-4">Category</h6>
       <h6 className="px-2 fw-bold">Electronics</h6>
       <div className="px-3">
         <label><a className="link-offset-2 link-underline link-underline-opacity-0" href="#"></a>Camera & Photo</label>
@@ -95,83 +89,102 @@ export default function Electronics() {
         <label className="mt-2"><a className="link-offset-2 link-underline link-underline-opacity-0" href="#"></a>Telephones, VoIP & Accessories</label>
         <label className="mt-2"><a className="link-offset-2 link-underline link-underline-opacity-0" href="#"></a>Wearable Technology</label>
       </div>
-      <div>
-        <h6 className="mt-4 fw-bold">Fulfilled by Amazon</h6>
-        <span>
-          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="g1" />
-          Fulfilled by Amazon<label className="htmlForm-check-label stretched-link w-100" htmlFor="g1"></label>
-        </span>
-      </div>
-      <div>
+      <h6 className="mt-4 fw-bold">Fulfilled by Amazon</h6>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="col-1" type="checkbox" name="PrimeExclusiveDealsCheckbox"
+              id="PrimeExclusiveDealsCheckbox" />
+            <label className="col-10" htmlFor="PrimeExclusiveDealsCheckbox">
+            Fulfilled by Amazon</label>
+          </span>
+        </section>
+        <section className="leftSideSections mt-3 pb-3">
         <p className="h6 fw-bold">Brand</p>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="AutomotiveCheckbox"
+              id="AutomotiveCheckbox" />
+            <label className="col-10" htmlFor="AutomotiveCheckbox">
+              Other</label>
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyFashionCheckbox"
+              id="BabyFashionCheckbox" />
+            <label className="col-10" htmlFor="BabyFashionCheckbox">
+            SAMSUNG</label>
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyProductsCheckbox"
+              id="BabyProductsCheckbox" />
+            <label className="col-10" htmlFor="BabyProductsCheckbox">
+            HP</label>
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BeautyCheckbox" id="BeautyCheckbox" />
+            <label className="col-10" htmlFor="BeautyCheckbox">
+            Nillkin</label>
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BooksCheckbox" id="BooksCheckbox" />
+            <label className="col-10" htmlFor="BooksCheckbox">
+            Dragon</label>
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BoysFashionCheckbox"
+              id="BoysFashionCheckbox" />
+            <label className="col-10" htmlFor="BoysFashionCheckbox">
+            Baseus</label>
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="Computers,Components&Accessories"
+              id="ComputersComponents&Accessories" />
+            <label className="col-10" htmlFor="ComputersComponents&Accessories">
+            Spigen</label>
+          </span>
+          
+          <p className="h6 fw-bold mt-3">Condition</p>
         <span>
-          <input className="htmlForm-check-input my-0 me-0" type="checkbox" value="" id="y5" />
-          Other<label className="htmlForm-check-label stretched-link w-100 " htmlFor="y5"></label>
-          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="y6" />
-          SAMSUNG<label className="htmlForm-check-label stretched-link w-100 " htmlFor="y6"></label>
-          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="y7" />
-          HP<label className="htmlForm-check-label stretched-link w-100 " htmlFor="y7"></label>
-          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="y8" />
-          Baseus<label className="htmlForm-check-label stretched-link w-100 " htmlFor="y8"></label>
-          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="y9" />
-          Dell<label className="htmlForm-check-label stretched-link w-100 " htmlFor="y9"></label>
-          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="y10" />
-          Spigen<label className="htmlForm-check-label stretched-link w-100 " htmlFor="y10"></label>
-          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="y11" />
-          JBL<label className="htmlForm-check-label stretched-link w-100 " htmlFor="y11"></label>
+          <label className="col-10">New</label>
+          <label className="col-10">Used</label>
         </span>
-      </div>
-      <div>
-        <p className="h6 fw-bold">Condition</p>
-        <span>
-          <label className="htmlForm-check-label stretched-link w-100 " htmlFor="g1">New</label>
-          <label className="htmlForm-check-label stretched-link w-100 " htmlFor="g2">Used</label>
-        </span>
-      </div>
-       <div>
-        <h6 className="mt-4">Avg. Customer Review</h6>
+        </section>
+        <h6 className="mt-3">Avg. Customer Review</h6>
         <div>
         <BsStarFill color='#FFA41C' />
             <BsStarFill color='#FFA41C' />
             <BsStarFill color='#FFA41C' />
             <BsStarFill color='#FFA41C' />
-            <BsStarFill color='#FFA41C' />
-
-           Only
+            <BsStarFill color='#FFA41C' /> Only
         </div>
         <div>
         <BsStarFill color='#FFA41C' />
         <BsStarFill color='#FFA41C' />
         <BsStarFill color='#FFA41C' />
         <BsStarFill color='#FFA41C' />
-        <BsStar color='#FFA41C' />& up
+        <BsStar color='#FFA41C' /> & up
         </div>
          <div>
          <BsStarFill color='#FFA41C' />
          <BsStarFill color='#FFA41C' />
          <BsStarFill color='#FFA41C' />
          <BsStar color='#FFA41C' />
-         <BsStar color='#FFA41C' />& Up
+         <BsStar color='#FFA41C' /> & Up
         </div>
          <div>
          <BsStarFill color='#FFA41C' />
          <BsStarFill color='#FFA41C' />
           <BsStar color='#FFA41C' />
           <BsStar color='#FFA41C' />
-          <BsStar color='#FFA41C' />& Up
+          <BsStar color='#FFA41C' /> & Up
         </div>
          <div>
          <BsStarFill color='#FFA41C' />
          <BsStar color='#FFA41C' />
          <BsStar color='#FFA41C' />
          <BsStar color='#FFA41C' />
-         <BsStar color='#FFA41C' />
-& up
+         <BsStar color='#FFA41C' /> & up
         </div>
-      </div>
-      <div>
-        <h6 className="mt-4">Price</h6>
-        <ul style={{listStyle: 'none', paddingLeft: '0rem'}}>
+        <section className="d-flex flex-column mt-3">
+          <h2>Price</h2>
+          <ul style={{listStyle: 'none', paddingLeft: '0rem'}}>
           <li><a href="#" style={{textDecoration: 'none', color: 'black'}}>Up to 50 EGP</a></li>
           <li><a href="#" style={{textDecoration: 'none', color: 'black'}}>50 to 100 EGP</a></li>
           <li><a href="#" style={{textDecoration: 'none', color: 'black'}}>100 to 300 EGP</a></li>
@@ -179,52 +192,80 @@ export default function Electronics() {
           <li><a href="#" style={{textDecoration: 'none', color: 'black'}}>1500 to 2500 EGP</a></li>
           <li><a href="#" style={{textDecoration: 'none', color: 'black'}}>2500 EGP & above</a></li>
         </ul>
-        </div>
-        <div>
-          <h6 className="mt-4">Deals & Discounts</h6>
-          <span>
-            <label className="htmlForm-check-label stretched-link w-100 " htmlFor="g1">All Discounts</label>
-            <label className="htmlForm-check-label stretched-link w-100 " htmlFor="g2">Today's Deals</label>
-          </span>
-        </div>
-
-      <div>
-        <h6 className="mt-4">Seller</h6>
+        </section>
+        <section className="d-flex flex-column">
+        <h6 className="mt-2">Deals & Discounts</h6>
         <span>
-          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t8" />
-          Amazon.eg<label className="htmlForm-check-label stretched-link w-100 " htmlFor="t8"></label>
-          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t9" />
-          دلع.موبايلك<label className="htmlForm-check-label stretched-link w-100 " htmlFor="t9"></label>
-          {/* <!-- <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t10" /> */}
-          المعز.ستور <label className="htmlForm-check-label stretched-link w-100 " htmlFor="t10"></label> 
-          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t11" />
-          High.Quality<label className="htmlForm-check-label stretched-link w-100 " htmlFor="t11"></label>
-          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t12" />
-          classNamey Phone<label className="htmlForm-check-label stretched-link w-100 " htmlFor="t12"></label>
-          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t13" />
-          Amazon Warehouse<label className="htmlForm-check-label stretched-link w-100 " htmlFor="t13"></label>
-          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t14" />
-          GOMAA STORE<label className="htmlForm-check-label stretched-link w-100 " htmlFor="t14"></label>
-          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t" />
-          Snap-Buy<label className="htmlForm-check-label stretched-link w-100 " htmlFor="t"></label>
-          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="tk" />
-          Fekra.Store-DT<label className="htmlForm-check-label stretched-link w-100 " htmlFor="tk"></label>
-          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="tp" />
-          M.H.M E.Commerce<label className="htmlForm-check-label stretched-link w-100 " htmlFor="tp"></label>
+          <label className="col-10">All Discounts</label>
+          <label className="col-10">Today's Deals</label>
         </span>
-      </div>
-      <div>
+        </section>
+        <section className="d-flex flex-column">
+        <h6 className="mt-4">Seller</h6>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyFashionCheckbox"
+              id="BabyFashionCheckbox" />
+            <label className="col-10" htmlFor="BabyFashionCheckbox">
+            Amazon.eg</label>
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyProductsCheckbox"
+              id="BabyProductsCheckbox" />
+            <label className="col-10" htmlFor="BabyProductsCheckbox">
+            دلع.موبايلك</label>
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BeautyCheckbox" id="BeautyCheckbox" />
+            <label className="col-10" htmlFor="BeautyCheckbox">
+            المعز.ستور</label>
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BooksCheckbox" id="BooksCheckbox" />
+            <label className="col-10" htmlFor="BooksCheckbox">
+            High.Quality</label>
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BoysFashionCheckbox"
+              id="BoysFashionCheckbox" />
+            <label className="col-10" htmlFor="BoysFashionCheckbox">
+            Classy Phone</label>
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="Computers,Components&Accessories"
+              id="ComputersComponents&Accessories" />
+            <label className="col-10" htmlFor="ComputersComponents&Accessories">
+            ELMOT77DA</label>
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="ElectronicsCheckbox"
+              id="ElectronicsCheckbox" />
+            <label className="col-10" htmlFor="ElectronicsCheckbox">
+            bombaaaaaaaa</label>
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="FashionCheckbox" id="FashionCheckbox" />
+            <label className="col-10" htmlFor="FashionCheckbox">
+            Mobile Shop 2023</label>
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="GardenCheckbox" id="GardenCheckbox" />
+            <label className="col-10" htmlFor="GardenCheckbox">
+            Amazon Warehouse</label>
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="GirlsFashionCheckbox"
+              id="GirlsFashionCheckbox" />
+            <label className="col-10" htmlFor="GirlsFashionCheckbox">
+            Mobilic ٍStore</label>
+          </span>
+        </section>
         <h6 className="mt-3">Availability</h6>
-        {/* <span> */}
-          <input className="htmlForm-check-input me-0" type="checkbox" value="" id="t8"/>
-          Include Out of Stock<label className="htmlForm-check-label stretched-link w-100 " htmlFor="t8"></label>
-      </div>
-     
-<br/>
-
-
-    </ul>
-</div>
+        <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="GroceryCheckbox" id="GroceryCheckbox" />
+            <label className="col-10 " htmlFor="GroceryCheckbox">
+            Include Out of Stock</label>
+          </span>
+      </section>
   <div className="col-10 sideRight">
   <div className="container">
     <div className="row">
@@ -837,338 +878,6 @@ export default function Electronics() {
     <button className="btn mt-4 mb-5" style={{backgroundColor: '#ebeaea', color: 'rgb(62, 110, 130)'}} type="button"><h5>See all results</h5></button></div>
 </div></div>
 </div>
-
-<div className="container-fluid m-0 p-0">
-  <section className="section_container">
-    <div className="container-fluid back-top btn cursor-pointer p-3 mt-1 text-center text-light  ">
-      <a className="back-to-top text-decoration-none text-light " href="#">Back to top</a>
-    </div>
-  </section>
-  {/* <!-- First Footer --> */}
-  <footer className="first-footer-sec">
-    <div className="container">
-      <div className="row">
-        <div className="col-md-3">
-          <p className="footer-column  text-light">Get to Know Us</p>
-          <ul className="footer-ul p-0">
-            <li className="footer-li"><a className="footer-link" href="#">Careers</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Blog</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">About Amazon</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Investor Relations</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Amazon Devices</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Amazon Tours</a></li>
-          </ul>
-        </div>
-        <div className="col-md-3">
-          <p className="footer-column  text-light">Make Money with Us</p>
-          <ul className="footer-ul p-0">
-            <li className="footer-li"><a className="footer-link" href="#">Sell products on Amazon</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Sell apps on Amazon</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Become an Affiliate</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Advertise Your Products</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Self-Publish with Us</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Host an Amazon Hub</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">See More Make Money with Us</a></li>
-          </ul>
-        </div>
-        <div className="col-md-3">
-          <p className="footer-column  text-light">Amazon Payment Products</p>
-          <ul className="footer-ul p-0">
-            <li className="footer-li"><a className="footer-link" href="#">Amazon Business Card</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Shop with Points</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Reload Your Balance</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Amazon Currency Converter</a></li>
-          </ul>
-        </div>
-        <div className="col-md-3">
-          <p className="footer-column  text-light">Let Us Help You</p>
-          <ul className="footer-ul p-0">
-            <li className="footer-li"><a className="footer-link" href="#">Amazon and COVID-19</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Your Account</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Your Orders</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Shipping Rates & Policies</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Returns & Replacements</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Manage Your Content and Devices</a>
-            </li>
-            <li className="footer-li"><a className="footer-link" href="#">Amazon Assistant</a></li>
-            <li className="footer-li"><a className="footer-link" href="#">Help</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div className="footer-line">
-    </div>
-    <div className="container amazon-footer-logo-area p-4">
-      <div className="row pt-2 pb-2 justify-content-center text-center">
-        <div className="col-md-5 footer-lg-img">
-          <img src="../assets/images/logoo1.png" alt="amazon logo"/>
-        </div>
-        <div className="col-md-7 icons d-flex gap-2 text-center ">
-          <div className="border btn m-0 p-0">
-            <p className="english btn text-light">English</p>
-          </div>
-          <div className="border btn m-0 p-0">
-            <p className="btn m-0 p-0  text-light">$ USD - U.S. Dollar</p>
-          </div>
-          <div className="border btn m-0 p-0 ">
-            <div className="d-flex text-center p-0">
-              <img className="p-1" src="../img/us.png" alt="USA LOGO" width="30rem" height="20rem"/>
-              <p className="text-light text-center">United States</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  {/* <!-- Second Foot… --> */}
-  <footer className="second-footer-sec pt-5 pb-5">
-    <div className="container text-decoration-none">
-      <div className="row">
-        <div className="col">
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Amazon Music</span><br/>
-              <span className="second-title-footer">Stream millions <br/> of songs</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Alexa</span><br/>
-              <span className="second-title-footer">Actionable Analytics <br/> htmlFor the Web</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Amazon Rapids</span><br/>
-              <span className="second-title-footer">Fun stories htmlFor <br/> kids on the go</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">CreateSpace</span><br/>
-              <span className="second-title-footer">Indie Print Publishing <br/> Made Easy</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">IMDbPro</span><br/>
-              <span className="second-title-footer">Get Info Entertainment <br/> Professionals Need</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Ring</span><br/>
-              <span className="second-title-footer">Smart Home <br/> Security Systems</span>
-            </a>
-          </div>
-        </div>
-        <div className="col">
-
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Amazon Advertising</span><br/>
-              <span className="second-title-footer">Find, attract, and <br/> engage customers</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Sell on Amazon</span><br/>
-              <span className="second-title-footer">Start a Selling <br/> Account</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Amazon Web Services</span><br/>
-              <span className="second-title-footer">Scalable Cloud <br/> Computing Services</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">DPReview</span><br/>
-              <span className="second-title-footer">Digital <br/> Photography</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Kindle Direct Publishing</span><br/>
-              <span className="second-title-footer">Indie Digital Publishing <br/> Made Easy</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">eero WiFi</span><br/>
-              <span className="second-title-footer">Stream 4K Video<br/> in Every Room</span>
-            </a>
-          </div>
-
-        </div>
-        <div className="col">
-
-          <div className="footer-section-column mb-4 text-left">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Amazon Drive</span><br/>
-              <span className="second-title-footer">Cloud storage <br/> from Amazon</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4 text-light">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Amazon Business</span><br/>
-              <span className="second-title-footer">Everything htmlFor<br/> Your Business</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Audible</span><br/>
-              <span className="second-title-footer">Listen to Books & Original<br/> Audio
-                PerhtmlFormances</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">East Dane</span><br/>
-              <span className="second-title-footer">Designer Men's<br/> Fashion</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Prime Video Direct</span><br/>
-              <span className="second-title-footer">Video Distribution<br/> Made Easy</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Neighbors App </span><br/>
-              <span className="second-title-footer">Real-Time Crime<br/> & Safety Alerts</span>
-            </a>
-          </div>
-
-        </div>
-        <div className="col">
-
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">6pm</span><br/>
-              <span className="second-title-footer">Score deals<br/> on fashion brands</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">AmazonGlobal</span><br/>
-              <span className="second-title-footer">Ship Orders<br/> Internationally</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Book Depository</span><br/>
-              <span className="second-title-footer">Books With Free<br/> Delivery Worldwide</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Fabric</span><br/>
-              <span className="second-title-footer">Sewing, Quilting<br/> & Knitting</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Shopbop</span><br/>
-              <span className="second-title-footer">Designer<br/> Fashion Brands</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Amazon Subscription Boxes</span><br/>
-              <span className="second-title-footer">Top subscription boxes – right to your door</span>
-            </a>
-          </div>
-
-        </div>
-        <div className="col">
-
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">AbeBooks</span><br/>
-              <span className="second-title-footer">Books, art<br/> & collectibles</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Home Services</span><br/>
-              <span className="second-title-footer">Experienced Pros<br/> Happiness Guarantee</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Box Office Mojo</span><br/>
-              <span className="second-title-footer">Find Movie<br/> Box Office Data</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Goodreads</span><br/>
-              <span className="second-title-footer">Book reviews<br/> & recommendations</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Woot!</span><br/>
-              <span className="second-title-footer">Deals and <br/> Shenanigans</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">PillPack</span><br/>
-              <span className="second-title-footer">Pharmacy Simplified</span>
-            </a>
-          </div>
-
-        </div>
-        <div className="col">
-
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">ACX </span><br/>
-              <span className="second-title-footer">Audiobook Publishing<br/> Made Easy</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Amazon Ignite</span><br/>
-              <span className="second-title-footer">Sell your original<br/> Digital Educational</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">ComiXology</span><br/>
-              <span className="second-title-footer">Thousands of<br/> Digital Comics</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">IMDb</span><br/>
-              <span className="second-title-footer">Movies, TV<br/> & Celebrities</span>
-            </a>
-          </div>
-          <div className="footer-section-column mb-4">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Zappos</span><br/>
-              <span className="second-title-footer">Shoes &<br/> Clothing</span>
-            </a>
-          </div>
-          <div className="footer-section-column">
-            <a href="#" className="second-footer-link">
-              <span className="first-title-footer">Amazon Second Chance</span><br/>
-              <span className="second-title-footer">Pass it on, trade it in,<br/> give it a second
-                life</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-</div>
-
     </>
   )
   }

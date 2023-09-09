@@ -39,7 +39,7 @@ function Navbar() {
                 <div className="dropdown">
                   <a className="btn text-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="./img/egypt_round_icon_640.png" width="20px" alt="" />
+                    <img src="../assets/images/egypt_round_icon_640.png" width="45px" alt="" />
                     EG
                   </a>
                   <ul className="dropdown-menu px-2 " aria-labelledby="dropdownMenuLink">
@@ -109,12 +109,14 @@ function Navbar() {
       <div className="container-fluid  navv p-2">
         <div className=" d-flex justify-content-between  ">
           <div className="">
-            <NavLink className="links" to="todayDeals" style={{ textDecoration: "none", marginLeft: '6px' }}>Today's Deals</NavLink>
+            <NavLink className="links" to="todayDeals" style={{ textDecoration: "none", marginLeft: '6px' }}>Today s Deals</NavLink>
             <NavLink className="links" to="mobile" style={{ textDecoration: "none", marginLeft: '6px' }}>Mobile Phone</NavLink>
             <NavLink className="links" to="electronics" style={{ textDecoration: "none", marginLeft: '6px' }}>Electronics</NavLink>
             <NavLink className="links" to="fashion" style={{ textDecoration: "none", marginLeft: '6px' }}>Fashion</NavLink>
             <NavLink className="links" to="HomeProducts" style={{ textDecoration: "none", marginLeft: '6px' }}>Home</NavLink>
             <NavLink className="links" to="videogames" style={{ textDecoration: "none", marginLeft: '6px' }}>VideoGames</NavLink>
+            <NavLink className="links" to="prime" style={{ textDecoration: "none", marginLeft: '6px' }}>prime</NavLink>
+            <NavLink className="links" to="books" style={{ textDecoration: "none", marginLeft: '6px' }}>books</NavLink>
 
           </div>
           <div className=" text-white">Shop deals in Electronics</div>

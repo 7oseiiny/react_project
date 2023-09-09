@@ -26,7 +26,7 @@ function FooterCom() {
             </div>
         </section>
       <Row className='first-footer-sec  '>
-        <div className='cont w-50'>
+        <div className='cont w-75'>
 
         <Col xs={3}>
           <h6 className="footer-column  text-light">Get to Know Us</h6>
@@ -78,20 +78,21 @@ function FooterCom() {
       <div className="footer-line "></div>
       <Row className="amazon-footer-logo-area p-4">
         <Col xs={5}>
-          <img src="./img/New folder/image20.png" alt="amazon logo" />
+          <img src="../assets/images/image2020.png" alt="amazon logo" className='amzaon2' />
         </Col>
-        <Col xs={7}>
-          {/* <DropdownButton id="locale-dropdown" title="English">
-              <DropdownItem eventKey="en">English</DropdownItem>
-              <DropdownItem eventKey="de">German</DropdownItem>
-              <DropdownItem eventKey="fr">French</DropdownItem>
+        <Col xs={7} className='d-flex '>
+          <DropdownButton id="locale-dropdown" title="English" className='bgbtn me-2'>
+              <Dropdown.Item eventKey="en">English</Dropdown.Item>
+              <Dropdown.Item eventKey="de">German</Dropdown.Item>
+              <Dropdown.Item eventKey="fr">French</Dropdown.Item>
             </DropdownButton>
-            <DropdownButton id="currency-dropdown" title="$ USD - U.S. Dollar">
-              <DropdownItem eventKey="USD">$ USD - U.S. Dollar</DropdownItem>
-              <DropdownItem eventKey="EUR">€ EUR - Euro</DropdownItem>
-              <DropdownItem eventKey="GBP">£ GBP - British Pound</DropdownItem>
-            </DropdownButton> */}
-          <DropdownButton id="dropdown-item-button" title="English">
+            <DropdownButton id="currency-dropdown" title="$ USD - U.S. Dollar" className='bgbtn'>
+              <Dropdown.Item eventKey="USD">$ USD - U.S. Dollar</Dropdown.Item>
+              <Dropdown.Item eventKey="EUR">€ EUR - Euro</Dropdown.Item>
+              <Dropdown.Item eventKey="GBP">£ GBP - British Pound</Dropdown.Item>
+            </DropdownButton>
+     
+          {/* <DropdownButton id="dropdown-item-button" title="English">
             <Dropdown.ItemText>Dropdown item text</Dropdown.ItemText>
             <Dropdown.Item as="button">English</Dropdown.Item>
             <Dropdown.Item as="button">German </Dropdown.Item>
@@ -100,7 +101,7 @@ function FooterCom() {
           <div className="d-flex text-center">
             <img src="" alt="USA LOGO" width="30rem" height="20rem" />
             <p className="text-light text-center">United States</p>
-          </div>
+          </div> */}
         </Col>
       </Row>
       <div className="second-footer-sec pt-5 pb-5 ">
@@ -208,7 +209,7 @@ function FooterCom() {
                         <div className="footer-section-column mb-4">
                             <a href="#" className="second-footer-link">
                                 <span className="first-title-footer">East Dane</span><br />
-                                <span className="second-title-footer">Designer Men's<br /> Fashion</span>
+                                <span className="second-title-footer">Designer Men s<br /> Fashion</span>
                             </a>
                         </div>
                         <div className="footer-section-column mb-4">
