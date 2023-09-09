@@ -103,9 +103,7 @@ body {
     .sideLeft {
         display: none;
     }
-    .veiw {
-        display: none;
-    }
+  
  
     .go{
         display: none;
@@ -130,9 +128,7 @@ body {
 }
 @media only screen and (min-width:768px) and (max-width:992px){
 
-    .veiw {
-        display: none;
-    }
+   
 
     .go{
         display: none;

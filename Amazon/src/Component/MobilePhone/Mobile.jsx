@@ -8,7 +8,7 @@ export default function Mobile() {
    
         <div className="row container-fluid m-0 justify-content-center">
           {/* left Side  */}
-          <section className="col-xl-2 col-md-3 col-4 leftSide ps-xl-4 ps-1">
+          <section className="col-xl-2 col-md-3 col-4 leftSide ps-xl-4 ps-1 mt-4">
           <section className="leftSideSections pb-3">
             <h6>Eligible htmlFor free delivery</h6>
             <span className="d-flex flex-row justify-content-around align-items-baseline">
@@ -231,7 +231,7 @@ export default function Mobile() {
 
         </section>
           {/* Right Side  */}
-          <div className="col-10  sideRight justify-content-center align-content-center ">
+          <div className="col-xl-10 col-md-9 col-8 container-fluid  sideRight justify-content-center align-content-center mt-4">
 
             <h2 className="fw-bold fs-2">Cell Phones</h2>
             <img src="../assets/images/ha.jpg" className="img-fluid veiw" width="100%" />
