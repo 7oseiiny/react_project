@@ -87,16 +87,9 @@ border: 0;
 .carousel-item .card img {
   height: 50%;
 } */
-@media (max-width: 767px) {
+@media (max-width: 980px) {
 
-/* .carousel-item {
-  margin-right: 0;
-  flex: 0 0 calc(100%/3);
-  display: block;
-}
-.carousel-inner {
-  display: flex;
-} */
+
 .elecLeftSide{
   display: none;
 }

@@ -52,13 +52,6 @@ export default function Electronics() {
         <a className="nav-link text-dark" href="#">Mobiles & Accessories
         </a>
         <a className="nav-link text-dark" href="#">Computer & Accessories</a>
-        <a className="nav-link text-dark" href="#">TVs</a>
-        <a className="nav-link text-dark" href="#">Laptops</a>
-        <a className="nav-link text-dark" href="#">Cameras & Accessories</a>
-        <a className="nav-link text-dark" href="#">Headphones</a>
-        <a className="nav-link text-dark" href="#">Speakers</a>
-        <a className="nav-link text-dark" href="#">Wearable Technology</a>
-        <a className="nav-link text-dark" href="#">Home Entertainment Systems</a>
       </li>
     </ul>
     {/* <!-- <div className=""></div> --> */}
@@ -266,15 +259,15 @@ export default function Electronics() {
             Include Out of Stock</label>
           </span>
       </section>
-  <div className="col-10 sideRight">
+  <div className="col-lg-10 col-12 sideRight">
   <div className="container">
     <div className="row">
       <h2 className='mt-2'>Electronics</h2>
       {/* <!-- <img src="../assets/images/2x.jpg" className="img-fluid" alt="..."> --> */}
       <img src="../assets/images/XCM_.jpg" className="img-fluid" alt="..."/>
       <img src="../assets/images/6.PNG" className=" mt-3 img-fluid" alt="..."/> 
-      <img className="col-6 " src="../assets/images/1_EN.png" alt="..."/> 
-      <img className="col-6 " src="../assets/images/2-EN.png" alt="..."/> 
+      <img className="col-lg-6 col-md-12" src="../assets/images/1_EN.png" alt="..."/> 
+      <img className="col-lg-6 col-md-12" src="../assets/images/2-EN.png" alt="..."/> 
 
       {/* <img className="mt-2 img-fluid" src="../assets/images/7.PNG" alt="..."/> */}
       <hr className="mt-2"/>
@@ -334,7 +327,7 @@ export default function Electronics() {
         <hr/>
         <img src="../assets/images/818.jpg" className="mt-3 img-fluid"/>
         <h3 className="mt-4 text-center">FEATURED BRANDS</h3>
-          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 ">
         <div className="col">
           <div className="card  border-0" style={{width:  '18rem'}}>
             <img src="../assets/images/88.jpg" className="card-img-top"/>
