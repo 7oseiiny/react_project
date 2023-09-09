@@ -108,17 +108,18 @@ function Navbar() {
       {/* sec nav bar */}
       <div className="container-fluid  navv p-2">
         <div className=" d-flex justify-content-between  ">
-          <div className="">
-            <NavLink className="links" to="todayDeals" style={{ textDecoration: "none", marginLeft: '6px' }}>Today s Deals</NavLink>
-            <NavLink className="links" to="mobile" style={{ textDecoration: "none", marginLeft: '6px' }}>Mobile Phone</NavLink>
-            <NavLink className="links" to="electronics" style={{ textDecoration: "none", marginLeft: '6px' }}>Electronics</NavLink>
-            <NavLink className="links" to="fashion" style={{ textDecoration: "none", marginLeft: '6px' }}>Fashion</NavLink>
-            <NavLink className="links" to="videogames" style={{ textDecoration: "none", marginLeft: '6px' }}>VideoGames</NavLink>
-            <NavLink className="links" to="prime" style={{ textDecoration: "none", marginLeft: '6px' }}>prime</NavLink>
+          <div className="d-flex flex-wrap">
+            <NavLink className="links px-2" to="todayDeals" style={{ textDecoration: "none",  }}>Today s Deals</NavLink>
+            <NavLink className="links px-2" to="mobile" style={{ textDecoration: "none",  }}>Mobile Phone</NavLink>
+            <NavLink className="links px-2" to="electronics" style={{ textDecoration: "none",  }}>Electronics</NavLink>
+            <NavLink className="links px-2" to="fashion" style={{ textDecoration: "none",  }}>Fashion</NavLink>
+            <NavLink className="links px-2" to="videogames" style={{ textDecoration: "none",  }}>VideoGames</NavLink>
+            <NavLink className="links px-2" to="prime" style={{ textDecoration: "none",  }}>prime</NavLink>
+            <NavLink className="links px-2" to="Monitor" style={{ textDecoration: "none",  }}>Monitor</NavLink>
 
           </div>
-          <div className=" text-white">Shop deals in Electronics</div>
         </div>
+          <div className=" text-white">Shop deals in Electronics</div>
 
       </div>
 
