@@ -4,3 +4,7 @@
 .imgRowS{
     width: 25%;
 }
+.leftSide{
+    border-right:1px solid gray;
+    height: 135rem;
+    }
