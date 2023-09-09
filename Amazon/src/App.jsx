@@ -15,6 +15,7 @@ import VideoGames from "./Component/VideoGames/Vgames";
 import Prime from "./Component/prime/Prime";
 import Electronics from "./Component/Electronics/Elec";
 import FashionPage from "./Component/Fashion/fashionPage";
+import Books from "./Component/books/Books";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,7 @@ const router = createBrowserRouter([
       },
       { path: "videogames", element: <VideoGames /> },
       { path: "prime", element: <Prime/> },
+      { path: "books", element: <Books/> },
     ],
   },
 ]);

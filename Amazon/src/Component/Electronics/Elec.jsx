@@ -62,7 +62,7 @@ export default function Electronics() {
       </li>
     </ul>
     {/* <!-- <div className=""></div> --> */}
-    <section className="col-xl-2 col-md-3 col-4 leftSide ps-xl-4 ps-1">
+    <section className=" col-2 leftSide ps-xl-4 ps-1">
         <header className="d-flex flex-column mt-3 pb-3">
         <p className="h6 fw-bold">Eligible for free delivery</p>
         </header>
