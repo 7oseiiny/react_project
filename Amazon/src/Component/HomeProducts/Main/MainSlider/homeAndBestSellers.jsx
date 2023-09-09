@@ -11,7 +11,8 @@ export default function HomeAndBestSellers(props) {
     const state= useSelector((state)=>state);
     console.log(state.products.products);
     const productsList=state.products.products;
-    const imgSrc='./assets/homeProductsImages/';
+    const imgSrc=(props.img)?'../assets/homeProductsImages/':'./assets/homeProductsImages/';
+
   
     return (
 

@@ -20,16 +20,16 @@ export default function Body() {
         };
     }, []);
     return (
-        <div className='container-fluid col-xl-10 col-md-9 col-8 p-3'>
+        <div className='container-fluid col-xl-10 col-md-9 col-8 p-3 homeBody'>
             <h2 className='fw-bold'> Home and Kitchen</h2>
             <img className='w-100' src='./assets/homeProductsImages/new.jpg' />
             <div className='container-fluid  my-3 py-4' id='joinPrime'>
-                <div className='row col-12 d-flex justify-content-center'>
-                    <p className='col-5 me-2'>
+                <div className='row col-12 d-flex flex-md-row flex-column justify-content-center p-2'>
+                    <p className='col-md-5 me-2 fs-5'>
                         Enjoy FREE delivery, exclusive deals, award-winning TV and more
                         Join today. Cancel anytime.
                     </p>
-                    <button className='btn btn-warning col-1 h-50'> Join Prime</button>
+                    <button className='btn btn-warning col-md-2  fs-5 h-50'> Join Prime</button>
                 </div>
             </div>
             <div className='container-fluid' id='homeSlider'>

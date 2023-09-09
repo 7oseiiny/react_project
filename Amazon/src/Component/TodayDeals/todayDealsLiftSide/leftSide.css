@@ -1,4 +1,4 @@
-.leftSide {
+.todayDealsLeftSide {
     box-sizing: border-box;
 }
 
@@ -35,7 +35,7 @@ section>a:hover,
     font-weight: bold;
 }
 
-.leftSide h2 {
+.todayDealsLeftSide h2 {
     font-size: 18px;
     font-weight: bold;
 }
@@ -46,11 +46,11 @@ section>a:hover,
 
 
 @media screen and (max-width:450px) {
-    .leftSide h2 {
+    .todayDealsLeftSide h2 {
         font-size: 15px;
     }
 
-    .leftSide span {
+    .todayDealsLeftSide span {
         font-size: 12px;
     }
     .controlButtons>a,.controlButtons>i{

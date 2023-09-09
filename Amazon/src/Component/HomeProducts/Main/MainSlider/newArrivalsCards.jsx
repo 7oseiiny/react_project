@@ -40,13 +40,12 @@ export default function NewArrivalsCards(props) {
   )
 }
 NewArrivalsCards.propTypes = {
-  fullStar: PropTypes.number.isRequired,
-  emptyStar: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
-  halfStar: PropTypes.number.isRequired,
-  reviews: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   oldPrice: PropTypes.string.isRequired,
-
+  fullStar: PropTypes.number.isRequired,
+  emptyStar: PropTypes.number.isRequired,
+  halfStar: PropTypes.number.isRequired,
+  reviews: PropTypes.string.isRequired,
 }

@@ -97,12 +97,12 @@ border: 0;
 .carousel-inner {
   display: flex;
 } */
-.leftSide{
+.elecLeftSide{
   display: none;
 }
 }
 
-.leftSide{
+.elecLeftSide{
   border-right:1px solid gray;
   height: 135rem;
   }

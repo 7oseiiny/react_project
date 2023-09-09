@@ -8,7 +8,7 @@ export default function LiftSide() {
   
   return (
     <>
-      <section className="col-xl-2 col-md-3 col-4 leftSide ps-xl-4 ps-1">
+      <section className="col-xl-2 col-md-3 col-4 todayDealsLeftSide ps-xl-4 ps-1">
         <header className="d-flex flex-column pb-3">
           <a className="active" href="#"> All deals</a>
           <a href="#"> Available</a>
