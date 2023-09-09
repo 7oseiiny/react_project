@@ -119,8 +119,8 @@ function Navbar() {
             <NavLink className="links" to="books" style={{ textDecoration: "none", marginLeft: '6px' }}>books</NavLink>
 
           </div>
-        </div>
           <div className=" text-white">Shop deals in Electronics</div>
+        </div>
 
       </div>
 
