@@ -1,26 +1,28 @@
+*{
+    box-sizing:border-box  !important;
+    margin: 0;
+    padding: 0;
+}
 .imgRow{
     width: 33.34%;
 }
 .imgRowS{
     width: 25%;
 }
+.imgRow2{
+    width:40%
+}
 
 .leftSide{
     border-right:1px solid gray;
     height: 135rem;
     }
-    @media (max-width: 767px) {
+    @media (max-width: 989px) {
 
-        /* .carousel-item {
-          margin-right: 0;
-          flex: 0 0 calc(100%/3);
-          display: block;
-        }
-        .carousel-inner {
-          display: flex;
-        } */
         .leftSide{
           display: none;
         }
         }
         
+
+     

@@ -32,3 +32,6 @@
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
 }
+.homeBody button{
+    min-width: 28px !important;
+}

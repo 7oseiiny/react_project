@@ -114,6 +114,7 @@ function Navbar() {
             <NavLink className="links px-2" to="electronics" style={{ textDecoration: "none",  }}>Electronics</NavLink>
             <NavLink className="links px-2" to="fashion" style={{ textDecoration: "none",  }}>Fashion</NavLink>
             <NavLink className="links px-2" to="videogames" style={{ textDecoration: "none",  }}>VideoGames</NavLink>
+            <NavLink className="links px-2" to="HomeProducts" style={{ textDecoration: "none",  }}>Home</NavLink>
             <NavLink className="links px-2" to="prime" style={{ textDecoration: "none",  }}>prime</NavLink>
             <NavLink className="links px-2" to="Monitor" style={{ textDecoration: "none",  }}>Monitor</NavLink>
             <NavLink className="links" to="books" style={{ textDecoration: "none", marginLeft: '6px' }}>books</NavLink>
