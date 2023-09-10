@@ -321,10 +321,9 @@ export default function Monitor() {
                     <LiftSide className='s' />
                     <div className='col-xl-10 col-md-9 col-12'>
                         <div className="row d-flex justify-content-center">
-
-                            {data.map((prd) => {
+                            <h1>result</h1>                            {data.map((prd) => {
                                 return (
-                                    <Card className='col-xl-2 col-lg-3 col-md-5  col-10 mx-2' key={prd.id}>
+                                    <Card className='col-xl-2 col-lg-3 col-md-5  col-5 mx-2 my-3' key={prd.id}>
                                         <Card.Img variant="top" className='img' src={prd.imageURL} />
                                         <Card.Body>
                                             <Card.Title className='title-wrapper'>{prd.title}</Card.Title>
@@ -333,55 +332,55 @@ export default function Monitor() {
                                                 {prd.discount == null ? <>
                                                     <span className='fs-4' >{prd.price}</span>
                                                 </> : <>
-                                                <span style={{ textDecoration: "line-through" }}>({prd.price})</span>
+                                                    <span style={{ textDecoration: "line-through" }}>({prd.price})</span>
 
                                                 </>
-                                               }
+                                                }
 
 
-                                        </Card.Text>
-                                        <Card.Text className='m-0'>
-                                            <span className='fs-4' >
-                                                {prd.discount == null ? <></> : <>discount : {prd.discount}</>}
-                                            </span>
+                                            </Card.Text>
+                                            <Card.Text className='m-0'>
+                                                <span className='fs-4' >
+                                                    {prd.discount == null ? <></> : <>discount : {prd.discount}</>}
+                                                </span>
 
-                                        </Card.Text>
-                                        <Card.Text className='m-0'>
-                                            <span className='fs-4' ></span>                {prd.rate}            <div className="d-inline-block">
-                                                <BsStarFill color='#FFA41C' />
-                                                <BsStarFill color='#FFA41C' />
-                                                <BsStarFill color='#FFA41C' />
-                                                <BsStarHalf color='#FFA41C' />
-                                                <BsStar color='#FFA41C' />
+                                            </Card.Text>
+                                            <Card.Text className='m-0'>
+                                                <span className='fs-4' ></span>                {prd.rate}            <div className="d-inline-block">
+                                                    <BsStarFill color='#FFA41C' />
+                                                    <BsStarFill color='#FFA41C' />
+                                                    <BsStarFill color='#FFA41C' />
+                                                    <BsStarHalf color='#FFA41C' />
+                                                    <BsStar color='#FFA41C' />
 
-                                            </div>
-                                            <span style={{ color: "#007185" }}>({prd.totalRates})</span>
-                                        </Card.Text>
+                                                </div>
+                                                <span style={{ color: "#007185" }}>({prd.totalRates})</span>
+                                            </Card.Text>
 
-                                        {/* <Card.Text>
+                                            {/* <Card.Text>
                                                 <span className='fs-4' >totalRates</span>                {prd.totalRates}
                                             </Card.Text> */}
-                                        <Card.Text className='m-0'>
-                                            <span className='fs-4' >deliveryDate</span>                {prd.deliveryDate}
-                                        </Card.Text>
-                                        {/* <Button variant="primary">Go somewhere</Button> */}
-                                    </Card.Body>
+                                            <Card.Text className='m-0'>
+                                                <span className='fs-4' >deliveryDate</span>                {prd.deliveryDate}
+                                            </Card.Text>
+                                            {/* <Button variant="primary">Go somewhere</Button> */}
+                                        </Card.Body>
                                     </Card>
 
-                        )
+                                )
 
 
 
                             })}
 
 
+                        </div>
+
                     </div>
 
                 </div>
 
-            </div>
-
-        </div >
+            </div >
 
 
 
