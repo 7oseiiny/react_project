@@ -18,15 +18,30 @@
   width: 14vw;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 780px) {
 
 
 .elecLeftSide{
   display: none;
 }
+.third-nav1{
+  display: none;
 }
-
+}
+.imgCard{
+  height: 18rem;
+  width: 15rem !important;
+}
 .elecLeftSide{
   border-right:1px solid gray;
   height: 135rem;
+  }
+
+  .joinPrime{
+    width: 98% !important;
+  }
+
+  .seeAll{
+    color: rgb(62, 110, 130) !important;
+    background-color: #ebeaea !important;
   }

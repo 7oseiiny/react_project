@@ -3,6 +3,7 @@ import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import './Vgames.css'
+import '../TodayDeals/todayDealsLiftSide/leftSide.css'
 import React, { useEffect, useState } from "react";
 
 export default function VideoGames() {
@@ -21,28 +22,8 @@ export default function VideoGames() {
   }, []);
   return( 
   <>
-   <div className="offcanvas offcanvas-start" data-bs-scroll="true" tabIndex="-1" id="offcanvasWithBothOptions"
-    aria-labelledby="offcanvasWithBothOptionsLabel">
-    <div className="offcanvas-header">
-      <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
-      <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div className="offcanvas-body">
-      <p>Try scrolling the rest of the page to see this option in action.</p>
-    </div>
-  </div>
   <div className="row container-fluid">
-    <ul className="nav shadow-sm third-nav">
-      <li className="nav-item d-flex small third-nav">
-        <a className="nav-link text-dark fw-bolder" href="#">Electronics</a>
-        <a className="nav-link text-dark" href="#">Best Sellers</a>
-        <a className="nav-link text-dark" href="#">Mobiles & Accessories
-        </a>
-        <a className="nav-link text-dark" href="#">Computer & Accessories</a>
-       
-      </li>
-    </ul>
-    <section className="col-2 leftSide ps-xl-4 ps-1">
+    <section className="col-xl-2 col-md-3 col-4 leftSide ps-xl-4 ps-1">
     <section className="d-flex flex-column">
         <h6 className="mt-3">New Arrivals</h6>
         <span>
@@ -255,7 +236,7 @@ export default function VideoGames() {
             Include Out of Stock</label>
           </span>
       </section>
-  <div className="col-lg-10 col-12 sideRight">
+  <div className="col-xl-10 col-md-9 col-8 sideRight container-fluid justify-content-center align-content-center">
   <Container>
       <Row>
         <h2 className="mt-2">Video Games</h2>
@@ -372,8 +353,8 @@ export default function VideoGames() {
   
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card" style={{width:  '21rem'}}>
-      <span className="bestSellerBadge card-subtitle bs">Best Seller</span>
-        <img src="../assets/images/m1.jpg" className="card-img-top" style={{width:  '9rem' ,marginLeft:'6rem'}} />
+      <span className="bestSellerBadge2 card-subtitle ">Best Seller</span>
+        <img src="../assets/images/m1.jpg" className="card-img-top imgCard3 container-fluid justify-content-center align-content-center" style={{width:  '9rem' ,marginLeft:'6rem'}} />
         <div className="card-body">
           <p className="card-text">SteelSeries Rival 710 Gaming Mouse - 16,000 CPI TrueMove3 Optical Sensor - OLED Display - Tactile Alerts - RGB Lighting, Black</p>
           <div className="d-inline-block">
@@ -403,10 +384,6 @@ export default function VideoGames() {
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card" style={{width:  '21rem'}}>
         <div className="d-flex justify-content-start">
-        {/* <Badge  bg="warning">
-        Best Seller
-      </Badge> */}
-      
         </div>
         <img src="../assets/images/m2.jpg" className="card-img-top" alt="..."/>
         <div className="card-body">
@@ -452,8 +429,8 @@ export default function VideoGames() {
     </div>
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <hr/>
-      <div className="card" style={{width:  '22rem'}}>
-        <img src="../assets/images/m6.jpg" className="card-img-top" style={{width:'11rem', height:  '20rem', marginLeft:'6rem'}} alt="..."/>
+      <div className="card" style={{width:  '21rem'}}>
+        <img src="../assets/images/m6.jpg" className="card-img-top" style={{width:'50%', height:  '20rem', marginLeft:'4rem'}} alt="..."/>
         <div className="card-body">
           <p className="card-text">Kids Wireless Headphones, Arvin Childrens Bluetooth Headphones with Microphone and LED Light, Using TF Card, 85/94dB Volume Limited, Wired</p>
           <div className="d-inline-block">
@@ -473,8 +450,8 @@ export default function VideoGames() {
     </div>
 
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card" style={{width:  '22rem'}}>
-        <img src="../assets/images/m4.jpg" className="card-img-top" alt="..."/>
+      <div className="card" style={{width:  '21rem'}}>
+        <img src="../assets/images/m4.jpg" className="card-img-top imgCard container-fluid justify-content-center align-content-center" alt="..."/>
         <div className="card-body">
           <p className="card-text">EFISH Large Gaming Mouse Map Pad 800×300×2MM (31.50X11.81X0.08 inch),with Non-Slip Base,Waterproof and Foldable Pad,Desktop Pad Suitabl</p>
           <div className="d-inline-block">
@@ -494,8 +471,9 @@ export default function VideoGames() {
     </div>
 
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card" style={{width:  '22rem'}}>
-        <img src="../assets/images/m5.jpg" className="card-img-top" style={{width:'13rem', height:  '20rem', marginLeft:'6rem'}} alt="..."/>
+      <div className="card" style={{width:  '21rem'}}>
+      <span className="bestSellerBadge2 card-subtitle ">Best Seller</span>
+        <img src="../assets/images/m5.jpg" className="card-img-top" style={{width:'60%', height:  '20rem', marginLeft:'4rem'}} alt="..."/>
         <div className="card-body">
           <p className="card-text">G2000 Gaming Headset, Surround Stereo Gaming Headphones with Noise Cancelling Mic, LED Light & Soft Memory Earmuffs, Works with Xbox</p>
           <div className="d-inline-block">
@@ -517,22 +495,24 @@ export default function VideoGames() {
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <hr/>
       <div className="card" style={{width:  '21rem'}}>
-        <img src="../assets/images/11-.PNG" className="card-img-top" alt="..."/>
+      <span className="bestSellerBadge2 card-subtitle ">Best Seller</span>
+
+        <img src="../assets/images/m7.jpg" className="card-img-top" alt="..."/>
         <div className="card-body">
           
-          <p className="card-text fw-bolder">Samsung Galaxy A04e Dual SIM Smartphone - 3GB RAM, 64GB Storage, LTE, Black - 1 year Warranty</p>
+          <p className="card-text">Zexrow Xbox 360 Controller, USB Wired Gamepad Joystick with Improved Dual Vibration and Ergonomic Design for Microsoft Xbox 360 & Slim & PC...</p>
           <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
-          <BsStarHalf color='#FFA41C' />
-          <BsStar color='#FFA41C' />21
+          <BsStarFill color='#FFA41C' />
+          <BsStarHalf color='#FFA41C' />7,771
          </div>     
-               <div className="d-flex">EGP<sub><h3>3,399</h3></sub>00 
-               <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP4,9690</span></span> 
+               <div className="d-flex">EGP<sub><h3>499</h3></sub>00 
               </div> 
               <div className="d-flex align-items-start me-3">
-                <img src="../assets/images/a.PNG" style={{width:  '50px'}}/><h6>Get it as soon as tomorrow, Aug 3</h6> 
+                <img src="../assets/images/a.PNG" style={{width:  '50px'}}/> <span >Get it as soon as  <span className="fw-bold">Saturday, September 9 </span>
+               </span> 
                 </div>
                 <h6>Fulfilled by Amazon - FREE Shipping</h6>
               </div>
@@ -540,22 +520,25 @@ export default function VideoGames() {
     </div>
 
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card" style={{width:  '22rem'}}>
-        <img src="../assets/images/22-.PNG" className="card-img-top" alt="..."/>
+      <div className="card" style={{width:  '21rem'}}>
+      <span className="bestSellerBadge2 card-subtitle ">Best Seller</span>
+
+        <img src="../assets/images/m8.jpg" className="card-img-top" style={{marginTop:'5rem'}} alt="..."/>
         <div className="card-body">
-          <p className="card-text fw-bolder">Soundcore a3991h11 by anker life p2i true wireless earbuds, ai-enhanced calls, 10mm drivers, 2 eq modes, 28h playtime with fast charging, bluetooth</p>
+          <p className="card-text">Sony Dualshock 4 V2 Wireless Controller For Playstation 4 - Green Camouflage</p>
           <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
-          <BsStarHalf color='#FFA41C' />
+          <BsStarFill color='#FFA41C' />
           <BsStar color='#FFA41C' />131
          </div>  
-               <div className="d-flex">EGP<sub><h3>1,089</h3></sub>00 
+               <div className="d-flex">EGP<sub><h3>850</h3></sub>00 
                <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP1,540,01</span></span> 
               </div> 
               <div className="d-flex align-items-start me-3">
-                <img src="../assets/images/a.PNG" style={{width:'50px'}}/><h6>Get it as soon as tomorrow, Aug 4</h6> 
+                <img src="../assets/images/a.PNG" style={{width:  '50px'}}/> <span >Get it as soon as  <span className="fw-bold">Saturday, September 9 </span>
+               </span> 
                 </div>
                 <h6>Fulfilled by Amazon - FREE Shipping</h6>
               </div>
@@ -563,22 +546,22 @@ export default function VideoGames() {
     </div>
 
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card" style={{width:  '22rem'}}>
-        <img src="../assets/images/33-.PNG" className="card-img-top" alt="..."/>
+      <div className="card" style={{width:  '21rem'}}>
+        <img src="../assets/images/m9.jpg" className="card-img-top" style={{height:'20rem'}} alt="..."/>
         <div className="card-body">
-          <p className="card-text fw-bolder">Redmi 12 Dual SIM, 4GB RAM, 128GB ROM - Midnight Black</p>
+          <p className="card-text">DELUX Ergonomic Mouse, Wired Large RGB Vertical Mouse with 6 Buttons, Removable Wrist Rest, 4000DPI and On-Board Software Reduce Hand</p>
           <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
           <BsStarHalf color='#FFA41C' />
-          <BsStar color='#FFA41C' />4
+          <BsStar color='#FFA41C' />4,652
          </div>     
-               <div className="d-flex">EGP<sub><h3>5,999</h3></sub>00 
-               <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP11,299.40</span></span> 
+               <div className="d-flex">EGP<sub><h3>1,099</h3></sub>00 
               </div> 
               <div className="d-flex align-items-start me-3">
-                <img src="../assets/images/a.PNG" style={{width:'50px'}}/><h6>Get it as soon as tomorrow, Aug 4</h6> 
+                <img src="../assets/images/a.PNG" style={{width:  '50px'}}/> <span >Get it as soon as  <span className="fw-bold">Saturday, September 9 </span>
+               </span> 
                 </div>
                 <h6>Fulfilled by Amazon - FREE Shipping</h6>
               </div>
@@ -587,7 +570,7 @@ export default function VideoGames() {
 
  
   <div className="d-grid gap-2">
-    <button className="btn mt-4 mb-5" style={{backgroundColor: '#ebeaea', color: 'rgb(62, 110, 130)'}} type="button"><h5>See all results</h5></button></div>
+    <button className="btn mt-4 mb-5 seeAll" type="button"><h5>See all results</h5></button></div>
 
 
       

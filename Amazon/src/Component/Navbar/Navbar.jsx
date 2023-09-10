@@ -10,11 +10,13 @@ function Navbar() {
 
       <div className="container-fluid px-0 bg-dark">
         <div className="row m-0 align-items-center">
-          <div className="col-12 col-md-2 logo d-flex flex-wrap">
-            <img className="col-6" src="../assets/images/logoo1.png" alt="logo" />
-            <div className="ps-3 col-6 d-flex align-items-center">
-              <div className=""><MdLocationPin color='white' size={20} /></div>
-              <div className="text-white d-flex flex-column ps-2">
+          <div className="col-12 col-md-2 logo d-flex ">
+            <NavLink className="links px-2 col-6" to="/"><img className="col-12 mt-4" src="../assets/images/logoo1.png"  alt="logo" />
+            </NavLink>
+
+            <div className="ps-3 d-flex col-6">
+              <div className="mt-3"><MdLocationPin color='white' size={20} /></div>
+              <div className="text-white col-6 d-flex flex-column ps-2">
                 <span className="text-white-50 fs-6">Deliver to</span>
                 <span className="fw-bold fs-">EGYPT</span>
               </div>
@@ -109,14 +111,14 @@ function Navbar() {
       <div className="container-fluid  navv p-2">
         <div className=" d-flex justify-content-between  ">
           <div className="d-flex flex-wrap">
-            <NavLink className="links px-2" to="todayDeals" style={{ textDecoration: "none",  }}>Today s Deals</NavLink>
-            <NavLink className="links px-2" to="mobile" style={{ textDecoration: "none",  }}>Mobile Phone</NavLink>
-            <NavLink className="links px-2" to="electronics" style={{ textDecoration: "none",  }}>Electronics</NavLink>
-            <NavLink className="links px-2" to="fashion" style={{ textDecoration: "none",  }}>Fashion</NavLink>
-            <NavLink className="links px-2" to="videogames" style={{ textDecoration: "none",  }}>VideoGames</NavLink>
-            <NavLink className="links px-2" to="HomeProducts" style={{ textDecoration: "none",  }}>Home</NavLink>
-            <NavLink className="links px-2" to="prime" style={{ textDecoration: "none",  }}>prime</NavLink>
-            <NavLink className="links px-2" to="Monitor" style={{ textDecoration: "none",  }}>Monitor</NavLink>
+            <NavLink className="links px-2" to="todayDeals" style={{ textDecoration: "none", }}>Today s Deals</NavLink>
+            <NavLink className="links px-2" to="mobile" style={{ textDecoration: "none", }}>Mobile Phone</NavLink>
+            <NavLink className="links px-2" to="electronics" style={{ textDecoration: "none", }}>Electronics</NavLink>
+            <NavLink className="links px-2" to="fashion" style={{ textDecoration: "none", }}>Fashion</NavLink>
+            <NavLink className="links px-2" to="videogames" style={{ textDecoration: "none", }}>VideoGames</NavLink>
+            <NavLink className="links px-2" to="HomeProducts" style={{ textDecoration: "none", }}>Home</NavLink>
+            <NavLink className="links px-2" to="prime" style={{ textDecoration: "none", }}>prime</NavLink>
+            <NavLink className="links px-2" to="Monitor" style={{ textDecoration: "none", }}>Monitor</NavLink>
             <NavLink className="links" to="books" style={{ textDecoration: "none", marginLeft: '6px' }}>books</NavLink>
 
           </div>
