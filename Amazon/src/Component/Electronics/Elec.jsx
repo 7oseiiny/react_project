@@ -4,6 +4,7 @@ import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import React from 'react';
+import '../TodayDeals/todayDealsLiftSide/leftSide.css'
 
 export default function Electronics() {
   var settings = {
@@ -34,28 +35,15 @@ export default function Electronics() {
   return (
     <>
    
-  <div className="offcanvas offcanvas-start" data-bs-scroll="true" tabIndex="-1" id="offcanvasWithBothOptions"
-    aria-labelledby="offcanvasWithBothOptionsLabel">
-    <div className="offcanvas-header">
-      <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
-      <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div className="offcanvas-body">
-      <p>Try scrolling the rest of the page to see this option in action.</p>
-    </div>
-  </div>
   <div className="row container-fluid">
-    <ul className="nav shadow-sm third-nav">
+    <ul className="nav  shadow-sm third-nav">
       <li className="nav-item d-flex small third-nav">
         <a className="nav-link text-dark fw-bolder" href="#">Electronics</a>
         <a className="nav-link text-dark" href="#">Best Sellers</a>
-        <a className="nav-link text-dark" href="#">Mobiles & Accessories
-        </a>
-        <a className="nav-link text-dark" href="#">Computer & Accessories</a>
+        <a className="nav-link text-dark" href="#">Mobiles & Accessories </a>
       </li>
     </ul>
-    {/* <!-- <div className=""></div> --> */}
-    <section className=" col-2 elecLeftSide ps-xl-4 ps-1">
+    <section className=" col-xl-2 col-md-3 col-4 elecLeftSide  ps-xl-4 ps-1">
         <header className="d-flex flex-column mt-3 pb-3">
         <p className="h6 fw-bold">Eligible for free delivery</p>
         </header>
@@ -259,18 +247,22 @@ export default function Electronics() {
             Include Out of Stock</label>
           </span>
       </section>
-  <div className="col-lg-10 col-12 sideRight">
-  <div className="container">
+  <div className="col-xl-10 col-md-9 col-8 sideRight container-fluid justify-content-center align-content-center">
+  <div className="container-fluid">
     <div className="row">
       <h2 className='mt-2'>Electronics</h2>
-      {/* <!-- <img src="../assets/images/2x.jpg" className="img-fluid" alt="..."> --> */}
       <img src="../assets/images/XCM_.jpg" className="img-fluid" alt="..."/>
-      <img src="../assets/images/6.PNG" className=" mt-3 img-fluid" alt="..."/> 
-      <img className="col-lg-6 col-md-12" src="../assets/images/1_EN.png" alt="..."/> 
+      <div className='container-fluid my-2 joinPrime' id='joinPrime'>
+                <div className='row col-12 d-flex flex-md-row flex-column justify-content-center p-2'>
+                    <p className='col-md-5 me-2 fs-5'>
+                        Enjoy FREE delivery, exclusive deals, award-winning TV and more
+                        Join today. Cancel anytime.
+                    </p>
+                    <button className='btn btn-warning col-md-2  fs-5 h-50'> Join Prime</button>
+                </div>
+            </div>      <img className="col-lg-6 col-md-12" src="../assets/images/1_EN.png" alt="..."/> 
       <img className="col-lg-6 col-md-12" src="../assets/images/2-EN.png" alt="..."/> 
-
-      {/* <img className="mt-2 img-fluid" src="../assets/images/7.PNG" alt="..."/> */}
-      <hr className="mt-2"/>
+            <hr className="mt-2"/>
       <h3 className="mt-4 text-center">SHOP BY CATEGORY</h3>
         <div className="mt-3">
           <div className="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3">
@@ -332,28 +324,24 @@ export default function Electronics() {
           <div className="card  border-0" style={{width:  '18rem'}}>
             <img src="../assets/images/88.jpg" className="card-img-top"/>
             <div className="card-body">
-              {/* <!-- <h3 className="card-text text-center">Joyroom</h4> --> */}
             </div>
           </div></div>
           <div className="col">
           <div className="card  border-0" style={{width:  '18rem'}}>
             <img src="../assets/images/77.jpg" className="card-img-top"/>
             <div className="card-body">
-              {/* <!-- <h3 className="card-text text-center">XO</h4> --> */}
             </div>
           </div></div>
           <div className="col">
           <div className="card  border-0" style={{width:  '18rem'}}>
             <img src="../assets/images/99.jpg" className="card-img-top"/>
             <div className="card-body">
-              {/* <!-- <h3 className="card-text text-center">Remax</h4> --> */}
             </div>
           </div></div>
           <div className="col">
           <div className="card  border-0" style={{width:  '18rem'}}>
             <img src="../assets/images/66.jpg" className="card-img-top"/>
             <div className="card-body">
-               {/* <h3 className="card-text text-center">Aspor</h3>  */}
             </div>
           </div></div>
         </div>
@@ -377,9 +365,7 @@ export default function Electronics() {
           <BsStar color='#FFA41C' />
            (57)
          </div>     
-                
-              
-              </div>
+            </div>
             </div>
             <div className="card border-0 ">
           <img src="../assets/images/Capture1.PNG" className="card-img-top1" alt="..."/>
@@ -395,9 +381,7 @@ export default function Electronics() {
             <BsStarFill color='#FFA41C' />
           <BsStarHalf color='#FFA41C' />
           <BsStar color='#FFA41C' />(9)
-           </div>     
-                  
-                
+           </div>          
                 </div>
               </div>
               <div className="card border-0 m-3">
@@ -414,8 +398,6 @@ export default function Electronics() {
           <BsStarHalf color='#FFA41C' />
           <BsStar color='#FFA41C' />(108)
            </div>     
-                 
-                
                 </div>
               </div>
 
@@ -430,10 +412,7 @@ export default function Electronics() {
             <BsStarFill color='#FFA41C' />
           <BsStarHalf color='#FFA41C' />
           <BsStar color='#FFA41C' />
-          <BsStar color='#FFA41C' />
-
-            <div>
-            (10)
+          <BsStar color='#FFA41C' /> <div> (10)
            </div>     
                 </div>
               </div>
@@ -451,7 +430,6 @@ export default function Electronics() {
           <BsStar color='#FFA41C' />
           <BsStar color='#FFA41C' />(7)
            </div>     
-                
                 </div>
               </div>
               <div className="card border-0">
@@ -507,9 +485,7 @@ export default function Electronics() {
            <BsStarFill color='#FFA41C'/>
            <BsStarFill color='#FFA41C'/>
            <BsStarHalf color='#FFA41C'/>(2,494)
-         </div>     
-                
-              
+         </div>      
               </div>
             </div>
             <div className="card border-0">
@@ -519,7 +495,6 @@ export default function Electronics() {
             <span>Joyroom</span>
             <div className="d-flex">EGP<sub><h3>215</h3></sub>00 
               <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP309.43</span>
-
              </div>
             <div>
             <BsStarFill color='#FFA41C'/>
@@ -527,9 +502,7 @@ export default function Electronics() {
            <BsStarFill color='#FFA41C'/>
            <BsStarFill color='#FFA41C'/>
            <BsStar color='#FFA41C'/> (130)
-           </div>     
-                  
-                
+           </div>        
                 </div>
               </div>
            <div className="card border-0">
@@ -540,7 +513,6 @@ export default function Electronics() {
             <div className="d-flex">EGP<sub><h3>92</h3></sub>00 
               <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP111.49</span>
             </div>
-            
             <div>
               <BsStarFill color='#FFA41C'/>
               <BsStarFill color='#FFA41C'/>
@@ -631,25 +603,19 @@ export default function Electronics() {
    
 <div className="container">
   <div className="row">
-    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card" style={{width:  '22rem'}}>
-        <img src="../assets/images/best.PNG" className="card-img-top" alt="..."/>
+    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2 d-flex justify-content-center">
+      <div className="card" style={{width:  '21rem'}}>
+        <img src="../assets/images/1=.jpg" className="card-img-top imgCard container-fluid justify-content-center align-content-center" alt="..."/>
         <div className="card-body">
-          <div className="text-center">
-            <input type="radio" style={{width: '25px',height: '25px', accentColor: 'black'}} defaultChecked/>
-            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(88, 65, 65)'}} defaultChecked/>
-            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(159, 159, 159)'}} defaultChecked/>
-          </div>
-          <p className="card-text fw-bolder">SAMSUNG Galaxy A04 Dual SIM Smartphone- 3GB RAM, 32GB Storage, LTE, Black - 1 year Warranty</p>
+          <p className="card-text">SAMSUNG Galaxy A04 Dual SIM Smartphone- 3GB RAM, 32GB Storage, LTE, Black - 1 year Warranty</p>
           <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
           <BsStarHalf color='#FFA41C' />
-          <BsStar color='#FFA41C' />
-31
+          <BsStar color='#FFA41C' />31
           </div>     
-               <div className="d-flex">EGP<sub><h3>3,199</h3></sub>00 
+               <div className="d-flex">EGP<sub><h3>15,199</h3></sub>00 
                 <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP4,919.00</span></span> 
               </div> 
               <div className="d-flex align-items-start me-3">
@@ -657,22 +623,13 @@ export default function Electronics() {
                 </div>
                 <h6>Fulfilled by Amazon - FREE Shipping</h6>
               </div>
-          
-
-             
             </div>
       </div>
-    
-
-    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card" style={{width:  '22rem'}}>
-        <img src="../assets/images/1.PNG" className="card-img-top" alt="..."/>
+    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2 d-flex justify-content-center">
+      <div className="card" style={{width:  '21rem'}}>
+        <img src="../assets/images/1+.jpg" className="card-img-top imgCard container-fluid justify-content-center align-content-center" alt="..."/>
         <div className="card-body">
-          <div className="text-center">
-            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'black'}} defaultChecked/>
-            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(201, 201, 208)'}} defaultChecked/>
-          </div>
-          <p className="card-text fw-bolder">SAMSUNG Galaxy A04 Dual SIM Smartphone- 4GB RAM, 64GB Storage, LTE, Black - 1 year Warranty</p>
+          <p className="card-text">SAMSUNG Galaxy A04 Dual SIM Smartphone- 4GB RAM, 64GB Storage, LTE, Black - 1 year Warranty</p>
           <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
@@ -688,21 +645,14 @@ export default function Electronics() {
                 </div>
                 <h6>Fulfilled by Amazon - FREE Shipping</h6>
               </div>
-          
-
-             
             </div>
     </div>
 
-    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card" style={{width:  '22rem'}}>
-        <img src="../assets/images/3.PNG" className="card-img-top" alt="..."/>
+    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2 d-flex justify-content-center">
+      <div className="card" style={{width:  '21rem'}}>
+        <img src="../assets/images/11-.jpg" className="card-img-top imgCard container-fluid justify-content-center align-content-center " alt="..."/>
         <div className="card-body">
-          <div className="text-center">
-            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(201, 201, 208)'}} defaultChecked/>
-            <input type="radio" style={{width: '25px', height: '25px', accentColor: 'black'}} defaultChecked/>
-          </div>
-          <p className="card-text fw-bolder">Samsung Galaxy A24 Dual SIM, 4GB RAM, 128GB ROM, 4G LTE - Silver</p>
+          <p className="card-text">Samsung Galaxy A24 Dual SIM, 4GB RAM, 128GB ROM, 4G LTE - Silver</p>
           <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
@@ -722,10 +672,11 @@ export default function Electronics() {
     </div>
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <hr/>
-      <div className="card" style={{width:  '22rem'}}>
-        <img src="../assets/images/2.PNG" className="card-img-top" alt="..."/>
+      <div className="card" style={{width:  '21rem'}}>
+      <span className="bestSellerBadge2 card-subtitle ">Best Seller</span>
+        <img src="../assets/images/2+.jpg" className="card-img-top mt-5 container-fluid justify-content-center align-content-center imgCard" alt="..."/>
         <div className="card-body">
-          <p className="card-text fw-bolder">Samsung 50 inch 4k uhd smart led tv with built-in receiver and remote control, black - ua50cu7000uxeg</p>
+          <p className="card-text">Samsung 50 inch 4k uhd smart led tv with built-in receiver and remote control, black - ua50cu7000uxeg</p>
           <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
@@ -745,10 +696,11 @@ export default function Electronics() {
     </div>
 
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card" style={{width:  '22rem'}}>
-        <img src="../assets/images/r1.PNG" className="card-img-top" alt="..."/>
+      <div className="card" style={{width:  '21rem'}}>
+      <span className="bestSellerBadge2 card-subtitle ">Best Seller</span>
+        <img src="../assets/images/r1.jpg" className="card-img-top container-fluid justify-content-center align-content-center imgcarrd" style={{marginTop:'8rem'}}/>
         <div className="card-body">
-          <p className="card-text fw-bolder">Oraimo Riff Smaller htmlFor ComhtmlFort True Wireless Earbuds, Black + 12 Months Local Warranty</p>
+          <p className="card-text">Samsung 43 inch full hd smart led tv with built-in receiver, black - ua43t5300auxeg, Wi-Fi</p>
           <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
@@ -756,7 +708,6 @@ export default function Electronics() {
           <BsStarHalf color='#FFA41C' />
           <BsStar color='#FFA41C' />
          </div>21   
-         <span className="d-flex badge bg-danger"style={{width:  '7rem'}}> Limited time deal</span>
                <div className="d-flex">EGP<sub><h3>599</h3></sub>00 
                <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGPl,037.40</span></span> 
               </div> 
@@ -769,10 +720,10 @@ export default function Electronics() {
     </div>
 
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card" style={{width:  '22rem'}}>
-        <img src="../assets/images/2.PNG" className="card-img-top" alt="..."/>
+      <div className="card" style={{width:  '21rem'}}>
+        <img src="../assets/images/3+.jpg" className="card-img-top container-fluid justify-content-center align-content-center imgCard mt-4" alt="..."/>
         <div className="card-body">
-          <p className="card-text fw-bolder">Samsung 50 inch 4k uhd smart led tv with built-in receiver and remote control, black - ua50cu7000uxeg</p>
+          <p className="card-text">Samsung Galaxy A54 - Dual SIM Mobile Phone Android, 8GB RAM, 256GB, 5G, Awesome White - 1 year Warranty</p>
           <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
@@ -793,15 +744,10 @@ export default function Electronics() {
 
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <hr/>
-      <div className="card" style={{width:  '22rem'}}>
-        <img src="../assets/images/11-.PNG" className="card-img-top" alt="..."/>
+      <div className="card" style={{width:  '21rem'}}>
+        <img src="../assets/images/4+.jpg" className="card-img-top mt-4 container-fluid justify-content-center align-content-center imgCard" alt="..."/>
         <div className="card-body">
-          <div className="text-center">
-          <input type="radio" style={{width: '25px', height: '25px', accentColor: 'black'}} defaultChecked/>
-          <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(163, 163, 205)'}} defaultChecked/>
-          <input type="radio" style={{width: '25px', height: '25px', accentColor: 'rgb(118, 86, 86)'}} defaultChecked/>
-        </div>
-          <p className="card-text fw-bolder">Samsung Galaxy A04e Dual SIM Smartphone - 3GB RAM, 64GB Storage, LTE, Black - 1 year Warranty</p>
+          <p className="card-text">Samsung Galaxy Tab A7 Lite - 8.7 Inches Display, 3 GB RAM, 32 GB, 4G LTE, Grey - 1 year Warranty</p>
           <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
@@ -821,10 +767,12 @@ export default function Electronics() {
     </div>
 
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card" style={{width:  '22rem'}}>
-        <img src="../assets/images/22-.PNG" className="card-img-top" alt="..."/>
+      <div className="card" style={{width:  '21rem'}}>
+      <span className="bestSellerBadge2 card-subtitle ">Best Seller</span>
+
+        <img src="../assets/images/22-.jpg" className="card-img-top mt-3 container-fluid justify-content-center align-content-center imgCard" alt="..."/>
         <div className="card-body">
-          <p className="card-text fw-bolder">Soundcore a3991h11 by anker life p2i true wireless earbuds, ai-enhanced calls, 10mm drivers, 2 eq modes, 28h playtime with fast charging, bluetooth</p>
+          <p className="card-text">Soundcore a3991h11 by anker life p2i true wireless earbuds, ai-enhanced calls, 10mm drivers, 2 eq modes, 28h playtime with fast charging, bluetooth</p>
           <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
@@ -844,10 +792,10 @@ export default function Electronics() {
     </div>
 
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card" style={{width:  '22rem'}}>
-        <img src="../assets/images/33-.PNG" className="card-img-top" alt="..."/>
+      <div className="card" style={{width:  '21rem'}}>
+        <img src="../assets/images/r1.jpg" className="card-img-top my-5 container-fluid justify-content-center align-content-center imgcard" alt="..."/>
         <div className="card-body">
-          <p className="card-text fw-bolder">Redmi 12 Dual SIM, 4GB RAM, 128GB ROM - Midnight Black</p>
+          <p className="card-text">Samsung 40 inch full hd smart led tv with built-in receiver, black</p>
           <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
@@ -868,7 +816,7 @@ export default function Electronics() {
 
   </div>
   <div className="d-grid gap-2">
-    <button className="btn mt-4 mb-5" style={{backgroundColor: '#ebeaea', color: 'rgb(62, 110, 130)'}} type="button"><h5>See all results</h5></button></div>
+    <button className="btn mt-4 mb-5 seeAll" type="button"><h5>See all results</h5></button></div>
 </div></div>
 </div>
     </>
