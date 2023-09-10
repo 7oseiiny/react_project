@@ -37,8 +37,6 @@ const router = createBrowserRouter([
           {index:true,element:<Main/>},
           {path:"Decor",element:<HomeDecor/>}
         ] },
-        {path:'videogames',element:<VideoGames/>},
-        {path:'electronics',element:<Electronics/>},
         {path:'electronics',element:<Electronics/>},
   {
     path: "fashion",
