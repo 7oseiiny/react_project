@@ -372,7 +372,8 @@ export default function VideoGames() {
   
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card" style={{width:  '21rem'}}>
-        <img src="../assets/images/m1.jpg" className="card-img-top"style={{width:  '9rem' ,marginLeft:'6rem'}} />
+      <span className="bestSellerBadge card-subtitle bs">Best Seller</span>
+        <img src="../assets/images/m1.jpg" className="card-img-top" style={{width:  '9rem' ,marginLeft:'6rem'}} />
         <div className="card-body">
           <p className="card-text">SteelSeries Rival 710 Gaming Mouse - 16,000 CPI TrueMove3 Optical Sensor - OLED Display - Tactile Alerts - RGB Lighting, Black</p>
           <div className="d-inline-block">
@@ -402,9 +403,10 @@ export default function VideoGames() {
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card" style={{width:  '21rem'}}>
         <div className="d-flex justify-content-start">
-        <Badge  bg="warning">
+        {/* <Badge  bg="warning">
         Best Seller
-      </Badge>
+      </Badge> */}
+      
         </div>
         <img src="../assets/images/m2.jpg" className="card-img-top" alt="..."/>
         <div className="card-body">
@@ -451,9 +453,9 @@ export default function VideoGames() {
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <hr/>
       <div className="card" style={{width:  '22rem'}}>
-        <img src="../assets/images/2.PNG" className="card-img-top" alt="..."/>
+        <img src="../assets/images/m6.jpg" className="card-img-top" style={{width:'11rem', height:  '20rem', marginLeft:'6rem'}} alt="..."/>
         <div className="card-body">
-          <p className="card-text fw-bolder">Samsung 50 inch 4k uhd smart led tv with built-in receiver and remote control, black - ua50cu7000uxeg</p>
+          <p className="card-text">Kids Wireless Headphones, Arvin Childrens Bluetooth Headphones with Microphone and LED Light, Using TF Card, 85/94dB Volume Limited, Wired</p>
           <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
@@ -464,19 +466,17 @@ export default function VideoGames() {
                <div className="d-flex">EGP<sub><h3>10,899</h3></sub>00 
                <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGPl1,299.40</span></span> 
               </div> 
-              <div className="d-flex align-items-start me-3">
-                <img src="../assets/images/a.PNG" style={{width:  '50px'}}/><h6>Get it as soon as tomorrow, Aug 1</h6> 
-                </div>
-                <h6>Fulfilled by Amazon - FREE Shipping</h6>
-              </div>
+              <span >Get it as soon as  <span className="fw-bold">Saturday, September 9 </span>
+               Fulfilled by Amazon - FREE Shipping</span>
+            </div>
             </div>
     </div>
 
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card" style={{width:  '22rem'}}>
-        <img src="../assets/images/r1.PNG" className="card-img-top" alt="..."/>
+        <img src="../assets/images/m4.jpg" className="card-img-top" alt="..."/>
         <div className="card-body">
-          <p className="card-text fw-bolder">Oraimo Riff Smaller htmlFor ComhtmlFort True Wireless Earbuds, Black + 12 Months Local Warranty</p>
+          <p className="card-text">EFISH Large Gaming Mouse Map Pad 800×300×2MM (31.50X11.81X0.08 inch),with Non-Slip Base,Waterproof and Foldable Pad,Desktop Pad Suitabl</p>
           <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
@@ -484,23 +484,20 @@ export default function VideoGames() {
           <BsStarHalf color='#FFA41C' />
           <BsStar color='#FFA41C' />
          </div>21   
-         <span className="d-flex badge bg-danger"style={{width:  '7rem'}}> Limited time deal</span>
                <div className="d-flex">EGP<sub><h3>599</h3></sub>00 
                <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGPl,037.40</span></span> 
               </div> 
-              <div className="d-flex align-items-start me-3">
-                <img src="../assets/images/a.PNG" style={{width:  '50px'}}/><h6>Get it as soon as tomorrow, Aug 1</h6> 
-                </div>
-                <h6>Fulfilled by Amazon - FREE Shipping</h6>
-              </div>
+              
+              <span >Get it as soon as  <span className="fw-bold">Saturday, September 13 </span>
+               Fulfilled by Amazon - FREE Shipping</span>              </div>
             </div>
     </div>
 
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card" style={{width:  '22rem'}}>
-        <img src="../assets/images/2.PNG" className="card-img-top" alt="..."/>
+        <img src="../assets/images/m5.jpg" className="card-img-top" style={{width:'13rem', height:  '20rem', marginLeft:'6rem'}} alt="..."/>
         <div className="card-body">
-          <p className="card-text fw-bolder">Samsung 50 inch 4k uhd smart led tv with built-in receiver and remote control, black - ua50cu7000uxeg</p>
+          <p className="card-text">G2000 Gaming Headset, Surround Stereo Gaming Headphones with Noise Cancelling Mic, LED Light & Soft Memory Earmuffs, Works with Xbox</p>
           <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
@@ -511,10 +508,8 @@ export default function VideoGames() {
                <div className="d-flex">EGP<sub><h3>10,899</h3></sub>00 
                <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGPl1,299.40</span></span> 
               </div> 
-              <div className="d-flex align-items-start me-3">
-                <img src="../assets/images/a.PNG" style={{width:  '50px'}}/><h6>Get it as soon as tomorrow, Aug 1</h6> 
-                </div>
-                <h6>Fulfilled by Amazon - FREE Shipping</h6>
+              <span >Get it as soon as  <span className="fw-bold">Saturday, September 11 </span>
+               Fulfilled by Amazon - FREE Shipping</span>
               </div>
             </div>
     </div>

@@ -19,16 +19,10 @@
     }
     @media (max-width: 989px) {
 
-        /* .carousel-item {
-          margin-right: 0;
-          flex: 0 0 calc(100%/3);
-          display: block;
-        }
-        .carousel-inner {
-          display: flex;
-        } */
         .leftSide{
           display: none;
         }
         }
         
+
+     
