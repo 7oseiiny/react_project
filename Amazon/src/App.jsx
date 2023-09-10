@@ -20,6 +20,8 @@ import Books from "./Component/books/Books";
 import HomeProducts from './Component/HomeProducts/HomeProducts';
 import HomeDecor from './Component/HomeProducts/HomeDecor/HomeDecor';
 import Main from './Component/HomeProducts/Main/Main';
+import BestSeller from "./Component/VideoGames/BestSeller";
+import VgamesNav from "./Component/VideoGames/VgamesNav";
 
 const router = createBrowserRouter([
   {
@@ -47,7 +49,10 @@ const router = createBrowserRouter([
       { path: "men", element: <Men /> },
     ],
   },
-  { path: "videogames", element: <VideoGames /> },
+  { path: "videogames", element: <VgamesNav />, children: [
+    { index: true, element: <VideoGames /> },
+    { path: "BestSeller", element: <BestSeller /> },
+  ], },
 { path: "prime", element: <Prime/> },
 { path: "books", element: <Books/> },
 {

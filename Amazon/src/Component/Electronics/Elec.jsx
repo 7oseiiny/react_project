@@ -36,13 +36,7 @@ export default function Electronics() {
     <>
    
   <div className="row container-fluid">
-    <ul className="nav  shadow-sm third-nav">
-      <li className="nav-item d-flex small third-nav">
-        <a className="nav-link text-dark fw-bolder" href="#">Electronics</a>
-        <a className="nav-link text-dark" href="#">Best Sellers</a>
-        <a className="nav-link text-dark" href="#">Mobiles & Accessories </a>
-      </li>
-    </ul>
+   
     <section className=" col-xl-2 col-md-3 col-4 elecLeftSide  ps-xl-4 ps-1">
         <header className="d-flex flex-column mt-3 pb-3">
         <p className="h6 fw-bold">Eligible for free delivery</p>
@@ -603,7 +597,7 @@ export default function Electronics() {
    
 <div className="container">
   <div className="row">
-    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2 d-flex justify-content-center">
+    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card" style={{width:  '21rem'}}>
         <img src="../assets/images/1=.jpg" className="card-img-top imgCard container-fluid justify-content-center align-content-center" alt="..."/>
         <div className="card-body">
@@ -625,7 +619,7 @@ export default function Electronics() {
               </div>
             </div>
       </div>
-    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2 d-flex justify-content-center">
+    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card" style={{width:  '21rem'}}>
         <img src="../assets/images/1+.jpg" className="card-img-top imgCard container-fluid justify-content-center align-content-center" alt="..."/>
         <div className="card-body">
@@ -648,7 +642,7 @@ export default function Electronics() {
             </div>
     </div>
 
-    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2 d-flex justify-content-center">
+    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card" style={{width:  '21rem'}}>
         <img src="../assets/images/11-.jpg" className="card-img-top imgCard container-fluid justify-content-center align-content-center " alt="..."/>
         <div className="card-body">
@@ -770,7 +764,7 @@ export default function Electronics() {
       <div className="card" style={{width:  '21rem'}}>
       <span className="bestSellerBadge2 card-subtitle ">Best Seller</span>
 
-        <img src="../assets/images/22-.jpg" className="card-img-top mt-3 container-fluid justify-content-center align-content-center imgCard" alt="..."/>
+        <img src="../assets/images/22-.jpg" className="card-img-top mt-5 container-fluid justify-content-center align-content-center imgCard" alt="..."/>
         <div className="card-body">
           <p className="card-text">Soundcore a3991h11 by anker life p2i true wireless earbuds, ai-enhanced calls, 10mm drivers, 2 eq modes, 28h playtime with fast charging, bluetooth</p>
           <div className="d-inline-block">

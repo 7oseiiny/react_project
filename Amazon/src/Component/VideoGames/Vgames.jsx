@@ -23,13 +23,6 @@ export default function VideoGames() {
   return( 
   <>
   <div className="row container-fluid">
-    <ul className="nav shadow-sm third-nav">
-      <li className="nav-item d-flex small third-nav">
-        <a className="nav-link text-dark fw-bolder" href="#">Video Games</a>
-        <a className="nav-link text-dark" href="#">New Releases</a>
-        <a className="nav-link text-dark" href="#">Best Sellers</a>
-      </li>
-    </ul>
     <section className="col-xl-2 col-md-3 col-4 leftSide ps-xl-4 ps-1">
     <section className="d-flex flex-column">
         <h6 className="mt-3">New Arrivals</h6>
@@ -361,7 +354,7 @@ export default function VideoGames() {
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card" style={{width:  '21rem'}}>
       <span className="bestSellerBadge2 card-subtitle ">Best Seller</span>
-        <img src="../assets/images/m1.jpg" className="card-img-top" style={{width:  '9rem' ,marginLeft:'6rem'}} />
+        <img src="../assets/images/m1.jpg" className="card-img-top imgCard3 container-fluid justify-content-center align-content-center" style={{width:  '9rem' ,marginLeft:'6rem'}} />
         <div className="card-body">
           <p className="card-text">SteelSeries Rival 710 Gaming Mouse - 16,000 CPI TrueMove3 Optical Sensor - OLED Display - Tactile Alerts - RGB Lighting, Black</p>
           <div className="d-inline-block">
@@ -391,10 +384,6 @@ export default function VideoGames() {
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card" style={{width:  '21rem'}}>
         <div className="d-flex justify-content-start">
-        {/* <Badge  bg="warning">
-        Best Seller
-      </Badge> */}
-      
         </div>
         <img src="../assets/images/m2.jpg" className="card-img-top" alt="..."/>
         <div className="card-body">
@@ -441,7 +430,7 @@ export default function VideoGames() {
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <hr/>
       <div className="card" style={{width:  '21rem'}}>
-        <img src="../assets/images/m6.jpg" className="card-img-top" style={{width:'11rem', height:  '20rem', marginLeft:'6rem'}} alt="..."/>
+        <img src="../assets/images/m6.jpg" className="card-img-top" style={{width:'50%', height:  '20rem', marginLeft:'4rem'}} alt="..."/>
         <div className="card-body">
           <p className="card-text">Kids Wireless Headphones, Arvin Childrens Bluetooth Headphones with Microphone and LED Light, Using TF Card, 85/94dB Volume Limited, Wired</p>
           <div className="d-inline-block">
@@ -462,7 +451,7 @@ export default function VideoGames() {
 
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card" style={{width:  '21rem'}}>
-        <img src="../assets/images/m4.jpg" className="card-img-top" alt="..."/>
+        <img src="../assets/images/m4.jpg" className="card-img-top imgCard container-fluid justify-content-center align-content-center" alt="..."/>
         <div className="card-body">
           <p className="card-text">EFISH Large Gaming Mouse Map Pad 800×300×2MM (31.50X11.81X0.08 inch),with Non-Slip Base,Waterproof and Foldable Pad,Desktop Pad Suitabl</p>
           <div className="d-inline-block">
@@ -484,7 +473,7 @@ export default function VideoGames() {
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card" style={{width:  '21rem'}}>
       <span className="bestSellerBadge2 card-subtitle ">Best Seller</span>
-        <img src="../assets/images/m5.jpg" className="card-img-top" style={{width:'13rem', height:  '20rem', marginLeft:'6rem'}} alt="..."/>
+        <img src="../assets/images/m5.jpg" className="card-img-top" style={{width:'60%', height:  '20rem', marginLeft:'4rem'}} alt="..."/>
         <div className="card-body">
           <p className="card-text">G2000 Gaming Headset, Surround Stereo Gaming Headphones with Noise Cancelling Mic, LED Light & Soft Memory Earmuffs, Works with Xbox</p>
           <div className="d-inline-block">

@@ -47,11 +47,32 @@
           right: 4px;
           transform: rotate(45deg);
           background-color: white;
-          height: 190%;
-          width: 19.5px;
+          height: 198%;
+          width: 20.5px;
           -webkit-transform: rotate(45deg);
           -moz-transform: rotate(45deg);
           -ms-transform: rotate(45deg);
           -o-transform: rotate(45deg);
       }
+      .abar{
+        color: black;
+        text-decoration: none;
+      }
+      .abar:hover{
+        cursor: pointer;
+        text-decoration: underline;
+      }
+      .imgCard3{
+        width: 30%;
+      }
+      .imgCard2{
+        margin-top: 4rem;
+        width: 55% !important;
+        height: 14rem;
+      }
+      
+      .BCards{
+        height: 27rem !important;
+      }
+      
      
