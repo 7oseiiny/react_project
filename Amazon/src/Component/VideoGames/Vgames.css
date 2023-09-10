@@ -66,9 +66,12 @@
         width: 30%;
       }
       .imgCard2{
-        margin-top: 4rem;
-        width: 55% !important;
-        height: 14rem;
+        margin-top: 2rem;
+        /* width: 55% !important; */
+        height: 8rem !important;
+      }
+      .divcard{
+        height: 300px;
       }
       
       .BCards{

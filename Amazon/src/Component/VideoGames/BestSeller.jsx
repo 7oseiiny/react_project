@@ -52,11 +52,11 @@ export default function BestSeller() {
   <Container>
       <Row>
       <h2 className="mt-3">Best Sellers in Video Games</h2>
-            <div className="col-lg-4 col-md-6 col-sm-12 g-0">
-              <div className="card BCards">
+            <div className="col-lg-4 col-md-6 col-sm-12 g-0 divcard">
+              <div className="card BCards h-100">
               <span className="bestSellerBadge2 card-subtitle ">#1</span>
-                <img src="../assets/images/m2.jpg" className="card-img-top mx-5 imgCard2"/>
-                <div className="card-body">
+                <img src="../assets/images/m2.jpg" className="card-img-top mx-5 h-50 w-50 imgCard2"/>
+                <div className="card-body h-25">
                   <a className="seeMore">Aula S20 3200 Dpi LED Macro Gaming Mouse</a>
                  <div>
                  <BsStarFill color='#FFA41C' />
@@ -69,11 +69,11 @@ export default function BestSeller() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 g-0">
-              <div className="card BCards">
+            <div className="col-lg-4 col-md-6 col-sm-12 g-0 divcard">
+              <div className="card BCards h-100">
               <span className="bestSellerBadge2 card-subtitle ">#2</span>
-                <img src="../assets/images/m3.jpg" className="card-img-top mx-5 imgCard2"/>
-                <div className="card-body">
+                <img src="../assets/images/m3.jpg" className="card-img-top mx-5  w-50 imgCard2"/>
+                <div className="card-body h-25">
                   <a className="seeMore">1 Year Extended Warranty Plan for one customer purchased IT or Audio-Video products from EGP1000 to EGP1499.99</a>
                  <div>
                  <BsStarFill color='#FFA41C' />
@@ -86,11 +86,11 @@ export default function BestSeller() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 g-0">
-              <div className="card BCards">
+            <div className="col-lg-4 col-md-6 col-sm-12 g-0 divcard">
+              <div className="card BCards h-100">
               <span className="bestSellerBadge2 card-subtitle ">#3</span>
-                <img src="../assets/images/m4.jpg" className="card-img-top mx-5 imgCard2"/>
-                <div className="card-body">
+                <img src="../assets/images/m4.jpg" className="card-img-top mx-5  w-50 imgCard2"/>
+                <div className="card-body h-25">
                   <a className="seeMore">EFISH Large Gaming Mouse Map Pad 800×300×2MM (31.50X11.81X0.08 inch),with Non-Slip Base,Waterproof and Foldable</a>
                  <div>
                  <BsStarFill color='#FFA41C' />
@@ -103,11 +103,11 @@ export default function BestSeller() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 g-0">
-              <div className="card BCards">
+            <div className="col-lg-4 col-md-6 col-sm-12 g-0 divcard">
+              <div className="card BCards h-100">
               <span className="bestSellerBadge2 card-subtitle ">#4</span>
-                <img src="../assets/images/m5.jpg" className="card-img-top mx-5 imgCard2"/>
-                <div className="card-body">
+                <img src="../assets/images/m5.jpg" className="card-img-top mx-5  w-50 imgCard2"/>
+                <div className="card-body h-40">
                   <a className="seeMore">ONIKUMA K8 RGB Gaming headphone Over-ear Headset with Microphone Volume Control Headphones RGB LED Lights</a>
                  <div>
                  <BsStarFill color='#FFA41C' />
@@ -120,11 +120,11 @@ export default function BestSeller() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 g-0">
-              <div className="card BCards ">
+            <div className="col-lg-4 col-md-6 col-sm-12 g-0 divcard">
+              <div className="card BCards h-100">
               <span className="bestSellerBadge2 card-subtitle ">#5</span>
-                <img src="../assets/images/m6.jpg" className="card-img-top mx-5 imgCard2"/>
-                <div className="card-body">
+                <img src="../assets/images/m6.jpg" className="card-img-top mx-5  w-50 imgCard2"/>
+                <div className="card-body h-25">
                   <a className="seeMore">ONIKUMA K8 RGB Gaming headphone Over-ear Headset with Microphone Volume Control Headphones RGB LED Lights</a>
                  <div>
                  <BsStarFill color='#FFA41C' />
@@ -137,11 +137,11 @@ export default function BestSeller() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 g-0">
-              <div className="card BCards">
+            <div className="col-lg-4 col-md-6 col-sm-12 g-0 divcard">
+              <div className="card BCards h-100">
               <span className="bestSellerBadge2 card-subtitle ">#6</span>
-                <img src="../assets/images/m7.jpg" className="card-img-top mx-5 imgCard2"/>
-                <div className="card-body">
+                <img src="../assets/images/m7.jpg" className="card-img-top mx-5  w-50 imgCard2"/>
+                <div className="card-body ">
                   <a className="seeMore">EFISH Large Gaming Mouse Map Pad 800×300×2MM (31.50X11.81X0.08 inch),with Non-Slip Base,Waterproof and Foldable</a>
                  <div>
                  <BsStarFill color='#FFA41C' />
@@ -154,19 +154,16 @@ export default function BestSeller() {
                 </div>
               </div>
             </div>
-            <div>
-            <div className="card  ">
-          
+            
+            <div className="card">
             <img src="../assets/images/hor.PNG" className="img-fluid " alt="..." />
-
             </div>
-            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-0">
-            <div className="col">
-              <div className="card BCards">
+            <div className="col-lg-4 col-md-6 col-sm-12 g-0 divcard">
+              <div className="card BCards h-100">
               <span className="bestSellerBadge2 card-subtitle ">#7</span>
-                <img src="../assets/images/m9.jpg" className="card-img-top mx-5 imgCard2"/>
-                <div className="card-body">
-                  <a className="seeMore">Aula S20 3200 Dpi LED Macro Gaming Mouse</a>
+                <img src="../assets/images/m8.jpg" className="card-img-top mx-5 h-50 w-50 imgCard2"/>
+                <div className="card-body h-25">
+                  <a className="seeMore">EFISH Large Gaming Mouse Map Pad 800×300×2MM (31.50X11.81X0.08 inch)</a>
                  <div>
                  <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
@@ -178,11 +175,11 @@ export default function BestSeller() {
                 </div>
               </div>
             </div>
-            <div className="col">
-              <div className="card BCards">
+            <div className="col-lg-4 col-md-6 col-sm-12 g-0 divcard">
+              <div className="card BCards h-100">
               <span className="bestSellerBadge2 card-subtitle ">#8</span>
-                <img src="../assets/images/m3.jpg" className="card-img-top mx-5 imgCard2"/>
-                <div className="card-body">
+                <img src="../assets/images/m9.jpg" className="card-img-top mx-5 h-50 w-50 imgCard2"/>
+                <div className="card-body h-25">
                   <a className="seeMore">1 Year Extended Warranty Plan for one customer purchased IT or Audio-Video products from EGP1000 to EGP1499.99</a>
                  <div>
                  <BsStarFill color='#FFA41C' />
@@ -195,11 +192,11 @@ export default function BestSeller() {
                 </div>
               </div>
             </div>
-            <div className="col">
-              <div className="card BCards">
+            <div className="col-lg-4 col-md-6 col-sm-12 g-0 divcard">
+              <div className="card BCards h-100">
               <span className="bestSellerBadge2 card-subtitle ">#9</span>
-                <img src="../assets/images/m4.jpg" className="card-img-top mx-5 imgCard2"/>
-                <div className="card-body">
+                <img src="../assets/images/m4.jpg" className="card-img-top mx-5  w-50 imgCard2"/>
+                <div className="card-body h-25">
                   <a className="seeMore">EFISH Large Gaming Mouse Map Pad 800×300×2MM (31.50X11.81X0.08 inch),with Non-Slip Base,Waterproof and Foldable</a>
                  <div>
                  <BsStarFill color='#FFA41C' />
@@ -212,11 +209,11 @@ export default function BestSeller() {
                 </div>
               </div>
             </div>
-            <div className="col">
-              <div className="card BCards">
+            <div className="col-lg-4 col-md-6 col-sm-12 g-0 divcard">
+              <div className="card BCards h-100">
               <span className="bestSellerBadge2 card-subtitle ">#10</span>
-                <img src="../assets/images/m5.jpg" className="card-img-top mx-5 imgCard2"/>
-                <div className="card-body">
+                <img src="../assets/images/m5.jpg" className="card-img-top mx-5  w-50 imgCard2"/>
+                <div className="card-body h-25">
                   <a className="seeMore">ONIKUMA K8 RGB Gaming headphone Over-ear Headset with Microphone Volume Control Headphones RGB LED Lights</a>
                  <div>
                  <BsStarFill color='#FFA41C' />
@@ -229,11 +226,11 @@ export default function BestSeller() {
                 </div>
               </div>
             </div>
-            <div className="col">
-              <div className="card BCards ">
+            <div className="col-lg-4 col-md-6 col-sm-12 g-0 divcard">
+              <div className="card BCards h-100">
               <span className="bestSellerBadge2 card-subtitle ">#11</span>
-                <img src="../assets/images/m6.jpg" className="card-img-top mx-5 imgCard2"/>
-                <div className="card-body">
+                <img src="../assets/images/m6.jpg" className="card-img-top mx-5  w-50 imgCard2"/>
+                <div className="card-body h-25">
                   <a className="seeMore">ONIKUMA K8 RGB Gaming headphone Over-ear Headset with Microphone Volume Control Headphones RGB LED Lights</a>
                  <div>
                  <BsStarFill color='#FFA41C' />
@@ -246,11 +243,11 @@ export default function BestSeller() {
                 </div>
               </div>
             </div>
-            <div className="col ">
-              <div className="card BCards">
+            <div className="col-lg-4 col-md-6 col-sm-12 g-0 divcard">
+              <div className="card BCards h-100">
               <span className="bestSellerBadge2 card-subtitle ">#12</span>
-                <img src="../assets/images/m7.jpg" className="card-img-top mx-5 imgCard2"/>
-                <div className="card-body">
+                <img src="../assets/images/m7.jpg" className="card-img-top mx-5 w-50 imgCard2"/>
+                <div className="card-body h-25">
                   <a className="seeMore">EFISH Large Gaming Mouse Map Pad 800×300×2MM (31.50X11.81X0.08 inch),with Non-Slip Base,Waterproof and Foldable</a>
                  <div>
                  <BsStarFill color='#FFA41C' />
@@ -263,9 +260,7 @@ export default function BestSeller() {
                 </div>
               </div>
             </div>
-            </div>
-           
-            </div>
+        
             
             <div className='container d-flex justify-content-center my-5'>
                     <Pagination id='todayDealsPagination' >

@@ -23,7 +23,7 @@ function Navbar() {
             </div>
 
           </div>
-          <div className="col-12 col-md-6 py-2 py-md-0 pe-0">
+          <div className="col-12 col-md-4 py-2 py-md-0 pe-0">
             <div className="search-container">
               <select className="search-select ">
                 <option>All</option>
@@ -37,7 +37,7 @@ function Navbar() {
           </div>
           <div className="col-12 col-md-4">
             <ul className="list-unstyled  d-flex flex-wrap text-white align-items-center justify-content-evenly m-0">
-              <li className="col-2 justify-content-start m-0">
+              <li className="col-3 justify-content-start m-0">
                 <div className="dropdown">
                   <a className="btn text-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -64,7 +64,7 @@ function Navbar() {
                   </ul>
                 </div>
               </li>
-              <li className="col-5">
+              <li className="col-4">
                 <div className="dropdown">
                   <a className="btn text-white dropdown-toggle text-start" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -94,14 +94,14 @@ function Navbar() {
                   </div>
                 </div>
               </li>
-              <li className="col-2">
+              <li className="col-3">
                 <div>
                   <span className="text-white-50 fs-6">Returns</span> <br />
                   <span className="fw-bold fs-">&Orders</span>
                 </div>
               </li>
-              <li className="col-3">
-                <FaShoppingCart color='white' size={25} />
+              <li className="col-2">
+                <FaShoppingCart color='white' size={25}  />
               </li>
             </ul>
           </div>
