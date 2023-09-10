@@ -36,7 +36,7 @@ export default function Home() {
             <div className="row m-0 px-3 transform-x">
                 <div className="col-12 col-md-6  col-lg-3 ">
                     <div className="card h-100 err1"  >
-                        <div className="card-body">
+                        <div className="card-body justify-content-between d-flex flex-column">
                             <h5 className="card-title">Gaming Accessories</h5>
                             <div className="d-flex flex-wrap">
                                 <div className="d-flex flex-column w-50">
@@ -97,7 +97,7 @@ export default function Home() {
                 </div>
                 <div className="col-12 col-md-6 mt-3 col-lg-3 ">
                     <div className="card h-100 err1">
-                        <div className="card-body">
+                        <div className="card-body justify-content-between d-flex flex-column">
                             <h5 className="card-title">Shop by Category</h5>
                             <div className="d-flex flex-wrap">
                                 <div className="d-flex flex-column w-50">
@@ -163,8 +163,17 @@ export default function Home() {
                 <div className="col-12 col-md-6  col-lg-3 mt-3 ">
                     <div className="card h-100 err1">
                         <div className="card-body justify-content-between d-flex flex-column">
-                            <h5 className="card-title">Dresses</h5>
-                            <img className="w-100" src="../assets/images/dress.jpg" alt="" />
+                            <h5 className="card-title">Shop activity trackers and smartwatche</h5>
+                            <img className="w-100" src="../assets/images/watch.jpg" alt="" />
+                            <a href="#" className="card-link">Show now</a>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-12 col-md-6  col-lg-3 mt-3 ">
+                    <div className="card h-100 err1">
+                        <div className="card-body justify-content-between d-flex flex-column">
+                            <h5 className="card-title">Deals in Tools and Home Improvement</h5>
+                            <img className="w-100" src="../assets/images/tools.jpg" alt="" />
                             <a href="#" className="card-link">Shop now</a>
                         </div>
                     </div>
@@ -172,8 +181,8 @@ export default function Home() {
                 <div className="col-12 col-md-6  col-lg-3 mt-3 ">
                     <div className="card h-100 err1">
                         <div className="card-body justify-content-between d-flex flex-column">
-                            <h5 className="card-title">Dresses</h5>
-                            <img className="w-100" src="../assets/images/dress.jpg" alt="" />
+                            <h5 className="card-title">Spring new arrivals</h5>
+                            <img className="w-100" src="../assets/images/wem.jpg" alt="" />
                             <a href="#" className="card-link">Shop now</a>
                         </div>
                     </div>
@@ -181,8 +190,8 @@ export default function Home() {
                 <div className="col-12 col-md-6  col-lg-3 mt-3 ">
                     <div className="card h-100 err1">
                         <div className="card-body justify-content-between d-flex flex-column">
-                            <h5 className="card-title">Dresses</h5>
-                            <img className="w-100" src="../assets/images/dress.jpg" alt="" />
+                            <h5 className="card-title">Home refresh ideas</h5>
+                            <img className="w-100" src="../assets/images/ket.jpg" alt="" />
                             <a href="#" className="card-link">Shop now</a>
                         </div>
                     </div>
@@ -190,17 +199,8 @@ export default function Home() {
                 <div className="col-12 col-md-6  col-lg-3 mt-3 ">
                     <div className="card h-100 err1">
                         <div className="card-body justify-content-between d-flex flex-column">
-                            <h5 className="card-title">Dresses</h5>
-                            <img className="w-100" src="../assets/images/dress.jpg" alt="" />
-                            <a href="#" className="card-link">Shop now</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-12 col-md-6  col-lg-3 mt-3 ">
-                    <div className="card h-100 err1">
-                        <div className="card-body justify-content-between d-flex flex-column">
-                            <h5 className="card-title">Dresses</h5>
-                            <img className="w-100" src="../assets/images/dress.jpg" alt="" />
+                            <h5 className="card-title">Find your ideal TV</h5>
+                            <img className="w-100" src="../assets/images/tvv.jpg" alt="" />
                             <a href="#" className="card-link">Shop now</a>
                         </div>
                     </div>
@@ -208,8 +208,8 @@ export default function Home() {
                 <div className="col-12 col-md-6  col-lg-3 mt-3 ">
                     <div className="card h-100 err1 ">
                         <div className="card-body justify-content-between d-flex flex-column">
-                            <h5 className="card-title">Dresses</h5>
-                            <img className="w-100" src="../assets/images/dress.jpg" alt="" />
+                            <h5 className="card-title">Shop school essentials</h5>
+                            <img className="w-100" src="../assets/images/books.jpg" alt="" />
                             <a href="#" className="card-link">Shop now</a>
                         </div>
                     </div>
@@ -217,8 +217,8 @@ export default function Home() {
                 <div className="col-12 col-md-6  col-lg-3 mt-3 ">
                     <div className="card h-100 err1">
                         <div className="card-body justify-content-between d-flex flex-column">
-                            <h5 className="card-title">Dresses</h5>
-                            <img className="w-100" src="../assets/images/dress.jpg" alt="" />
+                            <h5 className="card-title">Home & Kitchen Under $30</h5>
+                            <img className="w-100" src="../assets/images/zoh.jpg" alt="" />
                             <a href="#" className="card-link">Shop now</a>
                         </div>
                     </div>

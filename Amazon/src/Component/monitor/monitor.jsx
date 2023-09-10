@@ -1,9 +1,12 @@
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './minetor.css'
 import React from "react"
 import LiftSide from '../TodayDeals/todayDealsLiftSide/liftSide';
 import '../TodayDeals/todayDealsLiftSide/leftSide.css'
+import { BsStarFill } from "react-icons/bs";
+import { BsStar } from "react-icons/bs";
+import { BsStarHalf } from "react-icons/bs";
 export default function Monitor() {
     var data = [
 
@@ -14,7 +17,7 @@ export default function Monitor() {
             rate: "4.6",
             totalRates: "27.7K+",
             price: "$89.97",
-            discount: "$119.97",
+            discount: "$70.97",
             deliveryDate: "Wed, Oct 4 "
         },
         {
@@ -73,8 +76,8 @@ export default function Monitor() {
             title: "Sceptre Curved 24-inch Gaming Monitor 1080p R1500 98% sRGB HDMI x2 VGA Build-in Speakers, VESA Wall Mount Machine Black (C248W-1920RN Series)",
             rate: "4.6",
             totalRates: "18.7K+",
-            price: "$92.97",
-            discount: "$99.97",
+            price: "$99.97",
+            discount: "$92.97",
             deliveryDate: "Wed, Oct 4 "
         },
         {
@@ -83,8 +86,8 @@ export default function Monitor() {
             title: "Acer 23.8” Full HD 1920 x 1080 IPS Zero Frame Home Office Computer Monitor - 178° Wide View Angle - 16.7M - NTSC 72% Color Gamut - Low Blue Light - Tilt Compatible - VGA HDMI DVI R240HY bidx",
             rate: "4.7",
             totalRates: "15.4K+",
-            price: "$99.99",
-            discount: "$149.99",
+            price: "$149.99",
+            discount: "$99.99",
             deliveryDate: "Wed, Oct 4 "
         },
         {
@@ -93,9 +96,9 @@ export default function Monitor() {
             title: "Dell SE2722HX Monitor - 27 inch FHD (1920 x 1080) 16:9 Ratio with Comfortview (TUV-Certified), 75Hz Refresh Rate, 16.7 Million Colors, Anti-Glare Screen with 3H Hardness - Black",
             rate: "4.6",
             totalRates: "2.4K+",
-            price: null,
+            price: "$49.99",
             discount: null,
-            deliveryDate: null
+            deliveryDate: "Wed, Oct 4 "
         },
         {
             id: 14,
@@ -113,8 +116,8 @@ export default function Monitor() {
             title: "SANSUI Monitor 27 inch FHD 1080p 75Hz USB Type-C Computer Monitor HDMI VGA Built-in Speakers Headphone Eye Care VESA Compatible for Home Office(ES-27F1 Type-C Cable & HDMI Cable Included)",
             rate: "4.5",
             totalRates: "406",
-            price: "$105.29",
-            discount: "$116.99",
+            price: "$116.29",
+            discount: "$106.99",
             deliveryDate: "Wed, Oct 4 "
         },
         {
@@ -123,8 +126,8 @@ export default function Monitor() {
             title: "GTEK 240Hz Gaming Monitor, 27 Inch Frameless Display Full HD 1920 x 1080P, Curved 1800R, VA 1ms MPRT, FreeSync, Speakers, DisplayPort/HDMI, VESA - F2740C",
             rate: "4.6",
             totalRates: "959",
-            price: "$199.99",
-            discount: "$229.99",
+            price: "$229.99",
+            discount: "$199.99",
             deliveryDate: "Thu, Oct 5 "
         },
         {
@@ -133,7 +136,7 @@ export default function Monitor() {
             title: "Acer 21.5 Inch Full HD (1920 x 1080) IPS Ultra-Thin Zero Frame Computer Monitor (HDMI & VGA Port), SB220Q bi",
             rate: "4.6",
             totalRates: "43.7K+",
-            price: "$79.99",
+            price: "$99.99",
             discount: "$99.99",
             deliveryDate: "Wed, Oct 4 "
         },
@@ -163,8 +166,8 @@ export default function Monitor() {
             title: "Sceptre 27-Inch FHD LED Gaming Monitor 75Hz 2X HDMI VGA Build-in Speakers, Ultra Slim Metal Black",
             rate: "4.5",
             totalRates: "7.6K+",
-            price: "$109.97",
-            discount: "$149.97",
+            price: "$149.97",
+            discount: "$109.97",
             deliveryDate: "Wed, Oct 4 "
         },
         {
@@ -173,8 +176,8 @@ export default function Monitor() {
             title: "Acer KB272 EBI 27\" IPS Full HD (1920 x 1080) Zero-Frame Gaming Office Monitor | AMD FreeSync Technology | Up to 100Hz Refresh | 1ms (VRB) | Low Blue Light | Tilt | HDMI & VGA Ports,Black",
             rate: "4.6",
             totalRates: "2K+",
-            price: "$119.99",
-            discount: "$159.99",
+            price: "$159.99",
+            discount: "$119.99",
             deliveryDate: "Wed, Oct 4 "
         },
         {
@@ -183,8 +186,8 @@ export default function Monitor() {
             title: "SAMSUNG T350 Series 22-Inch FHD 1080p Computer Monitor, 75Hz, IPS Panel, HDMI, VGA (D-Sub), 3-Sided Border-Less, FreeSync (LF22T350FHNXZA)",
             rate: "4.5",
             totalRates: "3.5K+",
-            price: "$99.99",
-            discount: "$149.99",
+            price: "$149.99",
+            discount: "$129.99",
             deliveryDate: "Wed, Oct 4 "
         },
         {
@@ -193,7 +196,7 @@ export default function Monitor() {
             title: "Dell S2421HS Full HD 1920 x 1080, 24-Inch 1080p LED, 75Hz, Desktop Monitor with Adjustable Stand, 4ms Grey-to-Grey Response Time, AMD FreeSync, IPS Technology, HDMI, DisplayPort, Silver",
             rate: "4.7",
             totalRates: "874",
-            price: "2 sizes",
+            price: "$129.99",
             discount: null,
             deliveryDate: null
         },
@@ -203,8 +206,8 @@ export default function Monitor() {
             title: "Sceptre Curved 27\" FHD 1080p 75Hz LED Monitor HDMI VGA Build-In Speakers, EDGE-LESS Metal Black 2019 (C275W-1920RN)",
             rate: "4.6",
             totalRates: "13.9K+",
-            price: "$117.97",
-            discount: "$129.88",
+            price: "$127.97",
+            discount: "$119.88",
             deliveryDate: "Wed, Oct 4 "
         },
         {
@@ -213,8 +216,8 @@ export default function Monitor() {
             title: "Acer Nitro KG241Y Sbiip 23.8” Full HD (1920 x 1080) VA Gaming Monitor | AMD FreeSync Premium Technology | 165Hz Refresh Rate | 1ms (VRB) | ZeroFrame Design | 1 x Display Port 1.2 & 2 x HDMI 2.0,Black",
             rate: "4.6",
             totalRates: "4.3K+",
-            price: "$119.99",
-            discount: "$179.99",
+            price: "$179.99",
+            discount: "$149.99",
             deliveryDate: "Thu, Oct 5 "
         },
         {
@@ -223,8 +226,8 @@ export default function Monitor() {
             title: "Sceptre 30-inch Curved Gaming Monitor 21:9 2560x1080 Ultra Wide/ Slim HDMI DisplayPort up to 200Hz Build-in Speakers, Metal Black (C305B-200UN1)",
             rate: "4.6",
             totalRates: "10.4K+",
-            price: "$219.97",
-            discount: "$249.97",
+            price: "$249.97",
+            discount: "$219.97",
             deliveryDate: "Wed, Oct 4 "
         },
         {
@@ -243,7 +246,7 @@ export default function Monitor() {
             title: "ASUS TUF Gaming 27\" 2K HDR Gaming Monitor (VG27AQ) - QHD (2560 x 1440), 165Hz (Supports 144Hz), 1ms, Extreme Low Motion Blur, Speaker, G-SYNC Compatible, VESA Mountable, DisplayPort, HDMI ,Black",
             rate: "4.6",
             totalRates: "7.6K+",
-            price: "$259.49",
+            price: "$359.49",
             discount: "$309.00",
             deliveryDate: "Thu, Oct 5 "
         },
@@ -253,7 +256,7 @@ export default function Monitor() {
             title: "LG FHD 32-Inch Computer Monitor 32ML600M-B, IPS with HDR 10 Compatibility, Black",
             rate: "4.6",
             totalRates: "2.9K+",
-            price: "$179.99",
+            price: "$279.99",
             discount: "$199.99",
             deliveryDate: "Wed, Oct 4 "
         },
@@ -263,8 +266,8 @@ export default function Monitor() {
             title: "Sceptre Curved 24.5-inch Gaming Monitor up to 240Hz 1080p R1500 1ms DisplayPort x2 HDMI x2 Blue Light Shift Build-in Speakers, Machine Black 2023 (C255B-FWT240)",
             rate: "4.4",
             totalRates: "388",
-            price: "$139.97",
-            discount: "$154.97",
+            price: "$159.97",
+            discount: "$134.97",
             deliveryDate: "Wed, Oct 4 "
         },
         {
@@ -273,7 +276,7 @@ export default function Monitor() {
             title: "Sceptre 22 inch 75Hz 1080P LED Monitor 99% sRGB HDMI X2 VGA Build-In Speakers, Machine Black (E225W-19203R series)",
             rate: "4.6",
             totalRates: "8.4K+",
-            price: "$67.97",
+            price: "$97.97",
             discount: "$89.97",
             deliveryDate: "Thu, Oct 5 "
         },
@@ -315,51 +318,81 @@ export default function Monitor() {
             <div className=' container-fluid '>
                 <div className='row'>
 
-                 <LiftSide className='s'/>
-                <div className='col-xl-10 col-md-9 col-12'>
-                    <div className="row d-flex justify-content-center">
-                        
-                {data.map((prd) => {
-                    return (
-                        <Card  className='col-xl-2 col-lg-3 col-md-5  col-10 mx-2' key={prd.id}>
-                            <Card.Img variant="top" src={prd.imageURL} />
-                            <Card.Body>
-                                <Card.Title className='title-wrapper'>{prd.title}</Card.Title>
-                                <Card.Text>
-                                  <span className='fs-3' >price</span>  {prd.price}
-                                </Card.Text>
-                                <Card.Text>
-                                <span className='fs-3' >discount</span>                {prd.discount}
-                                </Card.Text>
-                                <Card.Text>
-                                <span className='fs-3' >Rate</span>                {prd.rate}
-                                </Card.Text>
-                                <Card.Text>
-                                <span className='fs-3' >totalRates</span>                {prd.totalRates}
-                                </Card.Text>
-                                <Card.Text>
-                                <span className='fs-3' >deliveryDate</span>                {prd.deliveryDate}
-                                </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
-                            </Card.Body>
-                        </Card>
+                    <LiftSide className='s' />
+                    <div className='col-xl-10 col-md-9 col-12'>
+                        <div className="row d-flex justify-content-center">
 
-                    )
+                            {data.map((prd) => {
+                                return (
+                                    <Card className='col-xl-2 col-lg-3 col-md-5  col-10 mx-2' key={prd.id}>
+                                        <Card.Img variant="top" className='img' src={prd.imageURL} />
+                                        <Card.Body>
+                                            <Card.Title className='title-wrapper'>{prd.title}</Card.Title>
+                                            <Card.Text className='m-0'>
+                                                {/* <span className='fs-4' >{prd.price}</span> */}
+                                                {prd.discount == null ? <>
+                                                    <span className='fs-4' >{prd.price}</span>
+                                                </> : <>
+                                                <span style={{ textDecoration: "line-through" }}>({prd.price})</span>
+
+                                                </>
+                                               }
 
 
+                                        </Card.Text>
+                                        <Card.Text className='m-0'>
+                                            <span className='fs-4' >
+                                                {prd.discount == null ? <></> : <>discount : {prd.discount}</>}
+                                            </span>
 
-                })}
+                                        </Card.Text>
+                                        <Card.Text className='m-0'>
+                                            <span className='fs-4' ></span>                {prd.rate}            <div className="d-inline-block">
+                                                <BsStarFill color='#FFA41C' />
+                                                <BsStarFill color='#FFA41C' />
+                                                <BsStarFill color='#FFA41C' />
+                                                <BsStarHalf color='#FFA41C' />
+                                                <BsStar color='#FFA41C' />
+
+                                            </div>
+                                            <span style={{ color: "#007185" }}>({prd.totalRates})</span>
+                                        </Card.Text>
+
+                                        {/* <Card.Text>
+                                                <span className='fs-4' >totalRates</span>                {prd.totalRates}
+                                            </Card.Text> */}
+                                        <Card.Text className='m-0'>
+                                            <span className='fs-4' >deliveryDate</span>                {prd.deliveryDate}
+                                        </Card.Text>
+                                        {/* <Button variant="primary">Go somewhere</Button> */}
+                                    </Card.Body>
+                                    </Card>
+
+                        )
 
 
-</div>
+
+                            })}
+
+
+                    </div>
 
                 </div>
 
-                </div>
-  
             </div>
+
+        </div >
 
 
 
         </>)
 }
+
+{/* <div className="d-inline-block">
+<BsStarFill color='#FFA41C' />
+<BsStarFill color='#FFA41C' />
+<BsStarFill color='#FFA41C' />
+<BsStarHalf color='#FFA41C' />
+<BsStar color='#FFA41C' />
+31
+</div>   */}
