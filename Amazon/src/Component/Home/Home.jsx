@@ -226,7 +226,7 @@ export default function Home() {
             </div>
 
 
-
+{/* 
             <div className="container">
                 <div id="carouselExampleControlsNoTouching" className="carousel slide" data-bs-touch="false"
                     data-bs-interval="false">
@@ -252,7 +252,7 @@ export default function Home() {
                         <span className="visually-hidden">Next</span>
                     </button>
                 </div>
-            </div>
+            </div> */}
 
         </div>
     

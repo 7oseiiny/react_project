@@ -9,10 +9,10 @@ function Navbar() {
     <>
 
       <div className="container-fluid px-0 bg-dark">
-        <div className="row m-0 align-items-center">
-          <div className="col-12 col-md-2 logo d-flex flex-wrap">
-            <img className="col-6" src="../assets/images/logoo1.png" alt="logo" />
-            <div className="ps-3 col-6 d-flex align-items-center">
+      <div className="row m-0 align-items-center justify-content-center">
+          <div className="col-lg-2 col-sm-6  logo col-md-4 d-flex flex-wrap justify-content-between" >
+              <img className="col-6" src="../assets/images/logoo1.png" alt="logo" />
+            <div className="ps-3 col-lg-6 col-md-6 d-flex align-items-center">
               <div className=""><MdLocationPin color='white' size={20} /></div>
               <div className="text-white d-flex flex-column ps-2">
                 <span className="text-white-50 fs-6">Deliver to</span>
@@ -21,7 +21,7 @@ function Navbar() {
             </div>
 
           </div>
-          <div className="col-12 col-md-6 py-2 py-md-0 pe-0">
+          <div className="col-lg-5 col-sm-6 col-md-8  py-md-0 pe-0">
             <div className="search-container">
               <select className="search-select ">
                 <option>All</option>
@@ -33,9 +33,9 @@ function Navbar() {
 
             </div>
           </div>
-          <div className="col-12 col-md-4">
-            <ul className="list-unstyled  d-flex flex-wrap text-white align-items-center justify-content-evenly m-0">
-              <li className="col-2 justify-content-start m-0">
+          <div className="col-lg-5 col-sm-12  col-md-12 col-xs-12">
+            <ul className="list-unstyled  d-flex flex-wrap text-white align-items-center justify-content-between flex-column flex-sm-row flex-sm-justify-content-center">
+              <li className="col-2 col-xs-6 justify-content-start">
                 <div className="dropdown">
                   <a className="btn text-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -62,7 +62,7 @@ function Navbar() {
                   </ul>
                 </div>
               </li>
-              <li className="col-5">
+              <li className="col-4 col-xs-6">
                 <div className="dropdown">
                   <a className="btn text-white dropdown-toggle text-start" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -92,13 +92,13 @@ function Navbar() {
                   </div>
                 </div>
               </li>
-              <li className="col-2">
+              <li className="col-2 col-xs-12 ">
                 <div>
                   <span className="text-white-50 fs-6">Returns</span> <br />
                   <span className="fw-bold fs-">&Orders</span>
                 </div>
               </li>
-              <li className="col-3">
+              <li className="col-3 col-xs-ms-2">
                 <FaShoppingCart color='white' size={25} />
               </li>
             </ul>
