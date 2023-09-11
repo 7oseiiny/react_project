@@ -109,15 +109,15 @@ function Navbar() {
       <div className="container-fluid  navv p-2">
         <div className=" d-flex justify-content-between  ">
           <div className="d-flex flex-wrap">
-            <NavLink className="links px-2" to="todayDeals" style={{ textDecoration: "none",  }}>Today s Deals</NavLink>
-            <NavLink className="links px-2" to="mobile" style={{ textDecoration: "none",  }}>Mobile Phone</NavLink>
-            <NavLink className="links px-2" to="electronics" style={{ textDecoration: "none",  }}>Electronics</NavLink>
-            <NavLink className="links px-2" to="fashion" style={{ textDecoration: "none",  }}>Fashion</NavLink>
-            <NavLink className="links px-2" to="videogames" style={{ textDecoration: "none",  }}>VideoGames</NavLink>
-            <NavLink className="links px-2" to="HomeProducts" style={{ textDecoration: "none",  }}>Home</NavLink>
-            <NavLink className="links px-2" to="prime" style={{ textDecoration: "none",  }}>prime</NavLink>
-            <NavLink className="links px-2" to="Monitor" style={{ textDecoration: "none",  }}>Monitor</NavLink>
-            <NavLink className="links" to="books" style={{ textDecoration: "none", marginLeft: '6px' }}>books</NavLink>
+            <NavLink className="links px-2" to="todayDeals" style={{ textDecoration: "none", }}>Today s Deals</NavLink>
+            <NavLink className="links px-2" to="mobile" style={{ textDecoration: "none", }}>Mobile Phone</NavLink>
+            <NavLink className="links px-2" to="electronics" style={{ textDecoration: "none", }}>Electronics</NavLink>
+            <NavLink className="links px-2" to="fashion" style={{ textDecoration: "none", }}>Fashion</NavLink>
+            <NavLink className="links px-2" to="videogames" style={{ textDecoration: "none", }}>VideoGames</NavLink>
+            <NavLink className="links px-2" to="HomeProducts" style={{ textDecoration: "none", }}>Home</NavLink>
+            <NavLink className="links px-2" to="prime" style={{ textDecoration: "none", }}>prime</NavLink>
+            <NavLink className="links px-2" to="Monitor" style={{ textDecoration: "none", }}>Monitor</NavLink>
+            <NavLink className="links" to="books" style={{ textDecoration: "none" }}>books</NavLink>
 
           </div>
           <div className=" text-white">Shop deals in Electronics</div>
