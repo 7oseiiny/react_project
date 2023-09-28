@@ -99,7 +99,9 @@ function Navbar() {
                 </div>
               </li>
               <li className="col-3 col-xs-ms-2">
-                <FaShoppingCart color='white' size={25} />
+                
+                <NavLink className="links" to="cart" style={{ textDecoration: "none" }}><FaShoppingCart to='cart' color='white' size={25} /></NavLink>
+
               </li>
             </ul>
           </div>
