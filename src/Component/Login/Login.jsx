@@ -38,6 +38,8 @@ const Login = () => {
         e.preventDefault();
         setEmailTouched(true);
         setPasswordTouched(true);
+console.log(password)
+console.log(email)
 
         if (!emailValid || !passwordValid) {
             toast.error('Email or password is incorrect', {
@@ -76,6 +78,7 @@ const Login = () => {
                 <div className="login-center-box p-5">
                     <h2 className="login-header">Sign in</h2>
                     <form onSubmit={handleSubmit} className="login-form">
+
                         <div className="mb-3">
                             <label htmlFor="email" className="form-label">
                                 Email Address:
