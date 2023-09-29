@@ -2,15 +2,21 @@ import './Navbar.css'
 import { MdLocationPin } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCart } from '../../../store/Slice/cartSlice';
 function Navbar() {
-  //cart
-  var items = useSelector((state) => { return state.cart.data })
+  var items = useSelector( (state) => {  return  state.cart.data })
   let totalItems = 0
-  for (const item of items) { totalItems += item.quantity }
-  //
+    for (const item of items) { totalItems += item.quantity }
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+      dispatch(fetchCart())
+    }, [dispatch])
+  
+
 
   return (
     <>

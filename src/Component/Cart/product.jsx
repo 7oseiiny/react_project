@@ -11,7 +11,7 @@ export default function Product(props) {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(fetchCart("650f39d8933f94900f5e75e6"))
+        dispatch(fetchCart())
 
     }, [change ,quantity])
 

@@ -19,7 +19,7 @@ export default function Cart() {
 
   console.log(11);
   useEffect(() => {
-    dispatch(fetchCart("650f39d8933f94900f5e75e6"))
+    dispatch(fetchCart())
   }, [dispatch])
 
   return (
