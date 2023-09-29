@@ -25,6 +25,8 @@ import VgamesNav from "./Component/VideoGames/VgamesNav";
 import axios from "axios";
 import axiosInstance from "./axiosConfig/instance";
 import Login from "./Component/Login/login";
+import CreateAccount from "./Component/Sign-Up/Sign-Up";
+
 import { AuthProvider } from './Context/user-auth'
 import { useState } from 'react'
 const router = createBrowserRouter([
@@ -33,6 +35,8 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: '/login', element: <Login /> },
+      { path: '/CreateAccount', element: <CreateAccount/> },
+
     
       { path: "/mobile", element: <Mobile /> },
       {
@@ -81,7 +85,7 @@ const router = createBrowserRouter([
 
 function App() {
   const [Islogged, setIslogged] = useState(localStorage.getItem(`token`) ? true : false);
- 
+  const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')));
 
   var result = "";
   async function start() {
@@ -94,7 +98,7 @@ function App() {
   }, []);
   return (
     <Provider store={store}>
-       <AuthProvider value={{ Islogged, setIslogged }} >
+       <AuthProvider value={{ Islogged, setIslogged , userData , setUserData}} >
       <RouterProvider router={router} />
       </AuthProvider>
     </Provider>

@@ -5,7 +5,7 @@ export const login = (data) => {
 };
 
 export const register = (data) => {
-    return axiosInstance.post("/signup", data);
+    return axiosInstance.post("/user/signup", data);
 };
 
 export const updateUser = (userid , data) => {
