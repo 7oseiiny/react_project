@@ -3,7 +3,7 @@ import { MdLocationPin } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 function Navbar() {
   return (
     <>
@@ -71,22 +71,18 @@ function Navbar() {
                   </a>
 
                   <div className="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
-                    <button type="button" className="btn btn-warning text-center">Warning</button>
-                    <h2>dsfghjk</h2>
-                    <div className="d-flex w-600px">
+                    <button type="button" className="btn btn-warning text-center w-50 "><Link className="btn btn-none text-dark fw-bold " to="/login" style={{ textDecoration: "none" }}>Sign in</Link></button>
+                    <br/>
+                    <small>New Customers?<Link className="btn btn-none text-primary " to="/" style={{ textDecoration: "none" }}>Start here.</Link> </small>
+                    <div className="d-flex w-600px text-center">
                       <div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore maxime
-                          enim
-                          cum nam dolor, incidunt quis iure maiores, dolore impedit
-                          , hic sunt distinctio earum eaque officia perspiciatis tenetur
-                          perferendis
-                          porro.</p>
+                        <h5>Your Lists</h5>
+                        <Link className="btn btn-none" to="/" style={{ textDecoration: "none" ,textColor:"black"}}>Create a List</Link>
                       </div>
                       <div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde magni nemo
-                          suscipit, quia dicta odio, ratione quos illum omnis quis hic la
-                          bore voluptatibus. Tempora expedita libero necessitatibus nesciunt quas
-                          minima.</p>
+                        <h5>Your Account</h5>
+                        <Link className="btn btn-none" to="/" style={{ textDecoration: "none" ,textColor:"black"}}>Your Account</Link><br/>
+                        <Link className="btn btn-none" to="/" style={{ textDecoration: "none" ,textColor:"black"}}>Your Order</Link>
                       </div>
                     </div>
                   </div>

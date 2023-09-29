@@ -24,12 +24,16 @@ import BestSeller from "./Component/VideoGames/BestSeller";
 import VgamesNav from "./Component/VideoGames/VgamesNav";
 import axios from "axios";
 import axiosInstance from "./axiosConfig/instance";
-
+import Login from "./Component/Login/login";
+import { AuthProvider } from './Context/user-auth'
+import { useState } from 'react'
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
     children: [
       { index: true, element: <Home /> },
+      { path: '/login', element: <Login /> },
+    
       { path: "/mobile", element: <Mobile /> },
       {
         path: "todayDeals",
@@ -76,16 +80,23 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const [Islogged, setIslogged] = useState(localStorage.getItem(`token`) ? true : false);
+ 
+
   var result = "";
   async function start() {
     const api = await axiosInstance.get();
     result = api.data;
     console.log(result);
   }
-  start();
+  useEffect(() => {
+    start();
+  }, []);
   return (
     <Provider store={store}>
+       <AuthProvider value={{ Islogged, setIslogged }} >
       <RouterProvider router={router} />
+      </AuthProvider>
     </Provider>
   );
 }
