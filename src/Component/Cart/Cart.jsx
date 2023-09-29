@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Product from "./product";
 import { useDispatch, useSelector } from "react-redux";
 // import { fetchCart } from "../../../store/Slice/cartSlice";
@@ -8,10 +8,25 @@ export default function Cart() {
   const dispatch = useDispatch()
 
   var items = useSelector((state) => { return state.cart.data })
+    let [totalItem, settotalItem] = useState(0);
+    let [totalPrice, settotalPrice] = useState(0);
+
+  for (const item of items) {
+     totalPrice+=item.quantity*item.product.price.new
+     totalItem+=item.quantity
+  }
+
+  function updatePrice (){
+    for (const item of items) {
+      settotalPrice( totalPrice+=item.quantity*item.product.price.new)
+    }
+  }
+
+console.log(11);
   useEffect(() => {
+
     dispatch(fetchCart("650f39d8933f94900f5e75e6"))
-  }, [dispatch])
-  console.log(items);
+  }, [dispatch ,totalItem])
 
   return (
     <>
@@ -31,8 +46,8 @@ export default function Cart() {
         </div>
         <div className="p-2 col-sm-12 col-lg-3">
           <div className="cart-right-side p-3  " style={{ backgroundColor: "white" }}>
-            <h5 className="p-2">Items : 5</h5>
-            <h5 className="p-2">Total Price : 5 $</h5>
+            <h5 className="p-2">Items : {totalItem}</h5>
+            <h5 className="p-2">Total Price : {totalPrice} $</h5>
             <button className=" p-2 btn btn-warning w-100" > Proceed to Buy</button>
           </div>
 

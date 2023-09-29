@@ -1,20 +1,31 @@
 import React, { useEffect, useState } from 'react'
 
 import axiosInstance from '../../axiosConfig/instance';
+import { useDispatch } from 'react-redux';
+import { fetchCart } from '../../../store/Slice/cartSlice';
 
 
 export default function Product(props) {
     let [quantity, setquantity] = useState(props.item.quantity);
-  
-    function deleteItem(e) {
+    let [change, setchange] = useState(0);
+    const dispatch = useDispatch()
 
-        axiosInstance.post(`cart/650f39d8933f94900f5e75e6/removeProductsInCart/${props.item.product._id}`)
+    useEffect(() => {
+        dispatch(fetchCart("650f39d8933f94900f5e75e6"))
+
+    }, [change ,quantity])
+
+    async function deleteItem() {
+        
+        await axiosInstance.post(`cart/650f39d8933f94900f5e75e6/removeProductsInCart/${props.item.product._id}`)
+        setchange()
+
     }
 
-    function updateQuantity(e) {
+    async function updateQuantity(e) {
 
         setquantity(e.target.value)
-        axiosInstance.patch(`cart/650f39d8933f94900f5e75e6/updatequantity/${props.item.product._id}/${e.target.value}`)
+        await axiosInstance.patch(`cart/650f39d8933f94900f5e75e6/updatequantity/${props.item.product._id}/${e.target.value}`)
 
     }
 
@@ -34,8 +45,9 @@ export default function Product(props) {
                     <div className="d-flex align-items-center ">
                         <p className="m-1">quantity </p>
                         <input onChange={(event) => { updateQuantity(event) }} type="number" value={quantity} min="1" max={props.item.product.quantity} className="form-control mx-3" style={{ width: "80px", height: "30px" }} />
-                        <a className="mx-3" href="#" onClick={(e) => { deleteItem(e) }}>delete</a>
-                        <a className="mx-3" href="#" onClick={() => { }}>save</a>
+                        <button onClick={deleteItem}>hhh</button>
+                        <a className="mx-3" href="#" onClick={deleteItem}>delete</a>
+                        <a className="mx-3" href="" onClick={() => { }}>save</a>
                     </div>
                 </div>
             </div>
