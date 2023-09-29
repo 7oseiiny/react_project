@@ -5,7 +5,7 @@ import Mobile from "./Component/MobilePhone/mobile";
 import AppLayout from "./Component/AppLayout/AppLayout";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./Component/Home/Home";
-import React, { useEffect } from "react";
+import React from "react";
 import TodayDealsPage from "./Component/TodayDeals/TodayDealsPage";
 import Coupons from "./Component/TodayDeals/coupons";
 import TodayDeals from "./Component/TodayDeals/TodayDeals";
@@ -22,11 +22,12 @@ import HomeDecor from "./Component/HomeProducts/HomeDecor/HomeDecor";
 import Main from "./Component/HomeProducts/Main/Main";
 import BestSeller from "./Component/VideoGames/BestSeller";
 import VgamesNav from "./Component/VideoGames/VgamesNav";
-import axios from "axios";
 import axiosInstance from "./axiosConfig/instance";
 import Login from "./Component/Login/login";
 import { AuthProvider } from './Context/user-auth'
 import { useState } from 'react'
+import Cart from "./Component/Cart/Cart";
+
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -71,6 +72,7 @@ const router = createBrowserRouter([
       },
       { path: "prime", element: <Prime /> },
       { path: "books", element: <Books /> },
+      { path: "cart", element: <Cart /> },
       {
         path: "Monitor",
         element: <Monitor />,
