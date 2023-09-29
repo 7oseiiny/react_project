@@ -41,7 +41,7 @@ const Login = () => {
 console.log(password)
 console.log(email)
 
-        if (!emailValid || !passwordValid) {
+        if ( !passwordValid) {
             toast.error('Email or password is incorrect', {
                 position: "top-center"
             });
@@ -66,7 +66,7 @@ console.log(email)
         }
 
     };
-    const emailValid = /\S+@\S+\.\S+/.test(email);
+    // const emailValid = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(email);
     const passwordValid = password.length >= 8;
 
     return (
@@ -86,7 +86,7 @@ console.log(email)
                             <input
                                 type="email"
                                 id="email"
-                                className={`form-control ${(emailTouched && !email) || (emailTouched && !emailValid) ? 'is-invalid' : emailValid ? 'is-valid' : ''
+                                className={`form-control ${(emailTouched && !email) || (emailTouched ) ? 'is-invalid' :  '' ? 'is-valid' : ''
                                     }`}
                                 value={email}
                                 onChange={handleEmailChange}
@@ -96,7 +96,7 @@ console.log(email)
                             {(emailTouched && !email) && (
                                 <div className="invalid-feedback">Please provide a valid email.</div>
                             )}
-                            {(emailTouched && email && !emailValid) && (
+                            {(emailTouched && email ) && (
                                 <div className="invalid-feedback">Email must be valid.</div>
                             )}
                         </div>

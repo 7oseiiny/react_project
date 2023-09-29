@@ -1,14 +1,18 @@
 import React from 'react'
 import Navbar from '../Navbar/Navbar'
-import {Outlet} from 'react-router-dom'
+import {Outlet , useLocation } from 'react-router-dom'
 import './AppLayout'
 import FooterCom from '../footer/footer'
 export default function AppLayout() {
+  const location = useLocation();
+  const unshow = location.pathname === '/login' || location.pathname === '/register';
   return (
     <>
-    <Navbar/>
+    <div>
+    {!unshow && <Navbar />}
     <Outlet/>
-    <FooterCom />
+    {!unshow  && <FooterCom />}
+    </div>
     </>
   )
 }
