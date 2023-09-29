@@ -5,7 +5,7 @@ import Mobile from "./Component/MobilePhone/mobile";
 import AppLayout from "./Component/AppLayout/AppLayout";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./Component/Home/Home";
-import React from "react";
+import React, { useEffect } from "react";
 import TodayDealsPage from "./Component/TodayDeals/TodayDealsPage";
 import Coupons from "./Component/TodayDeals/coupons";
 import TodayDeals from "./Component/TodayDeals/TodayDeals";

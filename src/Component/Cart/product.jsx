@@ -26,6 +26,7 @@ export default function Product(props) {
 
         setquantity(e.target.value)
         await axiosInstance.patch(`cart/650f39d8933f94900f5e75e6/updatequantity/${props.item.product._id}/${e.target.value}`)
+        setchange(e)
 
     }
 
@@ -45,7 +46,6 @@ export default function Product(props) {
                     <div className="d-flex align-items-center ">
                         <p className="m-1">quantity </p>
                         <input onChange={(event) => { updateQuantity(event) }} type="number" value={quantity} min="1" max={props.item.product.quantity} className="form-control mx-3" style={{ width: "80px", height: "30px" }} />
-                        <button onClick={deleteItem}>hhh</button>
                         <a className="mx-3" href="#" onClick={deleteItem}>delete</a>
                         <a className="mx-3" href="" onClick={() => { }}>save</a>
                     </div>
