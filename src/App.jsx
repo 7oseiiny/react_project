@@ -29,6 +29,8 @@ import CreateAccount from "./Component/Sign-Up/Sign-Up";
 
 import { AuthProvider } from './Context/user-auth'
 import { useState } from 'react'
+import EditUserInfo from "./Component/UserInfo/EditUserInfo";
+import YourAccount from "./Component/UserInfo/YourAccount";
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -79,6 +81,12 @@ const router = createBrowserRouter([
         path: "Monitor",
         element: <Monitor />,
       },
+      { path: '/profile', element: <YourAccount />, 
+      children:[
+        { path: 'edit' , element : <EditUserInfo /> }
+      ]
+    },
+
     ],
   },
 ]);
