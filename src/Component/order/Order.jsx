@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './order.css'
+import { useSelector } from 'react-redux'
 
 export default function Order() {
+
+  let cart=useSelector((state)=>{return state.cart})
+  let user=useSelector((state)=>{return state.user})
+  // console.log(user);
+  let totalPrice =0
+  let totalItem =0
+  // console.log(cart);
+  // for (const item of cart) {
+  //   totalPrice += item.quantity * item.product.price.new
+  //   totalItem += item.quantity
+  // }
+
   return (
     <>
       <div className='p-2  d-flex justify-content-between align-items-center' style={{ backgroundColor: "rgb(244,244,244)" }} >
         <div><img className='p-2 m-0' src="public\assets\orderimage\amazon-logo-free-png.png" style={{ width: "150px" }} alt="" /></div>
-        <div style={{ fontSize: "22px", fontWeight: "400" }}>Checkout (2 items) </div>
+        <div style={{ fontSize: "22px", fontWeight: "400" }}>Checkout ({totalItem} items) </div>
         <div style={{ width: "10%" }}></div>
       </div>
       <div className="row p-3 ">
@@ -14,7 +27,7 @@ export default function Order() {
           <div className=' d-flex justify-content-between'>
             <div className=""><h5>1 Shipping address </h5></div>
             <div className="">
-              <p className='p-0 m-0'>ahmed elhoseiny</p>
+              <p className='p-0 m-0'>{}</p>
               <p className='p-0 m-0'>ahmed elhoseiny</p>
               <p className='p-0 m-0'>ahmed elhoseiny</p>
               <p className='p-0 m-0'>ahmed elhoseiny</p>

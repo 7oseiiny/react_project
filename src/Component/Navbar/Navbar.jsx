@@ -9,7 +9,7 @@ import { fetchCart } from '../../../store/Slice/cartSlice';
 function Navbar() {
   var items = useSelector( (state) => {  return  state.cart.data })
   let totalItems = 0
-    for (const item of items) { totalItems += item.quantity }
+    for (const item of items ) { totalItems += item.quantity }
     const dispatch = useDispatch()
 
     useEffect(() => {

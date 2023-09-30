@@ -23,7 +23,9 @@ export default function Cart() {
     dispatch(fetchCart())
   }, [dispatch])
 
-
+  // useEffect(()=>{
+  //   dispatch(setpathname(location.pathname))
+  // })
   return (
     <>
       <div  className=" d-flex row w-auto p-3 cart  container-fluid " style={{ backgroundColor: "rgb(234,237,237)" }}>
