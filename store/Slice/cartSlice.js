@@ -9,12 +9,12 @@ export const fetchCart=createAsyncThunk(
     }
 )
 
-export const deleteitem=createAsyncThunk(
-    "cart/update",async (userId,productId)=>{
-        await axiosInstance.patch(`/cart/${userId}/removeProductsInCart/${productId}/`)
+// export const deleteitem=createAsyncThunk(
+//     "cart/update",async (userId,productId)=>{
+//         await axiosInstance.patch(`/cart/${userId}/removeProductsInCart/${productId}/`)
  
-    }
-)
+//     }
+// )
 
 
  const cartSlice =createSlice({
@@ -38,9 +38,9 @@ export const deleteitem=createAsyncThunk(
 
         },
         /////
-        [deleteitem.fulfilled ]:(state , {payload})=>{
-            // fetchCart()
-        },
+        // [deleteitem.fulfilled ]:(state , {payload})=>{
+        //     // fetchCart()
+        // },
        
 
     }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Product from "./product";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCart } from '../../../store/Slice/cartSlice';
+import { NavLink } from "react-router-dom";
 
 export default function Cart() {
   const dispatch = useDispatch()
@@ -21,6 +22,7 @@ export default function Cart() {
   useEffect(() => {
     dispatch(fetchCart())
   }, [dispatch])
+
 
   return (
     <>
@@ -42,7 +44,8 @@ export default function Cart() {
           <div className="cart-right-side p-3  " style={{ backgroundColor: "white" }}>
             <h5 className="p-2">Items : {totalItem}</h5>
             <h5 className="p-2">Total Price : {totalPrice} $</h5>
-            <button onClick={() => { updatePrice() }} className=" p-2 btn btn-warning w-100" > Proceed to Buy</button>
+            <NavLink  to="/order" >  <button className=" p-2 btn btn-warning w-100" > Proceed to Buy</button></NavLink>
+
           </div>
 
         </div>

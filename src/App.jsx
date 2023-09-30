@@ -27,6 +27,7 @@ import Login from "./Component/Login/login";
 import { AuthProvider } from './Context/user-auth'
 import { useState } from 'react'
 import Cart from "./Component/Cart/Cart";
+import Order from "./Component/order/Order";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: '/login', element: <Login /> },
-    
+
       { path: "/mobile", element: <Mobile /> },
       {
         path: "todayDeals",
@@ -73,6 +74,7 @@ const router = createBrowserRouter([
       { path: "prime", element: <Prime /> },
       { path: "books", element: <Books /> },
       { path: "cart", element: <Cart /> },
+      { path: "order", element: <Order /> },
       {
         path: "Monitor",
         element: <Monitor />,
@@ -83,7 +85,7 @@ const router = createBrowserRouter([
 
 function App() {
   const [Islogged, setIslogged] = useState(localStorage.getItem(`token`) ? true : false);
- 
+
 
   var result = "";
   async function start() {
@@ -96,8 +98,8 @@ function App() {
   }, []);
   return (
     <Provider store={store}>
-       <AuthProvider value={{ Islogged, setIslogged }} >
-      <RouterProvider router={router} />
+      <AuthProvider value={{ Islogged, setIslogged }} >
+        <RouterProvider router={router} />
       </AuthProvider>
     </Provider>
   );
