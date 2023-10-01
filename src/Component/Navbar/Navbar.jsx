@@ -3,15 +3,20 @@ import { MdLocationPin } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import React from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../Context/user-auth';
 import { Link, NavLink } from 'react-router-dom';
+import Nav from 'react-bootstrap/Nav';
 function Navbar() {
+  const { Islogged, setIslogged, userData } = useContext(AuthContext);
+  const userName = userData ? userData.userName : 'Guest';
   return (
     <>
 
       <div className="container-fluid px-0 bg-dark">
-      <div className="row m-0 align-items-center justify-content-center">
+        <div className="row m-0 align-items-center justify-content-center">
           <div className="col-lg-2 col-sm-6  logo col-md-4 d-flex flex-wrap justify-content-between" >
-              <img className="col-6" src="../assets/images/logoo1.png" alt="logo" />
+            <img className="col-6" src="../assets/images/logoo1.png" alt="logo" />
             <div className="ps-3 col-lg-6 col-md-6 d-flex align-items-center">
               <div className=""><MdLocationPin color='white' size={20} /></div>
               <div className="text-white d-flex flex-column ps-2">
@@ -72,17 +77,17 @@ function Navbar() {
 
                   <div className="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
                     <button type="button" className="btn btn-warning text-center w-50 "><Link className="btn btn-none text-dark fw-bold " to="/login" style={{ textDecoration: "none" }}>Sign in</Link></button>
-                    <br/>
+                    <br />
                     <small>New Customers?<Link className="btn btn-none text-primary " to="/" style={{ textDecoration: "none" }}>Start here.</Link> </small>
                     <div className="d-flex w-600px text-center">
                       <div>
                         <h5>Your Lists</h5>
-                        <Link className="btn btn-none" to="/" style={{ textDecoration: "none" ,textColor:"black"}}>Create a List</Link>
+                        <Link className="btn btn-none" to="/" style={{ textDecoration: "none", textColor: "black" }}>Create a List</Link>
                       </div>
                       <div>
                         <h5>Your Account</h5>
-                        <Link className="btn btn-none" to="/" style={{ textDecoration: "none" ,textColor:"black"}}>Your Account</Link><br/>
-                        <Link className="btn btn-none" to="/" style={{ textDecoration: "none" ,textColor:"black"}}>Your Order</Link>
+                        <Link className="btn btn-none" to="/" style={{ textDecoration: "none", textColor: "black" }}>Your Account</Link><br />
+                        <Link className="btn btn-none" to="/" style={{ textDecoration: "none", textColor: "black" }}>Your Order</Link>
                       </div>
                     </div>
                   </div>
@@ -115,8 +120,12 @@ function Navbar() {
             <NavLink className="links px-2" to="Monitor" style={{ textDecoration: "none", }}>Monitor</NavLink>
             <NavLink className="links px-2" to="books" style={{ textDecoration: "none" }}>books</NavLink>
             <NavLink className="links px-2" to="profile" style={{ textDecoration: "none" }}>Profile</NavLink>
+            <NavLink className="links px-2" to="login" onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('userData'); setIslogged(false) }} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
 
           </div>
+
+          <div style={{ color: "white", fontWeight: "bold" }}>Welcome {userName}</div>
+
           <div className=" text-white">Shop deals in Electronics</div>
         </div>
 
