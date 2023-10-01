@@ -12,7 +12,7 @@ export const fetchOrder=createAsyncThunk(
 export const addOrder=createAsyncThunk(
     "Order/add",async ()=>{
         let userId="650f39d8933f94900f5e75e6"
-        const reaponse=await axiosInstance.post(`/order/${userId}`)
+        const reaponse=await axiosInstance.post(`/order/${userId}/addNewOrder`)
         return  reaponse.data.data;
     }
 )

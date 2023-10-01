@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react'
 import './order.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchuser } from '../../../store/Slice/userSlice'
+import { addOrder } from '../../../store/Slice/orderSlice'
+import { useNavigate } from 'react-router'
 
 export default function Order() {
   const dispatch = useDispatch()
+  let navigate = useNavigate();
 
   let cart = useSelector((state) => { return state.cart.data })
   let user = useSelector((state) => { return state.user.data })
@@ -25,6 +28,21 @@ export default function Order() {
   }
 
   function paymentfun(e){setpayment(e)}
+  function paynow(){
+    if (payment=="paypal") {
+      alert("paypal")
+    }
+    else if (payment=="cod") {
+      try{
+        dispatch(addOrder());
+        navigate("/books"); 
+
+      }catch{
+        navigate("/books"); 
+
+      }
+    }
+  }
 
   return (
     <>
@@ -73,7 +91,7 @@ export default function Order() {
         </div>
         <div className='col-lg-3 col-md-12 px-4 col-sm-12' >
           <div className=" h-100  border border-2 my-2 p-3  " style={{ borderRadius: "8px", position: "sticky", top: "50px" }}>
-            <button className='btn btn-warning w-100' style={{ fontSize: "1rem" }} >use this payment method  </button>
+            <button onClick={paynow} className='btn btn-warning w-100' style={{ fontSize: "1rem" }} >use this payment method  </button>
             <p style={{ fontSize: ".8rem", textAlign: "center", padding: "5px" }}>Choose a payment method to continue checking out. You'll still have a chance to review and edit your order before it's final.
             </p>
             <hr />
