@@ -96,7 +96,7 @@ const CreateAccount = () => {
       <div className="logo">
         <img src="../assets/images/Amazon_logo.svg.png" alt="" />
       </div>
-      <div className="card">
+      <div className="card cardSignUp">
         <h1>Create Account</h1>
         <form onSubmit={handleSubmit}>
           <div>
@@ -109,7 +109,6 @@ const CreateAccount = () => {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               name="name"
-              placeholder="First and last name"
               value={formData.name}
               onChange={handleValidation}
             />
@@ -165,12 +164,12 @@ const CreateAccount = () => {
           </button>
         </form>
         <p>
-          By creating an account, you agree to Amazon's{' '}
-          <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>
+          By creating an account, you agree to Amazon's
+          <a href="#"> Conditions of Use</a> and <a href="#">Privacy Notice</a>
           .
         </p>
-        <div>
-          Already have an account?<a>Sign in</a>
+        <div className='Already'>
+          Already have an account? <a href="/login">Sign in</a>
         </div>
       </div>
     

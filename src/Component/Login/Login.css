@@ -98,3 +98,6 @@ footer p{
     color:#555;
     text-align: center;
 }
+.CreateAccount{
+    display: flex !important;
+}

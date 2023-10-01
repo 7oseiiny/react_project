@@ -13,9 +13,9 @@
     height: 31px;
     margin-top: 15px;
 }
-.card{
+.cardSignUp{
     width: 24rem;
-    height: 22rem;
+    /* height: 35rem !important; */
     padding: 20px;
     display: flex;
     justify-content: space-around; 
@@ -24,23 +24,18 @@
     margin: 20px auto 25px auto;
 }
 
-.card h1{
+.cardSignUp h1{
 /* font-weight: 50px; */
-    font-size: 28px;
+    font-size: 25px;
 }
-.card h5{
+.cardSignUp h5{
     padding-top: .5rem;
-    font-size: 18px;
-
+    font-size: 16px !important;
+    padding-bottom: 0 !important;
 }
 
-/* .no-space{
-  
-    padding: 1px 3px !important;
-     margin-top: 0.1rem;
-  
-} */
-.card button{
+
+.cardSignUp button{
     width: 20rem;
     height: 2rem;
     margin-top: 15px;
@@ -48,11 +43,11 @@
     border: 1px solid #F7CA00;
     border-radius: 7px;
 }
-.card button:hover{
+.cardSignUp button:hover{
     background-color: #cfab0c;
     border: 1px solid #cfab0c;
 }
-.card p,.card p a{
+.cardSignUp p,.cardSignUp p a{
     font-size: 12px;
     line-height: 1.5;
 }
@@ -60,19 +55,13 @@ a{
     text-decoration: none !important;
     color: #0066c0;
 }
-.card a{
+.cardSignUp a{
     margin-top: 2%;
     font-size: 13px;
 }
-/* .icon::before{
-    display: inline-block;
-    content: "";
-    border-top: .3rem solid transparent;
-    border-left: .3rem solid #949494;
-    border-bottom: .3rem solid transparent;
-    margin-right: .5rem;
-} */
-
+#exampleInputEmail1, #exampleInputEmail2,#exampleInputEmail3, #exampleInputPassword1{
+    margin-top: -12px !important;
+}
 .btn button{
     width: 23rem;
     height:2rem;
@@ -112,6 +101,18 @@ footer p{
     font-size: 11px;
     color:#555;
     text-align: center;
+}
+.Already::before{
+    content: "";
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    height: 3rem;
+    margin-top: -45px;
+    margin-bottom: 20px;
+    border-top: 1px solid transparent;
+    box-shadow: 0 10px 15px -20px #333;
 }
 
 

@@ -137,7 +137,7 @@ console.log(email)
             <div className="breck">
                 <p>New to Amazon?</p>
             </div>
-            <div className="btn">
+            <div className="btn CreateAccount">
                 <button onClick={() => navigate("/CreateAccount")}>Create your Amazon account</button>
             </div>
             <footer>
