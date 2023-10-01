@@ -97,7 +97,7 @@ function App() {
     start();
   }, []);
   return (
-    <Provider store={store}>
+    <Provider  store={store}>
       <AuthProvider value={{ Islogged, setIslogged }} >
         <RouterProvider router={router} />
       </AuthProvider>
