@@ -5,7 +5,6 @@ export const fetchuser=createAsyncThunk(
     "user/fetch",async ()=>{
         let userId="650f39d8933f94900f5e75e6"
         const reaponse=await axiosInstance.get(`/user/${userId}`)
-        console.log(reaponse.data.data);
         return  reaponse.data.data;
     }
 )
@@ -15,7 +14,7 @@ export const fetchuser=createAsyncThunk(
 
     name:"user",
     initialState:{
-        data:{},
+        data:"k",
         status:null
     },
     extraReducers:{

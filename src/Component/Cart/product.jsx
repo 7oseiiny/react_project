@@ -45,7 +45,7 @@ export default function Product(props) {
                     </div>
                     <div className="d-flex align-items-center ">
                         <p className="m-1">quantity </p>
-                        <input onChange={(event) => { updateQuantity(event) }} type="number" value={quantity} min="1" max={props.item.product.quantity} className="form-control mx-3" style={{ width: "80px", height: "30px" }} />
+                        <input onChange={(event) => { updateQuantity(event) }} type="number"  value={quantity} min="1" max={props.item.product.quantity} className="form-control mx-3" style={{ width: "80px", height: "30px" }} />
                         <a className="mx-3" href="#" onClick={deleteItem}>delete</a>
                         <a className="mx-3" href="" onClick={() => { }}>save</a>
                     </div>
