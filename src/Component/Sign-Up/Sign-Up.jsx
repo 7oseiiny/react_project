@@ -82,8 +82,8 @@ const CreateAccount = () => {
     };
   
     register(userData)
-      .then((response) => {
-        console.log('Registration successful', response);
+      .then((data) => {
+        console.log('Registration successful', data);
         navigate('/login');
       })
       .catch((error) => {

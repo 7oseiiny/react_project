@@ -54,8 +54,8 @@ console.log(email)
                 const userDatatoSave = res.data;
                 console.log(userDatatoSave);
                 setUserData(userDatatoSave)
-                localStorage.setItem('token', res.data.token)
-                localStorage.setItem('userData', JSON.stringify(userDatatoSave));
+                localStorage.setItem('token', JSON.stringify(userDatatoSave.data.token))
+                // localStorage.setItem('userData', JSON.stringify(userDatatoSave));
                 setIslogged(true)
                 navigate('/')
             } catch (e) {
