@@ -30,11 +30,7 @@ const categorySlice = createSlice({
             state.status = 'failed'
 
         },
-        /////
-        // [deleteitem.fulfilled ]:(state , {payload})=>{
-        //     // fetchcategory()
-        // },
-
+     
 
     }
 
