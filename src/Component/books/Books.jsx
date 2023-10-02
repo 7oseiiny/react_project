@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "./Books.css";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import { FaRegStar, FaStar } from "react-icons/fa6";
-import Rate from "./rate";
+import Rate from "../rate/rate";
 // import Card from 'react-bootstrap/Card';
 // import Col from 'react-bootstrap/Col';
 // import Row from 'react-bootstrap/Row';
