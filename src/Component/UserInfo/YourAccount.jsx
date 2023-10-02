@@ -7,19 +7,52 @@ export default function YourAccount() {
     const { userData } = useContext(AuthContext);
     const [avatarSrc, setAvatarSrc] = useState('');
 // console.log(userData)
-    const readURL = (input) => {
-        if (input.files && input.files[0]) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                setAvatarSrc(e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
+    // const readURL = (input) => {
+    //     if (input.files && input.files[0]) {
+    //         const reader = new FileReader();
+    //         reader.onload = function (e) {
+    //             setAvatarSrc(e.target.result);
+    //         }
+    //         reader.readAsDataURL(input.files[0]);
+    //     }
+    // }
 
-    const handleFileChange = (event) => {
-        readURL(event.target);
-    };
+    // const handleFileChange = (event) => {
+    //     readURL(event.target);
+    // };
+
+
+
+////////////////////
+
+const [fileData, setFileData] = useState();
+
+const fileChangeHandler = (e) => {
+  setFileData(e.target.files[0]);
+};
+
+const onSubmitHandler = (e) => {
+  e.preventDefault();
+
+  // Handle File Data from the state Before Sending
+  const data = new FormData();
+
+  data.append("image", fileData);
+
+  fetch("http://localhost:3300/user/single", {
+    method: "POST",
+    body: data,
+  })
+    .then((result) => {
+      console.log("File Sent Successful");
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+
+
     return (
         <>
             {/* {userData.name && <p> {userData.name}</p>}
@@ -35,11 +68,12 @@ export default function YourAccount() {
                             </div>
                             <div className="row">
                                 <div className="col-sm-4 layout-profile">
-                                    <div className="text-center ">
-                                        <img src={avatarSrc || "http://ssl.gstatic.com/accounts/ui/avatar_2x.png"} className="avatar img-circle img-thumbnail" alt="avatar" />
-                                        <h6>Upload a different photo...</h6>
-                                        <input type="file" className=" file-upload" onChange={handleFileChange} />
-                                    </div>
+                                <form onSubmit={onSubmitHandler} enctype="multipart/form-data">
+        <input type="file" onChange={fileChangeHandler} />
+        <br />
+        <br />
+        <button className="btn btn-success" type="submit">Submit File to Backend</button>
+      </form>
                                     <hr /><br />
                                     <ul className="list-group">
                                         <li className="list-group-item text-muted">Activity </li>
@@ -119,7 +153,7 @@ export default function YourAccount() {
                         </div>
                     </>
                 </div>
-                <button className="btn btn-warning"><Link className='text-light text-decoration-none' to="/profile/edit">Edit your Profile</Link></button>
+                <button className="btn btn-success"><Link className='text-light text-decoration-none' to="/profile/edit">Edit your Profile</Link></button>
             </div>
             <Outlet />
 

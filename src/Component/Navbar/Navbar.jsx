@@ -9,7 +9,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 function Navbar() {
   const { Islogged, setIslogged, userData } = useContext(AuthContext);
-  const userName = userData ? userData.userName : 'Guest';
+  const userName = userData ? userData.email : 'Guest';
   return (
     <>
 

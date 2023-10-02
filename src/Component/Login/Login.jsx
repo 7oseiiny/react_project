@@ -53,11 +53,13 @@ console.log(email)
 
                 const userDatatoSave = res.data;
                 console.log(userDatatoSave);
-                setUserData(userDatatoSave)
-                localStorage.setItem('token', JSON.stringify(userDatatoSave.data.token))
-                // localStorage.setItem('userData', JSON.stringify(userDatatoSave));
-                setIslogged(true)
-                navigate('/')
+                  if (!res.data.data.message){
+                      setUserData(userDatatoSave)
+                      localStorage.setItem('token', JSON.stringify(userDatatoSave.data.token))
+                
+                      setIslogged(true)
+                      navigate('/')
+                  }
             } catch (e) {
                 toast.error('Wrong Email or Password', {
                     position: "buttom-center"
