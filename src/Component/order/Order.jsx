@@ -52,8 +52,8 @@ export default function Order() {
       buttons: [
         {
           label: 'Yes',
-          onClick: () => {
-            dispatch(addOrder());
+          onClick: async () => {
+            await dispatch(addOrder());
             navigate("/books")
 
           }

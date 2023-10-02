@@ -18,7 +18,7 @@ export default function Product(props) {
     async function deleteItem() {
         
         await axiosInstance.post(`cart/650f39d8933f94900f5e75e6/removeProductsInCart/${props.item.product._id}`)
-        setchange()
+        dispatch(fetchCart())
 
     }
 
@@ -26,7 +26,7 @@ export default function Product(props) {
 
         setquantity(e.target.value)
         await axiosInstance.patch(`cart/650f39d8933f94900f5e75e6/updatequantity/${props.item.product._id}/${e.target.value}`)
-        setchange(e)
+        dispatch(fetchCart())
 
     }
 

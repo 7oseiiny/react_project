@@ -9,12 +9,14 @@ export const fetchCart=createAsyncThunk(
     }
 )
 
-// export const deleteitem=createAsyncThunk(
-//     "cart/update",async (userId,productId)=>{
-//         await axiosInstance.patch(`/cart/${userId}/removeProductsInCart/${productId}/`)
- 
-//     }
-// )
+export const addProductInCart=createAsyncThunk(
+    "cart/addProduct",async (body)=>{
+        let userId="650f39d8933f94900f5e75e6"
+        const reaponse=await axiosInstance.post(`/cart/${userId}/addProductInCart`,body)
+        return  reaponse.data.data;
+    }
+)
+
 
 
  const cartSlice =createSlice({

@@ -1,7 +1,7 @@
 //////////////////////////////////////////////
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Books.css";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import { FaRegStar, FaStar } from "react-icons/fa6";
@@ -15,21 +15,44 @@ import { useEffect } from 'react';
 import Sliders from "./sliders";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchcategory } from "../../../store/Slice/categorySlice";
+import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
+import { addProductInCart, fetchCart } from "../../../store/Slice/cartSlice";
 
 export default function Books() {
 
+  console.log("a");
+  let navigate = useNavigate()
   let dispatch = useDispatch()
+  let [change, setchange] = useState(0);
   useEffect(() => {
     dispatch(fetchcategory("books"))
-  }, [dispatch])
+    dispatch(fetchCart())
+  }, [dispatch,change])
   var listbook = useSelector((state) => { return state.category.data })
+  var cart = useSelector((state) => { return state.cart.data })
 
+  function isInCart(bookId) {
+    for (const item of cart) {
 
+      if (bookId==item.product._id  ) {
+        return true
+      }
+     
+
+    }
+  }
+  function viewcart() {
+    navigate("/cart")
+  }
   const [screenWidth, setScreen] = useState(window.innerWidth);
 
 
   var outhors = ["1", 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
+  async function addtocart(productId) {
+    await dispatch(addProductInCart({ "items": [{ "product": productId, "quantity": 1 }] }))
+    setchange(productId)
+  }
 
   return (
     <>
@@ -382,10 +405,14 @@ export default function Books() {
                 return <>
                   <div className="col-lg-3 col-6 p-2" >
                     <div className="bg-light w-100 p-2 text-center "  >
-                      <img className="w-50 " src={book.img} alt="" />
+                      <img onClick={() => { alert(book._id); }} className="w-50 " src={book.img} alt="" />
                       <p style={{ fontSize: "1vw", height: "50px" }}>{book.title_en}</p>
                       <Rate rate={book.rate} ></Rate>
                       <p style={{ fontSize: "1vw" }}>{book.price.new} $</p>
+                      <p style={{ fontSize: "1vw" ,color:"red"}}>{book.quantity} in stok</p>
+                      
+                      {!isInCart(book._id) ? <button disabled={book.quantity<1} onClick={() => { addtocart(book._id) }} className="btn btn-warning">add to cart</button> : <button onClick={viewcart} className="btn btn-warning">view cart</button>}
+                      {true ? <MdOutlineFavoriteBorder style={{ fontSize: "25px", marginLeft: "10px" }}></MdOutlineFavoriteBorder> : <MdFavorite></MdFavorite>}
                     </div>
                   </div>
 
