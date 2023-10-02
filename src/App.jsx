@@ -28,6 +28,7 @@ import { AuthProvider } from './Context/user-auth'
 import { useState } from 'react'
 import Cart from "./Component/Cart/Cart";
 import Order from "./Component/order/Order";
+import CompleteOrder from "./Component/order/completeOrder/CompleteOrder";
 
 const router = createBrowserRouter([
   {
@@ -75,6 +76,7 @@ const router = createBrowserRouter([
       { path: "books", element: <Books /> },
       { path: "cart", element: <Cart /> },
       { path: "order", element: <Order /> },
+      { path: "completeorder", element: <CompleteOrder /> },
       {
         path: "Monitor",
         element: <Monitor />,
