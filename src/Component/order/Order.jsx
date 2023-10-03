@@ -6,10 +6,13 @@ import { addOrder } from '../../../store/Slice/orderSlice'
 import { useNavigate } from 'react-router'
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 export default function Order() {
   const dispatch = useDispatch()
   let navigate = useNavigate();
+
+  
 
   let cart = useSelector((state) => { return state.cart.data })
   let user = useSelector((state) => { return state.user.data })
@@ -29,6 +32,12 @@ export default function Order() {
     totalshipping += item.product.price.shipping
   }
 
+  const initialOptions = {
+    clientId: "AUaJcic_8Sb70xnxkGT_R5n03MBqWEcogg19wC-EIxqa8dlssaNVRTS-hvuzDAacol3ltbW1DfT9lZP6",
+    currency: "USD",
+    intent: "capture",
+  };
+
   function paymentfun(e) { setpayment(e) }
   function usemethod() {
     if (payment == "paypal") {
@@ -43,6 +52,7 @@ export default function Order() {
 
     }
   }
+
 
 
   function submet() {
@@ -67,9 +77,16 @@ export default function Order() {
       ]
     });
   }
+  const onApprove = async (data, actions) => {
+    await dispatch(addOrder());
+    navigate("/books")
+    return actions.order.capture();
+  };
+  
 
   return (
     <>
+     <PayPalScriptProvider options={initialOptions}>
       <div className='p-2  d-flex justify-content-between align-items-center' style={{ backgroundColor: "rgb(244,244,244)" }} >
         <div><img className='p-2 m-0' src="public\assets\orderimage\amazon-logo-free-png.png" style={{ width: "150px" }} alt="" /></div>
         <div style={{ fontSize: "22px", fontWeight: "400" }}>Checkout ({totalItem} items) </div>
@@ -97,8 +114,23 @@ export default function Order() {
                   <h6 className='p-0 m-0 mx-2'> Paybal</h6>
                 </div>
                 <div className='d-flex justify-content-center m-2' style={{ borderRadius: "20px", backgroundColor: "rgb(255,209,64)" }}>
-                  <img style={{ height: "100px" }} src="public\assets\orderimage\PayPal-Logo.png" alt="" />
-                </div>
+                  {/* <img style={{ height: "100px" }} src="public\assets\orderimage\PayPal-Logo.png" alt="" /> */}
+                  <PayPalButtons
+  disabled={cart.length === 0}
+  createOrder={(data, actions) => {
+    return actions.order.create({
+      purchase_units: [
+        {
+          amount: {
+            value: (totalPrice + totalshipping).toFixed(2),
+            currency_code: "USD"
+          }
+        }
+      ]
+    });
+  }}
+  onApprove={onApprove}
+/>                </div>
               </label>
               <label className='w-100  align-items-center p-2 border border-2 my-2' style={{ borderRadius: "8px" }}>
                 <div className='d-flex '>
@@ -122,22 +154,22 @@ export default function Order() {
             <h6 className='py-2'>order summary</h6>
             <div className='d-flex justify-content-between'>
               <p style={{ fontSize: ".8rem", padding: "5px" }} className='m-0 p-0'>items:</p>
-              <p style={{ fontSize: ".8rem", padding: "5px" }} className='m-0 p-0'>{totalPrice} EGP</p>
+              <p style={{ fontSize: ".8rem", padding: "5px" }} className='m-0 p-0'>{totalPrice.toFixed(2)} EGP</p>
             </div>
             <div className='d-flex justify-content-between'>
               <p style={{ fontSize: ".8rem", padding: "5px" }} className='m-0 p-0'>Shipping & handling:</p>
-              <p style={{ fontSize: ".8rem", padding: "5px" }} className='m-0 p-0'>{totalshipping} EGP</p>
+              <p style={{ fontSize: ".8rem", padding: "5px" }} className='m-0 p-0'>{totalshipping.toFixed(2)} EGP</p>
             </div>
             <div className='d-flex justify-content-between'>
               <p style={{ fontSize: ".8rem", padding: "5px" }} className='m-0 p-0'>Total:</p>
-              <p style={{ fontSize: ".8rem", padding: "5px" }} className='m-0 p-0'>{totalPrice + totalshipping} EGP</p>
+              <p style={{ fontSize: ".8rem", padding: "5px" }} className='m-0 p-0'>{(totalPrice + totalshipping).toFixed(2)} EGP</p>
             </div>
 
             <hr />
             <div className='d-flex justify-content-between'>
 
               <h5 style={{ color: "rgb(177,39,60)" }} >Order total:</h5>
-              <h5 style={{ color: "rgb(177,39,60)" }} >{totalPrice + totalshipping} EGP</h5>
+              <h5 style={{ color: "rgb(177,39,60)" }} >{(totalPrice + totalshipping).toFixed(2)} EGP</h5>
             </div>
             <hr />
             <h1>{payment}</h1>
@@ -145,6 +177,7 @@ export default function Order() {
         </div>
 
       </div>
+      </PayPalScriptProvider>
     </>
   )
 }
