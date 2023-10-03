@@ -10,28 +10,35 @@ import { BsStarHalf } from "react-icons/bs";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchcategory } from '../../../store/Slice/categorySlice';
 import { PaginationControl } from 'react-bootstrap-pagination-control';
+import axios from 'axios';
 
 export default function Monitor() {
-
-    let dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(fetchcategory("Monitors"))
-        console.log(dispatch)
-    }, [dispatch])
-    let monitorsList = useSelector((state) => {
-        // console.log(state)
-        // console.log(monitorsList)
-        return state.category.data
-    })
     const [page, setPage] = useState(1)
-    const [itemsPerPage, setItemsPerPage] = useState(12);
+    console.log("pageq",page)
+    // let dispatch = useDispatch()
+    // useEffect(() => {
+    //     dispatch(fetchcategory("Monitors",page))
+    // }, [dispatch,page])
+    const [data, setData] = useState([]);
+    const [pagechang, setpagechang] = useState(1)
+    useEffect(() => {
+        axios.get(`http://localhost:3300/category/getbyname/Monitors?pageNumber=${page}`)
+          .then(response => setData(response.data.data.products))
+          .catch(error => console.error(error));
+      }, [page]);
+      console.log("dataa",data)
+    // let monitorsList = useSelector((state) => {
+    //     // console.log(state)
+    //     // console.log(monitorsList)
+    //     return state.category.data
+    // })
 
+    // const itemsPerPage=5
 
-    const indexOfLastItem = page * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = monitorsList.slice(indexOfFirstItem, indexOfLastItem);
-    console.log("ca",currentItems)
-    console.log(monitorsList)
+    // const indexOfLastItem = page * itemsPerPage;
+    // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    // const currentItems = data
+    console.log("pagez",page)
 
     return (
         <>
@@ -41,7 +48,7 @@ export default function Monitor() {
                     <LiftSide className='s' />
                     <div className='col-xl-10 col-md-9 col-12'>
                         <div className="row d-flex justify-content-center">
-                            <h1>result</h1>                            {currentItems.map((prd) => {
+                            <h1>result</h1>                            {data.map((prd) => {
                                 return (
                                     <Card className='col-xl-3 col-lg-4 col-md-5  col-5 mx-2 my-3' key={prd._id}>
                                         <Card.Img variant="top" className='img' src={prd.img} />
@@ -67,10 +74,12 @@ export default function Monitor() {
                 <PaginationControl
                     page={page}
                     between={4}
-                    total={250}
-                    limit={20}
+                    total={40}
+                    limit={12}
                     changePage={(page) => {
                         setPage(page)
+                        console.log("pageff",page)
+
                     }}
                     ellipsis={1}
                 />
