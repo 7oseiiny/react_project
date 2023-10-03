@@ -5,41 +5,64 @@ import { MdOutlineFavoriteBorder, MdOutlinePlace } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductById } from '../../../store/Slice/productsSlice';
 import { fetchuser } from '../../../store/Slice/userSlice';
-import { fetchCart } from '../../../store/Slice/cartSlice';
+import { addProductInCart, fetchCart } from '../../../store/Slice/cartSlice';
 
 export default function ProductDetails() {
-    let user = useSelector((state) => { return state.user.data })
-    console.log(user);
-
-    const location = useLocation();
+    let location = useLocation();
     let dispatch = useDispatch()
+    let navigate = useNavigate()
+    let user = useSelector((state) => { return state.user.data })
+    var product = useSelector((state) => { return state.products.data })
+    var cart = useSelector((state) => { return state.cart.data })
+
+    let [change, setchange] = useState(0);
+    let [quantity, setquantity] = useState(1);
+
     useEffect(() => {
         dispatch(fetchuser())
         dispatch(fetchCart())
-
         dispatch(fetchProductById(location.state.productId))
-    }, [dispatch])
-    var product = useSelector((state) => { return state.products.data })
+    }, [dispatch, change, quantity])
 
     function prod(x, y) {
         try {
             if (x && y) { return (product[x][y]) }
             else if (x) { return (product[x]) }
-            // setinfo(product.info_en)
-
         } catch { }
     }
-    // let [info, setinfo] = useState()
+
+    function isInCart(bookId) {
+        for (const item of cart) {
+
+            if (bookId == item.product._id) {
+                return true
+            }
 
 
+        }
+    }
+    function viewcart() {
+        navigate("/cart")
+    }
+    async function setq(e) {
+        if (e.target.value > prod("quantity")) { setquantity(prod("quantity")) }
+        else if (e.target.value < 1) { setquantity(1) }
+        else { setquantity(e.target.value) }
+    }
 
-    // console.log(product.info_en);
+
+    async function addtocart(productId) {
+        await dispatch(addProductInCart({ "items": [{ "product": productId, "quantity": quantity }] }))
+        setchange(productId)
+    }
+
+
 
     return (
         <>
             <div className='row justify-content-center '>
                 <div className="col-lg-5 col-md-5 col-sm-6 p-5  d-flex justify-content-center">
-                    <img style={{ height: "fit-content", width: "100%" }} src="https://m.media-amazon.com/images/I/51uRo8IkLRL._AC_.jpg" alt="" /></div>
+                    <img style={{ height: "fit-content", width: "100%" }} src={prod("img")} alt="" /></div>
                 <div className="col-lg-4  col-md-4 col-sm-6 p-4  " >
                     <h4>{prod("title_en")}</h4>
                     <NavLink to="/" style={{ textDecoration: "none", color: "rgb(0,113,165)" }}><p>catigory : {prod("categoryId", "name_en")}</p></NavLink>
@@ -68,36 +91,36 @@ export default function ProductDetails() {
                     </p>
                     <hr />
                     {
-                        prod("info_en")?
-                        prod("info_en")
-                        .map((item) => {
-                            const [key, value] = item.split(":")
-                            return <>
-                                <div className='d-flex'>
-                                    <p style={{ fontWeight: "600" }} className='m-1'>{key} :</p>
-                                    <p className='m-1'>{value}</p>
-                                </div>
-                            </>
+                        prod("info_en") ?
+                            prod("info_en")
+                                .map((item) => {
+                                    const [key, value] = item.split(":")
+                                    return <>
+                                        <div className='d-flex'>
+                                            <p style={{ fontWeight: "600" }} className='m-1'>{key} :</p>
+                                            <p className='m-1'>{value}</p>
+                                        </div>
+                                    </>
 
 
-                        }):""
+                                }) : ""
                     }
                     <hr />
                     <h5>About this item</h5>
                     {
-                         prod("aboutItem_en")?
-                         prod("aboutItem_en")
-                         .map((item) => {
-                             const [key, value] = item.split(":")
-                             return <>
-                                 <div className='d-flex'>
-                                     <p style={{ fontWeight: "600" }} className='m-1'>{key} :</p>
-                                     <p className='m-1'>{value}</p>
-                                 </div>
-                             </>
- 
- 
-                         }):""
+                        prod("aboutItem_en") ?
+                            prod("aboutItem_en")
+                                .map((item) => {
+                                    const [key, value] = item.split(":")
+                                    return <>
+                                        <div className='d-flex'>
+                                            <p style={{ fontWeight: "600" }} className='m-1'>{key} :</p>
+                                            <p className='m-1'>{value}</p>
+                                        </div>
+                                    </>
+
+
+                                }) : ""
                     }
 
 
@@ -118,10 +141,11 @@ export default function ProductDetails() {
                         <p className='p-0 m-0  my-2' style={{ color: "green", fontWeight: "600" }}>{prod("quantity")} in stock</p>
                         <div className="d-flex align-items-center  my-2">
                             <p className="m-1">Qty :</p>
-                            <input type="number" min="1" className="form-control mx-3" style={{ width: "80px", height: "30px" }} />
+                            <input type="number" onChange={(event) => { setq(event) }} value={quantity} min="1" max={prod("quantity")} className="form-control mx-3" style={{ width: "80px", height: "30px" }} />
                         </div>
                         <div className='d-flex flex-column p-2 '>
-                            <button className='btn my-1' style={{ borderRadius: "50px", backgroundColor: "rgb(255,216,20)" }}>add to cart</button>
+                            {!isInCart(prod("_id")) ? <button disabled={prod("quantity") < 1} onClick={() => { addtocart(prod("_id")) }} className='btn my-1' style={{ borderRadius: "50px", backgroundColor: "rgb(255,216,20)" }}>add to cart</button> : <button onClick={viewcart} className='btn my-1' style={{ borderRadius: "50px", backgroundColor: "rgb(255,216,20)" }}>view cart</button>}
+
                             <div className='d-flex flex-row justify-content-between'>
                                 <button className='btn w-100 my-1' style={{ borderRadius: "50px", backgroundColor: "rgb(255,164,28)" }} >buy now</button>
 
