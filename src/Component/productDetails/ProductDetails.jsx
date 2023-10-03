@@ -23,7 +23,7 @@ export default function ProductDetails() {
                     <img style={{ height: "fit-content", width: "100%" }} src="https://m.media-amazon.com/images/I/51uRo8IkLRL._AC_.jpg" alt="" /></div>
                 <div className="col-lg-4  col-md-4 col-sm-6 p-4  " >
                     <h4>Honor watch magic 2 46mm - flax brown</h4>
-                    <NavLink to="/" style={{ textDecoration: "none", color: "rgb(0,113,165)" }}><p>catigory : {product.categoryId}</p></NavLink>
+                    <NavLink to="/" style={{ textDecoration: "none", color: "rgb(0,113,165)" }}><p>catigory : books</p></NavLink>
                     <div className='d-flex  align-items-end justify-content-between' >
                         <p style={{ fontSize: "1.4rem" }} className='p-0 px-2 m-0'>5.5</p>
                         <div style={{ fontSize: "1.22rem", color: "rgb(237,139,31)" }}> <Rate /></div>
