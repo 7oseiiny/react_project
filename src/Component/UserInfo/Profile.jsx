@@ -81,9 +81,7 @@ export default function Profile() {
             {userData.email && <p>Email: {userData.email}</p>} */}
             <div className="m-5">
                 <div className="wallpeper">
-                    <p className="minTitle ">
-                        This is your private view of your public profile. <a>See what others see</a>
-                    </p>
+                   
                 <img className='img-fluid imgProFile' src="../assets/images/user.webp" width="22%"   />
                 </div>
                 <div className="p-4 fs-4 fw-bold ">
@@ -94,9 +92,13 @@ export default function Profile() {
                             </div>
                             <div className="row">
                                 <div className="col-sm-4 layout-profile">
+                                    <span>
                                   <h4>Name : Ola</h4>
                                   <h4>Address : cairo</h4>
-                                   
+                                  <button className="btn btn-success"><Link className='text-light text-decoration-none' to="/profile/edit">Edit your Profile</Link></button>
+
+                                    </span>
+
                                     <hr /><br />
                                     <ul className="list-group">
                                         <li className="list-group-item text-muted">Activity </li>
