@@ -25,7 +25,6 @@ export default function Books() {
   let dispatch = useDispatch()
   let [change, setchange] = useState(0);
   useEffect(() => {
-    let pagenum=1
     dispatch(fetchcategory("books",))
     dispatch(fetchCart())
   }, [dispatch, change])
