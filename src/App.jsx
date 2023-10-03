@@ -26,11 +26,14 @@ import axios from "axios";
 import axiosInstance from "./axiosConfig/instance";
 import Login from "./Component/Login/login";
 import CreateAccount from "./Component/Sign-Up/Sign-Up";
-
 import { AuthProvider } from './Context/user-auth'
 import { useState } from 'react'
 import EditUserInfo from "./Component/UserInfo/EditUserInfo";
 import YourAccount from "./Component/UserInfo/YourAccount";
+import Profile from "./Component/UserInfo/profile";
+
+
+
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -81,8 +84,10 @@ const router = createBrowserRouter([
         path: "Monitor",
         element: <Monitor />,
       },
-      { path: '/profile', element: <YourAccount />, 
+      { path: 'profile',
+       element: <YourAccount /> , 
       children:[
+        {   index: true, element : <Profile /> },
         { path: 'edit' , element : <EditUserInfo /> }
       ]
     },

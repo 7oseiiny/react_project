@@ -124,7 +124,7 @@ function Navbar() {
 
           </div>
 
-          <div style={{ color: "white", fontWeight: "bold" }}>Welcome {userName}</div>
+          {/* <div style={{ color: "white", fontWeight: "bold" }}>Welcome {userData.userName}</div> */}
 
           <div className=" text-white">Shop deals in Electronics</div>
         </div>

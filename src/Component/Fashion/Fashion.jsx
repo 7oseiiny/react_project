@@ -7,7 +7,6 @@ import Badge from 'react-bootstrap/Badge';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import React from 'react'
-import './Fashion.css'
 import { FaStar, FaRegStar } from "react-icons/fa6";
 export default function Fashion() {
   var settings = {
