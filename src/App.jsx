@@ -25,7 +25,6 @@ import VgamesNav from "./Component/VideoGames/VgamesNav";
 import axiosInstance from "./axiosConfig/instance";
 import Login from "./Component/Login/login";
 import CreateAccount from "./Component/Sign-Up/Sign-Up";
-
 import { AuthProvider } from './Context/user-auth'
 import { useState } from 'react'
 import EditUserInfo from "./Component/UserInfo/EditUserInfo";
@@ -34,6 +33,9 @@ import Cart from "./Component/Cart/Cart";
 import Order from "./Component/order/Order";
 import CompleteOrder from "./Component/order/completeOrder/CompleteOrder";
 import ProductDetails from "./Component/productDetails/ProductDetails";
+import Profile from "./Component/UserInfo/profile";
+
+
 
 const router = createBrowserRouter([
   {
@@ -90,8 +92,10 @@ const router = createBrowserRouter([
         path: "Monitor",
         element: <Monitor />,
       },
-      { path: '/profile', element: <YourAccount />, 
+      { path: 'profile',
+       element: <YourAccount /> , 
       children:[
+        {   index: true, element : <Profile /> },
         { path: 'edit' , element : <EditUserInfo /> }
       ]
     },

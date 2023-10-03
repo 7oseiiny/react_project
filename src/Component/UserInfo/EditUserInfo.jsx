@@ -3,65 +3,61 @@ import React from 'react'
 export default function EditUserInfo() {
     return (
         <>
-            <div className="tab-pane" id="messages">
-                <form className="form" action="##" method="post" id="registrationForm">
-                    <div className="form-group">
-                        <div className="col-xs-4">
-                            <label htmlFor="first_name"><h4>First name</h4></label>
-                            <input type="text" className="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any." />
+            <div className="container-container-fluid">
+            <div className="row wrapper">
+                <div className="col-10 col-lg-5">
+                    <form className="shadow-lg" encType='multipart/form-data'>
+                        <h1 className="mt-2 mb-5">Update Profile</h1>
+                        <div className="form-group">
+                            <label htmlFor="name_field">Name</label>
+                            <input 
+                                type="name" 
+                                id="name_field" 
+                                className="form-control"
+                                name='name'
+                                value=''
+                            />
                         </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-xs-4">
-                            <label htmlFor="last_name"><h4>Last name</h4></label>
-                            <input type="text" className="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any." />
+                        <div className="form-group">
+                            <label htmlFor="email_field">Email</label>
+                            <input
+                                type="email"
+                                id="email_field"
+                                className="form-control"
+                                name='email'
+                                value=''
+                            />
                         </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-xs-4">
-                            <label htmlFor="phone"><h4>Phone</h4></label>
-                            <input type="text" className="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any." />
+                        <div className='form-group'>
+                            <label htmlFor='avatar_upload'>Avatar</label>
+                            <div className='d-flex align-items-center'>
+                                <div>
+                                    <figure className='avatar mr-3 item-rtl'>
+                                        <img
+                                            src=''
+                                            className='rounded-circle'
+                                            alt='Avatar Preview'
+                                        />
+                                    </figure>
+                                </div>
+                                <div className='custom-file'>
+                                    <input
+                                        type='file'
+                                        name='avatar'
+                                        className='custom-file-input'
+                                        id='customFile'
+                                    />
+                                    <label className='custom-file-label' htmlFor='customFile'>
+                                        Choose Avatar
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-xs-4">
-                            <label htmlFor="mobile"><h4>Mobile</h4></label>
-                            <input type="text" className="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any." />
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-xs-4">
-                            <label htmlFor="email"><h4>Email</h4></label>
-                            <input type="email" className="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email." />
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-xs-4">
-                            <label htmlFor="email"><h4>Location</h4></label>
-                            <input type="email" className="form-control" id="location" placeholder="somewhere" title="enter a location" />
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-xs-4">
-                            <label htmlFor="password"><h4>Password</h4></label>
-                            <input type="password" className="form-control" name="password" id="password" placeholder="password" title="enter your password." />
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-xs-4">
-                            <label htmlFor="password2"><h4>Verify</h4></label>
-                            <input type="password" className="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2." />
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-xs-4">
-                            <br />
-                            <button className="btn btn-lg btn-success" type="submit"><i className="glyphicon glyphicon-ok-sign"></i> Save</button>
-                            <button className="btn btn-lg" type="reset"><i className="glyphicon glyphicon-repeat"></i> Reset</button>
-                        </div>
-                    </div>
-                </form>
+                        <button type="submit" className="btn update-btn btn-block mt-4 mb-3">Update</button>
+                    </form>
+                </div>
             </div>
+        </div>
         </>
     )
 }
