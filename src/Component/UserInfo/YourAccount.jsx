@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect } from 'react'
 import { useContext } from "react";
 import { AuthContext } from "../../Context/user-auth";
 import { Link, Outlet } from "react-router-dom";
+
 import './userInfo.css';
 export default function YourAccount() {
     const { userData } = useContext(AuthContext);
     const [avatarSrc, setAvatarSrc] = useState('');
-// console.log(userData)
+  // console.log(userData)
     // const readURL = (input) => {
     //     if (input.files && input.files[0]) {
     //         const reader = new FileReader();
@@ -51,7 +52,25 @@ const onSubmitHandler = (e) => {
     });
 };
 
+/////////////////////////
 
+
+// const ImageComponent = () => {
+//     const [imageUrl, setImageUrl] = useState('');
+  
+//     useEffect(() => {
+//       const fetchImage = async () => {
+//         try {
+//           const response = await axios.get('./image/user.webp'); // Replace with your image URL
+//           setImageUrl(response.data.imageUrl);
+//         } catch (error) {
+//           console.error(error);
+//         }
+//       };
+  
+//       fetchImage();
+//     }, []);
+// }
 
     return (
         <>
@@ -68,6 +87,7 @@ const onSubmitHandler = (e) => {
                             </div>
                             <div className="row">
                                 <div className="col-sm-4 layout-profile">
+                                {/* <img src={imageUrl} alt="Image" />; */}
                                 <form onSubmit={onSubmitHandler} enctype="multipart/form-data">
         <input type="file" onChange={fileChangeHandler} />
         <br />
@@ -161,3 +181,5 @@ const onSubmitHandler = (e) => {
         </>
     )
 }
+
+
