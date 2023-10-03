@@ -6,6 +6,8 @@ import React, { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCart } from '../../../store/Slice/cartSlice';
+import { useContext } from 'react';
+import { AuthContext } from '../../Context/user-auth';
 function Navbar() {
   const { Islogged, setIslogged, userData } = useContext(AuthContext);
   const userName = userData ? userData.userName : 'Guest';
