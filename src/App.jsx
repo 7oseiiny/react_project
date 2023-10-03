@@ -22,7 +22,6 @@ import HomeDecor from "./Component/HomeProducts/HomeDecor/HomeDecor";
 import Main from "./Component/HomeProducts/Main/Main";
 import BestSeller from "./Component/VideoGames/BestSeller";
 import VgamesNav from "./Component/VideoGames/VgamesNav";
-import axios from "axios";
 import axiosInstance from "./axiosConfig/instance";
 import Login from "./Component/Login/login";
 import CreateAccount from "./Component/Sign-Up/Sign-Up";
@@ -31,6 +30,10 @@ import { AuthProvider } from './Context/user-auth'
 import { useState } from 'react'
 import EditUserInfo from "./Component/UserInfo/EditUserInfo";
 import YourAccount from "./Component/UserInfo/YourAccount";
+import Cart from "./Component/Cart/Cart";
+import Order from "./Component/order/Order";
+import CompleteOrder from "./Component/order/completeOrder/CompleteOrder";
+
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -40,6 +43,7 @@ const router = createBrowserRouter([
       { path: '/CreateAccount', element: <CreateAccount/> },
 
     
+
       { path: "/mobile", element: <Mobile /> },
       {
         path: "todayDeals",
@@ -77,6 +81,9 @@ const router = createBrowserRouter([
       },
       { path: "prime", element: <Prime /> },
       { path: "books", element: <Books /> },
+      { path: "cart", element: <Cart /> },
+      { path: "order", element: <Order /> },
+      { path: "completeorder", element: <CompleteOrder /> },
       {
         path: "Monitor",
         element: <Monitor />,
@@ -94,6 +101,7 @@ const router = createBrowserRouter([
 function App() {
   const [Islogged, setIslogged] = useState(localStorage.getItem(`token`) ? true : false);
   const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')));
+
 
   var result = "";
   async function start() {

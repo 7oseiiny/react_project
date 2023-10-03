@@ -2,18 +2,29 @@ import './Navbar.css'
 import { MdLocationPin } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
-import React from 'react';
-import { useContext } from 'react';
-import { AuthContext } from '../../Context/user-auth';
-import { Link, NavLink } from 'react-router-dom';
-import Nav from 'react-bootstrap/Nav';
+import React, { useEffect, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCart } from '../../../store/Slice/cartSlice';
 function Navbar() {
   const { Islogged, setIslogged, userData } = useContext(AuthContext);
   const userName = userData ? userData.userName : 'Guest';
+  
+  var items = useSelector( (state) => {  return  state.cart.data })
+  let [totalItems,settotalItems] = useState(0)
+    for (const item of items ) { totalItems += item.quantity }
+  
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+      dispatch(fetchCart())
+    }, [dispatch])
+
+    
   return (
     <>
 
-      <div className="container-fluid px-0 bg-dark">
+      <div  className="container-fluid px-0 bg-dark">
         <div className="row m-0 align-items-center justify-content-center">
           <div className="col-lg-2 col-sm-6  logo col-md-4 d-flex flex-wrap justify-content-between" >
             <img className="col-6" src="../assets/images/logoo1.png" alt="logo" />
@@ -100,7 +111,10 @@ function Navbar() {
                 </div>
               </li>
               <li className="col-3 col-xs-ms-2">
-                <FaShoppingCart color='white' size={25} />
+
+                <NavLink className="links" to="cart" style={{ textDecoration: "none" }}><FaShoppingCart to='cart' color='white' size={25} /></NavLink>
+                {totalItems}
+
               </li>
             </ul>
           </div>

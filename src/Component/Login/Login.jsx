@@ -38,15 +38,15 @@ const Login = () => {
         e.preventDefault();
         setEmailTouched(true);
         setPasswordTouched(true);
-console.log(password)
-console.log(email)
+        console.log(password)
+        console.log(email)
 
         if ( !passwordValid || !emailValid) {
             toast.error('Email or password is incorrect', {
                 position: "top-center"
             });
         } else {
-         
+
             try {
                 const res = await login(user)
                 console.log(res);
@@ -72,9 +72,9 @@ console.log(email)
 
     return (
         <>
-        <div className="logo2">
-    <img src="../assets/images/Amazon_logo.svg.png" alt=""/>
-</div>
+            <div className="logo2">
+                <img src="../assets/images/Amazon_logo.svg.png" alt="" />
+            </div>
             <div className="container login-container">
                 <div className="login-center-box p-5">
                     <h2 className="login-header">Sign in</h2>
