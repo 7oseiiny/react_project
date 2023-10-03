@@ -25,7 +25,8 @@ export default function Books() {
   let dispatch = useDispatch()
   let [change, setchange] = useState(0);
   useEffect(() => {
-    dispatch(fetchcategory("books"))
+    let pagenum=1
+    dispatch(fetchcategory("books",))
     dispatch(fetchCart())
   }, [dispatch, change])
   var listbook = useSelector((state) => { return state.category.data })

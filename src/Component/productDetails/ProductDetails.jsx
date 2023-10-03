@@ -1,21 +1,21 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import Rate from './../rate/rate';
-import { map } from 'jquery';
 import { MdOutlineFavoriteBorder, MdOutlinePlace } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductById } from '../../../store/Slice/productsSlice';
 
-export default function ProductDetails() {
+export default  function ProductDetails() {
     let info = ["Brand Name : nutricook ", "Capacity:6Liters", "Material:Plastic"]
 
     const location = useLocation();
     let dispatch = useDispatch()
 
-    useEffect(() => { dispatch(fetchProductById(location.state.productId)) }, [dispatch])
-    let product = useSelector((state) => { return state.products.data })
-
-    console.log(product);
+    useEffect(() => { dispatch(fetchProductById(location.state.productId))    }, [dispatch])
+    // let [prod,setprod]=useState()
+    let product = useSelector( async (state) => { return await state.products.data})
+        product.then((v)=>console.log(v.categoryId.name_en))
+    // console.log(prod);
     return (
         <>
             <div className='row justify-content-center '>
@@ -23,7 +23,7 @@ export default function ProductDetails() {
                     <img style={{ height: "fit-content", width: "100%" }} src="https://m.media-amazon.com/images/I/51uRo8IkLRL._AC_.jpg" alt="" /></div>
                 <div className="col-lg-4  col-md-4 col-sm-6 p-4  " >
                     <h4>Honor watch magic 2 46mm - flax brown</h4>
-                    <NavLink to="/" style={{ textDecoration: "none", color: "rgb(0,113,165)" }}><p>catigory : books</p></NavLink>
+                    <NavLink to="/" style={{ textDecoration: "none", color: "rgb(0,113,165)" }}><p>catigory : {}</p></NavLink>
                     <div className='d-flex  align-items-end justify-content-between' >
                         <p style={{ fontSize: "1.4rem" }} className='p-0 px-2 m-0'>5.5</p>
                         <div style={{ fontSize: "1.22rem", color: "rgb(237,139,31)" }}> <Rate /></div>
