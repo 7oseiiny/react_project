@@ -22,7 +22,6 @@ import HomeDecor from "./Component/HomeProducts/HomeDecor/HomeDecor";
 import Main from "./Component/HomeProducts/Main/Main";
 import BestSeller from "./Component/VideoGames/BestSeller";
 import VgamesNav from "./Component/VideoGames/VgamesNav";
-import axios from "axios";
 import axiosInstance from "./axiosConfig/instance";
 import Login from "./Component/Login/login";
 import CreateAccount from "./Component/Sign-Up/Sign-Up";
@@ -33,6 +32,10 @@ import YourAccount from "./Component/UserInfo/YourAccount";
 import Profile from "./Component/UserInfo/profile";
 
 
+import Cart from "./Component/Cart/Cart";
+import Order from "./Component/order/Order";
+import CompleteOrder from "./Component/order/completeOrder/CompleteOrder";
+import ProductDetails from "./Component/productDetails/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +46,7 @@ const router = createBrowserRouter([
       { path: '/CreateAccount', element: <CreateAccount/> },
 
     
+
       { path: "/mobile", element: <Mobile /> },
       {
         path: "todayDeals",
@@ -80,6 +84,10 @@ const router = createBrowserRouter([
       },
       { path: "prime", element: <Prime /> },
       { path: "books", element: <Books /> },
+      { path: "cart", element: <Cart /> },
+      { path: "order", element: <Order /> },
+      { path: "completeorder", element: <CompleteOrder /> },
+      { path: "productdetails", element: <ProductDetails /> },
       {
         path: "Monitor",
         element: <Monitor />,
