@@ -16,16 +16,18 @@ export default function Product(props) {
     }, [change ,quantity])
 
     async function deleteItem() {
-        
-        await axiosInstance.post(`cart/650f39d8933f94900f5e75e6/removeProductsInCart/${props.item.product._id}`)
+        let userId=localStorage.getItem('userId').replaceAll('"',"")
+
+        await axiosInstance.post(`cart/${userId}/removeProductsInCart/${props.item.product._id}`)
         dispatch(fetchCart())
 
     }
 
     async function updateQuantity(e) {
+        let userId=localStorage.getItem('userId').replaceAll('"',"")
 
         setquantity(e.target.value)
-        await axiosInstance.patch(`cart/650f39d8933f94900f5e75e6/updatequantity/${props.item.product._id}/${e.target.value}`)
+        await axiosInstance.patch(`cart/${userId}/updatequantity/${props.item.product._id}/${e.target.value}`)
         dispatch(fetchCart())
 
     }
