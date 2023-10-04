@@ -6,6 +6,8 @@ import "./Books.css";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import Rate from "../rate/rate";
+import { PaginationControl } from 'react-bootstrap-pagination-control';
+
 // import Card from 'react-bootstrap/Card';
 // import Col from 'react-bootstrap/Col';
 // import Row from 'react-bootstrap/Row';
@@ -19,6 +21,7 @@ import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
 import { addProductInCart, fetchCart } from "../../../store/Slice/cartSlice";
 
 export default function Books() {
+  const [page, setPage] = useState(1)
 
   console.log("a");
   let navigate = useNavigate()
@@ -423,12 +426,24 @@ export default function Books() {
                       </div>
                     </div>
                   </div>
-
                 </>
               })}
+              
             </div>
 
           </div>
+          <PaginationControl
+                    page={page}
+                    between={4}
+                    total={40}
+                    limit={12}
+                    changePage={(page) => {
+                        setPage(page)
+                        console.log("pageff",page)
+
+                    }}
+                    ellipsis={1}
+                />
           <div>
             <h2>Featured Page to Screen Adaptations</h2>
             <Sliders numberOfItems={(screenWidth > 1200) ? 6 : (screenWidth < 1200 && screenWidth > 768) ? 3 : (screenWidth < 768 && screenWidth > 500) ? 2 : 1} />

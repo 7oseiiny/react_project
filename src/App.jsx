@@ -27,16 +27,18 @@ import Login from "./Component/Login/login";
 import CreateAccount from "./Component/Sign-Up/Sign-Up";
 import { AuthProvider } from './Context/user-auth'
 import { useState } from 'react'
+<<<<<<<<< Temporary merge branch 1
+import Cart from "./Component/Cart/Cart";
+import Order from "./Component/order/Order";
+import CompleteOrder from "./Component/order/completeOrder/CompleteOrder";
+import ProductDetails from "./Component/productDetails/ProductDetails";
+=========
 import EditUserInfo from "./Component/UserInfo/EditUserInfo";
 import YourAccount from "./Component/UserInfo/YourAccount";
 import Profile from "./Component/UserInfo/profile";
 
 
-import Cart from "./Component/Cart/Cart";
-import Order from "./Component/order/Order";
-import CompleteOrder from "./Component/order/completeOrder/CompleteOrder";
-import ProductDetails from "./Component/productDetails/ProductDetails";
-import Favorite from "./Component/favorite/favorite";
+>>>>>>>>> Temporary merge branch 2
 
 const router = createBrowserRouter([
   {
@@ -109,6 +111,7 @@ const router = createBrowserRouter([
 function App() {
   const [Islogged, setIslogged] = useState(localStorage.getItem(`token`) ? true : false);
   const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')));
+>>>>>>>>> Temporary merge branch 2
 
   var result = "";
   async function start() {
