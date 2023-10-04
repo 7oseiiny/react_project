@@ -3,13 +3,19 @@ import { MdLocationPin } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCart } from '../../../store/Slice/cartSlice';
+import { useContext } from 'react';
+import { AuthContext } from '../../Context/user-auth';
 function Navbar() {
+  const { Islogged, setIslogged, userData } = useContext(AuthContext);
+  const userName = userData ? userData.userName : 'Guest';
+  
   var items = useSelector( (state) => {  return  state.cart.data })
-  let totalItems = 0
+  let [totalItems,settotalItems] = useState(0)
     for (const item of items ) { totalItems += item.quantity }
+  
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -128,9 +134,14 @@ function Navbar() {
             <NavLink className="links px-2" to="HomeProducts" style={{ textDecoration: "none", }}>Home</NavLink>
             <NavLink className="links px-2" to="prime" style={{ textDecoration: "none", }}>prime</NavLink>
             <NavLink className="links px-2" to="Monitor" style={{ textDecoration: "none", }}>Monitor</NavLink>
-            <NavLink className="links" to="books" style={{ textDecoration: "none" }}>books</NavLink>
+            <NavLink className="links px-2" to="books" style={{ textDecoration: "none" }}>books</NavLink>
+            <NavLink className="links px-2" to="profile" style={{ textDecoration: "none" }}>Profile</NavLink>
+            <NavLink className="links px-2" to="login" onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('userData'); setIslogged(false) }} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
 
           </div>
+
+          {/* <div style={{ color: "white", fontWeight: "bold" }}>Welcome {userData.userName}</div> */}
+
           <div className=" text-white">Shop deals in Electronics</div>
         </div>
 

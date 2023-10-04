@@ -24,11 +24,18 @@ import BestSeller from "./Component/VideoGames/BestSeller";
 import VgamesNav from "./Component/VideoGames/VgamesNav";
 import axiosInstance from "./axiosConfig/instance";
 import Login from "./Component/Login/login";
+import CreateAccount from "./Component/Sign-Up/Sign-Up";
 import { AuthProvider } from './Context/user-auth'
 import { useState } from 'react'
+import EditUserInfo from "./Component/UserInfo/EditUserInfo";
+import YourAccount from "./Component/UserInfo/YourAccount";
 import Cart from "./Component/Cart/Cart";
 import Order from "./Component/order/Order";
 import CompleteOrder from "./Component/order/completeOrder/CompleteOrder";
+import ProductDetails from "./Component/productDetails/ProductDetails";
+import Profile from "./Component/UserInfo/profile";
+
+
 
 const router = createBrowserRouter([
   {
@@ -36,6 +43,9 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: '/login', element: <Login /> },
+      { path: '/CreateAccount', element: <CreateAccount/> },
+
+    
 
       { path: "/mobile", element: <Mobile /> },
       {
@@ -77,16 +87,26 @@ const router = createBrowserRouter([
       { path: "cart", element: <Cart /> },
       { path: "order", element: <Order /> },
       { path: "completeorder", element: <CompleteOrder /> },
+      { path: "productdetails", element: <ProductDetails /> },
       {
         path: "Monitor",
         element: <Monitor />,
       },
+      { path: 'profile',
+       element: <YourAccount /> , 
+      children:[
+        {   index: true, element : <Profile /> },
+        { path: 'edit' , element : <EditUserInfo /> }
+      ]
+    },
+
     ],
   },
 ]);
 
 function App() {
   const [Islogged, setIslogged] = useState(localStorage.getItem(`token`) ? true : false);
+  const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')));
 
 
   var result = "";
@@ -99,9 +119,9 @@ function App() {
     start();
   }, []);
   return (
-    <Provider  store={store}>
-      <AuthProvider value={{ Islogged, setIslogged }} >
-        <RouterProvider router={router} />
+    <Provider store={store}>
+       <AuthProvider value={{ Islogged, setIslogged , userData , setUserData}} >
+      <RouterProvider router={router} />
       </AuthProvider>
     </Provider>
   );

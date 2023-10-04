@@ -1,7 +1,7 @@
 //////////////////////////////////////////////
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Books.css";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import { FaRegStar, FaStar } from "react-icons/fa6";
@@ -17,22 +17,49 @@ import { useEffect } from 'react';
 import Sliders from "./sliders";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchcategory } from "../../../store/Slice/categorySlice";
+import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
+import { addProductInCart, fetchCart } from "../../../store/Slice/cartSlice";
 
 export default function Books() {
   const [page, setPage] = useState(1)
 
+  console.log("a");
+  let navigate = useNavigate()
   let dispatch = useDispatch()
+  let [change, setchange] = useState(0);
   useEffect(() => {
-    dispatch(fetchcategory("books"))
-  }, [dispatch])
+    dispatch(fetchcategory("books",))
+    dispatch(fetchCart())
+  }, [dispatch, change])
   var listbook = useSelector((state) => { return state.category.data })
+  var cart = useSelector((state) => { return state.cart.data })
+
+  function isInCart(bookId) {
+    for (const item of cart) {
+
+      if (bookId == item.product._id) {
+        return true
+      }
 
 
+    }
+  }
+  function viewcart() {
+    navigate("/cart")
+  }
   const [screenWidth, setScreen] = useState(window.innerWidth);
 
 
   var outhors = ["1", 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
+  async function addtocart(productId) {
+    await dispatch(addProductInCart({ "items": [{ "product": productId, "quantity": 1 }] }))
+    setchange(productId)
+  }
+
+  function gotodetails(bookId){
+    navigate("/productdetails", { state: { productId: bookId } });
+  }
 
   return (
     <>
@@ -389,6 +416,14 @@ export default function Books() {
                       <p style={{ fontSize: "1vw", height: "50px" }}>{book.title_en}</p>
                       <Rate rate={book.rate} ></Rate>
                       <p style={{ fontSize: "1vw" }}>{book.price.new} $</p>
+                      <p style={{ fontSize: "1vw", color: "red" }}>{book.quantity} in stok</p>
+
+                      <div className="d-felx  ">
+                        <button onClick={() => { gotodetails(book._id); }} className="btn btn-secondary m-2">details</button>
+                        {!isInCart(book._id) ? <button disabled={book.quantity < 1} onClick={() => { addtocart(book._id) }} className="btn btn-warning">add to cart</button> : <button onClick={viewcart} className="btn btn-warning">view cart</button>}
+                        {true ? <MdOutlineFavoriteBorder style={{ fontSize: "25px", marginLeft: "10px" }}></MdOutlineFavoriteBorder> : <MdFavorite></MdFavorite>}
+
+                      </div>
                     </div>
                   </div>
                 </>

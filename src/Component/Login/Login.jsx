@@ -41,7 +41,7 @@ const Login = () => {
         console.log(password)
         console.log(email)
 
-        if (!emailValid || !passwordValid) {
+        if ( !passwordValid || !emailValid) {
             toast.error('Email or password is incorrect', {
                 position: "top-center"
             });
@@ -49,15 +49,17 @@ const Login = () => {
 
             try {
                 const res = await login(user)
-                console.log(res.data.user);
+                console.log(res);
 
-                const userDatatoSave = res.data.user;
-                // console.log(userDatatoSave.name);
-                setUserData(userDatatoSave)
-                localStorage.setItem('token', res.data.token)
-                localStorage.setItem('userData', JSON.stringify(userDatatoSave));
-                setIslogged(true)
-                navigate('/')
+                const userDatatoSave = res.data;
+                console.log(userDatatoSave);
+                  if (!res.data.data.message){
+                      setUserData(userDatatoSave)
+                      localStorage.setItem('token', JSON.stringify(userDatatoSave.data.token))
+                
+                      setIslogged(true)
+                      navigate('/')
+                  }
             } catch (e) {
                 toast.error('Wrong Email or Password', {
                     position: "buttom-center"
@@ -66,8 +68,9 @@ const Login = () => {
         }
 
     };
-    const emailValid = /\S+@\S+\.\S+/.test(email);
-    const passwordValid = password.length >= 8;
+    // const emailValid = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(email);
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    const passwordValid = password.length >= 6;
 
     return (
         <>
@@ -86,7 +89,7 @@ const Login = () => {
                             <input
                                 type="email"
                                 id="email"
-                                className={`form-control ${(emailTouched && !email) || (emailTouched && !emailValid) ? 'is-invalid' : emailValid ? 'is-valid' : ''
+                                className={`form-control ${(emailTouched && !email) || (emailTouched && !emailValid ) ? 'is-invalid' :  emailValid ? 'is-valid' : ''
                                     }`}
                                 value={email}
                                 onChange={handleEmailChange}
@@ -96,7 +99,7 @@ const Login = () => {
                             {(emailTouched && !email) && (
                                 <div className="invalid-feedback">Please provide a valid email.</div>
                             )}
-                            {(emailTouched && email && !emailValid) && (
+                            {(emailTouched && email && !emailValid ) && (
                                 <div className="invalid-feedback">Email must be valid.</div>
                             )}
                         </div>
@@ -136,8 +139,8 @@ const Login = () => {
             <div className="breck">
                 <p>New to Amazon?</p>
             </div>
-            <div className="btn">
-                <button>Create your Amazon account</button>
+            <div className="btn CreateAccount">
+                <button onClick={() => navigate("/CreateAccount")}>Create your Amazon account</button>
             </div>
             <footer>
                 <div className="links">
