@@ -33,6 +33,7 @@ import YourAccount from "./Component/UserInfo/YourAccount";
 import Cart from "./Component/Cart/Cart";
 import Order from "./Component/order/Order";
 import CompleteOrder from "./Component/order/completeOrder/CompleteOrder";
+import ProductDetails from "./Component/productDetails/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -84,6 +85,7 @@ const router = createBrowserRouter([
       { path: "cart", element: <Cart /> },
       { path: "order", element: <Order /> },
       { path: "completeorder", element: <CompleteOrder /> },
+      { path: "productdetails", element: <ProductDetails /> },
       {
         path: "Monitor",
         element: <Monitor />,

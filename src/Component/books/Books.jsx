@@ -25,19 +25,19 @@ export default function Books() {
   let dispatch = useDispatch()
   let [change, setchange] = useState(0);
   useEffect(() => {
-    dispatch(fetchcategory("books"))
+    dispatch(fetchcategory("books",))
     dispatch(fetchCart())
-  }, [dispatch,change])
+  }, [dispatch, change])
   var listbook = useSelector((state) => { return state.category.data })
   var cart = useSelector((state) => { return state.cart.data })
 
   function isInCart(bookId) {
     for (const item of cart) {
 
-      if (bookId==item.product._id  ) {
+      if (bookId == item.product._id) {
         return true
       }
-     
+
 
     }
   }
@@ -52,6 +52,10 @@ export default function Books() {
   async function addtocart(productId) {
     await dispatch(addProductInCart({ "items": [{ "product": productId, "quantity": 1 }] }))
     setchange(productId)
+  }
+
+  function gotodetails(bookId){
+    navigate("/productdetails", { state: { productId: bookId } });
   }
 
   return (
@@ -405,14 +409,18 @@ export default function Books() {
                 return <>
                   <div className="col-lg-3 col-6 p-2" >
                     <div className="bg-light w-100 p-2 text-center "  >
-                      <img onClick={() => { alert(book._id); }} className="w-50 " src={book.img} alt="" />
+                      <img className="w-50 " src={book.img} alt="" />
                       <p style={{ fontSize: "1vw", height: "50px" }}>{book.title_en}</p>
                       <Rate rate={book.rate} ></Rate>
                       <p style={{ fontSize: "1vw" }}>{book.price.new} $</p>
-                      <p style={{ fontSize: "1vw" ,color:"red"}}>{book.quantity} in stok</p>
-                      
-                      {!isInCart(book._id) ? <button disabled={book.quantity<1} onClick={() => { addtocart(book._id) }} className="btn btn-warning">add to cart</button> : <button onClick={viewcart} className="btn btn-warning">view cart</button>}
-                      {true ? <MdOutlineFavoriteBorder style={{ fontSize: "25px", marginLeft: "10px" }}></MdOutlineFavoriteBorder> : <MdFavorite></MdFavorite>}
+                      <p style={{ fontSize: "1vw", color: "red" }}>{book.quantity} in stok</p>
+
+                      <div className="d-felx  ">
+                        <button onClick={() => { gotodetails(book._id); }} className="btn btn-secondary m-2">details</button>
+                        {!isInCart(book._id) ? <button disabled={book.quantity < 1} onClick={() => { addtocart(book._id) }} className="btn btn-warning">add to cart</button> : <button onClick={viewcart} className="btn btn-warning">view cart</button>}
+                        {true ? <MdOutlineFavoriteBorder style={{ fontSize: "25px", marginLeft: "10px" }}></MdOutlineFavoriteBorder> : <MdFavorite></MdFavorite>}
+
+                      </div>
                     </div>
                   </div>
 
