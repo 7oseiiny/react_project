@@ -5,7 +5,7 @@ import './AppLayout'
 import FooterCom from '../footer/footer'
 export default function AppLayout() {
   const location = useLocation();
-  const unshow = location.pathname === '/login' || location.pathname === '/CreateAccount' ||location.pathname === '/order' ;
+  const unshow = location.pathname === '/login' || location.pathname === '/CreateAccount' || location.pathname === '/order';
   return (
     <>
     <div>
