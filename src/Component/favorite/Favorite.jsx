@@ -1,16 +1,15 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchfavorite } from '../../../store/Slice/favorite'
-// import { fetchfavorite } from '../../../store/Slice/favorite'
+import FavProduct from './FavProduct'
 
 export default function Favorite() {
-    // var dispatch=useDispatch()
-    // var favorite =useSelector((state)=>{return state.favorite.data})
-    // useEffect( () => {
-    //      dispatch( fetchfavorite())
-    //   }, [dispatch])
-    
-    
+    var dispatch = useDispatch()
+    var favorite = useSelector((state) => { return state.favorite.data })
+    useEffect(() => {
+        dispatch(fetchfavorite())
+    }, [dispatch])
+
     return (
         <>
             <div className=" d-flex row w-auto p-3 cart  container-fluid " style={{ backgroundColor: "rgb(234,237,237)" }}>
@@ -19,19 +18,14 @@ export default function Favorite() {
                         <h2>Your Favorite</h2>
                         <hr />
                         {
-                            // favorite.map((item) => {
-                            //     return<>{item.title_en}</>
-                            //     // return <Product item={item} />
-
-                                
-                            // })
+                            Array.isArray(favorite.productId) ?
+                                favorite.productId.map(element => {
+                                    return <FavProduct product={element} />;
+                                }) : null
                         }
                     </div>
                 </div>
-
-
             </div>
-
         </>
     )
 }
