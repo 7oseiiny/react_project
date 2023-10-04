@@ -53,18 +53,21 @@ const Login = () => {
 
                 const userDatatoSave = res.data;
                 console.log(userDatatoSave);
-                setUserData(userDatatoSave)
-                localStorage.setItem('token', JSON.stringify(userDatatoSave.data.token))
-                // localStorage.setItem('userData', JSON.stringify(userDatatoSave));
-                setIslogged(true)
-                navigate('/')
+                  if (!res.data.data.message){
+                      setUserData(userDatatoSave)
+                      localStorage.setItem('token', JSON.stringify(userDatatoSave.data.token))
+                      localStorage.setItem('userId', JSON.stringify(userDatatoSave.data.userId))
+                
+                      setIslogged(true)
+                      navigate('/')
+                  }
             } catch (e) {
                 toast.error('Wrong Email or Password', {
                     position: "buttom-center"
                 });
             }
         }
-
+        window.location.reload ()
     };
     // const emailValid = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(email);
     const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)

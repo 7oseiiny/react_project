@@ -8,19 +8,22 @@ import { fetchuser } from '../../../store/Slice/userSlice';
 import { addProductInCart, fetchCart } from '../../../store/Slice/cartSlice';
 
 export default function ProductDetails() {
+
+    
     let location = useLocation();
     let dispatch = useDispatch()
     let navigate = useNavigate()
-    let user = useSelector((state) => { return state.user.data })
+    let user = useSelector( (state) => { return state.user.data })
+    console.log(user);
     var product = useSelector((state) => { return state.products.data })
     var cart = useSelector((state) => { return state.cart.data })
 
     let [change, setchange] = useState(0);
     let [quantity, setquantity] = useState(1);
 
-    useEffect(() => {
-        dispatch(fetchuser())
-        dispatch(fetchCart())
+    useEffect( () => {
+         dispatch(fetchuser())
+        dispatch( fetchCart())
         dispatch(fetchProductById(location.state.productId))
     }, [dispatch, change, quantity])
 
@@ -136,7 +139,7 @@ export default function ProductDetails() {
                         <p style={{ fontWeight: "550", fontSize: ".9rem" }}> <a href="#" style={{ textDecoration: "none", color: "rgb(0,113,165)" }}>FREE delivery</a> Tomorrow, 4 October</p>
                         <div style={{ fontSize: ".9rem" }}>
                             <MdOutlinePlace></MdOutlinePlace>
-                            <a href='#' style={{ textDecoration: "none", color: "rgb(0,113,165)" }}  >   Deliver to {user.fristName} - {user.address} ‌</a>
+                            <a href='#' style={{ textDecoration: "none", color: "rgb(0,113,165)" }}  >   Deliver to {user.name} - {user.address} ‌</a>
                         </div>
                         <p className='p-0 m-0  my-2' style={{ color: "green", fontWeight: "600" }}>{prod("quantity")} in stock</p>
                         <div className="d-flex align-items-center  my-2">
