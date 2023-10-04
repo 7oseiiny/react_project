@@ -2,10 +2,12 @@ import { useState } from 'react';
 import './Sign-Up.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { register } from '../../Services/user-auth';
+import toast, { Toaster } from 'react-hot-toast';
 
 const CreateAccount = () => {
   const [formData, setFormData] = useState({
     name: '',
+    address:'',
     email: '',
     password: '',
     confirmPassword: ''
@@ -13,6 +15,7 @@ const CreateAccount = () => {
 
   const [errors, setErrors] = useState({
     nameError: '',
+    addressError:'',
     emailError: '',
     passwordError: '',
     confirmPasswordError: ''
@@ -20,12 +23,18 @@ const CreateAccount = () => {
 
   const navigate = useNavigate();
 
-  const handleValidation = (evt) => {
+  const handleValidation =  (evt) => {
     if (evt.target.name === 'name') {
       setFormData({ ...formData, name: evt.target.value });
       setErrors({
         ...errors,
         nameError: evt.target.value === '' ? 'Name is required' : ''
+      });
+    } else if (evt.target.name === 'address') {
+      setFormData({ ...formData, address: evt.target.value });
+      setErrors({
+        ...errors,
+        addressError: evt.target.value === '' ? 'Address is required' : ''
       });
     } else if (evt.target.name === 'email') {
       setFormData({ ...formData, email: evt.target.value });
@@ -63,10 +72,11 @@ const CreateAccount = () => {
     }
   };
 
-  const handleSubmit = (evt) => {
+  const handleSubmit =  (evt) => {
     evt.preventDefault();
     if (
       errors.nameError ||
+      errors.addressError ||
       errors.emailError ||
       errors.passwordError ||
       errors.confirmPasswordError
@@ -76,10 +86,11 @@ const CreateAccount = () => {
   
     const userData = {
       name: formData.name,
+      address: formData.address,
       email: formData.email,
       password: formData.password,
-    //   confirmPassword: formData.confirmPassword
     };
+
   
     register(userData)
       .then((data) => {
@@ -87,7 +98,10 @@ const CreateAccount = () => {
         navigate('/login');
       })
       .catch((error) => {
-        console.error('Registration failed', error);
+        toast.error('This Email Already has an account', {
+          position: "bottom-center"
+        });
+        console.log('This Email Already has an account', error);
       });
   };
 
@@ -115,7 +129,7 @@ const CreateAccount = () => {
             <p style={{ color: 'red' }}>{errors.nameError}</p>
           </div>
           <div>
-            <label htmlFor="exampleInputEmail1" className="form-label">
+            <label htmlFor="exampleInputEmail2" className="form-label">
               <h5>Mobile number or email</h5>
             </label>
             <input
@@ -129,9 +143,23 @@ const CreateAccount = () => {
             />
             <p style={{ color: 'red' }}>{errors.emailError}</p>
           </div>
-
           <div>
-            <label htmlFor="exampleInputEmail1" className="form-label">
+            <label htmlFor="exampleInputEmail4" className="form-label">
+              <h5>Your address</h5>
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="exampleInputEmail4"
+              aria-describedby="emailHelp"
+              name="address"
+              value={formData.address}
+              onChange={handleValidation}
+            />
+            <p style={{ color: 'red' }}>{errors.addressError}</p>
+          </div>
+          <div>
+            <label htmlFor="exampleInputEmail3" className="form-label">
               <h5>Password</h5>
             </label>
             <input
@@ -181,6 +209,7 @@ const CreateAccount = () => {
         </div>
         <p>&#169;1996–2023, Amazon.com, Inc. or its affiliates</p>
       </footer>
+      <Toaster />
     </>
    );
 };

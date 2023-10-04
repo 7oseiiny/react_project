@@ -1,195 +1,134 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Context/user-auth";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchuser } from '../../../store/Slice/userSlice'
-import React, { useEffect, useState } from 'react'
-import './userInfo.css';
+import { useDispatch, useSelector } from "react-redux";
+import { fetchuser } from "../../../store/Slice/userSlice";
+import React, { useEffect, useState } from "react";
+import "./userInfo.css";
 export default function Profile() {
-    let user = useSelector((state) => { return state.user.data})
-    console.log(user)
-    const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(fetchuser())
-      },[dispatch])
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.data);
+  //   const status = useSelector((state) => state.user.status);
   
-    const { userData } = useContext(AuthContext);
-    const [avatarSrc, setAvatarSrc] = useState('');
-    // console.log(userData)
-    // const readURL = (input) => {
-    //     if (input.files && input.files[0]) {
-    //         const reader = new FileReader();
-    //         reader.onload = function (e) {
-    //             setAvatarSrc(e.target.result);
-    //         }
-    //         reader.readAsDataURL(input.files[0]);
-    //     }
-    // }
 
-    // const handleFileChange = (event) => {
-    //     readURL(event.target);
-    // };
+  useEffect(() => {
+   dispatch(fetchuser());
+  }, [dispatch]);
 
 
 
-    ////////////////////
+  const { userData } = useContext(AuthContext);
+  const [avatarSrc, setAvatarSrc] = useState("");
+  // console.log(userData)
+  // const readURL = (input) => {
+  //     if (input.files && input.files[0]) {
+  //         const reader = new FileReader();
+  //         reader.onload = function (e) {
+  //             setAvatarSrc(e.target.result);
+  //         }
+  //         reader.readAsDataURL(input.files[0]);
+  //     }
+  // }
 
-    const [fileData, setFileData] = useState();
+  // const handleFileChange = (event) => {
+  //     readURL(event.target);
+  // };
 
-    const fileChangeHandler = (e) => {
-        setFileData(e.target.files[0]);
-    };
+  ////////////////////
 
-    const onSubmitHandler = (e) => {
-        e.preventDefault();
+  const [fileData, setFileData] = useState();
 
-        // Handle File Data from the state Before Sending
-        const data = new FormData();
+  const fileChangeHandler = (e) => {
+    setFileData(e.target.files[0]);
+  };
 
-        data.append("image", fileData);
+  
 
-        fetch("http://localhost:3300/user/single", {
-            method: "POST",
-            body: data,
-        })
-            .then((result) => {
-                console.log("File Sent Successful");
-            })
-            .catch((err) => {
-                console.log(err.message);
-            });
-    };
+  /////////////////////////
 
-    /////////////////////////
+  // const ImageComponent = () => {
+  //     const [imageUrl, setImageUrl] = useState('');
 
+  //     useEffect(() => {
+  //       const fetchImage = async () => {
+  //         try {
+  //           const response = await axios.get('./image/user.webp'); // Replace with your image URL
+  //           setImageUrl(response.data.imageUrl);
+  //         } catch (error) {
+  //           console.error(error);
+  //         }
+  //       };
 
-    // const ImageComponent = () => {
-    //     const [imageUrl, setImageUrl] = useState('');
+  //       fetchImage();
+  //     }, []);
+  // }
 
-    //     useEffect(() => {
-    //       const fetchImage = async () => {
-    //         try {
-    //           const response = await axios.get('./image/user.webp'); // Replace with your image URL
-    //           setImageUrl(response.data.imageUrl);
-    //         } catch (error) {
-    //           console.error(error);
-    //         }
-    //       };
-
-    //       fetchImage();
-    //     }, []);
-    // }
-
-
-
-    return (
-        <>
-            {/* {userData.name && <p> {userData.name}</p>}
+  return (
+    <>
+      {/* {userData.name && <p> {userData.name}</p>}
             {userData.userName && <p>Username: {userData.userName}</p>}
             {userData.email && <p>Email: {userData.email}</p>} */}
-            <div className="m-5">
-                <div className="wallpeper">
-                   
-                <img className='img-fluid imgProFile' src="../assets/images/user.webp" width="22%"   />
+      <div className="m-5">
+        <div className="wallpeper">
+          <img className="img-fluid imgProFile" src="../assets/images/user.webp" width="22%" />
+        </div>
+        <div className="p-4 fs-4 fw-bold ">
+          <>
+            <div className="container">
+              <div className="row">
+                <div className="col-sm-10"></div>
+              </div>
+              <div className="row">
+                <div className="col-sm-4 layout-profile">
+                  <span>
+                    <h4>Name : {user.name}</h4>
+                    <h4>email : {user.email}</h4>
+                    <h4>Address : {user.address}</h4>
+                    <button className="btn btn-warning">
+                      <Link className="text-light text-decoration-none" to="/profile/edit">
+                        Edit your Profile
+                      </Link>
+                    </button>
+                  </span>
+
+                  <hr />
+                  <br />
+                  <ul className="list-group">
+                    <li className="list-group-item text-muted">Activity </li>
+                    <li className="list-group-item text-right">
+                      <span className="pull-left">
+                        <strong>Wish List</strong>
+                      </span>{" "}
+                      5
+                    </li>
+                    <li className="list-group-item text-right">
+                      <span className="pull-left">
+                        <strong>Favorite</strong>
+                      </span>{" "}
+                      10
+                    </li>
+                    <li className="list-group-item text-right">
+                      <span className="pull-left">
+                        <strong>Orders</strong>
+                      </span>{" "}
+                      2
+                    </li>
+                  </ul>
                 </div>
-                <div className="p-4 fs-4 fw-bold ">
-                    <>
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-sm-10"></div>
-                            </div>
-                            <div className="row">
-                                <div className="col-sm-4 layout-profile">
-                                    <span>
-                                  <h4>Name : {user.email}</h4>
-                                  <h4>Address : cairo</h4>
-                                  <button className="btn btn-success"><Link className='text-light text-decoration-none' to="/profile/edit">Edit your Profile</Link></button>
+                <div className="col-sm-9">
+                  <div className="tab-content">
+                    <div className="tab-pane" id="settings">
+                      <hr />
 
-                                    </span>
-
-                                    <hr /><br />
-                                    <ul className="list-group">
-                                        <li className="list-group-item text-muted">Activity </li>
-                                        <li className="list-group-item text-right"><span className="pull-left"><strong>Wish List</strong></span> 5</li>
-                                        <li className="list-group-item text-right"><span className="pull-left"><strong>Favorite</strong></span>  10</li>
-                                        <li className="list-group-item text-right"><span className="pull-left"><strong>Orders</strong></span> 2</li>
-                                    </ul>
-
-                                </div>
-                                <div className="col-sm-9">
-
-                                    <div className="tab-content">
-                                        <div className="tab-pane" id="settings">
-                                            <hr />
-
-                                            <form className="form" method="post" id="registrationForm">
-                                                <div className="form-group">
-                                                    <div className="col-xs-6">
-                                                        <label htmlFor="first_name"><h4>First name</h4></label>
-                                                        <input type="text" className="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any." />
-                                                    </div>
-                                                </div>
-                                                <div className="form-group">
-                                                    <div className="col-xs-6">
-                                                        <label htmlFor="last_name"><h4>Last name</h4></label>
-                                                        <input type="text" className="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any." />
-                                                    </div>
-                                                </div>
-                                                <div className="form-group">
-                                                    <div className="col-xs-6">
-                                                        <label htmlFor="phone"><h4>Phone</h4></label>
-                                                        <input type="text" className="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any." />
-                                                    </div>
-                                                </div>
-                                                <div className="form-group">
-                                                    <div className="col-xs-6">
-                                                        <label htmlFor="mobile"><h4>Mobile</h4></label>
-                                                        <input type="text" className="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any." />
-                                                    </div>
-                                                </div>
-                                                <div className="form-group">
-                                                    <div className="col-xs-6">
-                                                        <label htmlFor="email"><h4>Email</h4></label>
-                                                        <input type="email" className="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email." />
-                                                    </div>
-                                                </div>
-                                                <div className="form-group">
-                                                    <div className="col-xs-6">
-                                                        <label htmlFor="email"><h4>Location</h4></label>
-                                                        <input type="email" className="form-control" id="location" placeholder="somewhere" title="enter a location" />
-                                                    </div>
-                                                </div>
-                                                <div className="form-group">
-                                                    <div className="col-xs-6">
-                                                        <label htmlFor="password"><h4>Password</h4></label>
-                                                        <input type="password" className="form-control" name="password" id="password" placeholder="password" title="enter your password." />
-                                                    </div>
-                                                </div>
-                                                <div className="form-group">
-                                                    <div className="col-xs-6">
-                                                        <label htmlFor="password2"><h4>Verify</h4></label>
-                                                        <input type="password" className="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2." />
-                                                    </div>
-                                                </div>
-                                                <div className="form-group">
-                                                    <div className="col-xs-12">
-                                                        <br />
-                                                        <button className="btn btn-lg btn-success pull-right" type="submit"><i className="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                                        {/* <button className="btn btn-lg" type="reset"><i className="glyphicon glyphicon-repeat"></i> Reset</button> */}
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </>
+                     
+                    </div>
+                  </div>
                 </div>
-
+              </div>
             </div>
-
-
-        </>
-    )
+          </>
+        </div>
+      </div>
+    </>
+  );
 }
