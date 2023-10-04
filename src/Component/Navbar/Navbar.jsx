@@ -29,11 +29,10 @@ function Navbar() {
       
     }, [dispatch])
 
-    
   return (
     <>
 
-      <div  className="container-fluid px-0 bg-dark">
+      <div className="container-fluid px-0 bg-dark">
         <div className="row m-0 align-items-center justify-content-center">
           <div className="col-lg-2 col-sm-6  logo col-md-4 d-flex flex-wrap justify-content-between" >
             <img className="col-6" src="../assets/images/logoo1.png" alt="logo" />
@@ -163,4 +162,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default Navbar
