@@ -54,7 +54,7 @@ export default function Books() {
     setchange(productId)
   }
 
-  function gotodetails(bookId){
+  function gotodetails(bookId) {
     navigate("/productdetails", { state: { productId: bookId } });
   }
 

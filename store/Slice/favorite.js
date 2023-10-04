@@ -5,7 +5,7 @@ export const fetchfavorite=createAsyncThunk(
     "favorite/fetch",async ()=>{
         let userId=localStorage.getItem('userId').replaceAll('"',"")
         const reaponse=await axiosInstance.get(`/favorite/${userId}`)
-        return  reaponse.data.data.items;
+        return  reaponse.data.data.productId;
     }
 )
 
@@ -23,7 +23,7 @@ export const addProductInfavorite=createAsyncThunk(
 
     name:"favorite",
     initialState:{
-        data:[],
+        data:{},
         status:null
     },
     extraReducers:{

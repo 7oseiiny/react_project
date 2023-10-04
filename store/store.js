@@ -5,6 +5,7 @@ import pathnameSlice from './Slice/pathname';
 import userSlice from "./Slice/userSlice";
 import categorySlice from "./Slice/categorySlice";
 import productsSlice from "./Slice/productsSlice";
+import favoriteSlice from './Slice/favorite';
 
 const store = configureStore({
     reducer: {
@@ -12,7 +13,8 @@ const store = configureStore({
         cart: cartSlice,
         pathname: pathnameSlice,
         user: userSlice,
-        category: categorySlice
+        category: categorySlice,
+        favorite:favoriteSlice
     }
 })
 export default store;
