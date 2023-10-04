@@ -10,7 +10,7 @@ export default function Favorite() {
     //      dispatch( fetchfavorite())
     //   }, [dispatch])
     
-    let favoriteSlice
+    
     return (
         <>
             <div className=" d-flex row w-auto p-3 cart  container-fluid " style={{ backgroundColor: "rgb(234,237,237)" }}>
@@ -19,12 +19,12 @@ export default function Favorite() {
                         <h2>Your Favorite</h2>
                         <hr />
                         {
-                            favorite.map((item) => {
-                                return<>{item.title_en}</>
-                                // return <Product item={item} />
+                            // favorite.map((item) => {
+                            //     return<>{item.title_en}</>
+                            //     // return <Product item={item} />
 
                                 
-                            })
+                            // })
                         }
                     </div>
                 </div>
