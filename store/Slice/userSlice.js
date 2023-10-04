@@ -3,7 +3,9 @@ import axiosInstance from './../../src/axiosConfig/instance';
 
 export const fetchuser=createAsyncThunk(
     "user/fetch",async ()=>{
-        let userId="650f39d8933f94900f5e75e6"
+        // let userId="651cac675238c660afc16f53"
+                let userId=localStorage.getItem('userId').replaceAll('"',"")
+
         const reaponse=await axiosInstance.get(`/user/${userId}`)
         return  reaponse.data.data;
     }

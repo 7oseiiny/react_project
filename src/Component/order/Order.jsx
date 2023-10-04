@@ -37,8 +37,6 @@ export default function Order() {
     }
     else if (payment == "cod") {
 
-      // dispatch(addOrder());
-      // navigate("/completeorder", { state: { payment: "cod" } });
       submet()
 
     }
@@ -80,7 +78,7 @@ export default function Order() {
           <div className=' d-flex justify-content-between'>
             <div className=""><h5>1 Shipping address </h5></div>
             <div className="">
-              <p className='p-0 m-0'>{user.fristName} {user.lastName}</p>
+              <p className='p-0 m-0'>{user.name} </p>
               <p className='p-0 m-0'>{user.address} </p>
 
             </div>

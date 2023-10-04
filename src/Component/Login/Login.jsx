@@ -56,6 +56,7 @@ const Login = () => {
                   if (!res.data.data.message){
                       setUserData(userDatatoSave)
                       localStorage.setItem('token', JSON.stringify(userDatatoSave.data.token))
+                      localStorage.setItem('userId', JSON.stringify(userDatatoSave.data.userId))
                 
                       setIslogged(true)
                       navigate('/')
@@ -66,7 +67,7 @@ const Login = () => {
                 });
             }
         }
-
+        window.location.reload ()
     };
     // const emailValid = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(email);
     const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)

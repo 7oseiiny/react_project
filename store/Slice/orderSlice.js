@@ -3,7 +3,9 @@ import axiosInstance from './../../src/axiosConfig/instance';
 
 export const fetchOrder=createAsyncThunk(
     "Order/fetch",async ()=>{
-        let userId="650f39d8933f94900f5e75e6"
+        let userId=localStorage.getItem('userId').replaceAll('"',"")
+        // let userId="651cac675238c660afc16f53"
+
         const reaponse=await axiosInstance.get(`/Order/${userId}`)
         return  reaponse.data.data.items;
     }
@@ -11,7 +13,9 @@ export const fetchOrder=createAsyncThunk(
 
 export const addOrder=createAsyncThunk(
     "Order/add",async ()=>{
-        let userId="650f39d8933f94900f5e75e6"
+        let userId=localStorage.getItem('userId').replaceAll('"',"")
+        // let userId="651cac675238c660afc16f53"
+
         const reaponse=await axiosInstance.post(`/order/${userId}/addNewOrder`)
         return  reaponse.data.data;
     }

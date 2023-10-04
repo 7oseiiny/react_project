@@ -8,9 +8,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCart } from '../../../store/Slice/cartSlice';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/user-auth';
+import { fetchuser } from '../../../store/Slice/userSlice';
 function Navbar() {
   const { Islogged, setIslogged, userData } = useContext(AuthContext);
   const userName = userData ? userData.userName : 'Guest';
+
+
+  let user =useSelector((state)=>{return state.user.data})
+  // console.log(user);
   
   var items = useSelector( (state) => {  return  state.cart.data })
   let [totalItems,settotalItems] = useState(0)
@@ -20,6 +25,8 @@ function Navbar() {
 
     useEffect(() => {
       dispatch(fetchCart())
+      dispatch(fetchuser())
+      
     }, [dispatch])
 
     
@@ -136,13 +143,13 @@ function Navbar() {
             <NavLink className="links px-2" to="Monitor" style={{ textDecoration: "none", }}>Monitor</NavLink>
             <NavLink className="links px-2" to="books" style={{ textDecoration: "none" }}>books</NavLink>
             <NavLink className="links px-2" to="profile" style={{ textDecoration: "none" }}>Profile</NavLink>
-            <NavLink className="links px-2" to="login" onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('userData'); setIslogged(false) }} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
+            <NavLink className="links px-2" to="login" onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('userData'); setIslogged(false)}} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
 
           </div>
 
           {/* <div style={{ color: "white", fontWeight: "bold" }}>Welcome {userData.userName}</div> */}
 
-          <div className=" text-white">Shop deals in Electronics</div>
+          <div className=" text-white">wellcome {user.name}</div>
         </div>
 
       </div>
