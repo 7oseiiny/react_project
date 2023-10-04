@@ -10,12 +10,23 @@ export const fetchfavorite=createAsyncThunk(
 )
 
 export const addProductInfavorite=createAsyncThunk(
-    "favorite/addProduct",async (body)=>{
+    "favorite/addProduct",async (prodId)=>{
         let userId=localStorage.getItem('userId').replaceAll('"',"")
-        const reaponse=await axiosInstance.post(`/favorite/${userId}/addProductInfavorite`,body)
+        console.log(userId);
+        const reaponse=await axiosInstance.post(`/favorite/${userId}/addProductInFav/${prodId}`)
         return  reaponse.data.data;
     }
 )
+
+export const removeProductInfavorite=createAsyncThunk(
+    "favorite/addProduct",async (prodId)=>{
+        let userId=localStorage.getItem('userId').replaceAll('"',"")
+        console.log(userId);
+        const reaponse=await axiosInstance.post(`/favorite/${userId}/removeProductsInFav/${prodId}`)
+        return  reaponse.data.data;
+    }
+)
+
 
 
 

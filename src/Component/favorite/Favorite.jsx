@@ -13,8 +13,8 @@ export default function Favorite() {
     return (
         <>
             <div className=" d-flex row w-auto p-3 cart  container-fluid " style={{ backgroundColor: "rgb(234,237,237)" }}>
-                <div className="p-2 col-sm-12 col-lg-12">
-                    <div className="cart-left-side p-3   " style={{ backgroundColor: "white" }}>
+                <div className="p-2  col-sm-12 col-lg-12">
+                    <div className=" col-12 cart-left-side p-3 w-100  " style={{ backgroundColor: "white" }}>
                         <h2>Your Favorite</h2>
                         <hr />
                         {

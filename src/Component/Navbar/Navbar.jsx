@@ -9,15 +9,16 @@ import { fetchCart } from '../../../store/Slice/cartSlice';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/user-auth';
 import { fetchuser } from '../../../store/Slice/userSlice';
+import { fetchfavorite } from '../../../store/Slice/favorite';
 function Navbar() {
   const { setIslogged } = useContext(AuthContext);
 
 
 
   let user = useSelector((state) => { return state.user.data })
-  // console.log(user);
 
   var items = useSelector((state) => { return state.cart.data })
+  var fav = useSelector((state) => { return state.favorite.data.productId })
   let [totalItems, settotalItems] = useState(0)
   let [totalItems_fav, settotalItems_fav] = useState(0)
   for (const item of items) { totalItems += item.quantity }
@@ -27,6 +28,7 @@ function Navbar() {
   useEffect(() => {
     dispatch(fetchCart())
     dispatch(fetchuser())
+    dispatch(fetchfavorite())
 
   }, [dispatch])
 
@@ -122,7 +124,7 @@ function Navbar() {
               <li className="col-3 col-xs-ms-2">
 
                 <NavLink className="links" to="favorite" style={{ textDecoration: "none" }}><MdOutlineFavoriteBorder to='favorite' color='white' size={25} /></NavLink>
-                {totalItems_fav}
+                {fav?fav.length:""}
 
                 <NavLink className="links" to="cart" style={{ textDecoration: "none" }}><FaShoppingCart to='cart' color='white' size={25} /></NavLink>
                 {totalItems}
