@@ -1,10 +1,18 @@
-import React, { useState, useEffect } from 'react'
 import { useContext } from "react";
 import { AuthContext } from "../../Context/user-auth";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchuser } from '../../../store/Slice/userSlice'
+import React, { useEffect, useState } from 'react'
 import './userInfo.css';
 export default function Profile() {
-
+    let user = useSelector((state) => { return state.user.data})
+    console.log(user)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(fetchuser())
+      },[dispatch])
+  
     const { userData } = useContext(AuthContext);
     const [avatarSrc, setAvatarSrc] = useState('');
     // console.log(userData)
@@ -93,7 +101,7 @@ export default function Profile() {
                             <div className="row">
                                 <div className="col-sm-4 layout-profile">
                                     <span>
-                                  <h4>Name : Ola</h4>
+                                  <h4>Name : {user.email}</h4>
                                   <h4>Address : cairo</h4>
                                   <button className="btn btn-success"><Link className='text-light text-decoration-none' to="/profile/edit">Edit your Profile</Link></button>
 

@@ -10,8 +10,8 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Context/user-auth';
 import { fetchuser } from '../../../store/Slice/userSlice';
 function Navbar() {
-  const { Islogged, setIslogged, userData } = useContext(AuthContext);
-  const userName = userData ? userData.userName : 'Guest';
+  const { setIslogged } = useContext(AuthContext);
+
 
 
   let user =useSelector((state)=>{return state.user.data})
@@ -148,7 +148,7 @@ function Navbar() {
 
           {/* <div style={{ color: "white", fontWeight: "bold" }}>Welcome {userData.userName}</div> */}
 
-          <div className=" text-white">wellcome {user.name}</div>
+          <div className=" text-white">welcome {user.name}</div>
         </div>
 
       </div>
