@@ -8,6 +8,14 @@ export const fetchcategory = createAsyncThunk(
     }
 )
 
+export const fetchcategorypage = createAsyncThunk(
+    "category/fetch", async (name) => {
+        const reaponse = await axiosInstance.get(`/category/getbyname/${name}`)
+        return reaponse.data.data.page;
+    }
+)
+
+
 
 
 const categorySlice = createSlice({
