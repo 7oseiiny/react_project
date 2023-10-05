@@ -78,7 +78,7 @@ export default function Profile() {
             {userData.email && <p>Email: {userData.email}</p>} */}
       <div className="m-5">
         <div className="wallpeper">
-          <img className="img-fluid imgProFile" src="../assets/images/user.webp" width="22%" />
+          <img className="img-fluid imgProFile" src="../assets/images/uuser2.png" width="22%" />
         </div>
         <div className="p-4 fs-4 fw-bold ">
           <>
