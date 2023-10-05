@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Context/user-auth";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchuser } from "../../../store/Slice/userSlice";
 import React, { useEffect, useState } from "react";
 import "./userInfo.css";
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { MdLocationPin, MdOutlineFavoriteBorder } from "react-icons/md";
 export default function Profile() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.data);
@@ -63,6 +64,13 @@ export default function Profile() {
   //     }, []);
   // }
 
+  var fav = useSelector((state) => { try{return state.favorite.data.productId }catch{}})
+
+
+  try{
+    for (const item of items) { totalItems += item.quantity }
+
+  }catch(err){console.log(err)}
   return (
     <>
       {/* {userData.name && <p> {userData.name}</p>}
@@ -103,9 +111,9 @@ export default function Profile() {
                     </li>
                     <li className="list-group-item text-right">
                       <span className="pull-left">
-                        <strong>Favorite</strong>
-                      </span>{" "}
-                      10
+                        <MdOutlineFavoriteBorder to='favorite' color='red' size={25} />
+                      </span>
+                      {fav?fav.length:""}
                     </li>
                     <li className="list-group-item text-right">
                       <span className="pull-left">

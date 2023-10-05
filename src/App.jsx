@@ -29,13 +29,14 @@ import { AuthProvider } from './Context/user-auth'
 import { useState } from 'react'
 import EditUserInfo from "./Component/UserInfo/EditUserInfo";
 import YourAccount from "./Component/UserInfo/YourAccount";
-import Profile from "./Component/UserInfo/profile";
-
-
 import Cart from "./Component/Cart/Cart";
 import Order from "./Component/order/Order";
 import CompleteOrder from "./Component/order/completeOrder/CompleteOrder";
 import ProductDetails from "./Component/productDetails/ProductDetails";
+import Profile from "./Component/UserInfo/profile";
+import Favorite from "./Component/favorite/favorite";
+
+
 
 const router = createBrowserRouter([
   {
@@ -85,6 +86,7 @@ const router = createBrowserRouter([
       { path: "prime", element: <Prime /> },
       { path: "books", element: <Books /> },
       { path: "cart", element: <Cart /> },
+      { path: "favorite", element: <Favorite /> },
       { path: "order", element: <Order /> },
       { path: "completeorder", element: <CompleteOrder /> },
       { path: "productdetails", element: <ProductDetails /> },
