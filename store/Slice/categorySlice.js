@@ -9,6 +9,14 @@ export const fetchcategory = createAsyncThunk(
     }
 )
 
+// export const fetchcategorypage = createAsyncThunk(
+//     "category/fetch", async (name) => {
+//         const reaponse = await axiosInstance.get(`/category/getbyname/${name}`)
+//         console.log(reaponse.data.pages);
+//         return reaponse.data.pages;
+//     }
+// )
+
 export const fetchcategorypage = createAsyncThunk(
     "category/fetch", async (name) => {
         const reaponse = await axiosInstance.get(`/category/getbyname/${name}`)

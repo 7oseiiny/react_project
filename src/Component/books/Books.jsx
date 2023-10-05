@@ -20,6 +20,7 @@ import { fetchcategory, fetchcategorypage } from "../../../store/Slice/categoryS
 import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
 import { addProductInCart, fetchCart } from "../../../store/Slice/cartSlice";
 import { addProductInfavorite, fetchfavorite } from "../../../store/Slice/favorite";
+import axiosInstance from "../../axiosConfig/instance";
 
 export default function Books() {
   const [page, setPage] = useState(1)
@@ -30,11 +31,17 @@ export default function Books() {
   let [pages, setpages] = useState(0);
   
   useEffect(() => {
-    setpages(dispatch(fetchcategorypage("books")).then((p)=>{setpages(p.payload);}))
     dispatch(fetchcategory("books",))
     dispatch(fetchCart())
     dispatch(fetchfavorite())
-  }, [dispatch, change])
+  }, [dispatch,change])
+
+  useEffect(()=>{
+    // setpages(dispatch(fetchcategorypage("books")))
+    axiosInstance.get(`/category/getbyname/books`).then((p)=>{setpages(p.data.pages);})
+
+  },[change])
+  // console.log(pages);
   var listbook = useSelector((state) => { return state.category.data })
   var cart = useSelector((state) => { return state.cart.data })
   var fav = useSelector((state) => { return state.favorite.data.productId })
@@ -428,7 +435,9 @@ export default function Books() {
           <div className="w-100">
             <h2>Best sellers</h2>
             <div className=" d-flex flex-wrap p-2 ">
-              {Array.isArray(listbook)?listbook.map((book) => {
+              {
+              // Array.isArray(listbook)?
+              listbook.map((book) => {
                 return <>
                   <div className="col-lg-3 col-6 p-2" >
                     <div className="bg-light w-100 p-2 text-center "  >
@@ -447,7 +456,9 @@ export default function Books() {
                     </div>
                   </div>
                 </>
-              }):""}
+              })
+              // :""
+              }
               
             </div>
 
