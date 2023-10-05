@@ -103,24 +103,12 @@ export default function Profile() {
                   <br />
                   <ul className="list-group">
                     <li className="list-group-item text-muted">Activity </li>
+                   
                     <li className="list-group-item text-right">
-                      <span className="pull-left">
-                        <strong>Wish List</strong>
-                      </span>{" "}
-                      5
+                    <NavLink className="links" to="/favorite" style={{ textDecoration: "none" }}><MdOutlineFavoriteBorder to='/favorite' color='red' size={25} /></NavLink>
+                {fav?fav.length:""}
                     </li>
-                    <li className="list-group-item text-right">
-                      <span className="pull-left">
-                        <MdOutlineFavoriteBorder to='favorite' color='red' size={25} />
-                      </span>
-                      {fav?fav.length:""}
-                    </li>
-                    <li className="list-group-item text-right">
-                      <span className="pull-left">
-                        <strong>Orders</strong>
-                      </span>{" "}
-                      2
-                    </li>
+            
                   </ul>
                 </div>
                 <div className="col-sm-9">
