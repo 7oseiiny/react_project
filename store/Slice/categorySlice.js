@@ -4,6 +4,7 @@ import axiosInstance from '../../src/axiosConfig/instance';
 export const fetchcategory = createAsyncThunk(
     "category/fetch", async (name) => {
         const reaponse = await axiosInstance.get(`/category/getbyname/${name}`)
+        // console.log(reaponse.data.pages);
         return reaponse.data.data.products;
     }
 )
@@ -11,7 +12,8 @@ export const fetchcategory = createAsyncThunk(
 export const fetchcategorypage = createAsyncThunk(
     "category/fetch", async (name) => {
         const reaponse = await axiosInstance.get(`/category/getbyname/${name}`)
-        return reaponse.data.data.page;
+        console.log(reaponse.data.pages);
+        return reaponse.data.pages;
     }
 )
 
