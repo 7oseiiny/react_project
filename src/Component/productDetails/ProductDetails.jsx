@@ -1,29 +1,34 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import Rate from './../rate/rate';
-import { MdOutlineFavoriteBorder, MdOutlinePlace } from 'react-icons/md';
+import { MdFavorite, MdOutlineFavoriteBorder, MdOutlinePlace } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductById } from '../../../store/Slice/productsSlice';
 import { fetchuser } from '../../../store/Slice/userSlice';
 import { addProductInCart, fetchCart } from '../../../store/Slice/cartSlice';
+import { addProductInfavorite, fetchfavorite } from '../../../store/Slice/favorite';
 
 export default function ProductDetails() {
 
-    
+
     let location = useLocation();
     let dispatch = useDispatch()
     let navigate = useNavigate()
-    let user = useSelector( (state) => { return state.user.data })
-    console.log(user);
+    let user = useSelector((state) => { return state.user.data })
+
+    // console.log(user);
     var product = useSelector((state) => { return state.products.data })
     var cart = useSelector((state) => { return state.cart.data })
+    var fav = useSelector((state) => { return state.favorite.data.productId })
 
+    console.log(fav);
     let [change, setchange] = useState(0);
     let [quantity, setquantity] = useState(1);
 
-    useEffect( () => {
-         dispatch(fetchuser())
-        dispatch( fetchCart())
+    useEffect(() => {
+        dispatch(fetchuser())
+        dispatch(fetchCart())
+        dispatch(fetchfavorite())
         dispatch(fetchProductById(location.state.productId))
     }, [dispatch, change, quantity])
 
@@ -59,6 +64,23 @@ export default function ProductDetails() {
         setchange(productId)
     }
 
+
+    function isinfav(bookId) {
+        for (const item of fav) {
+
+          console.log(item._id);
+          if (bookId == item._id) {
+            return true
+          }
+
+
+        }
+    }
+    async function addtofav(productId) {
+        console.log(productId);
+        await dispatch(addProductInfavorite(productId))
+        setchange(productId)
+    }
 
 
     return (
@@ -152,7 +174,7 @@ export default function ProductDetails() {
                             <div className='d-flex flex-row justify-content-between'>
                                 <button className='btn w-100 my-1' style={{ borderRadius: "50px", backgroundColor: "rgb(255,164,28)" }} >buy now</button>
 
-                                <div className='p-2'> {true ? <MdOutlineFavoriteBorder style={{ fontSize: "25px", marginLeft: "10px" }}></MdOutlineFavoriteBorder> : <MdFavorite></MdFavorite>}</div>
+                                {fav ? <div className='p-2'>  {!isinfav(prod("_id")) ? <MdOutlineFavoriteBorder onClick={() => { addtofav(prod("_id")) }} style={{ fontSize: "25px", marginLeft: "10px" }}></MdOutlineFavoriteBorder> : <MdFavorite></MdFavorite>}</div> : ""}
                             </div>
 
                         </div>

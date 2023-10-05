@@ -6,6 +6,8 @@ import "./Books.css";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import Rate from "../rate/rate";
+import { PaginationControl } from 'react-bootstrap-pagination-control';
+
 // import Card from 'react-bootstrap/Card';
 // import Col from 'react-bootstrap/Col';
 // import Row from 'react-bootstrap/Row';
@@ -14,22 +16,27 @@ import Rate from "../rate/rate";
 import { useEffect } from 'react';
 import Sliders from "./sliders";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchcategory } from "../../../store/Slice/categorySlice";
+import { fetchcategory, fetchcategorypage } from "../../../store/Slice/categorySlice";
 import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
 import { addProductInCart, fetchCart } from "../../../store/Slice/cartSlice";
+import { addProductInfavorite, fetchfavorite } from "../../../store/Slice/favorite";
 
 export default function Books() {
+  const [page, setPage] = useState(1)
 
-  console.log("a");
   let navigate = useNavigate()
   let dispatch = useDispatch()
   let [change, setchange] = useState(0);
   useEffect(() => {
     dispatch(fetchcategory("books",))
     dispatch(fetchCart())
+    dispatch(fetchfavorite())
   }, [dispatch, change])
   var listbook = useSelector((state) => { return state.category.data })
   var cart = useSelector((state) => { return state.cart.data })
+  var fav = useSelector((state) => { return state.favorite.data.productId })
+  // let pages =dispatch(fetchcategorypage("books"))
+  // console.log(pages);
 
   function isInCart(bookId) {
     for (const item of cart) {
@@ -41,6 +48,17 @@ export default function Books() {
 
     }
   }
+  function isinfav(bookId) {
+    for (const item of fav) {
+
+      if (bookId == item._id) {
+        return true
+      }
+
+
+    }
+  }
+
   function viewcart() {
     navigate("/cart")
   }
@@ -53,8 +71,12 @@ export default function Books() {
     await dispatch(addProductInCart({ "items": [{ "product": productId, "quantity": 1 }] }))
     setchange(productId)
   }
+  async function addtofav(productId) {
+    await dispatch(addProductInfavorite(productId))
+    setchange(productId+" ")
+  }
 
-  function gotodetails(bookId){
+  function gotodetails(bookId) {
     navigate("/productdetails", { state: { productId: bookId } });
   }
 
@@ -418,17 +440,29 @@ export default function Books() {
                       <div className="d-felx  ">
                         <button onClick={() => { gotodetails(book._id); }} className="btn btn-secondary m-2">details</button>
                         {!isInCart(book._id) ? <button disabled={book.quantity < 1} onClick={() => { addtocart(book._id) }} className="btn btn-warning">add to cart</button> : <button onClick={viewcart} className="btn btn-warning">view cart</button>}
-                        {true ? <MdOutlineFavoriteBorder style={{ fontSize: "25px", marginLeft: "10px" }}></MdOutlineFavoriteBorder> : <MdFavorite></MdFavorite>}
-
+                        {!isinfav(book._id) ? <MdOutlineFavoriteBorder onClick={() => { addtofav(book._id) }} style={{ fontSize: "25px", marginLeft: "10px" }}></MdOutlineFavoriteBorder> : <MdFavorite></MdFavorite>}
+                        {/* <MdOutlineFavoriteBorder onClick={addtofav(book._id)} style={{ fontSize: "25px", marginLeft: "10px" }}></MdOutlineFavoriteBorder> */}
                       </div>
                     </div>
                   </div>
-
                 </>
               })}
+              
             </div>
 
           </div>
+          <PaginationControl
+                    page={page}
+                    between={4}
+                    total={40}
+                    limit={12}
+                    changePage={(page) => {
+                        setPage(page)
+                        console.log("pageff",page)
+
+                    }}
+                    ellipsis={1}
+                />
           <div>
             <h2>Featured Page to Screen Adaptations</h2>
             <Sliders numberOfItems={(screenWidth > 1200) ? 6 : (screenWidth < 1200 && screenWidth > 768) ? 3 : (screenWidth < 768 && screenWidth > 500) ? 2 : 1} />

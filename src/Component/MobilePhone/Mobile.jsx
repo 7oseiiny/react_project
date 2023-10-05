@@ -2,7 +2,15 @@ import './Mobile.css'
 import React from 'react'
 import { FaStar, FaRegStar } from "react-icons/fa6";
 import '../TodayDeals/todayDealsLiftSide/leftSide.css'
+import { useDispatch, useSelector } from "react-redux";
+import { fetchcategory } from "../../../store/Slice/categorySlice";
 export default function Mobile() {
+
+  var mobile = useSelector((state) => { return state.category.data})
+  useEffect(() => {
+    dispatch(fetchcategory("Mobile Phones",))
+    
+  }, [dispatch])
   return (
     <>
    

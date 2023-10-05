@@ -1,5 +1,5 @@
 import './Navbar.css'
-import { MdLocationPin } from "react-icons/md";
+import { MdLocationPin, MdOutlineFavoriteBorder } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import React, { useEffect, useState } from 'react';
@@ -9,6 +9,7 @@ import { fetchCart } from '../../../store/Slice/cartSlice';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/user-auth';
 import { fetchuser } from '../../../store/Slice/userSlice';
+import { fetchfavorite } from '../../../store/Slice/favorite';
 function Navbar() {
   const { setIslogged } = useContext(AuthContext);
 
@@ -23,11 +24,20 @@ function Navbar() {
   
     const dispatch = useDispatch()
 
-    useEffect(() => {
-      dispatch(fetchCart())
-      dispatch(fetchuser())
-      
-    }, [dispatch])
+  var items = useSelector((state) => { return state.cart.data })
+  var fav = useSelector((state) => { return state.favorite.data.productId })
+  let [totalItems, settotalItems] = useState(0)
+  let [totalItems_fav, settotalItems_fav] = useState(0)
+  for (const item of items) { totalItems += item.quantity }
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchCart())
+    dispatch(fetchuser())
+    dispatch(fetchfavorite())
+
+  }, [dispatch])
 
   return (
     <>
@@ -120,6 +130,9 @@ function Navbar() {
               </li>
               <li className="col-3 col-xs-ms-2">
 
+                <NavLink className="links" to="favorite" style={{ textDecoration: "none" }}><MdOutlineFavoriteBorder to='favorite' color='white' size={25} /></NavLink>
+                {fav?fav.length:""}
+
                 <NavLink className="links" to="cart" style={{ textDecoration: "none" }}><FaShoppingCart to='cart' color='white' size={25} /></NavLink>
                 {totalItems}
 
@@ -142,7 +155,7 @@ function Navbar() {
             <NavLink className="links px-2" to="Monitor" style={{ textDecoration: "none", }}>Monitor</NavLink>
             <NavLink className="links px-2" to="books" style={{ textDecoration: "none" }}>books</NavLink>
             <NavLink className="links px-2" to="profile" style={{ textDecoration: "none" }}>Profile</NavLink>
-            <NavLink className="links px-2" to="login" onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('userData'); setIslogged(false)}} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
+            <NavLink className="links px-2" to="login" onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('userData'); setIslogged(false) }} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
 
           </div>
 
