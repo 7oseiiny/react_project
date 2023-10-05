@@ -18,17 +18,21 @@ function Navbar() {
   let user =useSelector((state)=>{return state.user.data})
   // console.log(user);
   
-  var items = useSelector( (state) => {  return  state.cart.data })
-  let [totalItems,settotalItems] = useState(0)
-    for (const item of items ) { totalItems += item.quantity }
+
+    // for (const item of items ) { totalItems += item.quantity }
   
-    const dispatch = useDispatch()
+
 
   var items = useSelector((state) => { return state.cart.data })
-  var fav = useSelector((state) => { return state.favorite.data.productId })
+  var fav = useSelector((state) => { try{return state.favorite.data.productId }catch{}})
   let [totalItems, settotalItems] = useState(0)
   let [totalItems_fav, settotalItems_fav] = useState(0)
-  for (const item of items) { totalItems += item.quantity }
+
+  try{
+    for (const item of items) { totalItems += item.quantity }
+
+  }catch(err){console.log(err)}
+
 
   const dispatch = useDispatch()
 

@@ -29,9 +29,6 @@ import { AuthProvider } from './Context/user-auth'
 import { useState } from 'react'
 import EditUserInfo from "./Component/UserInfo/EditUserInfo";
 import YourAccount from "./Component/UserInfo/YourAccount";
-import Profile from "./Component/UserInfo/profile";
-
-
 import Cart from "./Component/Cart/Cart";
 import Order from "./Component/order/Order";
 import CompleteOrder from "./Component/order/completeOrder/CompleteOrder";
