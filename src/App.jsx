@@ -5,7 +5,6 @@ import Mobile from "./Component/MobilePhone/mobile";
 import AppLayout from "./Component/AppLayout/AppLayout";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./Component/Home/Home";
-import React from "react";
 import TodayDealsPage from "./Component/TodayDeals/TodayDealsPage";
 import Coupons from "./Component/TodayDeals/coupons";
 import TodayDeals from "./Component/TodayDeals/TodayDeals";
@@ -24,8 +23,8 @@ import BestSeller from "./Component/VideoGames/BestSeller";
 import VgamesNav from "./Component/VideoGames/VgamesNav";
 import axiosInstance from "./axiosConfig/instance";
 import Login from "./Component/Login/login";
-import { AuthProvider } from './Context/user-auth'
-import { useState } from 'react'
+import { AuthProvider } from "./Context/user-auth";
+import { React, useState, useEffect } from "react";
 import Cart from "./Component/Cart/Cart";
 
 const router = createBrowserRouter([
@@ -33,8 +32,8 @@ const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       { index: true, element: <Home /> },
-      { path: '/login', element: <Login /> },
-    
+      { path: "/login", element: <Login /> },
+
       { path: "/mobile", element: <Mobile /> },
       {
         path: "todayDeals",
@@ -82,8 +81,9 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [Islogged, setIslogged] = useState(localStorage.getItem(`token`) ? true : false);
- 
+  const [Islogged, setIslogged] = useState(
+    localStorage.getItem("token") ? true : false
+  );
 
   var result = "";
   async function start() {
@@ -96,8 +96,8 @@ function App() {
   }, []);
   return (
     <Provider store={store}>
-       <AuthProvider value={{ Islogged, setIslogged }} >
-      <RouterProvider router={router} />
+      <AuthProvider value={{ Islogged, setIslogged }}>
+        <RouterProvider router={router} />
       </AuthProvider>
     </Provider>
   );

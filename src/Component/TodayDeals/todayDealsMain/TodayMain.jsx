@@ -1,23 +1,52 @@
-import React from 'react'
-import MainCards from '../todayDealsComponents/MainCard'
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import MainCards from "../todayDealsComponents/MainCard";
+import { useDispatch, useSelector } from "react-redux";
+import axiosInstance from "../../../axiosConfig/instance";
+import { useLocation } from "react-router-dom";
+import { getFilteredList } from "../../../../store/Slice/filteredList";
 
 export default function TodayMain() {
-    const state= useSelector((state)=>state);
-    let products=state.products.products;
-    console.log(products);
+  let filteredList = useSelector((state) => state.filteredList.filteredList);
+  const location = useLocation();
+  let dispatch = useDispatch();
+  let [productList, setProductList] = useState([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    axiosInstance
+      .get("category/65186c48dff647423cf4def7")
+      .then((data) => {
+        const products = data.data.data.products;
+        setProductList(products);
+        dispatch(getFilteredList(products));
+      })
+      .catch((err) => console.log(err));
+      return () => {
+        
+        isMounted = false;
+        dispatch(getFilteredList([]));
+      };
+  }, [location.pathname]);
+
+  const state = useSelector((state) => state);
+  let language = state.language.language;
+
   return (
     <>
-        <aside className="col-xl-10 col-md-9 col-8 container-fluid">
-          <div className="row">
-          {products.map((item)=>{
-            return <MainCards key={item.id} img={item.img} title={item.title} discount={item.discount}/>
+      <aside className="col-xl-10 col-md-9 col-8 container-fluid">
+        <div className="row">
+          {filteredList.map((item) => {
+            return (
+              <MainCards
+                key={item._id}
+                img={item.img}
+                title={language === "en" ? item.title_en : item.title_ar}
+                discount={item.price.discount}
+              />
+            );
           })}
-          {products.map((item)=>{
-            return <MainCards key={item.id} img={item.img} title={item.title} discount={item.discount}/>
-          })}
-          </div>
-          </aside>
+        </div>
+      </aside>
     </>
-  )
+  );
 }

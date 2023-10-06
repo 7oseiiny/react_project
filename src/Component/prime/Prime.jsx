@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import "./Prime.css";
+import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 export default function Prime() {
+  let language=useSelector((state)=>state.language.language)
+  let {t}=useTranslation();
   let cards;
   let cards_container;
   let cardsarr;
@@ -43,29 +47,28 @@ export default function Prime() {
           alt=""
         />
         <h1 className="h1">
-          Amazon Customer, we're giving you a
-          <span style={{ color: "rgb(26, 152, 255)" }}>30 day free trial</span>{" "}
-          of Amazon Prime
+          {t("Amazon Customer, we're giving you a")}
+          <span style={{ color: "rgb(26, 152, 255)" }}>{t("30 day free trial")}</span>{" "}
+          {t("of Amazon Prime")}
         </h1>
         <h4>
-          Only EGP 29.00/month after trial. Cancel anytime. Terms and conditions
-          apply
+          {t("Only EGP 29.00/month after trial. Cancel anytime. Terms and conditions apply")}
         </h4>
         <a className="a" href="#plans">
-          Explore other plans
+          {t("Explore other plans")}
         </a>
         <button
           className="btn button"
           style={{ backgroundColor: "rgb(255, 167, 36)" }}
         >
-          start your free 30-day trial
+          {t("start your free 30-day trial")}
         </button>
       </div>
       <div
         className="container-fluid p-4 text-center"
         style={{ backgroundColor: "rgb(26, 152, 255)", color: "white" }}
       >
-        <h3>Take a look at what's included with Prime membership</h3>
+        <h3>{t("Take a look at what's included with Prime membership")}</h3>
       </div>
       <div className="container-fluid d-flex justify-content-center">
         <div
@@ -79,13 +82,13 @@ export default function Prime() {
       </div>
       <div className="container-fluid d-flex justify-content-center">
         <h1 className="h1" style={{ color: "rgb(26, 152, 255)" }}>
-          Check out what's included
+          {t("Check out what's included")}
         </h1>
       </div>
 
       <div className="d-flex text-center p-5">
         <button id="back" className="btn button" onClick={back}>
-          ←
+          {language=='en'?'←':'→'}
         </button>
 
         <div
@@ -101,11 +104,10 @@ export default function Prime() {
               />
               <div className="card-body">
                 <h5 className="card-title" style={{ color: "rgb(26,152,255)" }}>
-                  Monthly gaming perks
+                  {t("Monthly gaming perks")}
                 </h5>
                 <p className="card-text">
-                  Free games, exclusive in-game content and a free Twitch
-                  channel subscription every month.
+                  {t("Free games, exclusive in-game content and a free Twitch channel subscription every month.")}
                 </p>
               </div>
             </div>
@@ -119,11 +121,10 @@ export default function Prime() {
               />
               <div className="card-body">
                 <h5 className="card-title" style={{ color: "rgb(26,152,255)" }}>
-                  Fast, free delivery
+                  {t("Fast, free delivery")}
                 </h5>
                 <p className="card-text">
-                  Enjoy same day delivery to Cairo and Giza and next day
-                  delivery across most of Egypt on over half a million items.
+                  {t("Enjoy same day delivery to Cairo and Giza and next day delivery across most of Egypt on over half a million items.")}
                 </p>
               </div>
             </div>
@@ -137,11 +138,10 @@ export default function Prime() {
               />
               <div className="card-body">
                 <h5 className="card-title" style={{ color: "rgb(26,152,255)" }}>
-                  Popular films and TV programs
+                  {t("Popular films and TV programs")}
                 </h5>
                 <p className="card-text">
-                  Stream international TV shows and movies, plus award-winning
-                  Amazon Originals from your favorite devices.
+                  {t("Stream international TV shows and movies, plus award-winning Amazon Originals from your favorite devices.")}
                 </p>
               </div>
             </div>
@@ -155,11 +155,10 @@ export default function Prime() {
               />
               <div className="card-body">
                 <h5 className="card-title" style={{ color: "rgb(26,152,255)" }}>
-                  Exclusive deals
+                  {t("Exclusive deals")}
                 </h5>
                 <p className="card-text">
-                  Get early access to in-demand deals and save big during annual
-                  events, like Prime Day.
+                  {t("Get early access to in-demand deals and save big during annual events, like Prime Day.")}
                 </p>
               </div>
             </div>
@@ -167,7 +166,8 @@ export default function Prime() {
         </div>
 
         <button id="next" className="btn button" onClick={next}>
-          →
+        {language=='en'?'→':'←'}
+          
         </button>
       </div>
 
@@ -177,11 +177,10 @@ export default function Prime() {
         style={{ color: "white", backgroundColor: "rgb(35, 47, 62)" }}
       >
         <h1 className="h1" style={{ color: "rgb(26,152,255)" }}>
-          Choose your plan
+          {t("Choose your plan")}
         </h1>
         <h4 id="plan">
-          Enjoy your 30 day free trial of Prime. After that, Prime is just EGP
-          29.00 per month. Cancel at any time.
+          {t("Enjoy your 30 day free trial of Prime. After that, Prime is just EGP 29.00 per month. Cancel at any time.")}
         </h4>
 
         <div className="d-flex">
@@ -202,11 +201,11 @@ export default function Prime() {
                 name="plan"
                 value="Monthly"
               />
-              <h5 style={{ color: "black" }}>Monthly Plan</h5>
+              <h5 style={{ color: "black" }}>{t("Monthly Plan")}</h5>
               <h1 className="h1" style={{ color: "black" }}>
-                EGP 29.00
+                {t("EGP 29.00")}
               </h1>
-              <h3 style={{ color: "black" }}>per month after trial</h3>
+              <h3 style={{ color: "black" }}>{t("per month after trial")}</h3>
             </div>
           </label>
           <label className="d-flex" htmlFor="annual">
@@ -226,11 +225,11 @@ export default function Prime() {
                 name="plan"
                 value="Annual"
               />
-              <h5 style={{ color: "black" }}>Monthly Plan</h5>
+              <h5 style={{ color: "black" }}>{t("Annual Plan")}</h5>
               <h1 className="h1" style={{ color: "black" }}>
-                EGP 29.00
+                {t("EGP 249.00")}
               </h1>
-              <h3 style={{ color: "black" }}>per month after trial</h3>
+              <h3 style={{ color: "black" }}>{t("per year after trial")}</h3>
             </div>
           </label>
         </div>
@@ -238,7 +237,7 @@ export default function Prime() {
           className="btn button"
           style={{ backgroundColor: "rgb(255, 167, 36)" }}
         >
-          Try Prime free htmlFor 30 days
+          {t("Try Prime free For 30 days")}
         </button>
       </div>
       <div
@@ -247,20 +246,18 @@ export default function Prime() {
       >
         <div className="w-75">
           <h3 style={{ fontWeight: "500", fontSize: "40px" }}>
-            More ways to subscribe:
+            {t("More ways to subscribe:")}
           </h3>
           <h3 style={{ fontWeight: "400", fontSize: "30px" }}>
-            Orange customers: Call #266# from your Orange mobile number to
-            subscribe to Prime and start your 30-day free trial along with 1GB
-            free on Amazon. Get Prime FREE with Orange Premier.
+            {t("Orange customers: Call #266# from your Orange mobile number to subscribe to Prime and start your 30-day free trial along with 1GB free on Amazon. Get Prime FREE with Orange Premier.")}
           </h3>
           <h3 style={{ fontWeight: "400", fontSize: "25px" }}>
-            *Terms and conditions apply
+            {t("*Terms and conditions apply")}
           </h3>
         </div>
       </div>
       <h1 className="h1 text-center p-5" style={{ color: "rgb(26,152,255)" }}>
-        Choose your plan
+        {t("Choose your plan")}
       </h1>
 
       <div className="container">
@@ -273,18 +270,13 @@ export default function Prime() {
           aria-controls="collapseExample"
         >
           <h3>
-            How do I sign up htmlFor a free trial? What happens after the free
-            trial period?
+            {t("How do I sign up For a free trial? What happens after the free trial period?")}
           </h3>
           <h3>+</h3>
         </button>
         <div className="collapse" id="collapse1">
           <h2 className="p-4" style={{ fontWeight: "300" }}>
-            To sign up htmlFor your free 30 day free trial, please click on “Try
-            Prime free htmlFor 30 days” button above. Although you will not be
-            charged htmlFor your 30 day trial of Prime, we do need a valid
-            payment option on file in order to start enjoying your trial and
-            Prime’s benefits.
+            {t("instructions")}
           </h2>
         </div>
         <div
@@ -300,14 +292,12 @@ export default function Prime() {
           aria-expanded="false"
           aria-controls="collapseExample"
         >
-          <h3>What benefits does Prime offer?</h3>
+          <h3>{t("What benefits does Prime offer?")}</h3>
           <h3>+</h3>
         </button>
         <div className="collapse" id="collapse2">
           <h2 className="p-4" style={{ fontWeight: "300" }}>
-            Prime offers you the best of entertainment including movies, TV
-            series, Amazon Originals, free PC games and in game content with
-            Prime Gaming, and fast and free delivery.
+            {t("benefits")}
           </h2>
         </div>
         <div
@@ -323,16 +313,12 @@ export default function Prime() {
           aria-expanded="false"
           aria-controls="collapseExample"
         >
-          <h3>What methods can I use to sign up htmlFor Prime?</h3>
+          <h3>{t("What methods can I use to sign up For Prime?")}</h3>
           <h3>+</h3>
         </button>
         <div className="collapse" id="collapse3">
           <h2 className="p-4" style={{ fontWeight: "300" }}>
-            To sign up, you must have a valid payment method on file. Payment
-            methods accepted include international and domestic Visa and
-            MasterCard credit and debit cards. Don't have a credit or debit
-            card? Call #266# from your Orange mobile number to subscribe to
-            Amazon Prime and start your free trial
+            {t("paymentMethods")}
           </h2>
         </div>
         <div
@@ -349,18 +335,13 @@ export default function Prime() {
           aria-controls="collapseExample"
         >
           <h3>
-            What if I am already a Prime member on a different Amazon website?
+            {t("What if I am already a Prime member on a different Amazon website?")}
           </h3>
           <h3>+</h3>
         </button>
         <div className="collapse" id="collapse4">
           <h2 className="p-4" style={{ fontWeight: "300" }}>
-            If you live in Egypt and have Amazon Prime on another Amazon
-            website, we encourage you to change your subscription to Amazon.eg.
-            Enjoy a wide selection of Egyptian brands with Prime delivery,
-            customer service in Egypt and access to a wide range of movies and
-            series on Prime Video. And all this htmlFor EGP 29.00/month or EGP
-            249.00/year!
+            {t("existingPrimeMember")}
           </h2>
         </div>
         <div
@@ -376,16 +357,12 @@ export default function Prime() {
           aria-expanded="false"
           aria-controls="collapseExample"
         >
-          <h3>If I am not satisfied, how do I cancel? Will I get a refund?</h3>
+          <h3>{t("If I am not satisfied, how do I cancel? Will I get a refund?")}</h3>
           <h3>+</h3>
         </button>
         <div className="collapse" id="collapse5">
           <h2 className="p-4" style={{ fontWeight: "300" }}>
-            You can cancel your Prime membership at any time by clicking on
-            “Manage my membership” [https://www.amazon.eg/prime]. You will not
-            receive a refund htmlFor the months during which your membership was
-            active, but you will not be charged htmlFor your next scheduled
-            billing.
+            {t("cancellationAndRefund")}
           </h2>
         </div>
         <div
@@ -401,16 +378,12 @@ export default function Prime() {
           aria-expanded="false"
           aria-controls="collapseExample"
         >
-          <h3>What if I already have an Amazon Prime Video subscription?</h3>
+          <h3>{t("What if I already have an Amazon Prime Video subscription?")}</h3>
           <h3>+</h3>
         </button>
         <div className="collapse" id="collapse6">
           <h2 className="p-4" style={{ fontWeight: "300" }}>
-            Prime Video is included in Amazon Prime. If you are already a Prime
-            Video subscriber in Egypt, you can cancel your Prime Video
-            subscription and sign up htmlFor Prime on Amazon.eg and get 30 days
-            free trial. Otherwise, you will be automatically migrated at the end
-            of your billing cycle.
+          {t("existingPrimeVideoSubscriber")}
           </h2>
         </div>
         <div
