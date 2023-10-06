@@ -25,7 +25,7 @@ function Navbar() {
 
 
 
-  var items = useSelector((state) => { return state.cart.data })
+  var items = useSelector((state) => { return state.cart.data.items })
   var fav = useSelector((state) => { try { return state.favorite.data.productId } catch { } })
   let [totalItems, settotalItems] = useState(0)
   let [totalItems_fav, settotalItems_fav] = useState(0)
@@ -166,7 +166,7 @@ function Navbar() {
             <NavLink className="links px-2" to="Monitor" style={{ textDecoration: "none", }}>Monitor</NavLink>
             <NavLink className="links px-2" to="books" style={{ textDecoration: "none" }}>books</NavLink>
             <NavLink className="links px-2" to="profile" style={{ textDecoration: "none" }}>Profile</NavLink>
-            <NavLink className="links px-2" to="login" onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('userData'); setIslogged(false) }} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
+            <NavLink className="links px-2" to="login" onClick={() => { localStorage.removeItem('token');localStorage.removeItem('userId'); localStorage.removeItem('userData'); setIslogged(false) }} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
 
           </div>
 

@@ -19,7 +19,7 @@ export const addProductInfavorite=createAsyncThunk(
 )
 
 export const removeProductInfavorite=createAsyncThunk(
-    "favorite/addProduct",async (prodId)=>{
+    "favorite/removeProduct",async (prodId)=>{
         let userId=localStorage.getItem('userId').replaceAll('"',"")
         console.log(userId);
         const reaponse=await axiosInstance.post(`/favorite/${userId}/removeProductsInFav/${prodId}`)
