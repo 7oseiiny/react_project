@@ -27,16 +27,23 @@ export default function Books() {
   let navigate = useNavigate()
   let dispatch = useDispatch()
   let [change, setchange] = useState(0);
+  let [pages, setpages] = useState();
+  
   useEffect(() => {
-    dispatch(fetchcategory("books",))
+    dispatch(fetchcategorypage("books",page)).then(((e)=>{setpages(e.payload)}))
+    dispatch(fetchcategory({name:"books",page}))
     dispatch(fetchCart())
     dispatch(fetchfavorite())
-  }, [dispatch, change])
+  }, [dispatch,change,page])
+
+  // useEffect(() => {
+  //   dispatch(fetchcategory("books",page))
+  // }, [page])
+
+  console.log(pages);
   var listbook = useSelector((state) => { return state.category.data })
   var cart = useSelector((state) => { return state.cart.data })
   var fav = useSelector((state) => { return state.favorite.data.productId })
-  // let pages =dispatch(fetchcategorypage("books"))
-  // console.log(pages);
 
   function isInCart(bookId) {
     for (const item of cart) {
@@ -83,7 +90,7 @@ export default function Books() {
   return (
     <>
       <p style={{ fontSize: "40px" }} className="text-center ">
-        Book at amazon
+        Book at amazon {page}
       </p>
       <div className="d-flex ">
         <div
@@ -427,7 +434,9 @@ export default function Books() {
           <div className="w-100">
             <h2>Best sellers</h2>
             <div className=" d-flex flex-wrap p-2 ">
-              {listbook.map((book) => {
+              {
+              // Array.isArray(listbook)?
+              listbook.map((book) => {
                 return <>
                   <div className="col-lg-3 col-6 p-2" >
                     <div className="bg-light w-100 p-2 text-center "  >
@@ -446,22 +455,19 @@ export default function Books() {
                     </div>
                   </div>
                 </>
-              })}
+              })
+              // :""
+              }
               
             </div>
 
           </div>
           <PaginationControl
                     page={page}
-                    between={4}
-                    total={40}
-                    limit={12}
-                    changePage={(page) => {
-                        setPage(page)
-                        console.log("pageff",page)
-
-                    }}
-                    ellipsis={1}
+                    between={2}
+                    total={pages}
+                    limit={1}
+                    changePage={(page) => {  setPage(page) ;setchange(page) }}
                 />
           <div>
             <h2>Featured Page to Screen Adaptations</h2>

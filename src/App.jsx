@@ -115,7 +115,7 @@ function App() {
   async function start() {
     const api = await axiosInstance.get();
     result = api.data;
-    console.log(result);
+    // console.log(result);
   }
   useEffect(() => {
     start();

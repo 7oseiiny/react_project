@@ -2,19 +2,18 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axiosInstance from '../../src/axiosConfig/instance';
 
 export const fetchcategory = createAsyncThunk(
-    "category/fetch", async (name) => {
-        const reaponse = await axiosInstance.get(`/category/getbyname/${name}`)
+    "category/fetch", async ({name,page}, thunkAPI) => {
+        const reaponse = await axiosInstance.get(`/category/getbyname/${name}?pageNumber=${page}`)
         return reaponse.data.data.products;
     }
 )
 
 export const fetchcategorypage = createAsyncThunk(
-    "category/fetch", async (name) => {
+    "category/fetchpage", async (name) => {
         const reaponse = await axiosInstance.get(`/category/getbyname/${name}`)
-        return reaponse.data.data.page;
+        return reaponse.data.pages;
     }
 )
-
 
 
 
@@ -38,6 +37,7 @@ const categorySlice = createSlice({
             state.status = 'failed'
 
         },
+        
      
 
     }
