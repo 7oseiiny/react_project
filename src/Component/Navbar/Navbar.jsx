@@ -10,6 +10,8 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Context/user-auth';
 import { fetchuser } from '../../../store/Slice/userSlice';
 import { fetchfavorite } from '../../../store/Slice/favorite';
+import { logout } from '../../Services/user-auth';
+
 function Navbar() {
   const { setIslogged } = useContext(AuthContext);
 
@@ -42,6 +44,18 @@ function Navbar() {
     dispatch(fetchfavorite())
 
   }, [dispatch])
+
+  const handleLogout = async () => {
+    try {
+
+      const res = await logout()
+
+      setIslogged(false)
+        
+     } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -159,7 +173,7 @@ function Navbar() {
             <NavLink className="links px-2" to="Monitor" style={{ textDecoration: "none", }}>Monitor</NavLink>
             <NavLink className="links px-2" to="books" style={{ textDecoration: "none" }}>books</NavLink>
             <NavLink className="links px-2" to="profile" style={{ textDecoration: "none" }}>Profile</NavLink>
-            <NavLink className="links px-2" to="login" onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('userData'); setIslogged(false) }} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
+            <NavLink className="links px-2" to="login" onClick={handleLogout} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
 
           </div>
 
