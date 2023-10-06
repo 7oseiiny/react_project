@@ -35,6 +35,7 @@ import CompleteOrder from "./Component/order/completeOrder/CompleteOrder";
 import ProductDetails from "./Component/productDetails/ProductDetails";
 import Profile from "./Component/UserInfo/profile";
 import Favorite from "./Component/favorite/favorite";
+import TrackingOrder from "./Component/UserInfo/TrackingOrder";
 
 
 
@@ -97,11 +98,12 @@ const router = createBrowserRouter([
       { path: 'profile',
        element: <YourAccount /> , 
       children:[
-        {   index: true, element : <Profile /> },
-        { path: 'edit' , element : <EditUserInfo /> }
+        { index: true, element : <Profile /> },
+        { path: 'edit' , element : <EditUserInfo /> },
+        { path: 'tracking' , element : <TrackingOrder /> },
       ]
     },
-
+    { path: 'tracking' , element : <TrackingOrder /> },
     ],
   },
 ]);
