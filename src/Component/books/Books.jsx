@@ -20,7 +20,6 @@ import { fetchcategory, fetchcategorypage } from "../../../store/Slice/categoryS
 import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
 import { addProductInCart, fetchCart } from "../../../store/Slice/cartSlice";
 import { addProductInfavorite, fetchfavorite } from "../../../store/Slice/favorite";
-import axiosInstance from "../../axiosConfig/instance";
 
 export default function Books() {
   const [page, setPage] = useState(1)
@@ -28,20 +27,20 @@ export default function Books() {
   let navigate = useNavigate()
   let dispatch = useDispatch()
   let [change, setchange] = useState(0);
-  let [pages, setpages] = useState(0);
+  let [pages, setpages] = useState();
   
   useEffect(() => {
-    dispatch(fetchcategory("books",))
+    dispatch(fetchcategorypage("books",page)).then(((e)=>{setpages(e.payload)}))
+    dispatch(fetchcategory({name:"books",page}))
     dispatch(fetchCart())
     dispatch(fetchfavorite())
-  }, [dispatch,change])
+  }, [dispatch,change,page])
 
-  useEffect(()=>{
-    // setpages(dispatch(fetchcategorypage("books")))
-    axiosInstance.get(`/category/getbyname/books`).then((p)=>{setpages(p.data.pages);})
+  // useEffect(() => {
+  //   dispatch(fetchcategory("books",page))
+  // }, [page])
 
-  },[change])
-  // console.log(pages);
+  console.log(pages);
   var listbook = useSelector((state) => { return state.category.data })
   var cart = useSelector((state) => { return state.cart.data })
   var fav = useSelector((state) => { return state.favorite.data.productId })
@@ -91,7 +90,7 @@ export default function Books() {
   return (
     <>
       <p style={{ fontSize: "40px" }} className="text-center ">
-        Book at amazon
+        Book at amazon {page}
       </p>
       <div className="d-flex ">
         <div
@@ -465,15 +464,10 @@ export default function Books() {
           </div>
           <PaginationControl
                     page={page}
-                    between={5}
-                    total={40}
-                    limit={12}
-                    changePage={(page) => {
-                        setPage(page)
-                        console.log("pageff",page)
-
-                    }}
-                    ellipsis={1}
+                    between={2}
+                    total={pages}
+                    limit={1}
+                    changePage={(page) => {  setPage(page) ;setchange(page) }}
                 />
           <div>
             <h2>Featured Page to Screen Adaptations</h2>
