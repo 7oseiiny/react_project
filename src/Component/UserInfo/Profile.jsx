@@ -110,7 +110,7 @@ export default function Profile() {
                     <li className="list-group-item text-right">
                     {/* <NavLink className="links" to="/favorite" style={{ textDecoration: "none" }}><MdOutlineFavoriteBorder to='/favorite' color='red' size={25} /></NavLink>
                 {fav?fav.length:""} */}
-                                <NavLink className="links mx-1" to="favorite" style={{ textDecoration: "none" }}> <ImHeart className='mx-1' to='favorite' color='red' size={20} /></NavLink>{fav?fav.length:""} 
+                                <NavLink className="links mx-1" to="/favorite" style={{ textDecoration: "none" }}> <ImHeart className='mx-1' to='favorite' color='red' size={20} /></NavLink>{fav?fav.length:""} 
 
                     </li>
                     <li className="list-group-item text-right">

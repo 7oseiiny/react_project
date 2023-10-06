@@ -11,26 +11,29 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Context/user-auth';
 import { fetchuser } from '../../../store/Slice/userSlice';
 import { fetchfavorite } from '../../../store/Slice/favorite';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 function Navbar() {
   const { setIslogged } = useContext(AuthContext);
 
-  let user =useSelector((state)=>{return state.user.data})
+  let user = useSelector((state) => { return state.user.data })
   // console.log(user);
-  
 
-    // for (const item of items ) { totalItems += item.quantity }
-  
+
+  // for (const item of items ) { totalItems += item.quantity }
+
 
 
   var items = useSelector((state) => { return state.cart.data })
-  var fav = useSelector((state) => { try{return state.favorite.data.productId }catch{}})
+  var fav = useSelector((state) => { try { return state.favorite.data.productId } catch { } })
   let [totalItems, settotalItems] = useState(0)
   let [totalItems_fav, settotalItems_fav] = useState(0)
 
-  try{
+  try {
     for (const item of items) { totalItems += item.quantity }
 
-  }catch(err){console.log(err)}
+  } catch (err) { console.log(err) }
 
 
   const dispatch = useDispatch()
@@ -112,31 +115,37 @@ function Navbar() {
                     <br />
                     <small>New Customers?<Link className="btn btn-none text-primary " to="/" style={{ textDecoration: "none" }}>Start here.</Link> </small>
                     <div className="d-flex w-600px text-center">
-                      <div>
-                        <h5>Your Lists</h5>
-                        <Link className="btn btn-none" to="/" style={{ textDecoration: "none", textColor: "black" }}>Create a List</Link>
-                      </div>
-                      <div>
-                        <h5>Your Account</h5>
-                        <Link className="btn btn-none" to="/" style={{ textDecoration: "none", textColor: "black" }}>Your Account</Link><br />
-                        <Link className="btn btn-none" to="tracking" style={{ textDecoration: "none", textColor: "black" }}>Your Order</Link>
-                      </div>
+                      <Container>
+                        <Row>
+                          <Col>
+                            <Link className="btn btn-none" to="/" style={{ textDecoration: "none", textColor: "black" }}>Home</Link>
+                          </Col>
+                          <Col>
+                            <h5>Your Account</h5>
+                            <Link className="btn btn-none" to="profile" style={{ textDecoration: "none", textColor: "black" }}>Your Account</Link><br />
+                            <Link className="btn btn-none" to="tracking" style={{ textDecoration: "none", textColor: "black" }}>Your Order</Link>
+                          </Col>
+                        </Row>
+
+                      </Container>
+
+
                     </div>
                   </div>
                 </div>
               </li>
               <li className="col-2 col-xs-12 ">
                 <div>
-                <Link className="btn btn-dark fw-bold fs-5" to="tracking" style={{ textDecoration: "none", textColor: "white" }}>Order</Link>
+                  <Link className="btn btn-dark fw-bold fs-5" to="tracking" style={{ textDecoration: "none", textColor: "white" }}>Order</Link>
                 </div>
               </li>
               <li className="col-3 col-xs-ms-2">
 
-                <NavLink className="links mx-3" to="favorite" style={{ textDecoration: "none" }}> <ImHeart className='mx-1' to='favorite' color='white' size={20} />{fav?fav.length:""}</NavLink>
-               
+                <NavLink className="links mx-3" to="favorite" style={{ textDecoration: "none" }}> <ImHeart className='mx-1' to='favorite' color='white' size={20} />{fav ? fav.length : ""}</NavLink>
+
 
                 <NavLink className="links" to="cart" style={{ textDecoration: "none" }}><FaShoppingCart to='cart' color='white' size={25} /> {totalItems}</NavLink>
-               
+
 
               </li>
             </ul>
@@ -162,7 +171,7 @@ function Navbar() {
           </div>
 
           {/* <div style={{ color: "white", fontWeight: "bold" }}>Welcome {userData.userName}</div> */}
-{/* <div className=" text-white">welcome {user.name}</div> */}
+          {/* <div className=" text-white">welcome {user.name}</div> */}
         </div>
 
       </div>
