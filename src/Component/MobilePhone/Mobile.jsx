@@ -7,12 +7,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchcategory } from "../../../store/Slice/categorySlice";
 export default function Mobile() {
 
-  var mobile = useSelector((state) => { return state.category.data })
+
+  let [mobile, setmobile] = useState([]);
   let dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchcategory("Mobile Phones",))
-
-  }, [dispatch])
+    axiosInstance.get("category/651827dc6cc9fe1018cc5009").then((data)=>{
+      setmobile(data.data.data.products)
+      console.log(data.data.data.products)
+    }).catch((err)=>{console.log(err)})
+    dispatch(fetchcategory("Mobile Phones"))
+    return()=>{ dispatch(fetchcategory([]))}
+  }, [])
   return (
     <>
 
