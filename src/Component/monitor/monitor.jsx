@@ -11,11 +11,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchcategory } from '../../../store/Slice/categorySlice';
 import { PaginationControl } from 'react-bootstrap-pagination-control';
 import axios from 'axios';
+import { MdFavorite, MdOutlineFavoriteBorder } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
+import { addProductInCart, fetchCart } from "../../../store/Slice/cartSlice";
+
 
 export default function Monitor() {
     const [page, setPage] = useState(1)
     console.log("pageq",page)
-    // let dispatch = useDispatch()
+    let dispatch = useDispatch()
     // useEffect(() => {
     //     dispatch(fetchcategory("Monitors",page))
     // }, [dispatch,page])
@@ -27,6 +31,8 @@ export default function Monitor() {
           .catch(error => console.error(error));
       }, [page]);
       console.log("dataa",data)
+
+
     // let monitorsList = useSelector((state) => {
     //     // console.log(state)
     //     // console.log(monitorsList)
@@ -39,6 +45,35 @@ export default function Monitor() {
     // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     // const currentItems = data
     console.log("pagez",page)
+    let [change, setchange] = useState(0);
+    let cart=data
+    useEffect(() => {
+        dispatch(fetchCart())
+      }, [dispatch, change])
+    let navigate = useNavigate()
+
+
+  async function addtocart(productId) {
+    await dispatch(addProductInCart({ "items": [{ "product": productId, "quantity": 1 }] }))
+    setchange(productId)
+  }
+
+  function gotodetails(prodId){
+    navigate("/productdetails", { state: { productId: prodId } });
+  }
+  function isInCart(prodId) {
+    for (const item of cart) {
+
+      if (prodId == item._id) {
+        return true
+      }
+
+
+    }
+  }
+  function viewcart() {
+    navigate("/cart")
+  }
 
     return (
         <>
@@ -64,6 +99,12 @@ export default function Monitor() {
                                                 <span className='fs-4' > new price</span>                {prd.price['new']}
                                             </Card.Text>
                                         </Card.Body>
+                                        <div className="d-felx  ">
+                        <button onClick={() => { gotodetails(prd._id); }} className="btn btn-secondary m-2">details</button>
+                        {!isInCart(prd._id) ? <button disabled={prd.quantity < 1} onClick={() => { addtocart(prd._id) }} className="btn btn-warning">add to cart</button> : <button onClick={viewcart} className="btn btn-warning">view cart</button>}
+                        {true ? <MdOutlineFavoriteBorder style={{ fontSize: "25px", marginLeft: "10px" }}></MdOutlineFavoriteBorder> : <MdFavorite></MdFavorite>}
+
+                      </div>
                                     </Card>
 
                                 )
