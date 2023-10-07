@@ -67,7 +67,7 @@ const Login = () => {
                 });
             }
         }
-        window.location.reload ()
+        // window.location.reload ()
     };
     // const emailValid = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(email);
     const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
