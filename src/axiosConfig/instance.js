@@ -8,6 +8,9 @@ const axiosInstance = axios.create({
     },
     params: {},
   });
+
+export default axiosInstance
+
 // axiosInstance.interceptors.response.use(
 //   (response) => {
 //      accessToken = response.data.accessToken;
@@ -23,4 +26,3 @@ const axiosInstance = axios.create({
 //     return Promise.reject(error);
 //   }
 // );
-export default axiosInstance

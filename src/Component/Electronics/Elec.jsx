@@ -7,7 +7,7 @@ import React , { useState } from 'react';
 import { useEffect } from 'react';
 import '../TodayDeals/todayDealsLiftSide/leftSide.css'
 import { fetchcategory } from "../../../store/Slice/categorySlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Rate from "../rate/rate";
 import axiosInstance from '../../axiosConfig/instance';
 import { useNavigate } from 'react-router-dom';
@@ -492,17 +492,19 @@ return <>
                 </div>
               </div> */}
 </Slider>
-<h2 className="mt-4">Electronics | Best Sellers</h2><hr/>
+<h2 className="mt-0">Electronics | Best Sellers</h2><hr/>
 <Slider {...settings}>
+{myfash.map((prod) => {
+return <>
 <div className="card border-0">
-        <img src="../assets/images/111.PNG" className="card-img-top1" alt="..."/>
+        <img src={prod.img} onClick={() => { gotodetails(prod._id) }} className="card-img-top1" alt="..."/>
         <div className="card-body">
           <p className="card-text">
-            Adjustable Laptop Stand, Portable...
+          {prod.title_en}
             </p>
-          <span>MONADIKOS</span>
-          <div className="d-flex">EGP<sub><h3>125</h3></sub>00 
-            <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP130.00</span>
+          {/* <span>MONADIKOS</span> */}
+          <div className="d-flex">EGP<sub><h3>{prod.price.new}</h3></sub>00 
+            <span className="text-muted pt-3 text-decoration-line-through me-2"> {prod.price.old}</span>
            </div>
           <div>
            <BsStarFill color='#FFA41C'/>
@@ -513,7 +515,9 @@ return <>
          </div>      
               </div>
             </div>
-            <div className="card border-0">
+            </>
+      })}
+            {/* <div className="card border-0">
           <img src="../assets/images/222.PNG" className="card-img-top1" alt="..."/>
           <div className="card-body">
             <p className="card-text">Joyroom JR-BP560 Excellent Series Por…</p>
@@ -616,9 +620,9 @@ return <>
               <BsStar color='#FFA41C'/>(631)
            </div>  
                 </div>
-              </div>
+              </div> */}
 </Slider>
-<div className="card mt-4">
+<div className="card mt-0">
   <div className="card-body">
     <span>1-12 of over 70,000 results for <span className="text-danger fw-bold">Electronics</span></span>
   </div>

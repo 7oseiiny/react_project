@@ -5,8 +5,16 @@ import { BsStarHalf } from "react-icons/bs";
 import './Vgames.css'
 import '../TodayDeals/todayDealsLiftSide/leftSide.css'
 import React, { useEffect, useState } from "react";
+import { fetchcategory } from "../../../store/Slice/categorySlice";
+import { useDispatch } from "react-redux";
+import Rate from "../rate/rate";
+import axiosInstance from '../../axiosConfig/instance';
+import { useNavigate } from 'react-router-dom';
 
 export default function VideoGames() {
+  let dispatch = useDispatch()
+    let [myfash, setmyfash] = useState([]);
+    let navigate = useNavigate()
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -15,11 +23,24 @@ export default function VideoGames() {
     };
 
     window.addEventListener('resize', handleResize);
-
+   
+   
+      axiosInstance.get("category/6513e74cd998df0148e42307").then((data)=>{
+        setmyfash(data.data.data.products)
+        console.log(data.data.data.products)
+      }).catch((err)=>{console.log(err)})
+      dispatch(fetchcategory("video Games"))
+      
+   
     return () => {
+      dispatch(fetchcategory([]))
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+  function gotodetails(prodId){
+    console.log(prodId)
+    navigate("/productdetails", { state: { productId: prodId } });
+  }
   return( 
   <>
   <div className="row container-fluid">
@@ -350,13 +371,14 @@ export default function VideoGames() {
     <span>1-12 of over 30,000 results for  <span className="text-danger fw-bold">Video Games</span></span>
   </div>
   </div>
-  
+  {myfash.map((prod) => {
+    return <>
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card" style={{width:  '21rem'}}>
       <span className="bestSellerBadge2 card-subtitle ">Best Seller</span>
-        <img src="../assets/images/m1.jpg" className="card-img-top imgCard3 container-fluid justify-content-center align-content-center" style={{width:  '9rem' ,marginLeft:'6rem'}} />
+        <img src={prod.img} onClick={() => { gotodetails(prod._id) }} className="card-img-top imgCard3 container-fluid justify-content-center align-content-center mt-5 h-75" style={{width:  '9rem' ,marginLeft:'6rem'}} />
         <div className="card-body">
-          <p className="card-text">SteelSeries Rival 710 Gaming Mouse - 16,000 CPI TrueMove3 Optical Sensor - OLED Display - Tactile Alerts - RGB Lighting, Black</p>
+          <p className="card-text">{prod.title_en}</p>
           <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
@@ -365,8 +387,8 @@ export default function VideoGames() {
           <BsStar color='#FFA41C' />
 31
           </div>     
-               <div className="d-flex">EGP<sub><h3>3,199</h3></sub>00 
-                <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP4,919.00</span></span> 
+               <div className="d-flex">EGP<sub><h3>{prod.price.new}</h3></sub>00 
+                <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP{prod.price.old}.00</span></span> 
               </div> 
               <div className="d-flex align-items-start me-3">
                 <img src="../assets/images/a.PNG" style={{width:'50px'}}/><span>Get it as soon as<span className="fw-bold"> Saturday, September 9</span></span> 
@@ -379,9 +401,10 @@ export default function VideoGames() {
              
             </div>
       </div>
-    
+      </>
+      })}
 
-    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
+    {/* <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card" style={{width:  '21rem'}}>
         <div className="d-flex justify-content-start">
         </div>
@@ -566,7 +589,7 @@ export default function VideoGames() {
                 <h6>Fulfilled by Amazon - FREE Shipping</h6>
               </div>
             </div>
-            </div>
+            </div> */}
 
  
   <div className="d-grid gap-2">
