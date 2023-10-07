@@ -1,5 +1,6 @@
 import './Navbar.css'
-import { MdLocationPin, MdOutlineFavoriteBorder } from "react-icons/md";
+import { MdLocationPin } from "react-icons/md";
+import { ImHeart } from "react-icons/im";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import React, { useEffect, useState } from 'react';
@@ -10,30 +11,29 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Context/user-auth';
 import { fetchuser } from '../../../store/Slice/userSlice';
 import { fetchfavorite } from '../../../store/Slice/favorite';
-import { logout } from '../../Services/user-auth';
-
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 function Navbar() {
   const { setIslogged } = useContext(AuthContext);
 
-
-
-  let user =useSelector((state)=>{return state.user.data})
+  let user = useSelector((state) => { return state.user.data })
   // console.log(user);
-  
 
-    // for (const item of items ) { totalItems += item.quantity }
-  
+
+  // for (const item of items ) { totalItems += item.quantity }
+
 
 
   var items = useSelector((state) => { return state.cart.data })
-  var fav = useSelector((state) => { try{return state.favorite.data.productId }catch{}})
+  var fav = useSelector((state) => { try { return state.favorite.data.productId } catch { } })
   let [totalItems, settotalItems] = useState(0)
   let [totalItems_fav, settotalItems_fav] = useState(0)
 
-  try{
+  try {
     for (const item of items) { totalItems += item.quantity }
 
-  }catch(err){console.log(err)}
+  } catch (err) { console.log(err) }
 
 
   const dispatch = useDispatch()
@@ -44,18 +44,6 @@ function Navbar() {
     dispatch(fetchfavorite())
 
   }, [dispatch])
-
-  const handleLogout = async () => {
-    try {
-
-      const res = await logout()
-
-      setIslogged(false)
-        
-     } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <>
@@ -118,7 +106,7 @@ function Navbar() {
                 <div className="dropdown">
                   <a className="btn text-white dropdown-toggle text-start" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <span className="fw-normal">Hello,sign in</span> <br />
+                    <span className="fw-normal">Hello,{user.name}</span> <br />
                     <span className="fw-bolder">Account & Lists</span>
                   </a>
 
@@ -127,32 +115,37 @@ function Navbar() {
                     <br />
                     <small>New Customers?<Link className="btn btn-none text-primary " to="/" style={{ textDecoration: "none" }}>Start here.</Link> </small>
                     <div className="d-flex w-600px text-center">
-                      <div>
-                        <h5>Your Lists</h5>
-                        <Link className="btn btn-none" to="/" style={{ textDecoration: "none", textColor: "black" }}>Create a List</Link>
-                      </div>
-                      <div>
-                        <h5>Your Account</h5>
-                        <Link className="btn btn-none" to="/" style={{ textDecoration: "none", textColor: "black" }}>Your Account</Link><br />
-                        <Link className="btn btn-none" to="/" style={{ textDecoration: "none", textColor: "black" }}>Your Order</Link>
-                      </div>
+                      <Container>
+                        <Row>
+                          <Col>
+                            <Link className="btn btn-none" to="/" style={{ textDecoration: "none", textColor: "black" }}>Home</Link>
+                          </Col>
+                          <Col>
+                            <h5>Your Account</h5>
+                            <Link className="btn btn-none" to="profile" style={{ textDecoration: "none", textColor: "black" }}>Your Account</Link><br />
+                            <Link className="btn btn-none" to="tracking" style={{ textDecoration: "none", textColor: "black" }}>Your Order</Link>
+                          </Col>
+                        </Row>
+
+                      </Container>
+
+
                     </div>
                   </div>
                 </div>
               </li>
               <li className="col-2 col-xs-12 ">
                 <div>
-                  <span className="text-white-50 fs-6">Returns</span> <br />
-                  <span className="fw-bold fs-">&Orders</span>
+                  <Link className="btn btn-dark fw-bold fs-5" to="tracking" style={{ textDecoration: "none", textColor: "white" }}>Order</Link>
                 </div>
               </li>
               <li className="col-3 col-xs-ms-2">
 
-                <NavLink className="links" to="favorite" style={{ textDecoration: "none" }}><MdOutlineFavoriteBorder to='favorite' color='white' size={25} /></NavLink>
-                {fav?fav.length:""}
+                <NavLink className="links mx-3" to="favorite" style={{ textDecoration: "none" }}> <ImHeart className='mx-1' to='favorite' color='white' size={20} />{fav ? fav.length : ""}</NavLink>
 
-                <NavLink className="links" to="cart" style={{ textDecoration: "none" }}><FaShoppingCart to='cart' color='white' size={25} /></NavLink>
-                {totalItems}
+
+                <NavLink className="links" to="cart" style={{ textDecoration: "none" }}><FaShoppingCart to='cart' color='white' size={25} /> {totalItems}</NavLink>
+
 
               </li>
             </ul>
@@ -173,13 +166,12 @@ function Navbar() {
             <NavLink className="links px-2" to="Monitor" style={{ textDecoration: "none", }}>Monitor</NavLink>
             <NavLink className="links px-2" to="books" style={{ textDecoration: "none" }}>books</NavLink>
             <NavLink className="links px-2" to="profile" style={{ textDecoration: "none" }}>Profile</NavLink>
-            <NavLink className="links px-2" to="login" onClick={handleLogout} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
+            <NavLink className="links px-2" to="login" onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('userData'); setIslogged(false) }} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
 
           </div>
 
           {/* <div style={{ color: "white", fontWeight: "bold" }}>Welcome {userData.userName}</div> */}
-
-          <div className=" text-white">welcome {user.name}</div>
+          {/* <div className=" text-white">welcome {user.name}</div> */}
         </div>
 
       </div>

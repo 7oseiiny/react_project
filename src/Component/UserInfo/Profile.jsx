@@ -5,7 +5,9 @@ import { fetchuser } from "../../../store/Slice/userSlice";
 import React, { useEffect, useState } from "react";
 import "./userInfo.css";
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { MdLocationPin, MdOutlineFavoriteBorder } from "react-icons/md";
+import { ImHeart } from "react-icons/im";
+import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { BsHandbagFill } from "react-icons/bs";
 export default function Profile() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.data);
@@ -78,7 +80,7 @@ export default function Profile() {
             {userData.email && <p>Email: {userData.email}</p>} */}
       <div className="m-5">
         <div className="wallpeper">
-          <img className="img-fluid imgProFile" src="../assets/images/user.webp" width="22%" />
+          <img className="img-fluid imgProFile" src="../assets/images/uuser2.png" width="22%" />
         </div>
         <div className="p-4 fs-4 fw-bold ">
           <>
@@ -92,11 +94,12 @@ export default function Profile() {
                     <h4>Name : {user.name}</h4>
                     <h4>email : {user.email}</h4>
                     <h4>Address : {user.address}</h4>
-                    <button className="btn btn-warning">
+                    <button className="btn btn-success ">
                       <Link className="text-light text-decoration-none" to="/profile/edit">
-                        Edit your Profile
+                        Edit Profile
                       </Link>
                     </button>
+               
                   </span>
 
                   <hr />
@@ -105,8 +108,15 @@ export default function Profile() {
                     <li className="list-group-item text-muted">Activity </li>
                    
                     <li className="list-group-item text-right">
-                    <NavLink className="links" to="/favorite" style={{ textDecoration: "none" }}><MdOutlineFavoriteBorder to='/favorite' color='red' size={25} /></NavLink>
-                {fav?fav.length:""}
+                    {/* <NavLink className="links" to="/favorite" style={{ textDecoration: "none" }}><MdOutlineFavoriteBorder to='/favorite' color='red' size={25} /></NavLink>
+                {fav?fav.length:""} */}
+                                <NavLink className="links mx-1" to="/favorite" style={{ textDecoration: "none" }}> <ImHeart className='mx-1' to='favorite' color='red' size={20} /></NavLink>{fav?fav.length:""} 
+
+                    </li>
+                    <li className="list-group-item text-right">
+                
+                                <NavLink className="links mx-1" to='tracking'  style={{ textDecoration: "none" }}> <BsHandbagFill className='mx-1' to='tracking'  color='gray' size={25} /></NavLink>Order
+
                     </li>
             
                   </ul>
@@ -115,8 +125,6 @@ export default function Profile() {
                   <div className="tab-content">
                     <div className="tab-pane" id="settings">
                       <hr />
-
-                     
                     </div>
                   </div>
                 </div>
