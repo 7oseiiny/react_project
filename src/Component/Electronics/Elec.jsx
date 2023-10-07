@@ -3,22 +3,35 @@ import Slider from "react-slick";
 import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
-import React from 'react';
+import React , { useState } from 'react';
 import { useEffect } from 'react';
 import '../TodayDeals/todayDealsLiftSide/leftSide.css'
 import { fetchcategory } from "../../../store/Slice/categorySlice";
 import { useDispatch, useSelector } from "react-redux";
 import Rate from "../rate/rate";
+import axiosInstance from '../../axiosConfig/instance';
+import { useNavigate } from 'react-router-dom';
+
 
 
 export default function Electronics() {
   let dispatch = useDispatch()
+  let [myfash, setmyfash] = useState([]);
+  let navigate = useNavigate()
 
   useEffect(() => {
-    dispatch(fetchcategory("Electronics",))
-  }, [dispatch])
-  var listprod = useSelector((state) => { return state.category.data })
+    axiosInstance.get("category/651dda72537875a0a0d4ba3e").then((data)=>{
+      setmyfash(data.data.data.products)
+      console.log(data.data.data.products)
+    }).catch((err)=>{console.log(err)})
+    dispatch(fetchcategory("Electronics"))
+    return()=>{ dispatch(fetchcategory([]))}
+  }, [])
+
+  // var fav = useSelector((state) => { return state.favorite.data.productId })
+
   function gotodetails(prodId){
+    console.log(prodId)
     navigate("/productdetails", { state: { productId: prodId } });
   }
   var settings = {
@@ -356,7 +369,7 @@ export default function Electronics() {
         <img src="../assets/images/9=.jpg" className="mt-2 img-fluid"/><hr className="mt-3"/>
 <h2>Electronics | New arrivals</h2><hr/>
 <Slider {...settings}>
-{listprod.map((prod) => {
+{myfash.map((prod) => {
 return <>
 <div className="card border-0 ">
         <img src={prod.img} className="card-img-top1" alt="..."/>
@@ -615,7 +628,7 @@ return <>
    
 <div className="container">
   <div className="row">
-  {listprod.map((prod) => {
+  {myfash.map((prod) => {
     return <>
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card"  style={{width:  '21rem'}}>
