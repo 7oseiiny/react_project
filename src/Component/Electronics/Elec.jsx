@@ -379,7 +379,7 @@ return <>
             </div>
             </>
           })}
-            <div className="card border-0 ">
+            {/* <div className="card border-0 ">
           <img src="../assets/images/Capture1.PNG" className="card-img-top1" alt="..."/>
           <div className="card-body">
             <p className="card-text-black">Oraimo Smart watch OSW-16, BrightSilv…</p>
@@ -477,7 +477,7 @@ return <>
               <BsStar color='#FFA41C'/>(631)
            </div>  
                 </div>
-              </div>
+              </div> */}
 </Slider>
 <h2 className="mt-4">Electronics | Best Sellers</h2><hr/>
 <Slider {...settings}>
@@ -622,14 +622,14 @@ return <>
         <img src={prod.img} onClick={() => { gotodetails(prod._id); }} className="card-img-top imgCard container-fluid justify-content-center align-content-center" alt="..."/>
         <div className="card-body">
           <p className="card-text">{prod.title_en}</p>
-          <div className="d-inline-block">
+          {/* <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
           <BsStarHalf color='#FFA41C' />
           <BsStar color='#FFA41C' />
-          </div>     
-          {/* <Rate rate={prod.rate} ></Rate> */}
+          </div>      */}
+          <Rate rate={prod.rate} ></Rate>
                <div className="d-flex">EGP<sub><h3>{prod.price.new}</h3></sub>00 
                 <span className="pt-3 me-2"> <span className="text-muted pt-3 text-decoration-line-through me-2">{prod.price.old}</span></span> 
               </div> 

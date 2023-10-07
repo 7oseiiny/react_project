@@ -58,13 +58,15 @@ const Login = () => {
                       const { accessToken } = userDatatoSave;
                       console.log(accessToken);
 
+                    //   localStorage.setItem('userId', JSON.stringify(userDatatoSave.data.userId))
+
+
                       Cookies.set('accessToken', accessToken, {
                         secure: true,
                         sameSite: "none",
                         httpOnly: true,
                         path: "/"
                       });
-                    //   localStorage.setItem('userId', JSON.stringify(userDatatoSave.data.userId))
 
                       setIslogged(true)
                       navigate('/')
@@ -75,7 +77,7 @@ const Login = () => {
                 });
             }
         }
-        // window.location.reload ()
+        window.location.reload ()
     };
     // const emailValid = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(email);
     const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
