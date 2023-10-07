@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductById } from '../../../store/Slice/productsSlice';
 import { fetchuser } from '../../../store/Slice/userSlice';
 import { addProductInCart, fetchCart } from '../../../store/Slice/cartSlice';
+import axios from 'axios';
 
 export default function ProductDetails() {
     let location = useLocation();
@@ -14,9 +15,11 @@ export default function ProductDetails() {
     let user = useSelector((state) => { return state.user.data })
     var product = useSelector((state) => { return state.products.data })
     var cart = useSelector((state) => { return state.cart.data })
-
+    var [productinfo, setProductinfo] = useState({})
+    var [productReviw, setproductReviw] = useState([])
     let [change, setchange] = useState(0);
     let [quantity, setquantity] = useState(1);
+
 
     useEffect(() => {
         dispatch(fetchuser())
@@ -55,8 +58,31 @@ export default function ProductDetails() {
         await dispatch(addProductInCart({ "items": [{ "product": productId, "quantity": quantity }] }))
         setchange(productId)
     }
+    // function getoroId() {
+    //     setproID(product._id)
+    //     return proID
+    // }
+    useEffect(() => {
+        getProductReviw() 
 
+        // getoroId()
+   
+        // axios.get(`http://localhost:3300/review/product/${product._id}`)
+        //     .then(response => setproductReviw(response.data.data))
+        //     .catch(error => console.error(error));
+    }, [product._id]);
+    async function getProductReviw(){
+        try{
+   
 
+           const {data}=await axios.get(`http://localhost:3300/review/product/${product._id}`)
+           setproductReviw(data.data)
+        }catch(e){
+         console.log("err", e)   
+        }
+    }
+    // setProductinfo(productReviw.product)
+  
 
     return (
         <>
@@ -157,9 +183,17 @@ export default function ProductDetails() {
                     </div>
                 </div>
                 {/* review */}
+                <h1>reviw</h1>
+
+                    <div>
+                        <h1> hello {productReviw.comment} </h1>
+                        <h1> hello {productReviw.rating} </h1>
+                    </div>
+               
 
 
             </div>
+         
         </>
     )
 }
