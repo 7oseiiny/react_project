@@ -1,17 +1,13 @@
 import axios from "axios";
+import Cookies from 'js-cookie';
 
-const axiosInstance =axios.create(
-    {
-        baseURL: import.meta.env.VITE_API,
-        headers:{
-            Authorization:localStorage.getItem('token')?localStorage.getItem('token').replaceAll('"',""):""
-
-        },
-        params:{
-
-        }
-    }
-)
+const axiosInstance = axios.create({
+    baseURL: import.meta.env.VITE_API,
+    headers: {
+      authorization: `${Cookies.get('accessToken')}`,
+    },
+    params: {},
+  });
 // axiosInstance.interceptors.response.use(
 //   (response) => {
 //      accessToken = response.data.accessToken;

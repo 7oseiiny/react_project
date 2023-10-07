@@ -632,9 +632,9 @@ return <>
     return <>
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card"  style={{width:  '21rem'}}>
-        <img src={prod.img} onClick={() => { gotodetails(prod._id); }} className="card-img-top imgCard container-fluid justify-content-center align-content-center" alt="..."/>
+        <img src={prod.img} onClick={() => { gotodetails(prod._id) }} className="card-img-top imgCard container-fluid justify-content-center align-content-center" alt="..."/>
         <div className="card-body">
-          <p className="card-text">{prod.title_en}</p>
+         <p className="card-text">{prod.title_en}</p>
           {/* <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
