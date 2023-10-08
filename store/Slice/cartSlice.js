@@ -4,19 +4,24 @@ import axiosInstance from './../../src/axiosConfig/instance';
 export const fetchCart=createAsyncThunk(
     "cart/fetch",async ()=>{
      
-        // console.log(localStorage.getItem('userId').replaceAll('"',""));
         let userId=localStorage.getItem('userId').replaceAll('"',"")
-        // let userId="651cac675238c660afc16f53"
+        let token=localStorage.getItem('token').replaceAll('"',"")
 
-        const reaponse=await axiosInstance.get(`/cart/${userId}`)
+        const reaponse=await axiosInstance.get(`/cart/${userId}`,{ headers: {
+            Authorization: `${token}`
+          }})
         return  reaponse.data.data.items;
     }
-)
-
+) 
+ 
 export const addProductInCart=createAsyncThunk(
     "cart/addProduct",async (body)=>{
         let userId=localStorage.getItem('userId').replaceAll('"',"")
-        const reaponse=await axiosInstance.post(`/cart/${userId}/addProductInCart`,body)
+        let token=localStorage.getItem('token').replaceAll('"',"")
+
+        const reaponse=await axiosInstance.post(`/cart/${userId}/addProductInCart`,body,{ headers: {
+            Authorization: `${token}`
+          }})
         return  reaponse.data.data;
     }
 )
