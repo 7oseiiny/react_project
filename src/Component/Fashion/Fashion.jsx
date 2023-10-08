@@ -6,9 +6,34 @@ import './Fashion.css'
 import Badge from 'react-bootstrap/Badge';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import React from 'react'
+import React, { useState } from 'react'
 import { FaStar, FaRegStar } from "react-icons/fa6";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { fetchcategory } from "../../../store/Slice/categorySlice";
+import axios from 'axios';
+import axiosInstance from '../../axiosConfig/instance';
+import { useNavigate } from 'react-router-dom';
+
 export default function Fashion() {
+  let navigate = useNavigate()
+  function gotodetails(prodId){
+    console.log(prodId)
+    navigate("/productdetails", { state: { productId: prodId}});
+}
+  // var fashion = useSelector((state) => { return state.category.data })
+
+  let [myfash, setmyfash] = useState([]);
+  let dispatch = useDispatch();
+  useEffect(() => {
+    axiosInstance.get("category/6518280c6cc9fe1018cc500d").then((data)=>{
+      setmyfash(data.data.data.products)
+      console.log(data.data.data.products)
+    }).catch((err)=>{console.log(err)})
+    dispatch(fetchcategory("Fashion"))
+    return()=>{ dispatch(fetchcategory([]))}
+  }, [])
+
   var settings = {
     dots: false,
     infinite: false,
@@ -69,7 +94,7 @@ export default function Fashion() {
             <a href="#" className='text-dark'>Accessories</a><br />
 
             <p className="h6 fw-bold mt-4">Color</p>
-           
+
 
             <div>
               <div className="square black"></div>
@@ -96,7 +121,7 @@ export default function Fashion() {
               <input className="CategoryCheckBoxes col-1" type="checkbox" name="AutomotiveCheckbox"
                 id="AutomotiveCheckbox" />
               <label className="col-10 " htmlFor="AutomotiveCheckbox">
-              Fulfilled by Amazon</label>
+                Fulfilled by Amazon</label>
             </span>
 
             <p className="h6 fw-bold mt-4">Brand</p>
@@ -104,7 +129,7 @@ export default function Fashion() {
               <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyFashionCheckbox"
                 id="BabyFashionCheckbox" />
               <label className="col-10 " htmlFor="BabyFashionCheckbox">
-               adidas</label>
+                adidas</label>
             </span>
             <span className="d-flex flex-row justify-content-around align-items-baseline">
               <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyProductsCheckbox"
@@ -132,7 +157,7 @@ export default function Fashion() {
               <input className="CategoryCheckBoxes col-1" type="checkbox" name="Computers,Components&Accessories"
                 id="ComputersComponents&Accessories" />
               <label className="col-10 " htmlFor="ComputersComponents&Accessories">
-               Grinta</label>
+                Grinta</label>
             </span>
             <span className="d-flex flex-row justify-content-around align-items-baseline">
               <input className="CategoryCheckBoxes col-1" type="checkbox" name="ElectronicsCheckbox"
@@ -185,7 +210,7 @@ export default function Fashion() {
 
           <section className="d-flex flex-column pb-3">
             <h4>Price</h4>
-            
+
             <a href="#" className='text-dark'>Up to 25 EGP</a>
             <a href="#" className='text-dark'>25 to 50 EGP</a>
             <a href="#" className='text-dark'>50 to 100 EGP </a>
@@ -196,72 +221,72 @@ export default function Fashion() {
           </section>
           <section className="d-flex flex-column pb-3">
             <h5>Deals & Discounts</h5>
-            
-            <a href="#"  className='text-dark'>All Discounts</a>
-            <a href="#"  className='text-dark'>Todays Deals</a>
-        </section>
+
+            <a href="#" className='text-dark'>All Discounts</a>
+            <a href="#" className='text-dark'>Todays Deals</a>
+          </section>
 
 
 
-        <p className="h6 fw-bold mt-4">Seller</p>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyFashionCheckbox"
-                id="BabyFashionCheckbox" />
-              <label className="col-10 " htmlFor="BabyFashionCheckbox">
-               Amazon.eg</label>
-            </span>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyProductsCheckbox"
-                id="BabyProductsCheckbox" />
-              <label className="col-10 " htmlFor="BabyProductsCheckbox">
+          <p className="h6 fw-bold mt-4">Seller</p>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyFashionCheckbox"
+              id="BabyFashionCheckbox" />
+            <label className="col-10 " htmlFor="BabyFashionCheckbox">
+              Amazon.eg</label>
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyProductsCheckbox"
+              id="BabyProductsCheckbox" />
+            <label className="col-10 " htmlFor="BabyProductsCheckbox">
               Maleeka Marketplace</label>
-            </span>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyProductsCheckbox"
-                id="BabyProductsCheckbox" />
-              <label className="col-10 " htmlFor="BabyProductsCheckbox">
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyProductsCheckbox"
+              id="BabyProductsCheckbox" />
+            <label className="col-10 " htmlFor="BabyProductsCheckbox">
               Octa_EGY⭐⭐⭐⭐</label>
-            </span>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BeautyCheckbox" id="BeautyCheckbox" />
-              <label className="col-10 " htmlFor="BeautyCheckbox">
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BeautyCheckbox" id="BeautyCheckbox" />
+            <label className="col-10 " htmlFor="BeautyCheckbox">
               Amazon Warehouse</label>
-            </span>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BooksCheckbox" id="BooksCheckbox" />
-              <label className="col-10 " htmlFor="BooksCheckbox">
-                American Eagle</label>
-            </span>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BoysFashionCheckbox"
-                id="BoysFashionCheckbox" />
-              <label className="col-10 " htmlFor="BoysFashionCheckbox">
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BooksCheckbox" id="BooksCheckbox" />
+            <label className="col-10 " htmlFor="BooksCheckbox">
+              American Eagle</label>
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BoysFashionCheckbox"
+              id="BoysFashionCheckbox" />
+            <label className="col-10 " htmlFor="BoysFashionCheckbox">
               Cotton-Home</label>
-            </span>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="Computers,Components&Accessories"
-                id="ComputersComponents&Accessories" />
-              <label className="col-10 " htmlFor="ComputersComponents&Accessories">
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="Computers,Components&Accessories"
+              id="ComputersComponents&Accessories" />
+            <label className="col-10 " htmlFor="ComputersComponents&Accessories">
               General.commerce</label>
-            </span>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="ElectronicsCheckbox"
-                id="ElectronicsCheckbox" />
-              <label className="col-10 " htmlFor="ElectronicsCheckbox">
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="ElectronicsCheckbox"
+              id="ElectronicsCheckbox" />
+            <label className="col-10 " htmlFor="ElectronicsCheckbox">
               Sugar2022</label>
-            </span>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="ElectronicsCheckbox"
-                id="ElectronicsCheckbox" />
-              <label className="col-10 " htmlFor="ElectronicsCheckbox">
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="ElectronicsCheckbox"
+              id="ElectronicsCheckbox" />
+            <label className="col-10 " htmlFor="ElectronicsCheckbox">
               ⭐Home-Smart⭐</label>
-            </span>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="ElectronicsCheckbox"
-                id="ElectronicsCheckbox" />
-              <label className="col-10 " htmlFor="ElectronicsCheckbox">
+          </span>
+          <span className="d-flex flex-row justify-content-around align-items-baseline">
+            <input className="CategoryCheckBoxes col-1" type="checkbox" name="ElectronicsCheckbox"
+              id="ElectronicsCheckbox" />
+            <label className="col-10 " htmlFor="ElectronicsCheckbox">
               Sugar2022</label>
-            </span>
+          </span>
 
 
 
@@ -285,106 +310,25 @@ export default function Fashion() {
 
           <div>
             <Slider {...settings}>
+              {myfash.map((moda) => {
+                return < >
+                  <div className="card border-0" >
+                    <img src={moda.img} className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} onClick={() => { gotodetails(moda._id)}} />
+                    <div className="card-body">
+                      <p className="card-text fw-bolder colorfont ">
+                        <Badge bg="danger">Up to {moda.price.discount}% off </Badge> Deal
+                      </p>
+                      <p className='fw-bold '>{moda.title_en}</p>
+                      <img src="../assets/images/images.png" width="70px" height="25px" />
+                    </div>
+                  </div>
+
+                </>
+              })}
 
 
-              <div className="card border-0" >
-                <img src="../assets/images/o10.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
-                <div className="card-body">
-                  <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">Up to 32% off </Badge> Deal
-                  </p>
-                  <p className='fw-bold '>Save on Casio</p>
-                  <img src="../assets/images/images.png" width="70px" height="25px" />
-                </div>
-              </div>
 
-              <div className="card border-0" >
-                <img src="../assets/images/o11.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
-                <div className="card-body">
-                  <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">Up to 32% off </Badge> Deal
-                  </p>
-                  <p className='fw-bold '>Save on Men, & Women</p>
-                  <img src="../assets/images/images.png" width="70px" height="25px" />
-                </div>
-              </div>
 
-              <div className="card border-0" >
-                <img src="../assets/images/o22.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
-                <div className="card-body">
-                  <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">Up to 32% off </Badge> Deal
-                  </p>
-                  <p className='fw-bold '>Save on Kids Sleep Wear</p>
-                  <img src="../assets/images/images.png" width="70px" height="25px" />
-                </div>
-              </div>
-
-              <div className="card border-0" >
-                <img src="../assets/images/o13.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
-                <div className="card-body">
-                  <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">EGP 139 and under</Badge> Deal
-                  </p>
-                  <p className='fw-bold '>Save on Stitch Socks</p>
-                  <img src="../assets/images/images.png" width="70px" height="25px" />
-                </div>
-              </div>
-
-              <div className="card border-0" >
-                <img src="../assets/images/o14.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
-                <div className="card-body">
-                  <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">Up to 16% off </Badge> Deal
-                  </p>
-                  <p className='fw-bold '>Save on Watches</p>
-                  <img src="../assets/images/images.png" width="70px" height="25px" />
-                </div>
-              </div>
-
-              <div className="card border-0" >
-                <img src="../assets/images/o19.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
-                <div className="card-body">
-                  <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">Up to 24% off </Badge> Deal
-                  </p>
-                  <p className='fw-bold '>Save on Men waer</p>
-                  <img src="../assets/images/images.png" width="70px" height="25px" />
-                </div>
-              </div>
-
-              <div className="card border-0" >
-                <img src="../assets/images/o16.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
-                <div className="card-body">
-                  <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">Up to 20% off </Badge> Deal
-                  </p>
-                  <p className='fw-bold '>Save on Men Pullovers</p>
-                  <img src="../assets/images/images.png" width="70px" height="25px" />
-                </div>
-              </div>
-
-              <div className="card border-0" >
-                <img src="../assets/images/o17.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
-                <div className="card-body">
-                  <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">Up to 22% off </Badge> Deal
-                  </p>
-                  <p className='fw-bold '>Save on Kida socks</p>
-                  <img src="../assets/images/images.png" width="70px" height="25px" />
-                </div>
-              </div>
-
-              <div className="card border-0" >
-                <img src="../assets/images/o18.jpg" className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
-                <div className="card-body">
-                  <p className="card-text fw-bolder colorfont ">
-                    <Badge bg="danger">Up to 18% off </Badge> Deal
-                  </p>
-                  <p className='fw-bold '>Save on Levis women</p>
-                  <img src="../assets/images/images.png" width="70px" height="25px" />
-                </div>
-              </div>
             </Slider>
           </div>
 
@@ -451,136 +395,33 @@ export default function Fashion() {
 
           <div className="container">
             <div className="row">
+              {myfash.map((moda) => {
+                return < >
 
-              <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-                <div className="card border-0" style={{ width: '20rem', height: '17rem' }}>
-                  <img src="../assets/images/a1.webp" className="card-img-top h-57 " />
-                  <div className="d-inline-block">
-                    <p className="card-text">White wipes</p>
-                    <BsStarFill color='#FFA41C' />
-                    <BsStarFill color='#FFA41C' />
-                    <BsStarFill color='#FFA41C' />
-                    <BsStarFill color='#FFA41C' />
-                    <BsStar color='#FFA41C' />
-                  </div>
-                  <div className="d-flex">EGP <sub>
-                    <h3>21</h3>
-                  </sub>00
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-                <div className="card border-0" style={{ width: '20rem', height: '17rem' }}>
-                  <img src="../assets/images/sa1.jpg" className="card-img-top h-57 " />
-                  <div className="d-inline-block">
-                    <p className="card-text">Black shoe</p>
-                    <BsStarFill color='#FFA41C' />
-                    <BsStarFill color='#FFA41C' />
-                    <BsStarFill color='#FFA41C' />
-                    <BsStarFill color='#FFA41C' />
-                    <BsStarFill color='#FFA41C' />
-                  </div>
-                  <div className="d-flex">EGP <sub>
-                    <h3>200</h3>
-                  </sub>00
+                  <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
+                    <div className="card border-0" style={{ width: '20rem', height: '25rem' }}>
+                      <img src={moda.img} className="card-img-top  h-75" onClick={() => { gotodetails(moda._id)}}/>
+                      <div className="d-inline-block">
+                        <p className="card-text">{moda.title_en}</p>
+                        <BsStarFill color='#FFA41C' />
+                        <BsStarFill color='#FFA41C' />
+                        <BsStarFill color='#FFA41C' />
+                        <BsStarFill color='#FFA41C' />
+                        <BsStar color='#FFA41C' />
+                      </div>
+                      <div className="d-flex">EGP <sub>
+                        <h3>{moda.price.new}</h3>
+                      </sub>00
+                      </div>
+                    </div>
                   </div>
 
-                </div>
-              </div>
-
-              <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-                <div className="card border-0" style={{ width: '20rem', height: '17rem' }}>
-                  <img src="../assets/images/o21.jpg" className="card-img-top h-57 " />
-                  <div className="d-inline-block">
-                    <p className="card-text mt-5"> Black shoe </p>
-                    <BsStarFill color='#FFA41C' />
-                    <BsStarFill color='#FFA41C' />
-                    <BsStarFill color='#FFA41C' />
-                    <BsStarFill color='#FFA41C' />
-                    <BsStar color='#FFA41C' />
-                  </div>
-                  <div className="d-flex">EGP <sub>
-                    <h3>1000</h3>
-                  </sub>00
-                  </div>
-                </div>
-              </div>
-              {/* row 2  */}
-
-              <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-                <div className="card border-0" style={{ width: '20rem', height: '15rem' }}>
-                  <img src="../assets/images/a3.webp" className="card-img-top h-57 " />
-
-                  <div className="d-inline-block">
-                    <p className="card-text mt-1">Cap</p>
-                    <BsStarFill color='#FFA41C' />
-                    <BsStarFill color='#FFA41C' />
-                    <BsStarFill color='#FFA41C' />
-                    <BsStar color='#FFA41C' />
-                    <BsStar color='#FFA41C' />
-                  </div>
-                  <div className="d-flex">EGP <sub>
-                    <h3>65</h3>
-                  </sub>00
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-                <div className="card border-0" style={{ width: '20rem', height: '15rem' }}>
-                  <img src="../assets/images/a6.webp" className="card-img-top h-57 " />
-                  <div className="d-inline-block">
-                    <p className="card-text mt-2">SAVFOX Wallet</p>
-                    <BsStarFill color='#FFA41C' />
-                    <BsStarFill color='#FFA41C' />
-                    <BsStarFill color='#FFA41C' />
-                    <BsStar color='#FFA41C' />
-                    <BsStar color='#FFA41C' />
-                  </div>
-                  <div className="d-flex">EGP <sub>
-                    <h3>230</h3>
-                  </sub>00
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-                <div className="card border-0" style={{ width: '20rem', height: '20rem' }}>
-                  <img src="../assets/images/a7.webp" className="card-img-top h-57 " />
-                  <div className="d-inline-block">
-                    <p className="card-text mt-4">Storage Bags</p>
-                    <BsStarFill color='#FFA41C' />
-                    <BsStarFill color='#FFA41C' />
-                    <BsStarFill color='#FFA41C' />
-                    <BsStarFill color='#FFA41C' />
-                    <BsStar color='#FFA41C' />
-                  </div>
-                  <div className="d-flex">EGP <sub>
-                    <h3>199</h3>
-                  </sub>00
-                  </div>
-
-                </div>
-              </div>
-
-              {/* 3 row  */}
+                </>
+              })}
 
 
-
-              {/* 4 row   */}
-
+       
             </div>
-
-
-
-
-
-
-
-
-
-
           </div>
 
 
