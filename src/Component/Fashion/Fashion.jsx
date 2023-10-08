@@ -14,8 +14,18 @@ import { fetchcategory } from "../../../store/Slice/categorySlice";
 import axios from 'axios';
 import axiosInstance from '../../axiosConfig/instance';
 import { useNavigate } from 'react-router-dom';
-
+import { PaginationControl } from 'react-bootstrap-pagination-control';
 export default function Fashion() {
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1)
+  console.log("pageq",page)
+  useEffect(() => {
+    axios.get(`http://localhost:3300/category/getbyname/Monitors?pageNumber=${page}`)
+      .then(response => setData(response.data.data.products))
+      .catch(error => console.error(error));
+  }, [page]);
+  console.log("dataa",data)
+
   let navigate = useNavigate()
   function gotodetails(prodId){
     console.log(prodId)
@@ -435,6 +445,20 @@ export default function Fashion() {
 
           {/* ending counteiner  */}
         </div>
+
+
+        <PaginationControl
+                    page={page}
+                    between={4}
+                    total={40}
+                    limit={12}
+                    changePage={(page) => {
+                        setPage(page)
+                        console.log("pageff",page)
+
+                    }}
+                    ellipsis={1}
+                />
       </div>
     </>
   )
