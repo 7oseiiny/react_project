@@ -9,14 +9,18 @@ export default function Cart() {
   const dispatch = useDispatch()
   let navigate = useNavigate()
   var items = useSelector((state) => { return state.cart.data })
+  console.log(items);
   let totalItem = 0
   let totalPrice = 0
 
+  try{
+    
   for (const item of items) {
     totalPrice += item.quantity * item.product.price.new
     totalItem += item.quantity
   }
 
+  }catch{}
   function Proceed() {
     if (items.length == 0) {
       setisitems(true)

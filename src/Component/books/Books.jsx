@@ -46,6 +46,7 @@ export default function Books() {
   var fav = useSelector((state) => { return state.favorite.data.productId })
 
   function isInCart(bookId) {
+   try{
     for (const item of cart) {
 
       if (bookId == item.product._id) {
@@ -54,6 +55,7 @@ export default function Books() {
 
 
     }
+   }catch{}
   }
   function isinfav(bookId) {
     for (const item of fav) {
