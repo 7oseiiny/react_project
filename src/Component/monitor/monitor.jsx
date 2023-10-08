@@ -83,14 +83,16 @@ export default function Monitor() {
                     <LiftSide className='s' />
                     <div className='col-xl-10 col-md-9 col-12'>
                         <div className="row d-flex justify-content-center">
-                            <h1>result</h1>                            {data.map((prd) => {
+                            <h1>Results</h1>                            {data.map((prd) => {
                                 return (
                                     <Card className='col-xl-3 col-lg-4 col-md-5  col-5 mx-2 my-3' key={prd._id}>
                                         <Card.Img variant="top" className='img' src={prd.img} />
                                         <Card.Body>
                                             <Card.Title className='title-wrapper'>{prd.title_en}</Card.Title>
                                             <Card.Text className='m-0'>
-                                                <span className='fs-4' >deliveryDate</span>                {prd.quantity}
+                                                <span className='fs-4' >Quantity</span>            <span> {prd.quantity}
+                                                  
+                                                </span>
                                             </Card.Text>
                                             <Card.Text className='m-0'>
                                                 <span className='fs-4' > old price</span>                {prd.price['old']}
