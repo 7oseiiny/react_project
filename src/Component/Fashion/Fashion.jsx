@@ -314,7 +314,7 @@ export default function Fashion() {
                       <p className="card-text fw-bolder colorfont ">
                         <Badge bg="danger">Up to {moda.price.discount}% off </Badge> Deal
                       </p>
-                      <p className='fw-bold '>Save on Casio</p>
+                      <p className='fw-bold '>{moda.title_en}</p>
                       <img src="../assets/images/images.png" width="70px" height="25px" />
                     </div>
                   </div>
@@ -396,7 +396,7 @@ export default function Fashion() {
 
                   <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
                     <div className="card border-0" style={{ width: '20rem', height: '25rem' }}>
-                      <img src={moda.img} className="card-img-top h-57 " />
+                      <img src={moda.img} className="card-img-top  h-50" />
                       <div className="d-inline-block">
                         <p className="card-text">{moda.title_en}</p>
                         <BsStarFill color='#FFA41C' />

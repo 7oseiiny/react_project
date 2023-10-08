@@ -1,12 +1,17 @@
 import './Mobile.css'
-import React from 'react'
+import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { FaStar, FaRegStar } from "react-icons/fa6";
 import '../TodayDeals/todayDealsLiftSide/leftSide.css'
 import { useDispatch, useSelector } from "react-redux";
 import { fetchcategory } from "../../../store/Slice/categorySlice";
+import axiosInstance from '../../axiosConfig/instance';
+import { useNavigate } from 'react-router-dom';
+
+
 export default function Mobile() {
 
+  let navigate = useNavigate()
 
   let [mobile, setmobile] = useState([]);
   let dispatch = useDispatch();
@@ -18,6 +23,10 @@ export default function Mobile() {
     dispatch(fetchcategory("Mobile Phones"))
     return()=>{ dispatch(fetchcategory([]))}
   }, [])
+  function gotodetails(prodId){
+    console.log(prodId)
+    navigate("/productdetails", { state: { productId: prodId}});
+}
   return (
     <>
 
@@ -332,7 +341,7 @@ export default function Mobile() {
                 return < >
                   <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
                     <div className="card" style={{ width: '22rem' }}>
-                      <img src={mob.img} className="card-img-top h-57 " />
+                      <img src={mob.img} className="card-img-top h-57 "onClick={() => { gotodetails(mob._id)}}/>
                       <div className="card-body">
                         <p className="card-text">{mob.title_en}</p>
                       </div>
