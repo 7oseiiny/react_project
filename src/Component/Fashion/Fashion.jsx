@@ -13,10 +13,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchcategory } from "../../../store/Slice/categorySlice";
 import axios from 'axios';
 import axiosInstance from '../../axiosConfig/instance';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function Fashion() {
-
+  let navigate = useNavigate()
+  function gotodetails(prodId){
+    console.log(prodId)
+    navigate("/productdetails", { state: { productId: prodId}});
+}
   // var fashion = useSelector((state) => { return state.category.data })
 
   let [myfash, setmyfash] = useState([]);
@@ -309,7 +313,7 @@ export default function Fashion() {
               {myfash.map((moda) => {
                 return < >
                   <div className="card border-0" >
-                    <img src={moda.img} className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} />
+                    <img src={moda.img} className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} onClick={() => { gotodetails(moda._id)}} />
                     <div className="card-body">
                       <p className="card-text fw-bolder colorfont ">
                         <Badge bg="danger">Up to {moda.price.discount}% off </Badge> Deal
@@ -396,7 +400,7 @@ export default function Fashion() {
 
                   <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
                     <div className="card border-0" style={{ width: '20rem', height: '25rem' }}>
-                      <img src={moda.img} className="card-img-top  h-50" />
+                      <img src={moda.img} className="card-img-top  h-75" onClick={() => { gotodetails(moda._id)}}/>
                       <div className="d-inline-block">
                         <p className="card-text">{moda.title_en}</p>
                         <BsStarFill color='#FFA41C' />
