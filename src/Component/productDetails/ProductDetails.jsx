@@ -7,6 +7,9 @@ import { fetchProductById } from '../../../store/Slice/productsSlice';
 import { fetchuser } from '../../../store/Slice/userSlice';
 import { addProductInCart, fetchCart } from '../../../store/Slice/cartSlice';
 import { addProductInfavorite, fetchfavorite } from '../../../store/Slice/favorite';
+import axios from 'axios';
+import { fetchreviwes } from '../../../store/Slice/reviwes';
+import "./productdetails.css"
 
 export default function ProductDetails() {
 
@@ -22,16 +25,23 @@ export default function ProductDetails() {
     var fav = useSelector((state) => { return state.favorite.data.productId })
 
     console.log(fav);
+    var reviws = useSelector((state) => { return state.reviwes.data })
+
+
+    var [productinfo, setProductinfo] = useState({})
+    var [productReviw, setproductReviw] = useState([])
     let [change, setchange] = useState(0);
     let [quantity, setquantity] = useState(1);
+
 
     useEffect(() => {
         dispatch(fetchuser())
         dispatch(fetchCart())
         dispatch(fetchfavorite())
         dispatch(fetchProductById(location.state.productId))
+        dispatch(fetchreviwes(location.state.productId))
     }, [dispatch, change, quantity])
-
+    console.log("fro  dispacth", reviws)
     function prod(x, y) {
         try {
             if (x && y) { return (product[x][y]) }
@@ -183,8 +193,47 @@ export default function ProductDetails() {
                 </div>
                 {/* review */}
 
+                <div className='cointainer'>
+                    <hr className='w-75 mx-auto'/>
+                    <div className="row">
+                        <div className='reviews col-md-3 '>
+                            <h1 className='ps-4'>Reviews</h1>
+
+                        </div>
+                        <div className=' col-9'>
+                            <div className='row '>
+                                {reviws.map((item, i) => {
+                                    return (
+
+                                        <div className="col-md-12 ">
+                                            <div >
+                                                <Rate rate={item.rating}>
+                                                </Rate>
+                                                <a href={'mailto: ' + item.user.email} className='mx-2'>{item.user.email} </a>
+                                            </div>
+                                            <span className="py-2 text-secondary">
+                                                {new Date(item.createdAt).toLocaleString()}
+                                            </span>
+                                            <p className='text-secondary fs-5 pe-3 upper-first-letter'> {item.comment} </p>
+
+
+                                        </div>
+
+                                    )
+                                })}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
 
             </div>
+         
         </>
     )
 }
