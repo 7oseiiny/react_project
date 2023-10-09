@@ -89,7 +89,7 @@ export default function ProductDetails() {
     async function addtofav(productId) {
         console.log(productId);
         await dispatch(addProductInfavorite(productId))
-        setchange(productId)
+        setchange(productId+1)
     }
 
 
