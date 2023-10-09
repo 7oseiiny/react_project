@@ -8,7 +8,7 @@ import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchcategory } from '../../../store/Slice/categorySlice';
+import { fetchcategory, fetchcategorypage } from '../../../store/Slice/categorySlice';
 import { PaginationControl } from 'react-bootstrap-pagination-control';
 import axios from 'axios';
 import { MdFavorite, MdOutlineFavoriteBorder } from 'react-icons/md';
@@ -32,6 +32,11 @@ export default function Monitor() {
       }, [page]);
       console.log("dataa",data)
 
+
+      let [pages, setpages] = useState();
+      dispatch(fetchcategorypage("books",page)).then(((e)=>{setpages(e.payload)}))
+
+      console.log(pages);
 
     // let monitorsList = useSelector((state) => {
     //     // console.log(state)
@@ -116,15 +121,10 @@ export default function Monitor() {
                 </div>
                 <PaginationControl
                     page={page}
-                    between={4}
-                    total={40}
-                    limit={12}
-                    changePage={(page) => {
-                        setPage(page)
-                        console.log("pageff",page)
-
-                    }}
-                    ellipsis={1}
+                    between={2}
+                    total={pages}
+                    limit={1}
+                    changePage={(page) => {  setPage(page) ;setchange(page) }}
                 />
             </div >
         </>)

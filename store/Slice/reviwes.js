@@ -4,6 +4,7 @@ import axiosInstance from '../../src/axiosConfig/instance';
 export const fetchreviwes = createAsyncThunk(
     "reviwes/fetch", async (productId) => {
         const reaponse = await axiosInstance.get(`http://localhost:3300/review/product/${productId}`)
+        console.log(reaponse.data.data);
         return reaponse.data.data;
     }
 )

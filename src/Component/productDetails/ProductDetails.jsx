@@ -24,8 +24,8 @@ export default function ProductDetails() {
     var cart = useSelector((state) => { return state.cart.data })
     var fav = useSelector((state) => { return state.favorite.data.productId })
 
-    console.log(fav);
     var reviws = useSelector((state) => { return state.reviwes.data })
+    console.log(reviws);
 
 
     var [productinfo, setProductinfo] = useState({})
@@ -41,7 +41,7 @@ export default function ProductDetails() {
         dispatch(fetchProductById(location.state.productId))
         dispatch(fetchreviwes(location.state.productId))
     }, [dispatch, change, quantity])
-    console.log("fro  dispacth", reviws)
+    
     function prod(x, y) {
         try {
             if (x && y) { return (product[x][y]) }
@@ -202,25 +202,28 @@ export default function ProductDetails() {
                         </div>
                         <div className=' col-9'>
                             <div className='row '>
-                                {reviws.map((item, i) => {
-                                    return (
-
-                                        <div className="col-md-12 ">
-                                            <div >
-                                                <Rate rate={item.rating}>
-                                                </Rate>
-                                                <a href={'mailto: ' + item.user.email} className='mx-2'>{item.user.email} </a>
+                                {
+                                    reviws?
+                                    reviws.map((item, i) => {
+                                        return (
+    
+                                            <div className="col-md-12 ">
+                                                <div >
+                                                    <Rate rate={item.rating}>
+                                                    </Rate>
+                                                    <a href={'mailto: ' + item.user.email} className='mx-2'>{item.user.email} </a>
+                                                </div>
+                                                <span className="py-2 text-secondary">
+                                                    {new Date(item.createdAt).toLocaleString()}
+                                                </span>
+                                                <p className='text-secondary fs-5 pe-3 upper-first-letter'> {item.comment} </p>
+    
+    
                                             </div>
-                                            <span className="py-2 text-secondary">
-                                                {new Date(item.createdAt).toLocaleString()}
-                                            </span>
-                                            <p className='text-secondary fs-5 pe-3 upper-first-letter'> {item.comment} </p>
-
-
-                                        </div>
-
-                                    )
-                                })}
+    
+                                        )
+                                    }):""
+                                }
 
                             </div>
 
