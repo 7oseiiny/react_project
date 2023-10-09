@@ -44,7 +44,9 @@ export default function EditUserInfo() {
   return (
     <>
      
-      <div className="container-fluid">
+      <div className="container m-7">
+      <h3 className="mt-4"> Edit Your Profile</h3>
+
         <form className="form" onSubmit={onSubmitHandler}>
           <div className="form-group">
             <div className="col-xs-6">
@@ -54,7 +56,7 @@ export default function EditUserInfo() {
               <input type="text" className="form-control" id="name" value={name || ''} onChange={(e) => { setName(e.target.value); }} />
             </div>
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <div className="col-xs-6">
               <label htmlFor="image">
                 <h4>Image</h4>
@@ -62,10 +64,10 @@ export default function EditUserInfo() {
               <input type="text" className="form-control" id="image" value={image || ''} onChange={(e) => { setImage(e.target.value); }} />
 
             </div>
-          </div>
+          </div> */}
 
           <div className="form-group">
-            <div className="col-xs-6">
+            <div className="col-xs-6 mt-3">
               <label htmlFor="email">
                 <h4>Email</h4>
               </label>
@@ -74,7 +76,7 @@ export default function EditUserInfo() {
             </div>
           </div>
           <div className="form-group">
-            <div className="col-xs-6">
+            <div className="col-xs-6 mt-3">
               <label htmlFor="address">
                 <h4>Address</h4>
               </label>

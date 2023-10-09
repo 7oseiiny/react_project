@@ -64,12 +64,12 @@ const Login = () => {
                       localStorage.setItem('userId', JSON.stringify(userId))
                       console.log(userId);
 
-                      Cookies.set('accessToken', accessToken, {
-                        secure: true,
-                        sameSite: "none",
-                        httpOnly: true,
-                        path: "/"
-                      });
+                    //   Cookies.set('accessToken', accessToken, {
+                    //     secure: true,
+                    //     sameSite: "none",
+                    //     httpOnly: true,
+                    //     path: "/"
+                    //   });
 
                       setIslogged(true)
                       navigate('/')

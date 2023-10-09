@@ -21,15 +21,15 @@ export default function TrackingOrder() {
                         <thead>
                             <tr>
                                 <th className="order-th shadow">Order</th>
-                                {/* <th className="order-th shadow">Date</th> */}
+                                <th className="order-th shadow">Date</th>
                                 <th className="order-th shadow">Status</th>
                             </tr>
                         </thead>
                         <tbody>
                         {orders.map((order) => (
-                                <tr className="order-tr-light" key={order.id}>
-                                    <td className="order-td">{order.id}</td>
-                                    {/* <td className="order-td">{order.date}</td> */}
+                                <tr className="order-tr-light" key={order._id}>
+                                    <td className="order-td">{order._id}</td>
+                                    <td className="order-td">{order.createdAt}</td>
                                     <td className="order-td">{order.status}</td>
                                 </tr>
                             ))}  
