@@ -34,7 +34,7 @@ export default function Monitor() {
 
 
       let [pages, setpages] = useState();
-      dispatch(fetchcategorypage("books",page)).then(((e)=>{setpages(e.payload)}))
+      dispatch(fetchcategorypage("Monitors",page)).then(((e)=>{setpages(e.payload)}))
 
       console.log(pages);
 
@@ -122,7 +122,7 @@ export default function Monitor() {
                 <PaginationControl
                     page={page}
                     between={2}
-                    total={pages}
+                    total={3}
                     limit={1}
                     changePage={(page) => {  setPage(page) ;setchange(page) }}
                 />
