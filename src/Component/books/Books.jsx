@@ -442,7 +442,7 @@ export default function Books() {
                     <div className="bg-light w-100 p-2 text-center "  >
                       <img className="w-50 " src={book.img} alt="" />
                       <p style={{ fontSize: "1vw", height: "50px" }}>{book.title_en}</p>
-                      <Rate rate={book.rate} ></Rate>
+                      <Rate rate={book.avg_rating} ></Rate>
                       <p style={{ fontSize: "1vw" }}>{book.price.new} $</p>
                       <p style={{ fontSize: "1vw", color: "red" }}>{book.quantity} in stok</p>
 
