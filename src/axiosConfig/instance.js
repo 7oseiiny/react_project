@@ -3,9 +3,9 @@ import Cookies from 'js-cookie';
 
 const axiosInstance = axios.create({
     baseURL: import.meta.env.VITE_API,
-    headers: {
-      authorization: `${Cookies.get('accessToken')}`,
-    },
+    // headers: {
+    //   // authorization: `${Cookies.get('accessToken')}`,
+    // },
     params: {},
   });
 

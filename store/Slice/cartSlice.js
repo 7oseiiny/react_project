@@ -5,7 +5,6 @@ export const fetchCart=createAsyncThunk(
     "cart/fetch",async ()=>{
      
         let userId=localStorage.getItem('userId').replaceAll('"',"")
-        // let token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MjMwNThlMjM0NjM0YTY4MWIyZmQ1MSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjk2Nzk3MjQ3LCJleHAiOjE2OTY3OTgxNDd9.GgzYxNYebc86cBDhX5zGtzKGgItXmUQLPexr41eLLQw"
 
         const reaponse=await axiosInstance.get(`/cart/${userId}`)
         return  reaponse.data.data.items;
@@ -15,7 +14,7 @@ export const fetchCart=createAsyncThunk(
 export const addProductInCart=createAsyncThunk(
     "cart/addProduct",async (body)=>{
         let userId=localStorage.getItem('userId').replaceAll('"',"")
-        // let token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MjMwNThlMjM0NjM0YTY4MWIyZmQ1MSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjk2Nzk3MjQ3LCJleHAiOjE2OTY3OTgxNDd9.GgzYxNYebc86cBDhX5zGtzKGgItXmUQLPexr41eLLQw"
+        // let token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MjMwNThlMjM0NjM0YTY4MWIyZmQ1MSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjk2Nzk0MDA2LCJleHAiOjE2OTY3OTQ5MDZ9.407M59h1f0WfDW7NeYW6yXOS6pUAQtUgnasUokhzgYw"
 
         const reaponse=await axiosInstance.post(`/cart/${userId}/addProductInCart`,body)
         return  reaponse.data.data;
