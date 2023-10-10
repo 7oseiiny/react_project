@@ -70,19 +70,40 @@ const CreateAccount = () => {
             : ''
       });
     }
-  };
+   
+
+    return;
+  }
 
   const handleSubmit =  (evt) => {
     evt.preventDefault();
     if (
-      errors.nameError ||
-      errors.addressError ||
-      errors.emailError ||
-      errors.passwordError ||
-      errors.confirmPasswordError
+      formData.name.trim() === '' ||
+      formData.address.trim() === '' ||
+      formData.email.trim() === '' ||
+      formData.password.trim() === '' ||
+      formData.confirmPassword.trim() === ''
     ) {
-      return;
-    }
+      // Set the corresponding error messages
+      setErrors({
+        nameError: formData.name.trim() === '' ? 'Name is required' : '',
+        addressError: formData.address.trim() === '' ? 'Address is required' : '',
+        emailError: formData.email.trim() === '' ? 'Email is required' : '',
+        passwordError: formData.password.trim() === '' ? 'Password is required' : '',
+        confirmPasswordError:
+          formData.confirmPassword.trim() === ''
+            ? 'Confirm Password is required'
+            : '',
+      });
+      const inputElements = document.querySelectorAll('.form-control');
+      inputElements.forEach((inputElement) => {
+        const inputName = inputElement.getAttribute('name');
+        if (formData[inputName].trim() === '') {
+          inputElement.classList.add('error');
+        } else {
+          inputElement.classList.remove('error');
+        }
+      });
   
     const userData = {
       name: formData.name,
@@ -104,7 +125,7 @@ const CreateAccount = () => {
         console.log('This Email Already has an account', error);
       });
   };
-
+  }
   return (
     <>
       <div className="logo">
