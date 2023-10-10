@@ -4,7 +4,7 @@ import { ImHeart } from "react-icons/im";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink,useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { getLanguage } from "../../../store/Slice/LanguageSlice";
@@ -14,6 +14,10 @@ import { useLocation } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { logout } from "../../Services/user-auth";
+import { fetchCart } from '../../../store/Slice/cartSlice';
+import { fetchuser } from '../../../store/Slice/userSlice';
+import { fetchfavorite } from '../../../store/Slice/favorite';
 function Navbar() {
   const location = useLocation();
   let { t, i18n } = useTranslation();
@@ -31,11 +35,18 @@ function Navbar() {
   let [totalItems, settotalItems] = useState(0)
   let [totalItems_fav, settotalItems_fav] = useState(0)
   let user = useSelector((state) => { return state.user.data })
+  var items = useSelector((state) => { return state.cart.data })
+  const navigate = useNavigate(); 
+  
   try {
     for (const item of items) { totalItems += item.quantity }
 
   } catch (err) { console.log(err) }
   useEffect(function () {
+    dispatch(fetchCart())
+    dispatch(fetchuser())
+    dispatch(fetchfavorite())
+
     axiosInstance
       .get("category")
       .then((data) => {
@@ -45,7 +56,7 @@ function Navbar() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  },  [dispatch]);
 
   let [searchCategory, setSearchCategory] = useState();
   function logValue(e) {
@@ -59,7 +70,11 @@ function Navbar() {
     }
     setSearchCategory(e.target.value);
   }
-
+ function handleLogout (){
+  localStorage.removeItem('userData');
+   logout
+   navigate('/login')
+ }
   function handleSearch() {
     console.log(searchCategory);
     if (searchCategory == "all") {
@@ -528,7 +543,7 @@ function Navbar() {
               {t("books")}
             </NavLink>
             <NavLink className="links px-2" to="profile" style={{ textDecoration: "none" }}>Profile</NavLink>
-            <NavLink className="links px-2" to="login" onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('userData'); setIslogged(false) }} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
+            <NavLink className="links px-2" to="login" onClick={() => {handleLogout}} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
           </div>
           <div className=" text-white">{t("Shop deals in Electronics")}</div>
         </div>

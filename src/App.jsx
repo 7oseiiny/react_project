@@ -109,7 +109,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [Islogged, setIslogged] = useState(localStorage.getItem(`token`) ? true : false);
+  // const [Islogged, setIslogged] = useState(localStorage.getItem(`token`) ? true : false);
   const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')));
 
 
@@ -124,7 +124,7 @@ function App() {
   }, []);
   return (
     <Provider store={store}>
-       <AuthProvider value={{ Islogged, setIslogged , userData , setUserData}} >
+       <AuthProvider value={{  userData , setUserData}} >
       <RouterProvider router={router} />
       </AuthProvider>
     </Provider>

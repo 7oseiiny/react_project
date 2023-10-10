@@ -5,13 +5,15 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 export default function TrackingOrder() {
+    var orders = useSelector((state) => { return state.order.data })
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchOrder());
 
     }, [dispatch]);
-    var orders = useSelector((state) => { return state.order.data })
     console.log(orders);
+    
     return (
         <>
             <div className="container">
@@ -27,14 +29,16 @@ export default function TrackingOrder() {
                             </tr>
                         </thead>
                         <tbody>
-                            {orders.map((order) => (
-                                <tr className="order-tr-light" >
-                                    <td className="order-td"><img  src={order.products[0].product.img} /></td>
-                                    <td className="order-td">{order.createdAt}</td>
-                                    {/* <td className="order-td">{order.products.product.quantity}</td> */}
-                                    <td className="order-td">{order.status}</td>
-                                </tr>
-                            ))}
+                            {
+                                orders?orders.map((order) => (
+                                    <tr className="order-tr-light" >
+                                        <td className="order-td"><img  src={order.products[0].product.img} /></td>
+                                        <td className="order-td">{order.createdAt}</td>
+                                        <td className="order-td">{order.products.product.quantity}</td>
+                                        <td className="order-td">{order.status}</td>
+                                    </tr>
+                                )):""
+                            }
                         </tbody>
                     </table>
                 </div>
