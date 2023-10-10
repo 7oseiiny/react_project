@@ -25,6 +25,7 @@ function Navbar() {
   let matchGreater=searchText.match(handleGreaterThanReg);
   let discountRegEx=/^(discount|خصم اكبر من |خصم)\s+(\d+)$/i;
   let matchDiscount=searchText.match(discountRegEx);
+  var fav = useSelector((state) => { try { return state.favorite.data.productId } catch { } })
   useEffect(function () {
     axiosInstance
       .get("category")
@@ -402,12 +403,26 @@ function Navbar() {
                   </div>
                 </div>
               </li>
-              <li className="col-2 col-xs-12 ">
+              {/* <li className="col-2 col-xs-12 ">
                 <div>
                   <span className="text-white-50 fs-6">{t("Returns")}</span>{" "}
                   <br />
                   <span className="fw-bold fs-">{t("Orders")}</span>
                 </div>
+              </li> */}
+              <li className="col-2 col-xs-12 ">
+                <div>
+                  <Link className="btn btn-dark fw-bold fs-5" to="tracking" style={{ textDecoration: "none", textColor: "white" }}>Order</Link>
+                </div>
+              </li>
+              <li className="col-3 col-xs-ms-2">
+
+                <NavLink className="links mx-3" to="favorite" style={{ textDecoration: "none" }}> <ImHeart className='mx-1' to='favorite' color='white' size={20} />{fav ? fav.length : ""}</NavLink>
+
+
+                <NavLink className="links" to="cart" style={{ textDecoration: "none" }}><FaShoppingCart to='cart' color='white' size={25} /> {totalItems}</NavLink>
+
+
               </li>
               <li className="col-3 col-xs-ms-2">
                 <NavLink
