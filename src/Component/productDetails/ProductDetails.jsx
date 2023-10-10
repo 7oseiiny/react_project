@@ -93,7 +93,7 @@ export default function ProductDetails() {
                     <NavLink to="/" style={{ textDecoration: "none", color: "rgb(0,113,165)" }}><p>catigory : {prod("categoryId", "name_en")}</p></NavLink>
                     <div className='d-flex  align-items-end justify-content-between' >
                         <p style={{ fontSize: "1.4rem" }} className='p-0 px-2 m-0'>5.5</p>
-                        <div style={{ fontSize: "1.22rem", color: "rgb(237,139,31)" }}> <Rate /></div>
+                        <div style={{ fontSize: "1.22rem", color: "rgb(237,139,31)" }}> <Rate rate={prod( "avg_rating")}/></div>
                         <a href='#' style={{ textDecoration: "none", color: "rgb(0,113,165)" }}>92 rating</a>
                     </div>
                     <hr />
