@@ -13,7 +13,6 @@ import axiosInstance from '../../axiosConfig/instance';
 import { useEffect } from 'react';
 import { fetchcategory } from "../../../store/Slice/categorySlice";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
 import LiftSide from "../TodayDeals/todayDealsLiftSide/liftSide";
 export default function Men() {
   const { t } = useTranslation();

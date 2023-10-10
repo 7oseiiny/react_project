@@ -7,7 +7,6 @@ import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
 export default function KidsBaby() {
   const { t } = useTranslation();
   let language = useSelector((state) => state.language.language);

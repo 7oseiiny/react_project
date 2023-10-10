@@ -15,7 +15,6 @@ import axios from 'axios';
 import axiosInstance from '../../axiosConfig/instance';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
 import LiftSide from "../TodayDeals/todayDealsLiftSide/liftSide";
 export default function Fashion() {
   const { t } = useTranslation();

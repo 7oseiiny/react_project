@@ -8,7 +8,6 @@ import { fetchcategory } from "../../../store/Slice/categorySlice";
 import axiosInstance from '../../axiosConfig/instance';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
 import LiftSide from "../TodayDeals/todayDealsLiftSide/liftSide";
 
 export default function Mobile() {

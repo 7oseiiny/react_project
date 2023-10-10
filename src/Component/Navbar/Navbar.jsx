@@ -489,6 +489,8 @@ function Navbar() {
             >
               {t("books")}
             </NavLink>
+            <NavLink className="links px-2" to="profile" style={{ textDecoration: "none" }}>Profile</NavLink>
+            <NavLink className="links px-2" to="login" onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('userData'); setIslogged(false) }} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
           </div>
           <div className=" text-white">{t("Shop deals in Electronics")}</div>
         </div>
