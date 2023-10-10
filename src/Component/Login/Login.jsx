@@ -75,7 +75,7 @@ const Login = () => {
     };
     // const emailValid = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(email);
     const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-    const passwordValid = password.length >= 6;
+    const passwordValid = pwd.length >= 6;
 
   
      

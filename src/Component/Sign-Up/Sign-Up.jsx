@@ -104,6 +104,7 @@ const CreateAccount = () => {
           inputElement.classList.remove('error');
         }
       });
+    
   
     const userData = {
       name: formData.name,
