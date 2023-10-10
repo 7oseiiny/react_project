@@ -2,8 +2,10 @@ import React from 'react'
 import { FaStar, FaRegStar , FaStarHalfStroke } from "react-icons/fa6";
 import PropTypes from 'prop-types';
 import './body.css'
+import { useTranslation } from 'react-i18next';
 
 export default function BodyCards(props) {
+  let{t}=useTranslation();
     let fullStars=[];
     let RegularStars=[];
     for (let i = 0; i < props.fullStar; i++) {
@@ -34,7 +36,7 @@ export default function BodyCards(props) {
           <span className="averageReview">{props.reviews}</span>
         </span>
       </div>
-      {props.bestSellers && <span className="bestSellerBadge card-subtitle ">Best Seller</span>}
+      {props.bestSellers && <span className="bestSellerBadge card-subtitle ">{t("Best Sellers")}</span>}
       <p className="card-text d-flex flex-column fw-bolder">
         <span><span>EGP{props.price}</span>{props.oldPrice&&
             <span style={{fontSize:"12px"}} className='ms-1 text-secondary text-decoration-line-through'> EGP{props.oldPrice}</span>

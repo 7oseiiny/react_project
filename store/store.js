@@ -7,6 +7,8 @@ import categorySlice from "./Slice/categorySlice";
 import productsSlice from "./Slice/productsSlice";
 import favoriteSlice from './Slice/favorite';
 import reviwesSlice from "./Slice/reviwes"
+import LanguageReducer from './Slice/LanguageSlice'
+import filteredListReducer from "./Slice/filteredList";
 
 const store = configureStore({
     reducer: {
@@ -16,7 +18,9 @@ const store = configureStore({
         user: userSlice,
         category: categorySlice,
         favorite:favoriteSlice,
-        reviwes :reviwesSlice
+        reviwes :reviwesSlice,
+        language:LanguageReducer,
+        filteredList:filteredListReducer
     }
 })
 export default store;

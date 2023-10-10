@@ -6,7 +6,11 @@ import { fetchcategory } from "../../../store/Slice/categorySlice";
 import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 export default function KidsBaby() {
+  const { t } = useTranslation();
+  let language = useSelector((state) => state.language.language);
   let navigate = useNavigate()
   function gotodetails(prodId){
     console.log(prodId)
@@ -22,24 +26,51 @@ export default function KidsBaby() {
     dispatch(fetchcategory("Baby Fashion"))
     return()=>{ dispatch(fetchcategory([]))}
   }, [])
-  return (
-  <>
-  <div className="row container-fluid m-0 justify-content-center mt-3">
 
 
-  <img src="../assets/images/first.PNG" className="img-fluid" width="100%" />
-  <img src="../assets/images/o1.jpeg" className="img-fluid veiw mt-4" width="100%" />
-
-  <h2 className="text-center fs-4 mt-4">Boys</h2>
-  <img src="../assets/images/second.PNG" className="img-fluid mt-4" width="100%" />
-  <h2 className="text-center fs-4 mt-4">Girls</h2>
-  <img src="../assets/images/third.PNG" className="img-fluid mt-4" width="100%" />
-  <h2 className="text-center fs-4 mt-4">Baby Boys</h2>
-  <img src="../assets/images/fourth.PNG" className="img-fluid mt-4" width="100%" />
-  <h2 className="text-center fs-4 mt-4">Baby Girls</h2>
-  <img src="../assets/images/fifth.PNG" className="img-fluid mt-4" width="100%" />
-  </div>
   
+  return (
+    <>
+      <div className="row container-fluid m-0 justify-content-center mt-3">
+        <img
+          src="../assets/images/first.PNG"
+          className="img-fluid"
+          width="100%"
+        />
+        <img
+          src={
+            language == "en"
+              ? "../assets/images/o1.jpeg"
+              : "../assets/images/fashionArabicImag.jpg"
+          }
+          className="img-fluid veiw mt-4"
+          width="100%"
+        />
+
+<h2 className="text-center fs-4 mt-4">{t("Boys")}</h2>
+        <img
+          src="../assets/images/second.PNG"
+          className="img-fluid mt-4"
+          width="100%"
+        />
+        <h2 className="text-center fs-4 mt-4">{t("Girls")}</h2>
+        <img
+          src="../assets/images/third.PNG"
+          className="img-fluid mt-4"
+          width="100%"
+        />
+        <h2 className="text-center fs-4 mt-4">{t("Baby Boys")}</h2>
+        <img
+          src="../assets/images/fourth.PNG"
+          className="img-fluid mt-4"
+          width="100%"
+        />
+        <h2 className="text-center fs-4 mt-4">{t("Baby Girls")}</h2>
+        <img
+          src="../assets/images/fifth.PNG"
+          className="img-fluid mt-4"
+          width="100%"
+        />
   <div className="container">
             <div className="row">
               {myfash.map((moda) => {
@@ -70,6 +101,11 @@ export default function KidsBaby() {
        
             </div>
           </div>
+  </div>
+  
+ 
   </>
   )
+       
+   
 }

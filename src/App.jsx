@@ -28,6 +28,9 @@ import { AuthProvider } from './Context/user-auth'
 import { useState } from 'react'
 import EditUserInfo from "./Component/UserInfo/EditUserInfo";
 import YourAccount from "./Component/UserInfo/YourAccount";
+import Login from "./Component/Login/login";
+import { AuthProvider } from "./Context/user-auth";
+import { React, useState, useEffect } from "react";
 import Cart from "./Component/Cart/Cart";
 import Order from "./Component/order/Order";
 import CompleteOrder from "./Component/order/completeOrder/CompleteOrder";
@@ -35,7 +38,6 @@ import ProductDetails from "./Component/productDetails/ProductDetails";
 import Profile from "./Component/UserInfo/profile";
 import Favorite from "./Component/favorite/favorite";
 import TrackingOrder from "./Component/UserInfo/TrackingOrder";
-import Login from "./Component/Login/Login";
 
 
 
@@ -109,7 +111,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [Islogged, setIslogged] = useState(localStorage.getItem(`token`) ? true : false);
+  // const [Islogged, setIslogged] = useState(localStorage.getItem(`token`) ? true : false);
   const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')));
 
 

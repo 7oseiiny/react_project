@@ -1,4 +1,4 @@
-import Container from 'react-bootstrap/Container';
+import Container from "react-bootstrap/Container";
 import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import Slider from "react-slick";
@@ -14,8 +14,12 @@ import { fetchcategory } from "../../../store/Slice/categorySlice";
 import axios from 'axios';
 import axiosInstance from '../../axiosConfig/instance';
 import { useNavigate } from 'react-router-dom';
-
+import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import LiftSide from "../TodayDeals/todayDealsLiftSide/liftSide";
 export default function Fashion() {
+  const { t } = useTranslation();
+  let language=useSelector((state)=>state.language.language)
   let navigate = useNavigate()
   function gotodetails(prodId){
     console.log(prodId)
@@ -34,6 +38,8 @@ export default function Fashion() {
     return()=>{ dispatch(fetchcategory([]))}
   }, [])
 
+
+ 
   var settings = {
     dots: false,
     infinite: false,
@@ -48,265 +54,52 @@ export default function Fashion() {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: false
-        }
+          dots: false,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
-        }
+          initialSlide: 2,
+        },
       },
-
-    ]
+    ],
   };
 
   return (
     <>
-
-
       <div className="row container-fluid m-0 justify-content-center">
         {/* left Side  */}
-        <section className="col-xl-2 col-md-3 col-4 leftSide-fashion ps-xl-4 ps-1">
-          <section className="leftSideSections pb-3 mt-4 ">
-            <h6>Eligible htmlFor free delivery</h6>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="col-1" type="checkbox" name="primeCheckbox" id="primeCheckbox" />
-              <label className="col-10" htmlFor="primeCheckbox"><i className="fa-solid fa-check text-warning"></i>
-                All customers get FREE Shipping on orders shipped by Amazon</label>
-            </span>
-
-
-          </section>
-          <section className="leftSideSections pb-3">
-            <h2>Category</h2>
-            <h6>Fashion</h6>
-            <a href="#" className='text-dark'> Women</a><br />
-            <a href="#" className='text-dark'>  Men</a><br />
-            <a href="#" className='text-dark'>Girls</a><br />
-            <a href="#" className='text-dark'>Boys</a><br />
-            <a href="#" className='text-dark'>Baby</a><br />
-            <a href="#" className='text-dark'>Luggage & Travel Gear</a><br />
-            <a href="#" className='text-dark'>Novelty & Special Use</a><br />
-            <a href="#" className='text-dark'>Shoe, Jewelry & Watch </a><br />
-            <a href="#" className='text-dark'>Accessories</a><br />
-
-            <p className="h6 fw-bold mt-4">Color</p>
-
-
-            <div>
-              <div className="square black"></div>
-              <div className="square gray"></div>
-              <div className="square white"></div>
-              <div className="square bro"></div>
-              <div className="square red"></div>
-              <div className="square pink"></div>
-              <div className="square orange"></div>
-              <div className="square yellow"></div>
-              <div className="square green"></div>
-              <div className="square blue"></div>
-              <div className="square darkblue"></div>
-              <div className="square purple"></div>
-              <div className="square bage"></div>
-              <div className="square bage1"></div>
-              <div className="square bage2"></div>
-
-            </div>
-
-            <p className="h6 fw-bold mt-4">Fulfilled by Amazon</p>
-
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="AutomotiveCheckbox"
-                id="AutomotiveCheckbox" />
-              <label className="col-10 " htmlFor="AutomotiveCheckbox">
-                Fulfilled by Amazon</label>
-            </span>
-
-            <p className="h6 fw-bold mt-4">Brand</p>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyFashionCheckbox"
-                id="BabyFashionCheckbox" />
-              <label className="col-10 " htmlFor="BabyFashionCheckbox">
-                adidas</label>
-            </span>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyProductsCheckbox"
-                id="BabyProductsCheckbox" />
-              <label className="col-10 " htmlFor="BabyProductsCheckbox">
-                Conttonil</label>
-            </span>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BeautyCheckbox" id="BeautyCheckbox" />
-              <label className="col-10 " htmlFor="BeautyCheckbox">
-                Casio</label>
-            </span>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BooksCheckbox" id="BooksCheckbox" />
-              <label className="col-10 " htmlFor="BooksCheckbox">
-                American Eagle</label>
-            </span>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="BoysFashionCheckbox"
-                id="BoysFashionCheckbox" />
-              <label className="col-10 " htmlFor="BoysFashionCheckbox">
-                Carina</label>
-            </span>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="Computers,Components&Accessories"
-                id="ComputersComponents&Accessories" />
-              <label className="col-10 " htmlFor="ComputersComponents&Accessories">
-                Grinta</label>
-            </span>
-            <span className="d-flex flex-row justify-content-around align-items-baseline">
-              <input className="CategoryCheckBoxes col-1" type="checkbox" name="ElectronicsCheckbox"
-                id="ElectronicsCheckbox" />
-              <label className="col-10 " htmlFor="ElectronicsCheckbox">
-                Dice</label>
-            </span>
-
-
-
-          </section>
-          <section className="d-flex flex-column pb-3">
-            <h2>Condition</h2>
-            <a href="#" className='text-dark'> New</a>
-            <a href="#" className='text-dark'>Used</a>
-          </section>
-
-          <section className="d-flex flex-column pb-3">
-            <h2>Average customer review</h2>
-            <span>
-              <FaStar className="checkedStar" />
-              <FaStar className="checkedStar" />
-              <FaStar className="checkedStar" />
-              <FaStar className="checkedStar" />
-              <FaRegStar /><span className="averageReview">& up</span>
-            </span>
-            <span>
-              <FaStar className="checkedStar" />
-              <FaStar className="checkedStar" />
-              <FaStar className="checkedStar" />
-              <FaRegStar />
-              <FaRegStar /><span className="averageReview">& up</span>
-            </span>
-            <span>
-              <FaStar className="checkedStar" />
-              <FaStar className="checkedStar" />
-              <FaRegStar />
-              <FaRegStar />
-              <FaRegStar /><span className="averageReview">& up</span>
-            </span>
-            <span>
-              <FaStar className="checkedStar" />
-              <FaRegStar />
-              <FaRegStar />
-              <FaRegStar />
-              <FaRegStar /><span className="averageReview">& up</span>
-            </span>
-
-          </section>
-
-          <section className="d-flex flex-column pb-3">
-            <h4>Price</h4>
-
-            <a href="#" className='text-dark'>Up to 25 EGP</a>
-            <a href="#" className='text-dark'>25 to 50 EGP</a>
-            <a href="#" className='text-dark'>50 to 100 EGP </a>
-            <a href="#" className='text-dark'>100 to 200 EGP</a>
-            <a href="#" className='text-dark'>200 to 300 EGP</a>
-            <a href="#" className='text-dark'>300 to 400 EGP</a>
-            <a href="#" className='text-dark'>400 EGP & above</a>
-          </section>
-          <section className="d-flex flex-column pb-3">
-            <h5>Deals & Discounts</h5>
-
-            <a href="#" className='text-dark'>All Discounts</a>
-            <a href="#" className='text-dark'>Todays Deals</a>
-          </section>
-
-
-
-          <p className="h6 fw-bold mt-4">Seller</p>
-          <span className="d-flex flex-row justify-content-around align-items-baseline">
-            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyFashionCheckbox"
-              id="BabyFashionCheckbox" />
-            <label className="col-10 " htmlFor="BabyFashionCheckbox">
-              Amazon.eg</label>
-          </span>
-          <span className="d-flex flex-row justify-content-around align-items-baseline">
-            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyProductsCheckbox"
-              id="BabyProductsCheckbox" />
-            <label className="col-10 " htmlFor="BabyProductsCheckbox">
-              Maleeka Marketplace</label>
-          </span>
-          <span className="d-flex flex-row justify-content-around align-items-baseline">
-            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BabyProductsCheckbox"
-              id="BabyProductsCheckbox" />
-            <label className="col-10 " htmlFor="BabyProductsCheckbox">
-              Octa_EGY⭐⭐⭐⭐</label>
-          </span>
-          <span className="d-flex flex-row justify-content-around align-items-baseline">
-            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BeautyCheckbox" id="BeautyCheckbox" />
-            <label className="col-10 " htmlFor="BeautyCheckbox">
-              Amazon Warehouse</label>
-          </span>
-          <span className="d-flex flex-row justify-content-around align-items-baseline">
-            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BooksCheckbox" id="BooksCheckbox" />
-            <label className="col-10 " htmlFor="BooksCheckbox">
-              American Eagle</label>
-          </span>
-          <span className="d-flex flex-row justify-content-around align-items-baseline">
-            <input className="CategoryCheckBoxes col-1" type="checkbox" name="BoysFashionCheckbox"
-              id="BoysFashionCheckbox" />
-            <label className="col-10 " htmlFor="BoysFashionCheckbox">
-              Cotton-Home</label>
-          </span>
-          <span className="d-flex flex-row justify-content-around align-items-baseline">
-            <input className="CategoryCheckBoxes col-1" type="checkbox" name="Computers,Components&Accessories"
-              id="ComputersComponents&Accessories" />
-            <label className="col-10 " htmlFor="ComputersComponents&Accessories">
-              General.commerce</label>
-          </span>
-          <span className="d-flex flex-row justify-content-around align-items-baseline">
-            <input className="CategoryCheckBoxes col-1" type="checkbox" name="ElectronicsCheckbox"
-              id="ElectronicsCheckbox" />
-            <label className="col-10 " htmlFor="ElectronicsCheckbox">
-              Sugar2022</label>
-          </span>
-          <span className="d-flex flex-row justify-content-around align-items-baseline">
-            <input className="CategoryCheckBoxes col-1" type="checkbox" name="ElectronicsCheckbox"
-              id="ElectronicsCheckbox" />
-            <label className="col-10 " htmlFor="ElectronicsCheckbox">
-              ⭐Home-Smart⭐</label>
-          </span>
-          <span className="d-flex flex-row justify-content-around align-items-baseline">
-            <input className="CategoryCheckBoxes col-1" type="checkbox" name="ElectronicsCheckbox"
-              id="ElectronicsCheckbox" />
-            <label className="col-10 " htmlFor="ElectronicsCheckbox">
-              Sugar2022</label>
-          </span>
-
-
-
-        </section>
+        <LiftSide categoryId={"6518280c6cc9fe1018cc500d"} lessThan={25} between1={[25,50]} between2={[50,100]} between3={[100,200]} greaterThan={200}/>
 
         {/* Right side  */}
-        < div className="col-xl-10 col-md-9 col-8 container-fluid  sideRight justify-content-center align-content-center mt-4 " >
-
-          <h2 className="fw-bold fs-2">Fashion</h2>
-          <div className="bg-primary mt-4 p-3 d-lg-flex d-sm-none small mb-2" style={{ width: '100%', height: '80px' }}>
-            <p className="h6 fw-bold ">Enjoy FREE delivery, exclusive deals, award-winning TV and more
-              Join today</p>
-            <button type="button" className="btn btn-warning btn-sm  ms-5 bootn">Try Prime FREE htmlFor 30 days</button>
+        <div className="col-xl-10 col-md-9 col-8 container-fluid  sideRight justify-content-center align-content-center mt-4 ">
+          <h2 className="fw-bold fs-2">{t("Fashion")}</h2>
+          <div
+            className="bg-primary mt-4 p-3 d-lg-flex d-sm-none small mb-2"
+            style={{ width: "100%", height: "80px" }}
+          >
+            <p className="h6 fw-bold ">
+             {t("Enjoy FREE delivery, exclusive deals, award-winning TV and more Join today")}
+            </p>
+            <button
+              type="button"
+              className="btn btn-warning btn-sm  ms-5 bootn"
+            >
+              {t("Try Prime FREE htmlFor 30 days")}
+            </button>
           </div>
-          <img src="../assets/images/o1.jpeg" className="img-fluid veiw" width="100%" />
+          <img
+           src={language=='en' ?"../assets/images/o1.jpeg":"../assets/images/fashionArabicImag.jpg"}
+            className="img-fluid veiw"
+            width="100%"
+          />
 
-          <h2 className="fw-bold fs-5 m-4">Fashion | Up to 60% off | Low Prices</h2>
-
-
-
+          <h2 className="fw-bold fs-5 m-4">
+            {t("Fashion")} | {t("Up to 60% off")} | {t("Low Prices")}
+          </h2>
 
           <div>
             <Slider {...settings}>
@@ -325,73 +118,276 @@ export default function Fashion() {
 
                 </>
               })}
-
-
-
-
             </Slider>
           </div>
 
-          <img src="../assets/images/o1o.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} />
-          <img src="../assets/images/o2.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} />
-          <img src="../assets/images/o3.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} />
-          <img src="../assets/images/qq1.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} />
-          <img src="../assets/images/o4.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} />
-          <img src="../assets/images/o5.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} />
-
+          <img
+            src="../assets/images/o1o.jpg"
+            className="img-fluid veiw"
+            width="100%"
+            style={{ marginBottom: "20px" }}
+          />
+          <img
+            src="../assets/images/o2.jpg"
+            className="img-fluid veiw"
+            width="100%"
+            style={{ marginBottom: "20px" }}
+          />
+          <img
+            src="../assets/images/o3.jpg"
+            className="img-fluid veiw"
+            width="100%"
+            style={{ marginBottom: "20px" }}
+          />
+          <img
+            src="../assets/images/qq1.jpg"
+            className="img-fluid veiw"
+            width="100%"
+            style={{ marginBottom: "20px" }}
+          />
+          <img
+            src="../assets/images/o4.jpg"
+            className="img-fluid veiw"
+            width="100%"
+            style={{ marginBottom: "20px" }}
+          />
+          <img
+            src="../assets/images/o5.jpg"
+            className="img-fluid veiw"
+            width="100%"
+            style={{ marginBottom: "20px" }}
+          />
 
           <Container>
             <Row>
-              <Col> <img src="../assets/images/oo1.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-              <Col> <img src="../assets/images/oo2.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col>
+                {" "}
+                <img
+                  src="../assets/images/oo1.jpg"
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
+              <Col>
+                {" "}
+                <img
+                  src="../assets/images/oo2.jpg"
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
             </Row>
             <Row>
-              <Col> <img src="../assets/images/o7.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-              <Col> <img src="../assets/images/o8.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-              <Col> <img src="../assets/images/o9.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col>
+                {" "}
+                <img
+                  src="../assets/images/o7.jpg"
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
+              <Col>
+                {" "}
+                <img
+                  src="../assets/images/o8.jpg"
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
+              <Col>
+                {" "}
+                <img
+                  src="../assets/images/o9.jpg"
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
             </Row>
             <Row>
-              <Col> <img src="../assets/images/deep1.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-              <Col> <img src="../assets/images/deep2.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-              <Col> <img src="../assets/images/deep3.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-              <Col> <img src="../assets/images/deep4.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-              <Col> <img src="../assets/images/deep5.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-              <Col> <img src="../assets/images/deep6.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-
+              <Col>
+                {" "}
+                <img
+                  src="../assets/images/deep1.jpg"
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
+              <Col>
+                {" "}
+                <img
+                  src="../assets/images/deep2.jpg"
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
+              <Col>
+                {" "}
+                <img
+                  src="../assets/images/deep3.jpg"
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
+              <Col>
+                {" "}
+                <img
+                  src="../assets/images/deep4.jpg"
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
+              <Col>
+                {" "}
+                <img
+                  src="../assets/images/deep5.jpg"
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
+              <Col>
+                {" "}
+                <img
+                  src="../assets/images/deep6.jpg"
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
             </Row>
             <Row>
-              <Col> <img src="../assets/images/deep7.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-              <Col> <img src="../assets/images/deep8.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-              <Col> <img src="../assets/images/deep9.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-              <Col> <img src="../assets/images/deep10.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-              <Col> <img src="../assets/images/deep11.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-              <Col> <img src="../assets/images/deep12.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-
+              <Col>
+                {" "}
+                <img
+                  src="../assets/images/deep7.jpg"
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
+              <Col>
+                {" "}
+                <img
+                  src="../assets/images/deep8.jpg"
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
+              <Col>
+                {" "}
+                <img
+                  src="../assets/images/deep9.jpg"
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
+              <Col>
+                {" "}
+                <img
+                  src="../assets/images/deep10.jpg"
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
+              <Col>
+                {" "}
+                <img
+                  src="../assets/images/deep11.jpg"
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
+              <Col>
+                {" "}
+                <img
+                  src="../assets/images/deep12.jpg"
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
             </Row>
           </Container>
 
-          <img src="../assets/images/o5.jpg" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} />
+          <img
+            src="../assets/images/o5.jpg"
+            className="img-fluid veiw"
+            width="100%"
+            style={{ marginBottom: "20px" }}
+          />
 
           <Container>
-            <h3 className='text-center m-3'>Shop by Price</h3>
+            <h3 className="text-center m-3">{t("Shop by Price")}</h3>
             <Row>
-              <Col> <img src="../assets/images/za1.gif" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-              <Col> <img src="../assets/images/za2.gif" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-              <Col> <img src="../assets/images/za3.gif" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
-              <Col> <img src="../assets/images/za4.gif" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} /></Col>
+              <Col>
+                {" "}
+                <img
+                  src={language=="en"? "../assets/images/za1.gif":"../assets/images/price_fashion-AR_199.gif"}
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
+              <Col>
+                {" "}
+                <img
+                  src={language=="en" ?"../assets/images/za2.gif":"../assets/images/price_fashion-AR_200-499.gif"}
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
+              <Col>
+                {" "}
+                <img
+                src={language=="en" ?"../assets/images/za3.gif":"../assets/images/price_fashion-AR_500-899.gif"}
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
+              <Col>
+                {" "}
+                <img
+                src={language=="en" ?"../assets/images/za4.gif":"../assets/images/price_fashion-AR_900.gif"}
+
+                  className="img-fluid veiw"
+                  width="100%"
+                  style={{ marginBottom: "20px" }}
+                />
+              </Col>
             </Row>
           </Container>
 
-          <h3 className='text-center m-3'>Shop by brand</h3>
-          <img src="../assets/images/many.PNG" className="img-fluid veiw" width="100%" style={{ marginBottom: '20px' }} />
-
+          <h3 className="text-center m-3">{t("Shop by brand")}</h3>
+          <img
+            src="../assets/images/many.PNG"
+            className="img-fluid veiw"
+            width="100%"
+            style={{ marginBottom: "20px" }}
+          />
 
           <div className="card mt-4">
             <div className="card-body">
-              <p className="fw-normal">1-12 of over 50,000 results for  <span className="text-danger fw-bold">Fashion</span></p>
+              <p className="fw-normal">
+                {t("1-12 of over 70,000 results for")}{" "}
+                <span className="text-danger fw-bold">{t("Fashion")}</span>
+              </p>
             </div>
           </div>
-
 
           <div className="container">
             <div className="row">
@@ -424,12 +420,13 @@ export default function Fashion() {
             </div>
           </div>
 
-
-
-
-
           <div className="d-grid gap-2">
-            <button className="btn mt-4 mb-5" style={{ backgroundColor: '#ebeaea', color: 'rgb(62, 110, 130)' }} type="button"><h5>See all results</h5>
+            <button
+              className="btn mt-4 mb-5"
+              style={{ backgroundColor: "#ebeaea", color: "rgb(62, 110, 130)" }}
+              type="button"
+            >
+              <h5>{t("See all results")}</h5>
             </button>
           </div>
 
@@ -437,5 +434,5 @@ export default function Fashion() {
         </div>
       </div>
     </>
-  )
+  );
 }

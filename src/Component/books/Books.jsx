@@ -1,5 +1,3 @@
-//////////////////////////////////////////////
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Books.css";
@@ -7,6 +5,7 @@ import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import Rate from "../rate/rate";
 import { PaginationControl } from "react-bootstrap-pagination-control";
+import { useTranslation } from "react-i18next";
 
 // import Card from 'react-bootstrap/Card';
 // import Col from 'react-bootstrap/Col';
@@ -28,6 +27,8 @@ import {
 } from "../../../store/Slice/favorite";
 
 export default function Books() {
+  const { t } = useTranslation();
+
   const [page, setPage] = useState(1);
 
   let navigate = useNavigate();
@@ -128,314 +129,10 @@ export default function Books() {
   return (
     <>
       <p style={{ fontSize: "40px" }} className="text-center ">
-        Book at amazon {page}
+        {t("Book at amazon")}
       </p>
       <div className="d-flex ">
-        <div
-          className="col-2 px-3"
-          style={{
-            minWidth: "240px",
-            borderRight: "2px solid rgb(221,221,221)",
-          }}
-        >
-          <h6 style={{ fontWeight: "100" }}>Popular in Books</h6>
-          <div className="px-3 d-flex flex-column mb-3">
-            <Link className="a-book"> Summer Reading</Link>
-            <Link className="a-book"> Read with Pride</Link>
-            <Link className="a-book"> Raising Asian Voices</Link>
-            <Link className="a-book"> Books by Black Authors</Link>
-            <Link className="a-book"> Hispanic and Latino Stories</Link>
-            <Link className="a-book"> Books in Spanish</Link>
-            <Link className="a-book"> Celebrity Picks</Link>
-            <Link className="a-book"> Children's Books</Link>
-            <Link className="a-book"> Deals in Books</Link>
-            <Link className="a-book"> Best Books of 2023 So Far</Link>
-            <Link className="a-book"> Best Books of the Month</Link>
-          </div>
-          <h6 style={{ fontWeight: "100" }}>More in Books</h6>
-          <div className="px-3 d-flex flex-column mb-3">
-            <Link className="a-book"> Book Merch Shop</Link>
-            <Link className="a-book"> 100 Books to Read in a Lifetime</Link>
-            <Link className="a-book"> Amazon Book Review</Link>
-            <Link className="a-book"> Amazon Books on Facebook</Link>
-            <Link className="a-book"> Amazon Books on Twitter</Link>
-            <Link className="a-book"> Amazon First Reads</Link>
-            <Link className="a-book"> Book Club Picks</Link>
-            <Link className="a-book"> From Page to Screen</Link>
-            <Link className="a-book"> Start a New Series</Link>
-            <Link className="a-book"> Your Company Bookshelf</Link>
-          </div>
-          <h6 style={{ fontWeight: "100" }}> Textbooks</h6>
-          <div className="px-3 d-flex flex-column mb-3">
-            <Link className="a-book">Textbooks Store</Link>
-            <Link className="a-book"> Textbook Rentals</Link>
-            <Link className="a-book"> Kindle eTextbooks</Link>
-          </div>
-          <h6 style={{ fontWeight: "100" }}> Kindle & Audible</h6>
-          <div className="px-3 d-flex flex-column mb-3">
-            <Link className="a-book">Audible Audiobooks</Link>
-            <Link className="a-book"> Kindle eBooks</Link>
-            <Link className="a-book">Kindle Deals</Link>
-            <Link className="a-book"> Kindle Unlimited</Link>
-            <Link className="a-book"> Kindle Vella</Link>
-            <Link className="a-book">Prime Reading</Link>
-          </div>
-          <h6 style={{ fontWeight: "100" }}> New Releases</h6>
-          <div className=" d-flex flex-column mb-3">
-            <Link style={{ fontSize: "15px" }} className="a-book">
-              Last 30 days
-            </Link>
-            <Link style={{ fontSize: "15px" }} className="a-book">
-              Last 90 days
-            </Link>
-            <Link style={{ fontSize: "15px" }} className="a-book">
-              Coming Soon
-            </Link>
-          </div>
-
-          <h6 style={{ fontWeight: "100" }}> Department</h6>
-          <h6 className="px-3 " style={{ fontWeight: "100" }}>
-            {" "}
-            Books
-          </h6>
-          <div className="px-4 d-flex flex-column mb-3">
-            <Link className="a-book"> Arts & Photography</Link>
-            <Link className="a-book">Biographies & Memoirs</Link>
-            <Link className="a-book">Business & Money</Link>
-            <Link className="a-book">Calendars</Link>
-            <Link className="a-book">Children's Books</Link>
-            <Link className="a-book">Christian Books & Bibles</Link>
-            <Link className="a-book">Comics & Graphic Novels</Link>
-            <Link className="a-book">Computers & Technology</Link>
-            <Link className="a-book"> Cookbooks, Food & Wine</Link>
-            <Link className="a-book">Crafts, Hobbies & Home</Link>
-            <Link className="a-book">Education & Teaching</Link>
-            <Link className="a-book">Engineering & Transportation</Link>
-            <Link className="a-book">Health, Fitness & Dieting</Link>
-            <Link className="a-book">History</Link>
-            <Link className="a-book">Humor & Entertainment</Link>
-            <Link className="a-book">Law</Link>
-            <Link className="a-book">LGBTQ+ Books</Link>
-            <Link className="a-book">Literature & Fiction</Link>
-            <Link className="a-book">Medical Books</Link>
-            <Link className="a-book">Mystery, Thriller & Suspense</Link>
-            <Link className="a-book">Parenting & Relationships</Link>
-            <Link className="a-book">Politics & Social Sciences</Link>
-            <Link className="a-book">Reference</Link>
-            <Link className="a-book">Religion & Spirituality</Link>
-            <Link className="a-book">Romance</Link>
-            <Link className="a-book">Science & Math</Link>
-            <Link className="a-book">Science Fiction & Fantasy</Link>
-            <Link className="a-book">Self-Help</Link>
-            <Link className="a-book">Sports & Outdoors</Link>
-            <Link className="a-book">Teen & Young Adult</Link>
-            <Link className="a-book">Test Preparation</Link>
-            <Link className="a-book">Travel</Link>
-          </div>
-          <h6 style={{ fontWeight: "100" }}>Format</h6>
-          <div className=" d-flex flex-column mb-3">
-            <Link className="a-book">Paperback</Link>
-            <Link className="a-book">Hardcover</Link>
-            <Link className="a-book">Kindle Edition</Link>
-            <Link className="a-book">Large Print</Link>
-            <Link className="a-book">Audible Audiobook</Link>
-            <Link className="a-book">Printed Access Code</Link>
-            <Link className="a-book">Loose Leaf</Link>
-            <Link className="a-book">Audio CD</Link>
-            <Link className="a-book">Board Book</Link>
-            <Link className="a-book">Spiral-bound</Link>
-          </div>
-
-          <h6 style={{ fontWeight: "100" }}>Kindle Unlimited</h6>
-          <div className=" d-flex flex-column mb-3">
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Paperback
-            </a>
-          </div>
-          <h6 style={{ fontWeight: "100" }}>Author</h6>
-          <div className=" d-flex flex-column mb-3">
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Caroline Peckham
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Rebecca Yarros
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Marina J.
-              Lostetter
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Gwendolyn Kiste
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Stephen King
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Keila Shaheen
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Ann Patchett
-            </a>
-          </div>
-          <h6 style={{ fontWeight: "100" }}>Author</h6>
-          <div className=" d-flex flex-column mb-3">
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Caroline Peckham
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Rebecca Yarros
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Marina J.
-              Lostetter
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Gwendolyn Kiste
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Stephen King
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Keila Shaheen
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Ann Patchett
-            </a>
-          </div>
-          <h6 style={{ fontWeight: "100" }}>Author</h6>
-          <div className=" d-flex flex-column mb-3">
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Caroline Peckham
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Rebecca Yarros
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Marina J.
-              Lostetter
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Gwendolyn Kiste
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Stephen King
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Keila Shaheen
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Ann Patchett
-            </a>
-          </div>
-          <h6 style={{ fontWeight: "100" }}>Author</h6>
-          <div className=" d-flex flex-column mb-3">
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Caroline Peckham
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Rebecca Yarros
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Marina J.
-              Lostetter
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Gwendolyn Kiste
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Stephen King
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Keila Shaheen
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Ann Patchett
-            </a>
-          </div>
-          <h6 style={{ fontWeight: "100" }}>Promotion</h6>
-          <div className=" d-flex flex-column mb-3">
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Bargain Books
-            </a>
-          </div>
-          <h6 style={{ fontWeight: "100" }}>Customer Reviews</h6>
-
-          <div className="d-flex flex-column">
-            <span>
-              <FaStar className="checkedStar" />
-              <FaStar className="checkedStar" />
-              <FaStar className="checkedStar" />
-              <FaStar className="checkedStar" />
-              <FaRegStar />
-              <span className="averageReview">& up</span>
-            </span>
-            <span>
-              <FaStar className="checkedStar" />
-              <FaStar className="checkedStar" />
-              <FaStar className="checkedStar" />
-              <FaRegStar />
-              <FaRegStar />
-              <span className="averageReview">& up</span>
-            </span>
-            <span>
-              <FaStar className="checkedStar" />
-              <FaStar className="checkedStar" />
-              <FaRegStar />
-              <FaRegStar />
-              <FaRegStar />
-              <span className="averageReview">& up</span>
-            </span>
-            <span>
-              <FaStar className="checkedStar" />
-              <FaRegStar />
-              <FaRegStar />
-              <FaRegStar />
-              <FaRegStar />
-              <span className="averageReview">& up</span>
-            </span>
-          </div>
-          <h6 style={{ fontWeight: "100" }}>Author</h6>
-          <div className=" d-flex flex-column mb-3">
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Caroline Peckham
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Rebecca Yarros
-            </a>
-          </div>
-        </div>
+      <LiftSide categoryId={"6519d2f8a19024252354539f"} lessThan={25} between1={[25,50]} between2={[50,100]} between3={[100,200]} greaterThan={200}/>
 
         <div className=" d-flex flex-column col-respons">
           <img style={{ width: "100%" }} src="../assets/books/1.jpg" alt="" />
@@ -470,7 +167,7 @@ export default function Books() {
           </div>
 
           <div className="w-100">
-            <h2>Best sellers</h2>
+            <h2>{t("Best Sellers")}</h2>
             <div className=" d-flex flex-wrap p-2 ">
               {listbook.map((book) => {
                 return (

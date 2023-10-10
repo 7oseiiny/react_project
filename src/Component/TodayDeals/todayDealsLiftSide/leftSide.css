@@ -11,7 +11,8 @@ header>a,
 section>a,
 .averageReview,
 .seeMore,
-.relatedItemsTitle {
+.relatedItemsTitle,
+.searchByPrice {
     color: #007185;
     text-decoration: none;
     font-size: 14px;
@@ -24,7 +25,8 @@ header>a:hover,
 section>a:hover,
 .averageReview:hover,
 .seeMore:hover,
-.relatedItemsTitle:hover {
+.relatedItemsTitle:hover,
+.searchByPrice:hover {
     cursor: pointer;
     color: #da651f;
     text-decoration: underline;
