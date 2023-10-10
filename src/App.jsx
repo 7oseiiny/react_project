@@ -23,7 +23,6 @@ import Main from "./Component/HomeProducts/Main/Main";
 import BestSeller from "./Component/VideoGames/BestSeller";
 import VgamesNav from "./Component/VideoGames/VgamesNav";
 import axiosInstance from "./axiosConfig/instance";
-import Login from "./Component/Login/login";
 import CreateAccount from "./Component/Sign-Up/Sign-Up";
 import { AuthProvider } from './Context/user-auth'
 import { useState } from 'react'
@@ -36,6 +35,7 @@ import ProductDetails from "./Component/productDetails/ProductDetails";
 import Profile from "./Component/UserInfo/profile";
 import Favorite from "./Component/favorite/favorite";
 import TrackingOrder from "./Component/UserInfo/TrackingOrder";
+import Login from "./Component/Login/Login";
 
 
 
