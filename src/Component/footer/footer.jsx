@@ -25,7 +25,7 @@ function FooterCom() {
                 <a className="back-to-top text-decoration-none text-light " href="#">Back to top</a>
             </div>
         </section>
-        <div className="container-fluid">
+        <div className="container-fluid dark-background">
             <Row className='first-footer-sec  '>
                 <div className='cont w-75'>
 
