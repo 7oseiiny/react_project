@@ -1,36 +1,42 @@
-import React, { useState } from 'react';
+import React, {  useEffect } from 'react';
 import "./userInfo.css";
-export default function TrackingOrder() {
-    ;
+import { fetchOrder } from "../../../store/Slice/orderSlice";
+import { useDispatch , useSelector } from "react-redux";
 
+
+export default function TrackingOrder() {
+    const dispatch = useDispatch(); 
+    useEffect(() => {
+        dispatch(fetchOrder());
+
+      }, [dispatch]);
+      var orders = useSelector((state) => { return state.order.data })
+      console.log(orders);
     return (
         <>
-            <div className="conteriner">
+            <div className="container">
                 <h3 className='m-5'>Your Orders</h3>
                 <div className="order-table shadow">
-                    <table className="table ">
+                    <table className="table">
                         <thead>
-                            <th className="order-th shadow">Order</th>
-                            <th className="order-th shadow">Date</th>
-                            <th className="order-th shadow">Items</th>
-                            <th className="order-th shadow">Ship to</th>
-                            <th className="order-th shadow">Status</th>
-                            <th className="order-th shadow">Total</th>
+                            <tr>
+                                <th className="order-th shadow">Order</th>
+                                <th className="order-th shadow">Date</th>
+                                <th className="order-th shadow">Status</th>
+                            </tr>
                         </thead>
                         <tbody>
-                            <tr className="order-tr-light">
-                                <td className="order-td">aaaaaaaaa</td>
-                                <td className="order-td">aaaaaaaaa</td>
-                                <td className="order-td">aaaaaaaaa</td>
-                                <td className="order-td">aaaaaaaaa</td>
-                                <td className="order-td">aaaaaaaaa</td>
-                                <td className="order-td">aaaaaaaaa</td>
-                    
-                            </tr>
+                        {orders.map((order) => (
+                                <tr className="order-tr-light" key={order._id}>
+                                    <td className="order-td">{order._id}</td>
+                                    <td className="order-td">{order.createdAt}</td>
+                                    <td className="order-td">{order.status}</td>
+                                </tr>
+                            ))}  
                         </tbody>
                     </table>
                 </div>
             </div>
         </>
-    )
+    );
 }

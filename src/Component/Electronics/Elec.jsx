@@ -3,10 +3,37 @@ import Slider from "react-slick";
 import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
-import React from 'react';
+import React , { useState } from 'react';
+import { useEffect } from 'react';
 import '../TodayDeals/todayDealsLiftSide/leftSide.css'
+import { fetchcategory } from "../../../store/Slice/categorySlice";
+import { useDispatch } from "react-redux";
+import Rate from "../rate/rate";
+import axiosInstance from '../../axiosConfig/instance';
+import { useNavigate } from 'react-router-dom';
+
+
 
 export default function Electronics() {
+  let dispatch = useDispatch()
+  let [myfash, setmyfash] = useState([]);
+  let navigate = useNavigate()
+
+  useEffect(() => {
+    axiosInstance.get("category/651dda72537875a0a0d4ba3e").then((data)=>{
+      setmyfash(data.data.data.products)
+      console.log(data.data.data.products)
+    }).catch((err)=>{console.log(err)})
+    dispatch(fetchcategory("Electronics"))
+    return()=>{ dispatch(fetchcategory([]))}
+  }, [])
+
+  // var fav = useSelector((state) => { return state.favorite.data.productId })
+
+  function gotodetails(prodId){
+    console.log(prodId)
+    navigate("/productdetails", { state: { productId: prodId } });
+  }
   var settings = {
     dots: false,
     infinite: false,
@@ -342,15 +369,17 @@ export default function Electronics() {
         <img src="../assets/images/9=.jpg" className="mt-2 img-fluid"/><hr className="mt-3"/>
 <h2>Electronics | New arrivals</h2><hr/>
 <Slider {...settings}>
+{myfash.map((prod) => {
+return <>
 <div className="card border-0 ">
-        <img src="../assets/images/Capture0.PNG" className="card-img-top1" alt="..."/>
+        <img src={prod.img} className="card-img-top1" alt="..."/>
         <div className="card-body">
           <p className="card-text">
-            Soundcore By Anker R50i True Wireless…</p>
-          <span>Soundcore</span>
-          <div className="d-flex">EGP<sub><h3>1,109</h3></sub>00 
+          {prod.title_en}</p>
+          {/* <span>Soundcore</span> */}
+          <div className="d-flex">EGP<sub><h3>{prod.price.new}</h3></sub>00 
            </div>
-           <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP1,399.00</span>
+           <span className="text-muted pt-3 text-decoration-line-through me-2"> {prod.price.old}</span>
           <div>
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
@@ -361,7 +390,9 @@ export default function Electronics() {
          </div>     
             </div>
             </div>
-            <div className="card border-0 ">
+            </>
+          })}
+            {/* <div className="card border-0 ">
           <img src="../assets/images/Capture1.PNG" className="card-img-top1" alt="..."/>
           <div className="card-body">
             <p className="card-text-black">Oraimo Smart watch OSW-16, BrightSilv…</p>
@@ -459,19 +490,21 @@ export default function Electronics() {
               <BsStar color='#FFA41C'/>(631)
            </div>  
                 </div>
-              </div>
+              </div> */}
 </Slider>
-<h2 className="mt-4">Electronics | Best Sellers</h2><hr/>
+<h2 className="mt-0">Electronics | Best Sellers</h2><hr/>
 <Slider {...settings}>
+{myfash.map((prod) => {
+return <>
 <div className="card border-0">
-        <img src="../assets/images/111.PNG" className="card-img-top1" alt="..."/>
+        <img src={prod.img} onClick={() => { gotodetails(prod._id) }} className="card-img-top1" alt="..."/>
         <div className="card-body">
           <p className="card-text">
-            Adjustable Laptop Stand, Portable...
+          {prod.title_en}
             </p>
-          <span>MONADIKOS</span>
-          <div className="d-flex">EGP<sub><h3>125</h3></sub>00 
-            <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP130.00</span>
+          {/* <span>MONADIKOS</span> */}
+          <div className="d-flex">EGP<sub><h3>{prod.price.new}</h3></sub>00 
+            <span className="text-muted pt-3 text-decoration-line-through me-2"> {prod.price.old}</span>
            </div>
           <div>
            <BsStarFill color='#FFA41C'/>
@@ -482,7 +515,9 @@ export default function Electronics() {
          </div>      
               </div>
             </div>
-            <div className="card border-0">
+            </>
+      })}
+            {/* <div className="card border-0">
           <img src="../assets/images/222.PNG" className="card-img-top1" alt="..."/>
           <div className="card-body">
             <p className="card-text">Joyroom JR-BP560 Excellent Series Por…</p>
@@ -585,9 +620,9 @@ export default function Electronics() {
               <BsStar color='#FFA41C'/>(631)
            </div>  
                 </div>
-              </div>
+              </div> */}
 </Slider>
-<div className="card mt-4">
+<div className="card mt-0">
   <div className="card-body">
     <span>1-12 of over 70,000 results for <span className="text-danger fw-bold">Electronics</span></span>
   </div>
@@ -597,20 +632,23 @@ export default function Electronics() {
    
 <div className="container">
   <div className="row">
+  {myfash.map((prod) => {
+    return <>
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card" style={{width:  '21rem'}}>
-        <img src="../assets/images/1=.jpg" className="card-img-top imgCard container-fluid justify-content-center align-content-center" alt="..."/>
+      <div className="card"  style={{width:  '21rem'}}>
+        <img src={prod.img} onClick={() => { gotodetails(prod._id) }} className="card-img-top imgCard container-fluid justify-content-center align-content-center" alt="..."/>
         <div className="card-body">
-          <p className="card-text">SAMSUNG Galaxy A04 Dual SIM Smartphone- 3GB RAM, 32GB Storage, LTE, Black - 1 year Warranty</p>
-          <div className="d-inline-block">
+         <p className="card-text">{prod.title_en}</p>
+          {/* <div className="d-inline-block">
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
           <BsStarFill color='#FFA41C' />
           <BsStarHalf color='#FFA41C' />
-          <BsStar color='#FFA41C' />31
-          </div>     
-               <div className="d-flex">EGP<sub><h3>15,199</h3></sub>00 
-                <span className="pt-3 me-2">List: <span className="text-muted pt-3 text-decoration-line-through me-2"> EGP4,919.00</span></span> 
+          <BsStar color='#FFA41C' />
+          </div>      */}
+          <Rate rate={prod.rate} ></Rate>
+               <div className="d-flex">EGP<sub><h3>{prod.price.new}</h3></sub>00 
+                <span className="pt-3 me-2"> <span className="text-muted pt-3 text-decoration-line-through me-2">{prod.price.old}</span></span> 
               </div> 
               <div className="d-flex align-items-start me-3">
                 <img src="../assets/images/a.PNG" style={{width:'50px'}}/><h6>Get it as soon as tomorrow, Jul 31</h6> 
@@ -619,7 +657,9 @@ export default function Electronics() {
               </div>
             </div>
       </div>
-    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
+      </>
+      })}
+    {/* <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
       <div className="card" style={{width:  '21rem'}}>
         <img src="../assets/images/1+.jpg" className="card-img-top imgCard container-fluid justify-content-center align-content-center" alt="..."/>
         <div className="card-body">
@@ -806,7 +846,7 @@ export default function Electronics() {
                 <h6>Fulfilled by Amazon - FREE Shipping</h6>
               </div>
             </div>
-    </div>
+    </div> */}
 
   </div>
   <div className="d-grid gap-2">
