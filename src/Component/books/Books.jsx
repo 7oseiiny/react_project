@@ -28,13 +28,13 @@ export default function Books() {
   let dispatch = useDispatch()
   let [change, setchange] = useState(0);
   let [pages, setpages] = useState();
-  
+
   useEffect(() => {
-    dispatch(fetchcategorypage("books",page)).then(((e)=>{setpages(e.payload)}))
-    dispatch(fetchcategory({name:"books",page}))
+    dispatch(fetchcategorypage("books", page)).then(((e) => { setpages(e.payload) }))
+    dispatch(fetchcategory({ name: "books", page }))
     dispatch(fetchCart())
     dispatch(fetchfavorite())
-  }, [dispatch,change,page])
+  }, [dispatch, change, page])
 
   // useEffect(() => {
   //   dispatch(fetchcategory("books",page))
@@ -80,7 +80,7 @@ export default function Books() {
   }
   async function addtofav(productId) {
     await dispatch(addProductInfavorite(productId))
-    setchange(productId+" ")
+    setchange(productId + " ")
   }
 
   function gotodetails(bookId) {
@@ -435,40 +435,42 @@ export default function Books() {
             <h2>Best sellers</h2>
             <div className=" d-flex flex-wrap p-2 ">
               {
-              // Array.isArray(listbook)?
-              listbook.map((book) => {
-                return <>
-                  <div className="col-lg-3 col-6 p-2" >
-                    <div className="bg-light w-100 p-2 text-center "  >
-                      <img className="w-50 " src={book.img} alt="" />
-                      <p style={{ fontSize: "1vw", height: "50px" }}>{book.title_en}</p>
-                      <Rate rate={book.rate} ></Rate>
-                      <p style={{ fontSize: "1vw" }}>{book.price.new} $</p>
-                      <p style={{ fontSize: "1vw", color: "red" }}>{book.quantity} in stok</p>
+                listbook.map((book) => {
+                  return <>
+                    <div className="col-lg-3 col-6 p-2" >
+                      <div className="bg-light w-100 p-2 text-center "  >
+                        <img className="w-50 " src={book.img} alt="" />
+                        <p style={{ fontSize: "1vw", height: "50px" }}>{book.title_en}</p>
+                        <div className="d-flex w-100 justify-content-center">
+                          <Rate rate={book.avg_rating} ></Rate>
+                          <p className="p-0 m-0 px-2">( {book.num_rating} )</p>
 
-                      <div className="d-felx  ">
-                        <button onClick={() => { gotodetails(book._id); }} className="btn btn-secondary m-2">details</button>
-                        {!isInCart(book._id) ? <button disabled={book.quantity < 1} onClick={() => { addtocart(book._id) }} className="btn btn-warning">add to cart</button> : <button onClick={viewcart} className="btn btn-warning">view cart</button>}
-                        {!isinfav(book._id) ? <MdOutlineFavoriteBorder onClick={() => { addtofav(book._id) }} style={{ fontSize: "25px", marginLeft: "10px" }}></MdOutlineFavoriteBorder> : <MdFavorite></MdFavorite>}
-                        {/* <MdOutlineFavoriteBorder onClick={addtofav(book._id)} style={{ fontSize: "25px", marginLeft: "10px" }}></MdOutlineFavoriteBorder> */}
+                        </div>
+                        <p style={{ fontSize: "1vw" }}>{book.price.new} $</p>
+                        <p style={{ fontSize: "1vw", color: "red" }}>{book.quantity} in stok</p>
+
+                        <div className="d-felx  ">
+                          <button onClick={() => { gotodetails(book._id); }} className="btn btn-secondary m-2">details</button>
+                          {!isInCart(book._id) ? <button disabled={book.quantity < 1} onClick={() => { addtocart(book._id) }} className="btn btn-warning">add to cart</button> : <button onClick={viewcart} className="btn btn-warning">view cart</button>}
+                          {!isinfav(book._id) ? <MdOutlineFavoriteBorder onClick={() => { addtofav(book._id) }} style={{ fontSize: "25px", marginLeft: "10px" }}></MdOutlineFavoriteBorder> : <MdFavorite></MdFavorite>}
+                          {/* <MdOutlineFavoriteBorder onClick={addtofav(book._id)} style={{ fontSize: "25px", marginLeft: "10px" }}></MdOutlineFavoriteBorder> */}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </>
-              })
-              // :""
+                  </>
+                })
               }
-              
+
             </div>
 
           </div>
           <PaginationControl
-                    page={page}
-                    between={2}
-                    total={pages}
-                    limit={1}
-                    changePage={(page) => {  setPage(page) ;setchange(page) }}
-                />
+            page={page}
+            between={2}
+            total={pages}
+            limit={1}
+            changePage={(page) => { setPage(page); setchange(page) }}
+          />
           <div>
             <h2>Featured Page to Screen Adaptations</h2>
             <Sliders numberOfItems={(screenWidth > 1200) ? 6 : (screenWidth < 1200 && screenWidth > 768) ? 3 : (screenWidth < 768 && screenWidth > 500) ? 2 : 1} />

@@ -9,7 +9,7 @@ export default function AppLayout() {
   return (
     <>
     <div>
-    {!unshow && <Navbar />}
+    {!unshow && <Navbar  />}
     <Outlet/>
     {!unshow  && <FooterCom />}
     </div>

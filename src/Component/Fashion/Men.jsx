@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../TodayDeals/todayDealsLiftSide/leftSide.css'
 import { FaStar, FaRegStar } from "react-icons/fa6";
 import Container from 'react-bootstrap/Container';
@@ -7,7 +7,27 @@ import { BsStar } from "react-icons/bs";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './Fashion.css'
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import axiosInstance from '../../axiosConfig/instance';
+import { useEffect } from 'react';
+import { fetchcategory } from "../../../store/Slice/categorySlice";
 export default function Men() {
+  let [myfash, setmyfash] = useState([]);
+  let dispatch = useDispatch();
+  let navigate = useNavigate()
+  useEffect(() => {
+    axiosInstance.get("category/651ed4af1f7aed6d784da27d").then((data)=>{
+      setmyfash(data.data.data.products)
+      console.log(data.data.data.products)
+    }).catch((err)=>{console.log(err)})
+    dispatch(fetchcategory("Men Fashion"))
+    return()=>{ dispatch(fetchcategory([]))}
+  }, [])
+  function gotodetails(prodId){
+    console.log(prodId)
+    navigate("/productdetails", { state: { productId: prodId}});
+}
   return (
     <>
 
@@ -280,125 +300,31 @@ export default function Men() {
 </div>
 
 <div className="container">
-  <div className="row">
+            <div className="row">
+              {myfash.map((moda) => {
+                return < >
 
-    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card border-0" style={{ width: '20rem', height: '17rem' }}>
-        <img src="../assets/images/a1.webp" className="card-img-top h-57 " />
-        <div className="d-inline-block">
-          <p className="card-text">White wipes</p>
-          <BsStarFill color='#FFA41C' />
-          <BsStarFill color='#FFA41C' />
-          <BsStarFill color='#FFA41C' />
-          <BsStarFill color='#FFA41C' />
-          <BsStar color='#FFA41C' />
-        </div>
-        <div className="d-flex">EGP <sub>
-          <h3>21</h3>
-        </sub>00
-        </div>
-      </div>
-    </div>
-
-    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card border-0" style={{ width: '20rem', height: '17rem' }}>
-        <img src="../assets/images/sa1.jpg" className="card-img-top h-57 " />
-        <div className="d-inline-block">
-          <p className="card-text">Black shoe</p>
-          <BsStarFill color='#FFA41C' />
-          <BsStarFill color='#FFA41C' />
-          <BsStarFill color='#FFA41C' />
-          <BsStarFill color='#FFA41C' />
-          <BsStarFill color='#FFA41C' />
-        </div>
-        <div className="d-flex">EGP <sub>
-          <h3>200</h3>
-        </sub>00
-        </div>
-
-      </div>
-    </div>
-
-    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card border-0" style={{ width: '20rem', height: '17rem' }}>
-        <img src="../assets/images/o21.jpg" className="card-img-top h-57 " />
-        <div className="d-inline-block">
-          <p className="card-text mt-5"> Black shoe </p>
-          <BsStarFill color='#FFA41C' />
-          <BsStarFill color='#FFA41C' />
-          <BsStarFill color='#FFA41C' />
-          <BsStarFill color='#FFA41C' />
-          <BsStar color='#FFA41C' />
-        </div>
-        <div className="d-flex">EGP <sub>
-          <h3>1000</h3>
-        </sub>00
-        </div>
-      </div>
-    </div>
-    {/* row 2  */}
-
-    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card border-0" style={{ width: '20rem', height: '15rem' }}>
-        <img src="../assets/images/a3.webp" className="card-img-top h-57 " />
-
-        <div className="d-inline-block">
-          <p className="card-text mt-1">Cap</p>
-          <BsStarFill color='#FFA41C' />
-          <BsStarFill color='#FFA41C' />
-          <BsStarFill color='#FFA41C' />
-          <BsStar color='#FFA41C' />
-          <BsStar color='#FFA41C' />
-        </div>
-        <div className="d-flex">EGP <sub>
-          <h3>65</h3>
-        </sub>00
-        </div>
-      </div>
-    </div>
-
-    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card border-0" style={{ width: '20rem', height: '15rem' }}>
-        <img src="../assets/images/a6.webp" className="card-img-top h-57 " />
-        <div className="d-inline-block">
-          <p className="card-text mt-2">SAVFOX Wallet</p>
-          <BsStarFill color='#FFA41C' />
-          <BsStarFill color='#FFA41C' />
-          <BsStarFill color='#FFA41C' />
-          <BsStar color='#FFA41C' />
-          <BsStar color='#FFA41C' />
-        </div>
-        <div className="d-flex">EGP <sub>
-          <h3>230</h3>
-        </sub>00
-        </div>
-      </div>
-    </div>
-
-    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-      <div className="card border-0" style={{ width: '20rem', height: '20rem' }}>
-        <img src="../assets/images/a7.webp" className="card-img-top h-57 " />
-        <div className="d-inline-block">
-          <p className="card-text mt-4">Storage Bags</p>
-          <BsStarFill color='#FFA41C' />
-          <BsStarFill color='#FFA41C' />
-          <BsStarFill color='#FFA41C' />
-          <BsStarFill color='#FFA41C' />
-          <BsStar color='#FFA41C' />
-        </div>
-        <div className="d-flex">EGP <sub>
-          <h3>199</h3>
-        </sub>00
-        </div>
-
-      </div>
-    </div>
-
-
-  </div>
-
-</div>
-
+                  <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
+                    <div className="card border-0" style={{ width: '20rem', height: '25rem' }}>
+                      <img src={moda.img} className="card-img-top  h-75" onClick={() => { gotodetails(moda._id)}}/>
+                      <div className="d-inline-block">
+                        <p className="card-text">{moda.title_en}</p>
+                        <BsStarFill color='#FFA41C' />
+                        <BsStarFill color='#FFA41C' />
+                        <BsStarFill color='#FFA41C' />
+                        <BsStarFill color='#FFA41C' />
+                        <BsStar color='#FFA41C' />
+                      </div>
+                      <div className="d-flex">EGP <sub>
+                        <h3>{moda.price.new}</h3>
+                      </sub>00
+                      </div>
+                    </div>
+                  </div>
+                </>
+              })}
+            </div>
+          </div>
 
 <div className="d-grid gap-2">
   <button className="btn mt-4 mb-5" style={{ backgroundColor: '#ebeaea', color: 'rgb(62, 110, 130)' }} type="button"><h5>See all results</h5>
