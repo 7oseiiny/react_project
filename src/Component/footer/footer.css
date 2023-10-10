@@ -9,6 +9,10 @@ body{
 
 }
 
+.dark-background {
+    background-color: var(--first-footer-color);
+}
+
 .signinbtn {
     background: linear-gradient(to bottom, #f7dfa5, #e6ab16);
     display: inline-block;

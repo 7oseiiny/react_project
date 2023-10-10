@@ -7,6 +7,7 @@ import categorySlice from "./Slice/categorySlice";
 import productsSlice from "./Slice/productsSlice";
 import favoriteSlice from './Slice/favorite';
 import orderSlice from "./Slice/orderSlice";
+import reviwesSlice from "./Slice/reviwes"
 
 const store = configureStore({
     reducer: {
@@ -17,6 +18,7 @@ const store = configureStore({
         category: categorySlice,
         favorite: favoriteSlice,
         order: orderSlice
+        reviwes :reviwesSlice
     }
 })
 export default store;
