@@ -5,18 +5,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { login } from '../../Services/user-auth';
 import { AuthContext } from '../../Context/user-auth';
-import Cookies from 'js-cookie';
-
 
 const Login = () => {
     const [email, setEmail] = useState('');
-    const [pwd, setPassword] = useState('');
+    const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [emailTouched, setEmailTouched] = useState(false);
     const [passwordTouched, setPasswordTouched] = useState(false);
     const [user, setUser] = useState({
         email: "",
-        pwd: "",
+        password: "",
     });
     const navigate = useNavigate();
     const { setIslogged, setUserData } = useContext(AuthContext);
@@ -28,7 +26,7 @@ const Login = () => {
     };
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
-        setUser({ ...user, pwd: e.target.value })
+        setUser({ ...user, password: e.target.value })
     };
     const toggleShowPassword = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -40,7 +38,7 @@ const Login = () => {
         e.preventDefault();
         setEmailTouched(true);
         setPasswordTouched(true);
-        console.log(pwd)
+        console.log(password)
         console.log(email)
 
         if ( !passwordValid || !emailValid) {
@@ -55,22 +53,11 @@ const Login = () => {
 
                 const userDatatoSave = res.data;
                 console.log(userDatatoSave);
-                  if (!res.data.message){
+                  if (!res.data.data.message){
                       setUserData(userDatatoSave)
-                      const { accessToken } = userDatatoSave;
-                      const { userId } = userDatatoSave;
-                      console.log(accessToken);
-                    //   localStorage.setItem('token', JSON.stringify(userDatatoSave.data.token))
-                      localStorage.setItem('userId', JSON.stringify(userId))
-                      console.log(userId);
-
-                    //   Cookies.set('accessToken', accessToken, {
-                    //     secure: true,
-                    //     sameSite: "none",
-                    //     httpOnly: true,
-                    //     path: "/"
-                    //   });
-
+                      localStorage.setItem('token', JSON.stringify(userDatatoSave.data.token))
+                      localStorage.setItem('userId', JSON.stringify(userDatatoSave.data.userId))
+                
                       setIslogged(true)
                       navigate('/')
                   }
@@ -84,7 +71,7 @@ const Login = () => {
     };
     // const emailValid = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(email);
     const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-    const passwordValid = pwd.length >= 6;
+    const passwordValid = password.length >= 6;
 
     return (
         <>
@@ -127,7 +114,7 @@ const Login = () => {
                                     id="password"
                                     className={`form-control ${(passwordTouched && !passwordValid) ? 'is-invalid' : passwordValid ? 'is-valid' : ''
                                         }`}
-                                    value={pwd}
+                                    value={password}
                                     onChange={handlePasswordChange}
                                     onBlur={() => setPasswordTouched(true)}
 

@@ -6,8 +6,8 @@ export const fetchOrder=createAsyncThunk(
         let userId=localStorage.getItem('userId').replaceAll('"',"")
         // let userId="651cac675238c660afc16f53"
 
-        const reaponse=await axiosInstance.get(`/order/getByUserId/${userId}`)
-        return  reaponse.data.data;
+        const reaponse=await axiosInstance.get(`/Order/${userId}`)
+        return  reaponse.data.data.items;
     }
 )
 

@@ -6,7 +6,6 @@ import userSlice from "./Slice/userSlice";
 import categorySlice from "./Slice/categorySlice";
 import productsSlice from "./Slice/productsSlice";
 import favoriteSlice from './Slice/favorite';
-import orderSlice from "./Slice/orderSlice";
 
 const store = configureStore({
     reducer: {
@@ -15,8 +14,7 @@ const store = configureStore({
         pathname: pathnameSlice,
         user: userSlice,
         category: categorySlice,
-        favorite:favoriteSlice,
-        order:orderSlice
+        favorite:favoriteSlice
     }
 })
 export default store;

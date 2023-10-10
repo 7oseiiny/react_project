@@ -70,12 +70,6 @@ const CreateAccount = () => {
             : ''
       });
     }
-    const inputElement = evt.target;
-    if (errors[`${evt.target.name}Error`]) {
-      inputElement.classList.add('error');
-    } else {
-      inputElement.classList.remove('error');
-    }
   };
 
   const handleSubmit =  (evt) => {
@@ -125,7 +119,7 @@ const CreateAccount = () => {
             </label>
             <input
               type="text"
-              className={`form-control ${errors.nameError ? 'error' : ''}`}
+              className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               name="name"
@@ -140,7 +134,7 @@ const CreateAccount = () => {
             </label>
             <input
               type="email"
-              className={`form-control ${errors.emailError ? 'error' : ''}`}
+              className="form-control"
               id="exampleInputEmail2"
               aria-describedby="emailHelp"
               name="email"
@@ -155,7 +149,7 @@ const CreateAccount = () => {
             </label>
             <input
               type="text"
-              className={`form-control ${errors.addressError ? 'error' : ''}`}
+              className="form-control"
               id="exampleInputEmail4"
               aria-describedby="emailHelp"
               name="address"
@@ -170,7 +164,7 @@ const CreateAccount = () => {
             </label>
             <input
               type="password"
-              className={`form-control ${errors.passwordError ? 'error' : ''}`}
+              className="form-control"
               id="exampleInputEmail3"aria-describedby="emailHelp"
               name="password"
               placeholder="At least 6 characters"
@@ -185,7 +179,7 @@ const CreateAccount = () => {
             </label>
             <input
               type="password"
-              className={`form-control ${errors.confirmPasswordError ? 'error' : ''}`}
+              className="form-control"
               id="exampleInputPassword1"
               name="confirmPassword"
               value={formData.confirmPassword}
