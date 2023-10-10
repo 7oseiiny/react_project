@@ -22,7 +22,7 @@ const store = configureStore({
         reviwes :reviwesSlice,
         language:LanguageReducer,
         filteredList:filteredListReducer,
-        oredr:orderSlice
+        order:orderSlice
     }
 })
 export default store;

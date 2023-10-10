@@ -12,7 +12,7 @@ export default function TrackingOrder() {
         dispatch(fetchOrder());
 
     }, [dispatch]);
-    console.log(orders);
+    // console.log(orders);
     
     return (
         <>
@@ -34,7 +34,7 @@ export default function TrackingOrder() {
                                     <tr className="order-tr-light" >
                                         <td className="order-td"><img  src={order.products[0].product.img} /></td>
                                         <td className="order-td">{order.createdAt}</td>
-                                        <td className="order-td">{order.products.product.quantity}</td>
+                                        <td className="order-td">{order.products.quantity}</td>
                                         <td className="order-td">{order.status}</td>
                                     </tr>
                                 )):""
