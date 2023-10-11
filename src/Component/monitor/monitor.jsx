@@ -1,25 +1,29 @@
 // import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import './minetor.css'
-import React, { useEffect, useState } from "react"
-import LiftSide from '../TodayDeals/todayDealsLiftSide/liftSide';
-import '../TodayDeals/todayDealsLiftSide/leftSide.css'
+import Card from "react-bootstrap/Card";
+import "./minetor.css";
+import React, { useEffect, useState } from "react";
+import LiftSide from "../TodayDeals/todayDealsLiftSide/liftSide";
+import "../TodayDeals/todayDealsLiftSide/leftSide.css";
 import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchcategory, fetchcategorypage } from '../../../store/Slice/categorySlice';
-import { PaginationControl } from 'react-bootstrap-pagination-control';
-import axios from 'axios';
-import { MdFavorite, MdOutlineFavoriteBorder } from 'react-icons/md';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchcategory,
+  fetchcategorypage,
+} from "../../../store/Slice/categorySlice";
+import { PaginationControl } from "react-bootstrap-pagination-control";
+import axios from "axios";
+import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import { addProductInCart, fetchCart } from "../../../store/Slice/cartSlice";
 // import "../TodayDeals/todayDealsLiftSide/leftSide.css";
 
 import { useTranslation } from "react-i18next";
 
 export default function Monitor() {
-  const {t}=useTranslation();
+  let language= useSelector((state)=>state.language.language)
+  const { t } = useTranslation();
   // var data = [
   //   {
   //     id: 5,
@@ -382,72 +386,173 @@ export default function Monitor() {
   //     deliveryDate: "Wed, Oct 4 ",
   //   },
   // ];
-    const [page, setPage] = useState(1)
-    console.log("pageq",page)
-    let dispatch = useDispatch()
-    // useEffect(() => {
-    //     dispatch(fetchcategory("Monitors",page))
-    // }, [dispatch,page])
-    const [data, setData] = useState([]);
-    const [pagechang, setpagechang] = useState(1)
-    useEffect(() => {
-        axios.get(`http://localhost:3300/category/getbyname/Monitors?pageNumber=${page}`)
-          .then(response => setData(response.data.data.products))
-          .catch(error => console.error(error));
-      }, [page]);
-      console.log("dataa",data)
+  const [page, setPage] = useState(1);
+  console.log("pageq", page);
+  let dispatch = useDispatch();
+  // useEffect(() => {
+  //     dispatch(fetchcategory("Monitors",page))
+  // }, [dispatch,page])
+  const [data, setData] = useState([]);
+  const [pagechang, setpagechang] = useState(1);
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:3300/category/getbyname/Monitors?pageNumber=${page}`
+      )
+      .then((response) => setData(response.data.data.products))
+      .catch((error) => console.error(error));
+  }, [page]);
+  console.log("dataa", data);
 
+  let [pages, setpages] = useState();
+  dispatch(fetchcategorypage("Monitors", page)).then((e) => {
+    setpages(e.payload);
+  });
 
-      let [pages, setpages] = useState();
-      dispatch(fetchcategorypage("Monitors",page)).then(((e)=>{setpages(e.payload)}))
+  console.log(pages);
 
-      console.log(pages);
+  // let monitorsList = useSelector((state) => {
+  //     // console.log(state)
+  //     // console.log(monitorsList)
+  //     return state.category.data
+  // })
 
-    // let monitorsList = useSelector((state) => {
-    //     // console.log(state)
-    //     // console.log(monitorsList)
-    //     return state.category.data
-    // })
+  // const itemsPerPage=5
 
-    // const itemsPerPage=5
-
-    // const indexOfLastItem = page * itemsPerPage;
-    // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    // const currentItems = data
-    console.log("pagez",page)
-    let [change, setchange] = useState(0);
-    let cart=data
-    useEffect(() => {
-        dispatch(fetchCart())
-      }, [dispatch, change])
-    let navigate = useNavigate()
-
+  // const indexOfLastItem = page * itemsPerPage;
+  // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  // const currentItems = data
+  console.log("pagez", page);
+  let [change, setchange] = useState(0);
+  let cart = data;
+  useEffect(() => {
+    dispatch(fetchCart());
+  }, [dispatch, change]);
+  let navigate = useNavigate();
 
   async function addtocart(productId) {
-    await dispatch(addProductInCart({ "items": [{ "product": productId, "quantity": 1 }] }))
-    setchange(productId)
+    await dispatch(
+      addProductInCart({ items: [{ product: productId, quantity: 1 }] })
+    );
+    setchange(productId);
   }
 
-  function gotodetails(prodId){
+  function gotodetails(prodId) {
     navigate("/productdetails", { state: { productId: prodId } });
   }
   function isInCart(prodId) {
     for (const item of cart) {
-
       if (prodId == item._id) {
-        return true
+        return true;
       }
-
-
     }
   }
   function viewcart() {
-    navigate("/cart")
+    navigate("/cart");
   }
 
-    return (
-        <>
-          <div className=" container-fluid ">
+  return (
+    <>
+      <div className=" container-fluid ">
+        <div className="row">
+        <LiftSide
+            categoryId={"651af954eb03aa680952f49d"}
+            lessThan={100}
+            between1={[100, 200]}
+            between2={[200, 300]}
+            between3={[300, 400]}
+            greaterThan={400}
+            className="s"
+          />
+          <div className="col-xl-10 col-md-9 col-12">
+            <div className="row d-flex justify-content-center">
+              <h1>Results</h1>{" "}
+              {data.map((prd) => {
+                return (
+                  <Card
+                    className="col-xl-3 col-lg-4 col-md-5  col-5 mx-2 my-3"
+                    key={prd._id}
+                  >
+                    <Card.Img variant="top" className="img" src={prd.img} />
+                    <Card.Body>
+                      <Card.Title className="title-wrapper">
+                        {language=="en"? prd.title_en:prd.title_ar}
+                      </Card.Title>
+                      <Card.Text className="m-0">
+                        <span className="fs-4">{t("Quantity")}</span>{" "}
+                        <span> {prd.quantity}</span>
+                      </Card.Text>
+                      <Card.Text className="m-0">
+                        <span className="fs-4"> {t("old price")}</span>{" "}
+                        {prd.price["old"]}
+                      </Card.Text>
+                      <Card.Text className="m-0">
+                        <span className="fs-4"> {t("new price")}</span>{" "}
+                        {prd.price["new"]}
+                      </Card.Text>
+                    </Card.Body>
+                    <div className="d-felx  ">
+                      <button
+                        onClick={() => {
+                          gotodetails(prd._id);
+                        }}
+                        className="btn btn-secondary m-2"
+                      >
+                        {t("details")}
+                      </button>
+                      {!isInCart(prd._id) ? (
+                        <button
+                          disabled={prd.quantity < 1}
+                          onClick={() => {
+                            addtocart(prd._id);
+                          }}
+                          className="btn btn-warning"
+                        >
+                          {t("add to cart")}
+                        </button>
+                      ) : (
+                        <button onClick={viewcart} className="btn btn-warning">
+                          {t("view cart")}
+                        </button>
+                      )}
+                      {true ? (
+                        <MdOutlineFavoriteBorder
+                          style={{ fontSize: "25px", marginLeft: "10px" }}
+                        ></MdOutlineFavoriteBorder>
+                      ) : (
+                        <MdFavorite></MdFavorite>
+                      )}
+                    </div>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+        <PaginationControl
+          page={page}
+          between={2}
+          total={3}
+          limit={1}
+          changePage={(page) => {
+            setPage(page);
+            setchange(page);
+          }}
+        />
+      </div>
+    </>
+  );
+}
+
+/* <div className="d-inline-block">
+<BsStarFill color='#FFA41C' />
+<BsStarFill color='#FFA41C' />
+<BsStarFill color='#FFA41C' />
+<BsStarHalf color='#FFA41C' />
+<BsStar color='#FFA41C' />
+31
+</div>   */
+{/* <div className=" container-fluid ">
         <div className="row">
           <LiftSide
             categoryId={"651af954eb03aa680952f49d"}
@@ -471,14 +576,14 @@ export default function Monitor() {
                       variant="top"
                       className="img"
                       src={prd.imageURL}
-                    />
-                    <Card.Body>
+                    /> */}
+                    {/* <Card.Body>
                       <Card.Title className="title-wrapper">
                         {prd.title}
                       </Card.Title>
-                      <Card.Text className="m-0">
+                      <Card.Text className="m-0"> */}
                         {/* <span className='fs-4' >{prd.price}</span> */}
-                        {prd.discount == null ? (
+                        {/* {prd.discount == null ? (
                           <>
                             <span className="fs-4">{prd.price}</span>
                           </>
@@ -511,80 +616,21 @@ export default function Monitor() {
                         <span style={{ color: "#007185" }}>
                           ({prd.totalRates})
                         </span>
-                      </Card.Text>
+                      </Card.Text> */}
 
                       {/* <Card.Text>
                                                 <span className='fs-4' >totalRates</span>                {prd.totalRates}
                                             </Card.Text> */}
-                      <Card.Text className="m-0">
+                      {/* <Card.Text className="m-0">
                         <span className="fs-4">deliveryDate</span>{" "}
                         {prd.deliveryDate}
-                      </Card.Text>
+                      </Card.Text> */}
                       {/* <Button variant="primary">Go somewhere</Button> */}
-                    </Card.Body>
+                    {/* </Card.Body>
                   </Card>
                 );
               })}
             </div>
           </div>
         </div>
-      </div>
-            <div className=' container-fluid '>
-                <div className='row'>
-
-                    <LiftSide className='s' />
-                    <div className='col-xl-10 col-md-9 col-12'>
-                        <div className="row d-flex justify-content-center">
-                            <h1>Results</h1>                            {data.map((prd) => {
-                                return (
-                                    <Card className='col-xl-3 col-lg-4 col-md-5  col-5 mx-2 my-3' key={prd._id}>
-                                        <Card.Img variant="top" className='img' src={prd.img} />
-                                        <Card.Body>
-                                            <Card.Title className='title-wrapper'>{prd.title_en}</Card.Title>
-                                            <Card.Text className='m-0'>
-                                                <span className='fs-4' >Quantity</span>            <span> {prd.quantity}
-                                                  
-                                                </span>
-                                            </Card.Text>
-                                            <Card.Text className='m-0'>
-                                                <span className='fs-4' > old price</span>                {prd.price['old']}
-                                            </Card.Text>
-                                            <Card.Text className='m-0'>
-                                                <span className='fs-4' > new price</span>                {prd.price['new']}
-                                            </Card.Text>
-                                        </Card.Body>
-                                        <div className="d-felx  ">
-                        <button onClick={() => { gotodetails(prd._id); }} className="btn btn-secondary m-2">details</button>
-                        {!isInCart(prd._id) ? <button disabled={prd.quantity < 1} onClick={() => { addtocart(prd._id) }} className="btn btn-warning">add to cart</button> : <button onClick={viewcart} className="btn btn-warning">view cart</button>}
-                        {true ? <MdOutlineFavoriteBorder style={{ fontSize: "25px", marginLeft: "10px" }}></MdOutlineFavoriteBorder> : <MdFavorite></MdFavorite>}
-
-                      </div>
-                                    </Card>
-
-                                )
-                            })}
-                        </div>
-                    </div>
-                </div>
-                <PaginationControl
-                    page={page}
-                    between={2}
-                    total={3}
-                    limit={1}
-                    changePage={(page) => {  setPage(page) ;setchange(page) }}
-                />
-            </div >
-        </>)
-}
-
-
-
-  /* <div className="d-inline-block">
-<BsStarFill color='#FFA41C' />
-<BsStarFill color='#FFA41C' />
-<BsStarFill color='#FFA41C' />
-<BsStarHalf color='#FFA41C' />
-<BsStar color='#FFA41C' />
-31
-</div>   */
-
+      </div> */}

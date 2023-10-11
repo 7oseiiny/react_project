@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../TodayDeals/todayDealsLiftSide/leftSide.css'
-import { FaStar, FaRegStar } from "react-icons/fa6";
+// import { FaStar, FaRegStar } from "react-icons/fa6";
 import Container from 'react-bootstrap/Container';
 import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
@@ -176,20 +176,20 @@ export default function Men() {
               {myfash.map((moda) => {
                 return < >
 
-                  <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
+                  <div key={moda._id} className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
                     <div className="card border-0" style={{ width: '20rem', height: '25rem' }}>
                       <img src={moda.img} className="card-img-top  h-75" onClick={() => { gotodetails(moda._id)}}/>
                       <div className="d-inline-block">
-                        <p className="card-text">{moda.title_en}</p>
+                        <p className="card-text">{language=="en"? moda.title_en:moda.title_ar}</p>
                         <BsStarFill color='#FFA41C' />
                         <BsStarFill color='#FFA41C' />
                         <BsStarFill color='#FFA41C' />
                         <BsStarFill color='#FFA41C' />
                         <BsStar color='#FFA41C' />
                       </div>
-                      <div className="d-flex">EGP <sub>
+                      <div className="d-flex">{language == "en" ? t("EGP"):'00'} <sub>
                         <h3>{moda.price.new}</h3>
-                      </sub>00
+                      </sub>{language =="en"? '00':t("EGP")}
                       </div>
                     </div>
                   </div>

@@ -472,5 +472,15 @@
   "Author": "المؤلف",
   "Promotion": "ترقية",
   "Bargain Books": "كتب بسعر مخفض",
-  "Paperback":"الطباعة"
+  "Paperback": "الطباعة",
+  "Get it as soon as": "احصل عليه",
+  "tomorrow, Jul 31": "غدا 31 يونيو",
+  "Fulfilled by Amazon - FREE Shipping": "تشحن من أمازون - شحن مجاني",
+  "EGP": "جنية",
+  "List": ":سعر البيع",
+  "Quantity": "الكمية",
+  "old price": "السعر القديم",
+  "new price": "السعر الجديد",
+  "add to cart":"اضف الي العربة",
+  "view cart":"استعرض العربة"
 }
