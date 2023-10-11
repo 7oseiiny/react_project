@@ -91,6 +91,12 @@ export default function ProductDetails() {
         await dispatch(addProductInfavorite(productId))
         setchange(productId+1)
     }
+    function scrollto(){
+        const element = document.getElementById("rates");
+        element.scrollIntoView();
+
+
+    }
 
 
     return (
@@ -104,7 +110,7 @@ export default function ProductDetails() {
                     <div className='d-flex  align-items-end justify-content-between' >
                         <p style={{ fontSize: "1.4rem" }} className='p-0 px-2 m-0'>5.5</p>
                         <div style={{ fontSize: "1.22rem", color: "rgb(237,139,31)" }}> <Rate rate={prod( "avg_rating")}/></div>
-                        <a href='#' style={{ textDecoration: "none", color: "rgb(0,113,165)" }}>92 rating</a>
+                        <a onClick={scrollto} style={{ textDecoration: "none", color: "rgb(0,113,165)" }}>({prod("num_rating")}) rating</a>
                     </div>
                     <hr />
                     <div className='p-2 px-4 ' style={{ width: "fit-content", borderRadius: "5px", backgroundColor: "rgb(204,12,57)" }}>
@@ -167,7 +173,7 @@ export default function ProductDetails() {
                             <p className='p-0 m-0' style={{ fontSize: "30px" }}>{prod("price", "new")}</p>
                             <p className=' m-0'  >00</p>
                         </div>
-                        <a href='#' style={{ textDecoration: "none", color: "rgb(0,113,165)" }}>92 rating</a>
+                        <a  onClick={scrollto} style={{  textDecoration: "none", color: "rgb(0,113,165)" }}>({prod("num_rating")}) rating</a>
                         <p style={{ fontWeight: "550", fontSize: ".9rem" }}> <a href="#" style={{ textDecoration: "none", color: "rgb(0,113,165)" }}>FREE delivery</a> Tomorrow, 4 October</p>
                         <div style={{ fontSize: ".9rem" }}>
                             <MdOutlinePlace></MdOutlinePlace>
@@ -193,7 +199,7 @@ export default function ProductDetails() {
                 </div>
                 {/* review */}
 
-                <div className='cointainer'>
+                <div className='cointainer' id='rates'>
                     <hr className='w-75 mx-auto'/>
                     <div className="row">
                         <div className='reviews col-md-3 '>
@@ -207,6 +213,7 @@ export default function ProductDetails() {
                                     reviws.map((item, i) => {
                                         return (
     
+                                            // eslint-disable-next-line react/jsx-key
                                             <div className="col-md-12 ">
                                                 <div >
                                                     <Rate rate={item.rating}>

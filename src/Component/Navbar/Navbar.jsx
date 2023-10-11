@@ -4,14 +4,20 @@ import { ImHeart } from "react-icons/im";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink,useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { getLanguage } from "../../../store/Slice/LanguageSlice";
 import { getFilteredList } from "../../../store/Slice/filteredList";
 import axiosInstance from "../../axiosConfig/instance";
 import { useLocation } from "react-router-dom";
-
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { logout } from "../../Services/user-auth";
+import { fetchCart } from '../../../store/Slice/cartSlice';
+import { fetchuser } from '../../../store/Slice/userSlice';
+import { fetchfavorite } from '../../../store/Slice/favorite';
 function Navbar() {
   const location = useLocation();
   let { t, i18n } = useTranslation();
@@ -26,7 +32,21 @@ function Navbar() {
   let discountRegEx=/^(discount|خصم اكبر من |خصم)\s+(\d+)$/i;
   let matchDiscount=searchText.match(discountRegEx);
   var fav = useSelector((state) => { try { return state.favorite.data.productId } catch { } })
+  let [totalItems, settotalItems] = useState(0)
+  let [totalItems_fav, settotalItems_fav] = useState(0)
+  let user = useSelector((state) => { return state.user.data })
+  var items = useSelector((state) => { return state.cart.data })
+  const navigate = useNavigate(); 
+  
+  try {
+    for (const item of items) { totalItems += item.quantity }
+
+  } catch (err) { console.log(err) }
   useEffect(function () {
+    dispatch(fetchCart())
+    dispatch(fetchuser())
+    dispatch(fetchfavorite())
+
     axiosInstance
       .get("category")
       .then((data) => {
@@ -36,7 +56,7 @@ function Navbar() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  },  [dispatch]);
 
   let [searchCategory, setSearchCategory] = useState();
   function logValue(e) {
@@ -50,7 +70,11 @@ function Navbar() {
     }
     setSearchCategory(e.target.value);
   }
-
+ function handleLogout (){
+  localStorage.removeItem('userData');
+   logout
+   navigate('/login')
+ }
   function handleSearch() {
     console.log(searchCategory);
     if (searchCategory == "all") {
@@ -330,20 +354,15 @@ function Navbar() {
               </li>
               <li className="col-4 col-xs-6">
                 <div className="dropdown">
-                  <a
-                    className="btn text-white dropdown-toggle text-start"
-                    href="#"
-                    role="button"
-                    id="dropdownMenuLink"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <span className="fw-normal">{t("Hello,sign in")}</span>{" "}
+                 
+                  <a className="btn text-white dropdown-toggle text-start" href="#" role="button" id="dropdownMenuLink"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <span className="fw-normal">Hello,{user.name}</span>
                     <br />
                     <span className="fw-bolder">{t("Account & Lists")}</span>
                   </a>
-
-                  <div
+                
+                  {/* <div
                     className="dropdown-menu text-center"
                     aria-labelledby="dropdownMenuLink"
                   >
@@ -400,6 +419,25 @@ function Navbar() {
                         </Link>
                       </div>
                     </div>
+                  </div> */}
+                  <div className="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
+                    <button type="button" className="btn btn-warning text-center w-50 "><Link className="btn btn-none text-dark fw-bold " to="/login" style={{ textDecoration: "none" }}>Sign in</Link></button>
+                    <br />
+                    <small>New Customers?<Link className="btn btn-none text-primary " to="/" style={{ textDecoration: "none" }}>Start here.</Link> </small>
+                    <div className="d-flex w-600px text-center">
+                      <Container>
+                        <Row>
+                          <Col>
+                            <Link className="btn btn-none" to="/" style={{ textDecoration: "none", textColor: "black" }}>Home</Link>
+                          </Col>
+                          <Col>
+                            <h5>Your Account</h5>
+                            <Link className="btn btn-none" to="profile" style={{ textDecoration: "none", textColor: "black" }}>Your Account</Link><br />
+                            <Link className="btn btn-none" to="tracking" style={{ textDecoration: "none", textColor: "black" }}>Your Order</Link>
+                          </Col>
+                        </Row>
+                      </Container>
+                    </div>
                   </div>
                 </div>
               </li>
@@ -424,7 +462,7 @@ function Navbar() {
 
 
               </li>
-              <li className="col-3 col-xs-ms-2">
+              {/* <li className="col-3 col-xs-ms-2">
                 <NavLink
                   className="links"
                   to="cart"
@@ -432,7 +470,7 @@ function Navbar() {
                 >
                   <FaShoppingCart to="cart" color="white" size={25} />
                 </NavLink>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
@@ -505,7 +543,7 @@ function Navbar() {
               {t("books")}
             </NavLink>
             <NavLink className="links px-2" to="profile" style={{ textDecoration: "none" }}>Profile</NavLink>
-            <NavLink className="links px-2" to="login" onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('userData'); setIslogged(false) }} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
+            <NavLink className="links px-2" to="login" onClick={() => {handleLogout}} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
           </div>
           <div className=" text-white">{t("Shop deals in Electronics")}</div>
         </div>

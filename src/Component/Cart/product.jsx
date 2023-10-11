@@ -24,9 +24,13 @@ export default function Product(props) {
     }
 
     async function updateQuantity(e) {
+
+        if (e.target.value >props.item.product.quantity) { setquantity(props.item.product.quantity) }
+        else if (e.target.value < 1) { setquantity(1) }
+        else { setquantity(e.target.value) }
+
         let userId=localStorage.getItem('userId').replaceAll('"',"")
 
-        setquantity(e.target.value)
         await axiosInstance.patch(`cart/${userId}/updatequantity/${props.item.product._id}/${e.target.value}`)
         dispatch(fetchCart())
 
