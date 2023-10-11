@@ -2,43 +2,48 @@ import Container from "react-bootstrap/Container";
 import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import Slider from "react-slick";
-import './Fashion.css'
-import Badge from 'react-bootstrap/Badge';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import React, { useState } from 'react'
+import "./Fashion.css";
+import Badge from "react-bootstrap/Badge";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import React, { useState } from "react";
 import { FaStar, FaRegStar } from "react-icons/fa6";
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchcategory } from "../../../store/Slice/categorySlice";
-import axios from 'axios';
-import axiosInstance from '../../axiosConfig/instance';
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import axiosInstance from "../../axiosConfig/instance";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LiftSide from "../TodayDeals/todayDealsLiftSide/liftSide";
 export default function Fashion() {
   const { t } = useTranslation();
-  let language=useSelector((state)=>state.language.language)
-  let navigate = useNavigate()
-  function gotodetails(prodId){
-    console.log(prodId)
-    navigate("/productdetails", { state: { productId: prodId}});
-}
+  let language = useSelector((state) => state.language.language);
+  let navigate = useNavigate();
+  function gotodetails(prodId) {
+    console.log(prodId);
+    navigate("/productdetails", { state: { productId: prodId } });
+  }
   // var fashion = useSelector((state) => { return state.category.data })
 
   let [myfash, setmyfash] = useState([]);
   let dispatch = useDispatch();
   useEffect(() => {
-    axiosInstance.get("category/6518280c6cc9fe1018cc500d").then((data)=>{
-      setmyfash(data.data.data.products)
-      console.log(data.data.data.products)
-    }).catch((err)=>{console.log(err)})
-    dispatch(fetchcategory("Fashion"))
-    return()=>{ dispatch(fetchcategory([]))}
-  }, [])
+    axiosInstance
+      .get("category/6518280c6cc9fe1018cc500d")
+      .then((data) => {
+        setmyfash(data.data.data.products);
+        console.log(data.data.data.products);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    dispatch(fetchcategory("Fashion"));
+    return () => {
+      dispatch(fetchcategory([]));
+    };
+  }, []);
 
-
- 
   var settings = {
     dots: false,
     infinite: false,
@@ -71,7 +76,14 @@ export default function Fashion() {
     <>
       <div className="row container-fluid m-0 justify-content-center">
         {/* left Side  */}
-        <LiftSide categoryId={"6518280c6cc9fe1018cc500d"} lessThan={25} between1={[25,50]} between2={[50,100]} between3={[100,200]} greaterThan={200}/>
+        <LiftSide
+          categoryId={"6518280c6cc9fe1018cc500d"}
+          lessThan={25}
+          between1={[25, 50]}
+          between2={[50, 100]}
+          between3={[100, 200]}
+          greaterThan={200}
+        />
 
         {/* Right side  */}
         <div className="col-xl-10 col-md-9 col-8 container-fluid  sideRight justify-content-center align-content-center mt-4 ">
@@ -81,7 +93,9 @@ export default function Fashion() {
             style={{ width: "100%", height: "80px" }}
           >
             <p className="h6 fw-bold ">
-             {t("Enjoy FREE delivery, exclusive deals, award-winning TV and more Join today")}
+              {t(
+                "Enjoy FREE delivery, exclusive deals, award-winning TV and more Join today"
+              )}
             </p>
             <button
               type="button"
@@ -91,7 +105,11 @@ export default function Fashion() {
             </button>
           </div>
           <img
-           src={language=='en' ?"../assets/images/o1.jpeg":"../assets/images/fashionArabicImag.jpg"}
+            src={
+              language == "en"
+                ? "../assets/images/o1.jpeg"
+                : "../assets/images/fashionArabicImag.jpg"
+            }
             className="img-fluid veiw"
             width="100%"
           />
@@ -103,19 +121,38 @@ export default function Fashion() {
           <div>
             <Slider {...settings}>
               {myfash.map((moda) => {
-                return < >
-                  <div className="card border-0" >
-                    <img src={moda.img} className="card-img-top" alt="..." style={{ width: '8rem', height: '12rem' }} onClick={() => { gotodetails(moda._id)}} />
-                    <div className="card-body">
-                      <p className="card-text fw-bolder colorfont ">
-                        <Badge bg="danger">Up to {moda.price.discount}% off </Badge> Deal
-                      </p>
-                      <p className='fw-bold '>{moda.title_en}</p>
-                      <img src="../assets/images/images.png" width="70px" height="25px" />
+                return (
+                  <>
+                    <div key={moda._id} className="card border-0">
+                      <img
+                        src={moda.img}
+                        className="card-img-top"
+                        alt="..."
+                        style={{ width: "8rem", height: "12rem" }}
+                        onClick={() => {
+                          gotodetails(moda._id);
+                        }}
+                      />
+                      <div className="card-body">
+                        <p className="card-text fw-bolder colorfont ">
+                          <Badge bg="danger">
+                            {language == "en" ? t("Up to"):t("off")} {moda.price.discount}%{" "}
+                            {language == "en" ? t("off"):t("Up to")}{" "}
+                          </Badge>{" "}
+                          {t("Deal")}
+                        </p>
+                        <p className="fw-bold ">
+                          {language == "en" ? moda.title_en : moda.title_ar}
+                        </p>
+                        <img
+                          src="../assets/images/images.png"
+                          width="70px"
+                          height="25px"
+                        />
+                      </div>
                     </div>
-                  </div>
-
-                </>
+                  </>
+                );
               })}
             </Slider>
           </div>
@@ -334,7 +371,11 @@ export default function Fashion() {
               <Col>
                 {" "}
                 <img
-                  src={language=="en"? "../assets/images/za1.gif":"../assets/images/price_fashion-AR_199.gif"}
+                  src={
+                    language == "en"
+                      ? "../assets/images/za1.gif"
+                      : "../assets/images/price_fashion-AR_199.gif"
+                  }
                   className="img-fluid veiw"
                   width="100%"
                   style={{ marginBottom: "20px" }}
@@ -343,7 +384,11 @@ export default function Fashion() {
               <Col>
                 {" "}
                 <img
-                  src={language=="en" ?"../assets/images/za2.gif":"../assets/images/price_fashion-AR_200-499.gif"}
+                  src={
+                    language == "en"
+                      ? "../assets/images/za2.gif"
+                      : "../assets/images/price_fashion-AR_200-499.gif"
+                  }
                   className="img-fluid veiw"
                   width="100%"
                   style={{ marginBottom: "20px" }}
@@ -352,7 +397,11 @@ export default function Fashion() {
               <Col>
                 {" "}
                 <img
-                src={language=="en" ?"../assets/images/za3.gif":"../assets/images/price_fashion-AR_500-899.gif"}
+                  src={
+                    language == "en"
+                      ? "../assets/images/za3.gif"
+                      : "../assets/images/price_fashion-AR_500-899.gif"
+                  }
                   className="img-fluid veiw"
                   width="100%"
                   style={{ marginBottom: "20px" }}
@@ -361,8 +410,11 @@ export default function Fashion() {
               <Col>
                 {" "}
                 <img
-                src={language=="en" ?"../assets/images/za4.gif":"../assets/images/price_fashion-AR_900.gif"}
-
+                  src={
+                    language == "en"
+                      ? "../assets/images/za4.gif"
+                      : "../assets/images/price_fashion-AR_900.gif"
+                  }
                   className="img-fluid veiw"
                   width="100%"
                   style={{ marginBottom: "20px" }}
@@ -391,31 +443,40 @@ export default function Fashion() {
           <div className="container">
             <div className="row">
               {myfash.map((moda) => {
-                return < >
-
-                  <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
-                    <div className="card border-0" style={{ width: '20rem', height: '25rem' }}>
-                      <img src={moda.img} className="card-img-top  h-75" onClick={() => { gotodetails(moda._id)}}/>
-                      <div className="d-inline-block">
-                        <p className="card-text">{moda.title_en}</p>
-                        <BsStarFill color='#FFA41C' />
-                        <BsStarFill color='#FFA41C' />
-                        <BsStarFill color='#FFA41C' />
-                        <BsStarFill color='#FFA41C' />
-                        <BsStar color='#FFA41C' />
-                      </div>
-                      <div className="d-flex">EGP <sub>
-                        <h3>{moda.price.new}</h3>
-                      </sub>00
+                return (
+                  <>
+                    <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
+                      <div
+                        className="card border-0"
+                        style={{ width: "20rem", height: "25rem" }}
+                      >
+                        <img
+                          src={moda.img}
+                          className="card-img-top  h-75"
+                          onClick={() => {
+                            gotodetails(moda._id);
+                          }}
+                        />
+                        <div className="d-inline-block">
+                          <p className="card-text">{language =="en"?moda.title_en:moda.title_ar}</p>
+                          <BsStarFill color="#FFA41C" />
+                          <BsStarFill color="#FFA41C" />
+                          <BsStarFill color="#FFA41C" />
+                          <BsStarFill color="#FFA41C" />
+                          <BsStar color="#FFA41C" />
+                        </div>
+                        <div className="d-flex">
+                          {language == "en" ? t("EGP"):'00'}{" "}
+                          <sub>
+                            <h3>{moda.price.new}</h3>
+                          </sub>
+                          {language =="en"? '00':t("EGP")}
+                        </div>
                       </div>
                     </div>
-                  </div>
-
-                </>
+                  </>
+                );
               })}
-
-
-       
             </div>
           </div>
 

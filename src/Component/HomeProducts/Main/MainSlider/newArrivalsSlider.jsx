@@ -35,11 +35,11 @@ export default function NewArrivalsSliders(props) {
                 <SplideSlide>
                     <NewArrivalsCards img={`${imgSrc}launchBox.jpg`} title={'Mintra Lunch...'} price={'27.00'} oldPrice={''} reviews={''} fullStar={0} emptyStar={0} halfStar={0} />
                 </SplideSlide>
-                {productsList.map((item) => {
+                {/* {productsList.map((item) => {
                     return <SplideSlide key={item.id}>
                         <NewArrivalsCards img={item.img} title={item.title} price={item.newPrice} oldPrice={item.oldPrice} reviews={'25'} fullStar={4} emptyStar={1} halfStar={0} />
                     </SplideSlide>
-                })}
+                })} */}
 
             </Splide>
         </div>

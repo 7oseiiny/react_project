@@ -775,7 +775,7 @@ export default function Electronics() {
                 <hr />
                 <div className="card" style={{ width: "21rem" }}>
                   <span className="bestSellerBadge2 card-subtitle ">
-                    Best Seller
+                    {t("Best Sellers")}
                   </span>
                   <img
                     src="../assets/images/2+.jpg"
@@ -824,7 +824,7 @@ export default function Electronics() {
               <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
                 <div className="card" style={{ width: "21rem" }}>
                   <span className="bestSellerBadge2 card-subtitle ">
-                    Best Seller
+                    {t("Best Sellers")}
                   </span>
                   <img
                     src="../assets/images/r1.jpg"
@@ -966,7 +966,7 @@ export default function Electronics() {
               <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
                 <div className="card" style={{ width: "21rem" }}>
                   <span className="bestSellerBadge2 card-subtitle ">
-                    Best Seller
+                    {t("Best Sellers")}
                   </span>
 
                   <img

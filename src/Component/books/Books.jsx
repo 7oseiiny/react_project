@@ -25,6 +25,7 @@ import {
   addProductInfavorite,
   fetchfavorite,
 } from "../../../store/Slice/favorite";
+import LiftSide from "../TodayDeals/todayDealsLiftSide/liftSide";
 
 export default function Books() {
   const { t } = useTranslation();

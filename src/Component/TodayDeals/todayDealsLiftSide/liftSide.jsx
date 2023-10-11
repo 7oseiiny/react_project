@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 import { FaCheck } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
-import '../../books/Books.css'
+import "../../books/Books.css";
 export default function LiftSide({
   categoryId,
   lessThan,
@@ -19,6 +19,7 @@ export default function LiftSide({
   greaterThan,
 }) {
   let Location = useLocation();
+  console.log(Location.pathname);
   const { t } = useTranslation();
   let dispatch = useDispatch();
   //  let filteredList=useSelector((state)=>state.filteredList.filteredList)
@@ -465,194 +466,195 @@ export default function LiftSide({
             </section>
           </>
         )}
-        {Location.pathname == "/mobile" ||
+        {(Location.pathname == "/mobile" ||
           Location.pathname == "/fashion" ||
-          (Location.pathname == "/fashion/men" && (
-            <div className="my-5">
-              <section className="leftSideSections pb-3">
-                <h6>{t("Eligible For free delivery")}</h6>
-                <span className="d-flex flex-row justify-content-around align-items-baseline">
-                  <input
-                    className="col-1"
-                    type="checkbox"
-                    name="primeCheckbox"
-                    id="primeCheckbox"
-                  />
-                  <label className="col-10" htmlFor="primeCheckbox">
-                    <i className="fa-solid fa-check text-warning"></i>
-                    {t(
-                      "All customers get FREE Shipping on orders shipped by Amazon"
-                    )}
-                  </label>
-                </span>
-              </section>
-              <section className="leftSideSections pb-3">
-                <h2>{t("Categories")}</h2>
-                <h6>{t("Fashion")}</h6>
-                <a href="#" className="text-dark">
-                  {" "}
-                  {t("Women")}
-                </a>
-                <br />
-                <a href="#" className="text-dark">
-                  {" "}
-                  {t("Men")}
-                </a>
-                <br />
-                <a href="#" className="text-dark">
-                  {t("Girls")}
-                </a>
-                <br />
-                <a href="#" className="text-dark">
-                  {t("Boys")}
-                </a>
-                <br />
-                <a href="#" className="text-dark">
-                  {t("Baby")}
-                </a>
-                <br />
-                <a href="#" className="text-dark">
-                  {t("Luggage & Travel Gear")}
-                </a>
-                <br />
-                <a href="#" className="text-dark">
-                  {t("Novelty & Special Use")}
-                </a>
-                <br />
-                <a href="#" className="text-dark">
-                  {t("Shoe, Jewelry & Watch")}{" "}
-                </a>
-                <br />
-                <a href="#" className="text-dark">
-                  {t("Accessories")}
-                </a>
-                <br />
-                <p className="h6 fw-bold mt-4">{t("Color")}</p>
-                <div>
-                  <div className="square black"></div>
-                  <div className="square gray"></div>
-                  <div className="square white"></div>
-                  <div className="square bro"></div>
-                  <div className="square red"></div>
-                  <div className="square pink"></div>
-                  <div className="square orange"></div>
-                  <div className="square yellow"></div>
-                  <div className="square green"></div>
-                  <div className="square blue"></div>
-                  <div className="square darkblue"></div>
-                  <div className="square purple"></div>
-                  <div className="square bage"></div>
-                  <div className="square bage1"></div>
-                  <div className="square bage2"></div>
-                </div>
-                <p className="h6 fw-bold mt-4">{t("Fulfilled by Amazon")}</p>
-                <span className="d-flex flex-row justify-content-around align-items-baseline">
-                  <input
-                    className="CategoryCheckBoxes col-1"
-                    type="checkbox"
-                    name="AutomotiveCheckbox"
-                    id="AutomotiveCheckbox"
-                  />
-                  <label className="col-10 " htmlFor="AutomotiveCheckbox">
-                    {t("Fulfilled by Amazon")}
-                  </label>
-                </span>
+          Location.pathname == "/fashion/men") && (
+          <div className="my-5">
+            <section className="leftSideSections pb-3">
+              <h6>{t("Eligible For free delivery")}</h6>
+              <span className="d-flex flex-row justify-content-around align-items-baseline">
+                <input
+                  className="col-1"
+                  type="checkbox"
+                  name="primeCheckbox"
+                  id="primeCheckbox"
+                />
+                <label className="col-10" htmlFor="primeCheckbox">
+                  <i className="fa-solid fa-check text-warning"></i>
+                  {t(
+                    "All customers get FREE Shipping on orders shipped by Amazon"
+                  )}
+                </label>
+              </span>
+            </section>
+            <section className="leftSideSections pb-3">
+              <h2>{t("Categories")}</h2>
+              <h6>{t("Fashion")}</h6>
+              <a href="#" className="text-dark">
+                {" "}
+                {t("Women")}
+              </a>
+              <br />
+              <a href="#" className="text-dark">
+                {" "}
+                {t("Men")}
+              </a>
+              <br />
+              <a href="#" className="text-dark">
+                {t("Girls")}
+              </a>
+              <br />
+              <a href="#" className="text-dark">
+                {t("Boys")}
+              </a>
+              <br />
+              <a href="#" className="text-dark">
+                {t("Baby")}
+              </a>
+              <br />
+              <a href="#" className="text-dark">
+                {t("Luggage & Travel Gear")}
+              </a>
+              <br />
+              <a href="#" className="text-dark">
+                {t("Novelty & Special Use")}
+              </a>
+              <br />
+              <a href="#" className="text-dark">
+                {t("Shoe, Jewelry & Watch")}{" "}
+              </a>
+              <br />
+              <a href="#" className="text-dark">
+                {t("Accessories")}
+              </a>
+              <br />
+              <p className="h6 fw-bold mt-4">{t("Color")}</p>
+              <div>
+                <div className="square black"></div>
+                <div className="square gray"></div>
+                <div className="square white"></div>
+                <div className="square bro"></div>
+                <div className="square red"></div>
+                <div className="square pink"></div>
+                <div className="square orange"></div>
+                <div className="square yellow"></div>
+                <div className="square green"></div>
+                <div className="square blue"></div>
+                <div className="square darkblue"></div>
+                <div className="square purple"></div>
+                <div className="square bage"></div>
+                <div className="square bage1"></div>
+                <div className="square bage2"></div>
+              </div>
+              <p className="h6 fw-bold mt-4">{t("Fulfilled by Amazon")}</p>
+              <span className="d-flex flex-row justify-content-around align-items-baseline">
+                <input
+                  className="CategoryCheckBoxes col-1"
+                  type="checkbox"
+                  name="AutomotiveCheckbox"
+                  id="AutomotiveCheckbox"
+                />
+                <label className="col-10 " htmlFor="AutomotiveCheckbox">
+                  {t("Fulfilled by Amazon")}
+                </label>
+              </span>
 
-                <p className="h6 fw-bold mt-4">{t("Brand")}</p>
-                <span className="d-flex flex-row justify-content-around align-items-baseline">
-                  <input
-                    className="CategoryCheckBoxes col-1"
-                    type="checkbox"
-                    name="BabyFashionCheckbox"
-                    id="BabyFashionCheckbox"
-                  />
-                  <label className="col-10 " htmlFor="BabyFashionCheckbox">
-                    adidas
-                  </label>
-                </span>
-                <span className="d-flex flex-row justify-content-around align-items-baseline">
-                  <input
-                    className="CategoryCheckBoxes col-1"
-                    type="checkbox"
-                    name="BabyProductsCheckbox"
-                    id="BabyProductsCheckbox"
-                  />
-                  <label className="col-10 " htmlFor="BabyProductsCheckbox">
-                    Conttonil
-                  </label>
-                </span>
-                <span className="d-flex flex-row justify-content-around align-items-baseline">
-                  <input
-                    className="CategoryCheckBoxes col-1"
-                    type="checkbox"
-                    name="BeautyCheckbox"
-                    id="BeautyCheckbox"
-                  />
-                  <label className="col-10 " htmlFor="BeautyCheckbox">
-                    Casio
-                  </label>
-                </span>
-                <span className="d-flex flex-row justify-content-around align-items-baseline">
-                  <input
-                    className="CategoryCheckBoxes col-1"
-                    type="checkbox"
-                    name="BooksCheckbox"
-                    id="BooksCheckbox"
-                  />
-                  <label className="col-10 " htmlFor="BooksCheckbox">
-                    American Eagle
-                  </label>
-                </span>
-                <span className="d-flex flex-row justify-content-around align-items-baseline">
-                  <input
-                    className="CategoryCheckBoxes col-1"
-                    type="checkbox"
-                    name="BoysFashionCheckbox"
-                    id="BoysFashionCheckbox"
-                  />
-                  <label className="col-10 " htmlFor="BoysFashionCheckbox">
-                    Carina
-                  </label>
-                </span>
-                <span className="d-flex flex-row justify-content-around align-items-baseline">
-                  <input
-                    className="CategoryCheckBoxes col-1"
-                    type="checkbox"
-                    name="Computers,Components&Accessories"
-                    id="ComputersComponents&Accessories"
-                  />
-                  <label
-                    className="col-10 "
-                    htmlFor="ComputersComponents&Accessories"
-                  >
-                    Grinta
-                  </label>
-                </span>
-                <span className="d-flex flex-row justify-content-around align-items-baseline">
-                  <input
-                    className="CategoryCheckBoxes col-1"
-                    type="checkbox"
-                    name="ElectronicsCheckbox"
-                    id="ElectronicsCheckbox"
-                  />
-                  <label className="col-10 " htmlFor="ElectronicsCheckbox">
-                    Dice
-                  </label>
-                </span>
-              </section>
-              <section className="d-flex flex-column pb-3">
-                <h2>{t("Condition")}</h2>
-                <a href="#" className="text-dark">
-                  {" "}
-                  {t("New")}
-                </a>
-                <a href="#" className="text-dark">
-                  {t("Used")}
-                </a>
-              </section>
-            </div>
-          ))}
-        {Location.pathname == "/electronics" || Location.pathname=="/Monitor" && (
+              <p className="h6 fw-bold mt-4">{t("Brand")}</p>
+              <span className="d-flex flex-row justify-content-around align-items-baseline">
+                <input
+                  className="CategoryCheckBoxes col-1"
+                  type="checkbox"
+                  name="BabyFashionCheckbox"
+                  id="BabyFashionCheckbox"
+                />
+                <label className="col-10 " htmlFor="BabyFashionCheckbox">
+                  adidas
+                </label>
+              </span>
+              <span className="d-flex flex-row justify-content-around align-items-baseline">
+                <input
+                  className="CategoryCheckBoxes col-1"
+                  type="checkbox"
+                  name="BabyProductsCheckbox"
+                  id="BabyProductsCheckbox"
+                />
+                <label className="col-10 " htmlFor="BabyProductsCheckbox">
+                  Conttonil
+                </label>
+              </span>
+              <span className="d-flex flex-row justify-content-around align-items-baseline">
+                <input
+                  className="CategoryCheckBoxes col-1"
+                  type="checkbox"
+                  name="BeautyCheckbox"
+                  id="BeautyCheckbox"
+                />
+                <label className="col-10 " htmlFor="BeautyCheckbox">
+                  Casio
+                </label>
+              </span>
+              <span className="d-flex flex-row justify-content-around align-items-baseline">
+                <input
+                  className="CategoryCheckBoxes col-1"
+                  type="checkbox"
+                  name="BooksCheckbox"
+                  id="BooksCheckbox"
+                />
+                <label className="col-10 " htmlFor="BooksCheckbox">
+                  American Eagle
+                </label>
+              </span>
+              <span className="d-flex flex-row justify-content-around align-items-baseline">
+                <input
+                  className="CategoryCheckBoxes col-1"
+                  type="checkbox"
+                  name="BoysFashionCheckbox"
+                  id="BoysFashionCheckbox"
+                />
+                <label className="col-10 " htmlFor="BoysFashionCheckbox">
+                  Carina
+                </label>
+              </span>
+              <span className="d-flex flex-row justify-content-around align-items-baseline">
+                <input
+                  className="CategoryCheckBoxes col-1"
+                  type="checkbox"
+                  name="Computers,Components&Accessories"
+                  id="ComputersComponents&Accessories"
+                />
+                <label
+                  className="col-10 "
+                  htmlFor="ComputersComponents&Accessories"
+                >
+                  Grinta
+                </label>
+              </span>
+              <span className="d-flex flex-row justify-content-around align-items-baseline">
+                <input
+                  className="CategoryCheckBoxes col-1"
+                  type="checkbox"
+                  name="ElectronicsCheckbox"
+                  id="ElectronicsCheckbox"
+                />
+                <label className="col-10 " htmlFor="ElectronicsCheckbox">
+                  Dice
+                </label>
+              </span>
+            </section>
+            <section className="d-flex flex-column pb-3">
+              <h2>{t("Condition")}</h2>
+              <a href="#" className="text-dark">
+                {" "}
+                {t("New")}
+              </a>
+              <a href="#" className="text-dark">
+                {t("Used")}
+              </a>
+            </section>
+          </div>
+        )}
+        {(Location.pathname == "/electronics" ||
+          Location.pathname == "/Monitor") && (
           <>
             <header className="d-flex flex-column mt-3 pb-3">
               <p className="h6 fw-bold">{t("Eligible For free delivery")}</p>
@@ -1285,7 +1287,8 @@ export default function LiftSide({
             </span>
           </>
         )}
-        {Location.pathname == "/HomeProducts" || Location.pathname == "/HomeProducts/Decor"  && (
+        {(Location.pathname == "/HomeProducts" ||
+          Location.pathname == "/HomeProducts/Decor") && (
           <>
             <header className="d-flex flex-column mt-3 pb-3">
               <p className="h6 fw-bold">{t("Eligible For free delivery")}</p>
@@ -1313,7 +1316,9 @@ export default function LiftSide({
                 <div className="mt-2">{t("Furniture")}</div>
                 <div className="mt-2">{t("Home Decor")}</div>
                 <div className="mt-2">{t("Household Appliances")}</div>
-                <div className="mt-2">{t("Household Cleaning Tools & Vacuums")}</div>
+                <div className="mt-2">
+                  {t("Household Cleaning Tools & Vacuums")}
+                </div>
                 <div className="mt-2">{t("Kitchen")}</div>
                 <div className="mt-2">{t("Laundry, Steaming & Ironing")}</div>
                 <div className="mt-2">{t("Storage & Organization")}</div>
@@ -1353,7 +1358,7 @@ export default function LiftSide({
                   id="BabyFashionCheckbox"
                 />
                 <label className="col-10" htmlFor="BabyFashionCheckbox">
-                PEDRINI
+                  PEDRINI
                 </label>
               </span>
               <span className="d-flex flex-row justify-content-around align-items-baseline">
@@ -1364,7 +1369,7 @@ export default function LiftSide({
                   id="BabyProductsCheckbox"
                 />
                 <label className="col-10" htmlFor="BabyProductsCheckbox">
-                Tupperware
+                  Tupperware
                 </label>
               </span>
               <span className="d-flex flex-row justify-content-around align-items-baseline">
@@ -1375,7 +1380,7 @@ export default function LiftSide({
                   id="BeautyCheckbox"
                 />
                 <label className="col-10" htmlFor="BeautyCheckbox">
-                Tornado
+                  Tornado
                 </label>
               </span>
               <span className="d-flex flex-row justify-content-around align-items-baseline">
@@ -1386,7 +1391,7 @@ export default function LiftSide({
                   id="BooksCheckbox"
                 />
                 <label className="col-10" htmlFor="BooksCheckbox">
-                Ikea
+                  Ikea
                 </label>
               </span>
               <span className="d-flex flex-row justify-content-around align-items-baseline">
@@ -1397,7 +1402,7 @@ export default function LiftSide({
                   id="BoysFashionCheckbox"
                 />
                 <label className="col-10" htmlFor="BoysFashionCheckbox">
-                Tefal
+                  Tefal
                 </label>
               </span>
               <span className="d-flex flex-row justify-content-around align-items-baseline">
@@ -1441,9 +1446,10 @@ export default function LiftSide({
                   name="BabyProductsCheckbox"
                   id="BabyProductsCheckbox"
                 />
-                <label className="col-10" htmlFor="BabyProductsCheckbox">
-                
-                </label>
+                <label
+                  className="col-10"
+                  htmlFor="BabyProductsCheckbox"
+                ></label>
               </span>
               <span className="d-flex flex-row justify-content-around align-items-baseline">
                 <input
@@ -1453,7 +1459,7 @@ export default function LiftSide({
                   id="BeautyCheckbox"
                 />
                 <label className="col-10" htmlFor="BeautyCheckbox">
-                Spaceshoop_October
+                  Spaceshoop_October
                 </label>
               </span>
               <span className="d-flex flex-row justify-content-around align-items-baseline">
@@ -1464,7 +1470,7 @@ export default function LiftSide({
                   id="BooksCheckbox"
                 />
                 <label className="col-10" htmlFor="BooksCheckbox">
-                ⭐⭐HOMES-MART⭐⭐
+                  ⭐⭐HOMES-MART⭐⭐
                 </label>
               </span>
               <span className="d-flex flex-row justify-content-around align-items-baseline">
@@ -1475,7 +1481,7 @@ export default function LiftSide({
                   id="BoysFashionCheckbox"
                 />
                 <label className="col-10" htmlFor="BoysFashionCheckbox">
-                Donald-Duck
+                  Donald-Duck
                 </label>
               </span>
               <span className="d-flex flex-row justify-content-around align-items-baseline">
@@ -1500,7 +1506,7 @@ export default function LiftSide({
                   id="ElectronicsCheckbox"
                 />
                 <label className="col-10" htmlFor="ElectronicsCheckbox">
-                A.H.Q Group
+                  A.H.Q Group
                 </label>
               </span>
               <span className="d-flex flex-row justify-content-around align-items-baseline">
@@ -1511,7 +1517,7 @@ export default function LiftSide({
                   id="FashionCheckbox"
                 />
                 <label className="col-10" htmlFor="FashionCheckbox">
-                Mark_Spain
+                  Mark_Spain
                 </label>
               </span>
               <span className="d-flex flex-row justify-content-around align-items-baseline">
@@ -1522,7 +1528,7 @@ export default function LiftSide({
                   id="GardenCheckbox"
                 />
                 <label className="col-10" htmlFor="GardenCheckbox">
-                malik0000
+                  malik0000
                 </label>
               </span>
               <span className="d-flex flex-row justify-content-around align-items-baseline">
@@ -1533,7 +1539,7 @@ export default function LiftSide({
                   id="GirlsFashionCheckbox"
                 />
                 <label className="col-10" htmlFor="GirlsFashionCheckbox">
-                Kitchen 360
+                  Kitchen 360
                 </label>
               </span>
               <span className="d-flex flex-row justify-content-around align-items-baseline">
@@ -1544,7 +1550,7 @@ export default function LiftSide({
                   id="GirlsFashionCheckbox"
                 />
                 <label className="col-10" htmlFor="GirlsFashionCheckbox">
-                Portal99
+                  Portal99
                 </label>
               </span>
             </section>
@@ -1562,162 +1568,175 @@ export default function LiftSide({
             </span>
           </>
         )}
-        {Location.pathname == '/books' && (
+        {Location.pathname == "/books" && (
           <>
-          <h6 style={{ fontWeight: "100" }}>{t("Popular in Books")}</h6>
-          <div className="px-3 d-flex flex-column mb-3">
-            <Link className="a-book"> {t("Summer Reading")}</Link>
-            <Link className="a-book"> {t("Read with Pride")}</Link>
-            <Link className="a-book"> {t("Raising Asian Voices")}</Link>
-            <Link className="a-book"> {t("Books by Black Authors")}</Link>
-            <Link className="a-book"> {t("Hispanic and Latino Stories")}</Link>
-            <Link className="a-book"> {t("Books in Spanish")}</Link>
-            <Link className="a-book"> {t("Celebrity Picks")}</Link>
-            <Link className="a-book"> {t("Children's Books")}</Link>
-            <Link className="a-book"> {t("Deals in Books")}</Link>
-            <Link className="a-book"> {t("Best Books of 2023 So Far")}</Link>
-            <Link className="a-book"> {t("Best Books of the Month")}</Link>
-          </div>
-          <h6 style={{ fontWeight: "100" }}>{t("More in Books")}</h6>
-          <div className="px-3 d-flex flex-column mb-3">
-            <Link className="a-book"> {t("Book Merch Shop")}</Link>
-            <Link className="a-book"> {t("100 Books to Read in a Lifetime")}</Link>
-            <Link className="a-book"> {t("Amazon Book Review")}</Link>
-            <Link className="a-book"> {t("Amazon Books on Facebook")}</Link>
-            <Link className="a-book"> {t("Amazon Books on Twitter")}</Link>
-            <Link className="a-book"> {t("Amazon First Reads")}</Link>
-            <Link className="a-book"> {t("Book Club Picks")}</Link>
-            <Link className="a-book"> {t("From Page to Screen")}</Link>
-            <Link className="a-book"> {t("Start a New Series")}</Link>
-            <Link className="a-book"> {t("Your Company Bookshelf")}</Link>
-          </div>
-          <h6 style={{ fontWeight: "100" }}> {t("Textbooks")}</h6>
-          <div className="px-3 d-flex flex-column mb-3">
-            <Link className="a-book">{t("Textbooks Store")}</Link>
-            <Link className="a-book"> {t("Textbook Rentals")}</Link>
-            <Link className="a-book"> {t("Kindle eTextbooks")}</Link>
-          </div>
-          <h6 style={{ fontWeight: "100" }}> {t("Kindle & Audible")}</h6>
-          <div className="px-3 d-flex flex-column mb-3">
-            <Link className="a-book">{t("Audible Audiobooks")}</Link>
-            <Link className="a-book"> {t("Kindle eBooks")}</Link>
-            <Link className="a-book">{t("Kindle Deals")}</Link>
-            <Link className="a-book"> {t("Kindle Unlimited")}</Link>
-            <Link className="a-book"> {t("Kindle Vella")}</Link>
-            <Link className="a-book">{t("Prime Reading")}</Link>
-          </div>
-          <h6 style={{ fontWeight: "100" }}> {t("New Releases")}</h6>
-          <div className=" d-flex flex-column mb-3">
-            <Link style={{ fontSize: "15px" }} className="a-book">
-              {t("Last 30 days")}
-            </Link>
-            <Link style={{ fontSize: "15px" }} className="a-book">
-              {t("Last 90 days")}
-            </Link>
-            <Link style={{ fontSize: "15px" }} className="a-book">
-              {t("Coming Soon")}
-            </Link>
-          </div>
+            <h6 style={{ fontWeight: "100" }}>{t("Popular in Books")}</h6>
+            <div className="px-3 d-flex flex-column mb-3">
+              <Link className="a-book"> {t("Summer Reading")}</Link>
+              <Link className="a-book"> {t("Read with Pride")}</Link>
+              <Link className="a-book"> {t("Raising Asian Voices")}</Link>
+              <Link className="a-book"> {t("Books by Black Authors")}</Link>
+              <Link className="a-book">
+                {" "}
+                {t("Hispanic and Latino Stories")}
+              </Link>
+              <Link className="a-book"> {t("Books in Spanish")}</Link>
+              <Link className="a-book"> {t("Celebrity Picks")}</Link>
+              <Link className="a-book"> {t("Children's Books")}</Link>
+              <Link className="a-book"> {t("Deals in Books")}</Link>
+              <Link className="a-book"> {t("Best Books of 2023 So Far")}</Link>
+              <Link className="a-book"> {t("Best Books of the Month")}</Link>
+            </div>
+            <h6 style={{ fontWeight: "100" }}>{t("More in Books")}</h6>
+            <div className="px-3 d-flex flex-column mb-3">
+              <Link className="a-book"> {t("Book Merch Shop")}</Link>
+              <Link className="a-book">
+                {" "}
+                {t("100 Books to Read in a Lifetime")}
+              </Link>
+              <Link className="a-book"> {t("Amazon Book Review")}</Link>
+              <Link className="a-book"> {t("Amazon Books on Facebook")}</Link>
+              <Link className="a-book"> {t("Amazon Books on Twitter")}</Link>
+              <Link className="a-book"> {t("Amazon First Reads")}</Link>
+              <Link className="a-book"> {t("Book Club Picks")}</Link>
+              <Link className="a-book"> {t("From Page to Screen")}</Link>
+              <Link className="a-book"> {t("Start a New Series")}</Link>
+              <Link className="a-book"> {t("Your Company Bookshelf")}</Link>
+            </div>
+            <h6 style={{ fontWeight: "100" }}> {t("Textbooks")}</h6>
+            <div className="px-3 d-flex flex-column mb-3">
+              <Link className="a-book">{t("Textbooks Store")}</Link>
+              <Link className="a-book"> {t("Textbook Rentals")}</Link>
+              <Link className="a-book"> {t("Kindle eTextbooks")}</Link>
+            </div>
+            <h6 style={{ fontWeight: "100" }}> {t("Kindle & Audible")}</h6>
+            <div className="px-3 d-flex flex-column mb-3">
+              <Link className="a-book">{t("Audible Audiobooks")}</Link>
+              <Link className="a-book"> {t("Kindle eBooks")}</Link>
+              <Link className="a-book">{t("Kindle Deals")}</Link>
+              <Link className="a-book"> {t("Kindle Unlimited")}</Link>
+              <Link className="a-book"> {t("Kindle Vella")}</Link>
+              <Link className="a-book">{t("Prime Reading")}</Link>
+            </div>
+            <h6 style={{ fontWeight: "100" }}> {t("New Releases")}</h6>
+            <div className=" d-flex flex-column mb-3">
+              <Link style={{ fontSize: "15px" }} className="a-book">
+                {t("Last 30 days")}
+              </Link>
+              <Link style={{ fontSize: "15px" }} className="a-book">
+                {t("Last 90 days")}
+              </Link>
+              <Link style={{ fontSize: "15px" }} className="a-book">
+                {t("Coming Soon")}
+              </Link>
+            </div>
 
-          <h6 style={{ fontWeight: "100" }}> {t("Department")}</h6>
-          <h6 className="px-3 " style={{ fontWeight: "100" }}>
-            {" "}
-            {t("Books")}
-          </h6>
-          <div className="px-4 d-flex flex-column mb-3">
-            <Link className="a-book"> {t("Arts & Photography")}</Link>
-            <Link className="a-book">{t("Biographies & Memoirs")}</Link>
-            <Link className="a-book">{t("Business & Money")}</Link>
-            <Link className="a-book">{t("Calendars")}</Link>
-            <Link className="a-book">{t("Children's Books")}</Link>
-            <Link className="a-book">{t("Christian Books & Bibles")}</Link>
-            <Link className="a-book">{t("Comics & Graphic Novels")}</Link>
-            <Link className="a-book">{t("Computers & Technology")}</Link>
-            <Link className="a-book"> {t("Cookbooks, Food & Wine")}</Link>
-            <Link className="a-book">{t("Crafts, Hobbies & Home")}</Link>
-            <Link className="a-book">{t("Education & Teaching")}</Link>
-            <Link className="a-book">{t("Engineering & Transportation")}</Link>
-            <Link className="a-book">{t("Health, Fitness & Dieting")}</Link>
-            <Link className="a-book">{t("History")}</Link>
-            <Link className="a-book">{t("Humor & Entertainment")}</Link>
-            <Link className="a-book">{t("Law")}</Link>
-            <Link className="a-book">{t("Literature & Fiction")}</Link>
-            <Link className="a-book">{t("Medical Books")}</Link>
-            <Link className="a-book">{t("Mystery, Thriller & Suspense")}</Link>
-            <Link className="a-book">{t("Parenting & Relationships")}</Link>
-            <Link className="a-book">{t("Politics & Social Sciences")}</Link>
-            <Link className="a-book">{t("Reference")}</Link>
-            <Link className="a-book">{t("Religion & Spirituality")}</Link>
-            <Link className="a-book">{t("Romance")}</Link>
-            <Link className="a-book">{t("Science & Math")}</Link>
-            <Link className="a-book">{t("Science Fiction & Fantasy")}</Link>
-            <Link className="a-book">{t("Self-Help")}</Link>
-            <Link className="a-book">{t("Sports & Outdoors")}</Link>
-            <Link className="a-book">{t("Teen & Young Adult")}</Link>
-            <Link className="a-book">{t("Test Preparation")}</Link>
-            <Link className="a-book">{t("Travel")}</Link>
-          </div>
-          <h6 style={{ fontWeight: "100" }}>{t("Format")}</h6>
-          <div className=" d-flex flex-column mb-3">
-            <Link className="a-book">{t("Paperback")}</Link>
-            <Link className="a-book">{t("Hardcover")}</Link>
-            <Link className="a-book">{t("Kindle Edition")}</Link>
-            <Link className="a-book">{t("Large Print")}</Link>
-            <Link className="a-book">{t("Audible Audiobook")}</Link>
-            <Link className="a-book">{t("Printed Access Code")}</Link>
-            <Link className="a-book">{t("Loose Leaf")}</Link>
-            <Link className="a-book">{t("Audio CD")}</Link>
-            <Link className="a-book">{t("Board Book")}</Link>
-            <Link className="a-book">{t("Spiral-bound")}</Link>
-          </div>
+            <h6 style={{ fontWeight: "100" }}> {t("Department")}</h6>
+            <h6 className="px-3 " style={{ fontWeight: "100" }}>
+              {" "}
+              {t("Books")}
+            </h6>
+            <div className="px-4 d-flex flex-column mb-3">
+              <Link className="a-book"> {t("Arts & Photography")}</Link>
+              <Link className="a-book">{t("Biographies & Memoirs")}</Link>
+              <Link className="a-book">{t("Business & Money")}</Link>
+              <Link className="a-book">{t("Calendars")}</Link>
+              <Link className="a-book">{t("Children's Books")}</Link>
+              <Link className="a-book">{t("Christian Books & Bibles")}</Link>
+              <Link className="a-book">{t("Comics & Graphic Novels")}</Link>
+              <Link className="a-book">{t("Computers & Technology")}</Link>
+              <Link className="a-book"> {t("Cookbooks, Food & Wine")}</Link>
+              <Link className="a-book">{t("Crafts, Hobbies & Home")}</Link>
+              <Link className="a-book">{t("Education & Teaching")}</Link>
+              <Link className="a-book">
+                {t("Engineering & Transportation")}
+              </Link>
+              <Link className="a-book">{t("Health, Fitness & Dieting")}</Link>
+              <Link className="a-book">{t("History")}</Link>
+              <Link className="a-book">{t("Humor & Entertainment")}</Link>
+              <Link className="a-book">{t("Law")}</Link>
+              <Link className="a-book">{t("Literature & Fiction")}</Link>
+              <Link className="a-book">{t("Medical Books")}</Link>
+              <Link className="a-book">
+                {t("Mystery, Thriller & Suspense")}
+              </Link>
+              <Link className="a-book">{t("Parenting & Relationships")}</Link>
+              <Link className="a-book">{t("Politics & Social Sciences")}</Link>
+              <Link className="a-book">{t("Reference")}</Link>
+              <Link className="a-book">{t("Religion & Spirituality")}</Link>
+              <Link className="a-book">{t("Romance")}</Link>
+              <Link className="a-book">{t("Science & Math")}</Link>
+              <Link className="a-book">{t("Science Fiction & Fantasy")}</Link>
+              <Link className="a-book">{t("Self-Help")}</Link>
+              <Link className="a-book">{t("Sports & Outdoors")}</Link>
+              <Link className="a-book">{t("Teen & Young Adult")}</Link>
+              <Link className="a-book">{t("Test Preparation")}</Link>
+              <Link className="a-book">{t("Travel")}</Link>
+            </div>
+            <h6 style={{ fontWeight: "100" }}>{t("Format")}</h6>
+            <div className=" d-flex flex-column mb-3">
+              <Link className="a-book">{t("Paperback")}</Link>
+              <Link className="a-book">{t("Hardcover")}</Link>
+              <Link className="a-book">{t("Kindle Edition")}</Link>
+              <Link className="a-book">{t("Large Print")}</Link>
+              <Link className="a-book">{t("Audible Audiobook")}</Link>
+              <Link className="a-book">{t("Printed Access Code")}</Link>
+              <Link className="a-book">{t("Loose Leaf")}</Link>
+              <Link className="a-book">{t("Audio CD")}</Link>
+              <Link className="a-book">{t("Board Book")}</Link>
+              <Link className="a-book">{t("Spiral-bound")}</Link>
+            </div>
 
-          <h6 style={{ fontWeight: "100" }}>{t("Kindle Unlimited")}</h6>
-          <div className=" d-flex flex-column mb-3">
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> {t("Paperback")}
-            </a>
-          </div>
-          <h6 style={{ fontWeight: "100" }}>{t("Author")}</h6>
-          <div className=" d-flex flex-column mb-3">
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Caroline Peckham
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Rebecca Yarros
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Marina J.
-              Lostetter
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Gwendolyn Kiste
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Stephen King
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Keila Shaheen
-            </a>
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> Ann Patchett
-            </a>
-          </div>
-          <h6 style={{ fontWeight: "100" }}>{t("Promotion")}</h6>
-          <div className=" d-flex flex-column mb-3">
-            <a className="a-book">
-              {" "}
-              <FormCheckInput type="checkbox" name="" id="" /> {t("Bargain Books")}
-            </a>
-          </div>
-        </>
+            <h6 style={{ fontWeight: "100" }}>{t("Kindle Unlimited")}</h6>
+            <div className=" d-flex flex-column mb-3">
+              <a className="a-book">
+                {" "}
+                <FormCheckInput type="checkbox" name="" id="" />{" "}
+                {t("Paperback")}
+              </a>
+            </div>
+            <h6 style={{ fontWeight: "100" }}>{t("Author")}</h6>
+            <div className=" d-flex flex-column mb-3">
+              <a className="a-book">
+                {" "}
+                <FormCheckInput type="checkbox" name="" id="" /> Caroline
+                Peckham
+              </a>
+              <a className="a-book">
+                {" "}
+                <FormCheckInput type="checkbox" name="" id="" /> Rebecca Yarros
+              </a>
+              <a className="a-book">
+                {" "}
+                <FormCheckInput type="checkbox" name="" id="" /> Marina J.
+                Lostetter
+              </a>
+              <a className="a-book">
+                {" "}
+                <FormCheckInput type="checkbox" name="" id="" /> Gwendolyn Kiste
+              </a>
+              <a className="a-book">
+                {" "}
+                <FormCheckInput type="checkbox" name="" id="" /> Stephen King
+              </a>
+              <a className="a-book">
+                {" "}
+                <FormCheckInput type="checkbox" name="" id="" /> Keila Shaheen
+              </a>
+              <a className="a-book">
+                {" "}
+                <FormCheckInput type="checkbox" name="" id="" /> Ann Patchett
+              </a>
+            </div>
+            <h6 style={{ fontWeight: "100" }}>{t("Promotion")}</h6>
+            <div className=" d-flex flex-column mb-3">
+              <a className="a-book">
+                {" "}
+                <FormCheckInput type="checkbox" name="" id="" />{" "}
+                {t("Bargain Books")}
+              </a>
+            </div>
+          </>
         )}
         <section className="d-flex flex-column pb-3">
           <h2>{t("Price")}</h2>

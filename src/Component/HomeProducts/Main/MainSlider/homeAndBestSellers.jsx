@@ -4,13 +4,13 @@ import '@splidejs/react-splide/css';
 import '@splidejs/react-splide/css/skyblue';
 import PropTypes from 'prop-types';
 import NewArrivalsCards from './newArrivalsCards';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 
 export default function HomeAndBestSellers(props) {
-    const state= useSelector((state)=>state);
-    console.log(state.products.products);
-    const productsList=state.products.products;
+    // const state= useSelector((state)=>state);
+    // console.log(state.products.products);
+    // const productsList=state.products.products;
     const imgSrc=(props.img)?'../assets/homeProductsImages/':'./assets/homeProductsImages/';
 
   
@@ -35,15 +35,16 @@ export default function HomeAndBestSellers(props) {
                <SplideSlide>
                 <NewArrivalsCards img={`${imgSrc}oilSpry.jpg`} title={'Oil Sprayer for Cooking, Olive Oil S...'} price={'43.00'} oldPrice={'65.28'} reviews={'16,740'} fullStar={3} emptyStar={1} halfStar={1}/>
                </SplideSlide>
-               {productsList.map((item)=>{
+               {/* {productsList.map((item)=>{
                 return <SplideSlide key={item.id}>
                 <NewArrivalsCards img={item.img} title={item.title} price={item.newPrice} oldPrice={item.oldPrice} reviews={'25'} fullStar={4} emptyStar={1} halfStar={0}/>
                </SplideSlide>
-               })}
+               })} */}
              
             </Splide>  
     )
 }
 HomeAndBestSellers.propTypes = {
-    numberOfItems: PropTypes.number.isRequired
+    numberOfItems: PropTypes.number.isRequired,
+    img: PropTypes.string
 }
