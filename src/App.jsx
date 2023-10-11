@@ -36,6 +36,7 @@ import ProductDetails from "./Component/productDetails/ProductDetails";
 import Profile from "./Component/UserInfo/profile";
 import Favorite from "./Component/favorite/favorite";
 import TrackingOrder from "./Component/UserInfo/TrackingOrder";
+import { refresh } from "./Services/user-auth";
 
 
 
@@ -121,7 +122,15 @@ function App() {
   }
   useEffect(() => {
     start();
+    const interval = setInterval(() => {
+      refresh(); 
+    }, 13 * 60 * 1000); 
+
+    return () => {
+      clearInterval(interval); 
+    };
   }, []);
+  
   return (
     <Provider store={store}>
        <AuthProvider value={{  userData , setUserData}} >

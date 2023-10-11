@@ -36,7 +36,6 @@ function Navbar() {
   let [totalItems_fav, settotalItems_fav] = useState(0)
   let user = useSelector((state) => { return state.user.data })
   var items = useSelector((state) => { return state.cart.data })
-  const navigate = useNavigate(); 
   
   try {
     for (const item of items) { totalItems += item.quantity }
@@ -70,11 +69,17 @@ function Navbar() {
     }
     setSearchCategory(e.target.value);
   }
- function handleLogout (){
-  localStorage.removeItem('userData');
-   logout
-   navigate('/login')
- }
+  const handleLogout = () => {
+    localStorage.removeItem('userId');
+      logout()
+      .then(() => {
+        const navigate = useNavigate();
+        navigate('/login');
+      })
+      .catch((error) => {
+        console.log('Error occurred during logout:', error);
+      });
+  };
   function handleSearch() {
     console.log(searchCategory);
     if (searchCategory == "all") {
@@ -543,7 +548,7 @@ function Navbar() {
               {t("books")}
             </NavLink>
             <NavLink className="links px-2" to="profile" style={{ textDecoration: "none" }}>Profile</NavLink>
-            <NavLink className="links px-2" to="login" onClick={() => {handleLogout}} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
+            <NavLink className="links px-2" to="login" onClick={handleLogout} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
           </div>
           <div className=" text-white">{t("Shop deals in Electronics")}</div>
         </div>

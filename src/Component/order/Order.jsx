@@ -36,7 +36,7 @@ export default function Order() {
 
   const initialOptions = {
     clientId: "AUaJcic_8Sb70xnxkGT_R5n03MBqWEcogg19wC-EIxqa8dlssaNVRTS-hvuzDAacol3ltbW1DfT9lZP6",
-    currency: "USD",
+     currency: "USD",
     intent: "capture",
   };
 

@@ -104,8 +104,11 @@ const CreateAccount = () => {
           inputElement.classList.remove('error');
         }
       });
-    
+      return;
+    }
   
+    
+   
     const userData = {
       name: formData.name,
       address: formData.address,
@@ -125,7 +128,7 @@ const CreateAccount = () => {
         });
         console.log('This Email Already has an account', error);
       });
-  };
+  ;
   }
   return (
     <>
