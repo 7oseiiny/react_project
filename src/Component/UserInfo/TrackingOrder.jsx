@@ -2,18 +2,15 @@ import React, { useEffect } from 'react';
 import "./userInfo.css";
 import { fetchOrder } from "../../../store/Slice/orderSlice";
 import { useDispatch, useSelector } from "react-redux";
-
-
+import Badge from 'react-bootstrap/Badge';
 export default function TrackingOrder() {
     var orders = useSelector((state) => { return state.order.data })
-
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(fetchOrder());
-
     }, [dispatch]);
-    // console.log(orders);
-    
+
     return (
         <>
             <div className="container">
@@ -24,21 +21,23 @@ export default function TrackingOrder() {
                             <tr>
                                 <th className="order-th shadow">Order</th>
                                 <th className="order-th shadow">Date</th>
-                                <th className="order-th shadow">Product</th>
+                                <th className="order-th shadow">َQuantity</th>
                                 <th className="order-th shadow">Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {
-                                orders?orders.map((order) => (
-                                    <tr className="order-tr-light" >
-                                        <td className="order-td"><img  src={order.products[0].product.img} /></td>
-                                        <td className="order-td">{order.createdAt}</td>
-                                        <td className="order-td">{order.products.quantity}</td>
-                                        <td className="order-td">{order.status}</td>
-                                    </tr>
-                                )):""
-                            }
+                            {orders.map((order) => (
+                                <tr className="order-tr-light" key={order.id}>
+                                    <td className="order-td"><img src={order.products[0].product.img} alt="product" width={110} height={100} /></td>
+                                    <td className="order-td">{order.createdAt}</td>
+                                    <td className="order-td">  <h3> <Badge bg="dark" text="white">
+                                        {order.products[0].quantity}
+                                    </Badge></h3></td>
+                                    <td className="order-td">  <h3> <Badge bg="warning" text="dark">
+                                        {order.status}
+                                    </Badge></h3></td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
