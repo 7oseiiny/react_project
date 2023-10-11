@@ -17,78 +17,79 @@ import { addProductInCart, fetchCart } from "../../../store/Slice/cartSlice";
 // import "../TodayDeals/todayDealsLiftSide/leftSide.css";
 
 import { useTranslation } from "react-i18next";
+import { addProductInfavorite, fetchfavorite } from '../../../store/Slice/favorite';
 
 export default function Monitor() {
-  let language= useSelector((state)=>state.language.language)
+  let language = useSelector((state) => state.language.language)
   const { t } = useTranslation();
-    const [page, setPage] = useState(1)
-    console.log("pageq",page)
-    let dispatch = useDispatch()
-    // useEffect(() => {
-    //     dispatch(fetchcategory("Monitors",page))
-    // }, [dispatch,page])
-    const [data, setData] = useState([]);
-    const [pagechang, setpagechang] = useState(1)
-    useEffect(() => {
-        axios.get(`http://localhost:3300/category/getbyname/Monitors?pageNumber=${page}`)
-          .then(response => setData(response.data.data.products))
-          .catch(error => console.error(error));
-      }, [page]);
-      console.log("dataa",data)
+  const [page, setPage] = useState(1)
+  let [change, setchange] = useState(0);
+  let [pages, setpages] = useState();
+  let navigate = useNavigate()
+  let dispatch = useDispatch()
+  
+  let data = useSelector((state) => {
+    return state.category.data;
+  });
+  useEffect(() => {
+    dispatch(fetchcategorypage("Monitors", page)).then((e) => {
+      setpages(e.payload);
+    });
+    dispatch(fetchcategory({ name: "Monitors", page }));
+    dispatch(fetchCart());
+    dispatch(fetchfavorite());
+  }, [dispatch, change, page]);
 
-
-      let [pages, setpages] = useState();
-      dispatch(fetchcategorypage("Monitors",page)).then(((e)=>{setpages(e.payload)}))
-
-      console.log(pages);
-
-    // let monitorsList = useSelector((state) => {
-    //     // console.log(state)
-    //     // console.log(monitorsList)
-    //     return state.category.data
-    // })
-
-    // const itemsPerPage=5
-
-    // const indexOfLastItem = page * itemsPerPage;
-    // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    // const currentItems = data
-    console.log("pagez",page)
-    let [change, setchange] = useState(0);
-    let cart=data
-    useEffect(() => {
-        dispatch(fetchCart())
-      }, [dispatch, change])
-    let navigate = useNavigate()
-
-
-  async function addtocart(productId) {
-    await dispatch(addProductInCart({ "items": [{ "product": productId, "quantity": 1 }] }))
-    setchange(productId)
-  }
-
-  function gotodetails(prodId){
-    navigate("/productdetails", { state: { productId: prodId } });
-  }
-  function isInCart(prodId) {
-    for (const item of cart) {
-
-      if (prodId == item._id) {
-        return true
+  var cart = useSelector((state) => {
+    return state.cart.data;
+  });
+  var fav = useSelector((state) => {
+    return state.favorite.data.productId;
+  });
+  function isInCart(bookId) {
+    
+    try {
+      for (const item of cart) {
+        if (bookId == item.product._id) {
+          return true;
+        }
       }
-
-
+    } catch (err) {
+      // console.log(err);
     }
+  }
+  function isinfav(prdId) {
+    if (fav) {
+      for (const item of fav) {
+        if (prdId == item._id) {
+          return true;
+        }
+      }
+    } else {
+      return false;
+    }
+  }
+  async function addtocart(productId) {
+    await dispatch(
+      addProductInCart({ items: [{ product: productId, quantity: 1 }] })
+    );
+    setchange(productId);
+  }
+  async function addtofav(productId) {
+    await dispatch(addProductInfavorite(productId));
+    setchange(productId + " ");
+  }
+  function gotodetails(prdId) {
+    navigate("/productdetails", { state: { productId: prdId } });
   }
   function viewcart() {
     navigate("/cart")
   }
-
   return (
     <>
       <div className=" container-fluid ">
         <div className="row">
-        <LiftSide
+          <LiftSide
             categoryId={"651af954eb03aa680952f49d"}
             lessThan={100}
             between1={[100, 200]}
@@ -109,7 +110,7 @@ export default function Monitor() {
                     <Card.Img variant="top" className="img" src={prd.img} />
                     <Card.Body>
                       <Card.Title className="title-wrapper">
-                        {language=="en"? prd.title_en:prd.title_ar}
+                        {language == "en" ? prd.title_en : prd.title_ar}
                       </Card.Title>
                       <Card.Text className="m-0">
                         <span className="fs-4">{t("Quantity")}</span>{" "}
@@ -131,7 +132,7 @@ export default function Monitor() {
                         }}
                         className="btn btn-secondary m-2"
                       >
-                        {t("details")}
+                        details
                       </button>
                       {!isInCart(prd._id) ? (
                         <button
@@ -141,20 +142,27 @@ export default function Monitor() {
                           }}
                           className="btn btn-warning"
                         >
-                          {t("add to cart")}
+                          add to cart
                         </button>
                       ) : (
-                        <button onClick={viewcart} className="btn btn-warning">
-                          {t("view cart")}
+                        <button
+                          onClick={viewcart}
+                          className="btn btn-warning"
+                        >
+                          view cart
                         </button>
                       )}
-                      {true ? (
+                      {!isinfav(prd._id) ? (
                         <MdOutlineFavoriteBorder
+                          onClick={() => {
+                            addtofav(prd._id);
+                          }}
                           style={{ fontSize: "25px", marginLeft: "10px" }}
                         ></MdOutlineFavoriteBorder>
                       ) : (
                         <MdFavorite></MdFavorite>
                       )}
+                      {/* <MdOutlineFavoriteBorder onClick={addtofav(prd._id)} style={{ fontSize: "25px", marginLeft: "10px" }}></MdOutlineFavoriteBorder> */}
                     </div>
                   </Card>
                 );
@@ -210,13 +218,13 @@ export default function Monitor() {
                       className="img"
                       src={prd.imageURL}
                     /> */}
-                    {/* <Card.Body>
+{/* <Card.Body>
                       <Card.Title className="title-wrapper">
                         {prd.title}
                       </Card.Title>
                       <Card.Text className="m-0"> */}
-                        {/* <span className='fs-4' >{prd.price}</span> */}
-                        {/* {prd.discount == null ? (
+{/* <span className='fs-4' >{prd.price}</span> */ }
+{/* {prd.discount == null ? (
                           <>
                             <span className="fs-4">{prd.price}</span>
                           </>
@@ -251,15 +259,15 @@ export default function Monitor() {
                         </span>
                       </Card.Text> */}
 
-                      {/* <Card.Text>
+{/* <Card.Text>
                                                 <span className='fs-4' >totalRates</span>                {prd.totalRates}
                                             </Card.Text> */}
-                      {/* <Card.Text className="m-0">
+{/* <Card.Text className="m-0">
                         <span className="fs-4">deliveryDate</span>{" "}
                         {prd.deliveryDate}
                       </Card.Text> */}
-                      {/* <Button variant="primary">Go somewhere</Button> */}
-                    {/* </Card.Body>
+{/* <Button variant="primary">Go somewhere</Button> */ }
+{/* </Card.Body>
                   </Card>
                 );
               })}

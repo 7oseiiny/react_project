@@ -46,10 +46,7 @@ export default function Books() {
     dispatch(fetchfavorite());
   }, [dispatch, change, page]);
 
-  // useEffect(() => {
-  //   dispatch(fetchcategory("books",page))
-  // }, [page])
-
+ 
   console.log(pages);
   var listbook = useSelector((state) => {
     return state.category.data;
