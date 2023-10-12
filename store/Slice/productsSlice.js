@@ -16,6 +16,17 @@ export const fetchProductById =createAsyncThunk(
     }
 )
 
+export const updateQuantity = createAsyncThunk(
+    "product/updatequantity",
+    async ( productId ) => {
+      const response = await axiosInstance.patch(
+        `/product/updatequantity/${productId}`,
+        { new_q } 
+      );
+      return response.data.data;
+    }
+  );
+
 
 
  const productsSlice =createSlice({
@@ -78,6 +89,7 @@ export default productsSlice.reducer
 /////////////////////////////////////
 
 // import { createSlice } from "@reduxjs/toolkit";
+import { updateUser } from './../../src/Services/user-auth';
 
 // const productSlice = createSlice({
 //     name: "products",
