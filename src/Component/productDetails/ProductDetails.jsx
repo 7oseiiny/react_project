@@ -7,9 +7,14 @@ import { fetchProductById } from '../../../store/Slice/productsSlice';
 import { fetchuser } from '../../../store/Slice/userSlice';
 import { addProductInCart, fetchCart } from '../../../store/Slice/cartSlice';
 import { addProductInfavorite, fetchfavorite } from '../../../store/Slice/favorite';
-import axios from 'axios';
-import { fetchreviwes } from '../../../store/Slice/reviwes';
+import { addreviwes, fetchreviwes } from '../../../store/Slice/reviwes';
 import "./productdetails.css"
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import { Form } from 'react-bootstrap';
+import Rating from 'react-rating';
+import { FaRegStar, FaStar } from 'react-icons/fa6';
+import { fetchOrder } from '../../../store/Slice/orderSlice';
 
 export default function ProductDetails() {
 
@@ -25,28 +30,54 @@ export default function ProductDetails() {
     var fav = useSelector((state) => { return state.favorite.data.productId })
 
     var reviws = useSelector((state) => { return state.reviwes.data })
-    console.log(reviws);
 
 
-    var [productinfo, setProductinfo] = useState({})
-    var [productReviw, setproductReviw] = useState([])
+    const [formData, setFormData] = useState({
+        rating: 1,
+        comment: '',
+
+    });
+    const handleValidation = (name, value) => {
+        setFormData({ ...formData, [name]: value });
+        console.log('here',formData)
+    }
     let [change, setchange] = useState(0);
     let [quantity, setquantity] = useState(1);
-
-
+    const [show, setShow] = useState(false);
+    
+    
+    const body = {
+        rating: formData.rating,
+        comment: formData.comment,
+        // userId: JSON.parse(localStorage.getItem('userId')),
+        // productId: product._id
+    }
+   async function Addreviw(e){
+    await dispatch(addreviwes({body,prdId:product._id}))
+    setShow(false)
+    setchange(e)
+   }
     useEffect(() => {
         dispatch(fetchuser())
         dispatch(fetchCart())
         dispatch(fetchfavorite())
         dispatch(fetchProductById(location.state.productId))
         dispatch(fetchreviwes(location.state.productId))
+        dispatch(fetchOrder());
+
     }, [dispatch, change, quantity])
-    
+
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+ 
     function prod(x, y) {
         try {
             if (x && y) { return (product[x][y]) }
             else if (x) { return (product[x]) }
-        } catch { }
+        } catch {
+            console.log("err")
+        }
     }
 
     function isInCart(bookId) {
@@ -73,15 +104,30 @@ export default function ProductDetails() {
         await dispatch(addProductInCart({ "items": [{ "product": productId, "quantity": quantity }] }))
         setchange(productId)
     }
+    var orders = useSelector((state) => { return state.order.data })
+    console.log("orders",orders)
+     function isInOrder(productId) {
+
+        for (const x of orders) 
+        {
+            for (const y of x.products){ 
+                y._id ==productId
+                return true
+                
+            }
+            
+        }
+
+    }
 
 
     function isinfav(bookId) {
         for (const item of fav) {
 
-          console.log(item._id);
-          if (bookId == item._id) {
-            return true
-          }
+            console.log(item._id);
+            if (bookId == item._id) {
+                return true
+            }
 
 
         }
@@ -89,9 +135,9 @@ export default function ProductDetails() {
     async function addtofav(productId) {
         console.log(productId);
         await dispatch(addProductInfavorite(productId))
-        setchange(productId+1)
+        setchange(productId + 1)
     }
-    function scrollto(){
+    function scrollto() {
         const element = document.getElementById("rates");
         element.scrollIntoView();
 
@@ -109,7 +155,7 @@ export default function ProductDetails() {
                     <NavLink to="/" style={{ textDecoration: "none", color: "rgb(0,113,165)" }}><p>catigory : {prod("categoryId", "name_en")}</p></NavLink>
                     <div className='d-flex  align-items-end justify-content-between' >
                         <p style={{ fontSize: "1.4rem" }} className='p-0 px-2 m-0'>5.5</p>
-                        <div style={{ fontSize: "1.22rem", color: "rgb(237,139,31)" }}> <Rate rate={prod( "avg_rating")}/></div>
+                        <div style={{ fontSize: "1.22rem", color: "rgb(237,139,31)" }}> <Rate rate={prod("avg_rating")} /></div>
                         <a onClick={scrollto} style={{ textDecoration: "none", color: "rgb(0,113,165)" }}>({prod("num_rating")}) rating</a>
                     </div>
                     <hr />
@@ -173,7 +219,7 @@ export default function ProductDetails() {
                             <p className='p-0 m-0' style={{ fontSize: "30px" }}>{prod("price", "new")}</p>
                             <p className=' m-0'  >00</p>
                         </div>
-                        <a  onClick={scrollto} style={{  textDecoration: "none", color: "rgb(0,113,165)" }}>({prod("num_rating")}) rating</a>
+                        <a onClick={scrollto} style={{ textDecoration: "none", color: "rgb(0,113,165)" }}>({prod("num_rating")}) rating</a>
                         <p style={{ fontWeight: "550", fontSize: ".9rem" }}> <a href="#" style={{ textDecoration: "none", color: "rgb(0,113,165)" }}>FREE delivery</a> Tomorrow, 4 October</p>
                         <div style={{ fontSize: ".9rem" }}>
                             <MdOutlinePlace></MdOutlinePlace>
@@ -200,36 +246,94 @@ export default function ProductDetails() {
                 {/* review */}
 
                 <div className='cointainer' id='rates'>
-                    <hr className='w-75 mx-auto'/>
+                    <hr className='w-75 mx-auto' />
                     <div className="row">
-                        <div className='reviews col-md-3 '>
-                            <h1 className='ps-4'>Reviews</h1>
+                        <div className='reviews col-md-3  ps-4'>
+                            <h1 className=''>Reviews</h1>
+                            <Button disabled={isInOrder(prod("_id"))} variant="primary" onClick={handleShow} >
+                                Add Review
+                            </Button>
+
+                            <Modal show={show} onHide={handleClose}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Add review </Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                    <Form>
+                                        {/* <div className="d-flex flex-wrap ">
+                                            {
+
+                                                reviewRate.map((rate, index) => {
+                                                    return (
+                                                        <>
+                                                            <div key={index} className='d-flex w-50'>
+                                                                <Form.Check
+                                                                    name='rate'
+                                                                    type='radio'
+                                                                    label={rate.label}
+                                                                    id={rate.id}
+                                                                />
+                                                                <span> &#128512; </span>
+
+                                                            </div>
+                                                        </>
+
+
+                                                    )
+                                                })
+                                            }
+                                        </div> */}
+
+                                        <Form.Label className='pe-3'>Review Rate</Form.Label>
+                                        <Rating
+
+                                            placeholderRating={formData.rating}
+                                            placeholderSymbol={<FaStar className="checkedStar" />}
+                                            fullSymbol={<FaStar className="checkedStar" />}
+                                            emptySymbol={<FaRegStar />}
+                                            onChange={(rate) => handleValidation('rating', rate)}
+                                        />
+                                        <Form.Group className="my-3" controlId="exampleForm.ControlTextarea1">
+                                            <Form.Label>Review Comment</Form.Label>
+                                            <Form.Control onChange={(e) => handleValidation('comment', e.target.value)} value={formData.comment} as="textarea" rows={3} />
+                                        </Form.Group>
+                                    </Form>
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button variant="secondary" onClick={handleClose}>
+                                        Close
+                                    </Button>
+                                    <Button variant="primary" onClick={(e)=>Addreviw(e)}>
+                                        Save Changes
+                                    </Button>
+                                </Modal.Footer>
+                            </Modal>
 
                         </div>
                         <div className=' col-9'>
                             <div className='row '>
                                 {
-                                    reviws?
-                                    reviws.map((item, i) => {
-                                        return (
-    
-                                            // eslint-disable-next-line react/jsx-key
-                                            <div className="col-md-12 ">
-                                                <div >
-                                                    <Rate rate={item.rating}>
-                                                    </Rate>
-                                                    <a href={'mailto: ' + item.user.email} className='mx-2'>{item.user.email} </a>
+                                    reviws ?
+                                        reviws.map((item, i) => {
+                                            return (
+
+                                                // eslint-disable-next-line react/jsx-key
+                                                <div className="col-md-12 " key={i}>
+                                                    <div >
+                                                        <Rate rate={item.rating}>
+                                                        </Rate>
+                                                        <a href={'mailto: ' + item.user.email} className='mx-2'>{item.user.email} </a>
+                                                    </div>
+                                                    <span className="py-2 text-secondary">
+                                                        {new Date(item.createdAt).toLocaleString()}
+                                                    </span>
+                                                    <p className='text-secondary fs-5 pe-3 upper-first-letter'> {item.comment} </p>
+
+
                                                 </div>
-                                                <span className="py-2 text-secondary">
-                                                    {new Date(item.createdAt).toLocaleString()}
-                                                </span>
-                                                <p className='text-secondary fs-5 pe-3 upper-first-letter'> {item.comment} </p>
-    
-    
-                                            </div>
-    
-                                        )
-                                    }):""
+
+                                            )
+                                        }) : ""
                                 }
 
                             </div>
@@ -243,7 +347,7 @@ export default function ProductDetails() {
 
 
             </div>
-         
+
         </>
     )
 }
