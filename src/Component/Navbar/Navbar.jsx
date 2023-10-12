@@ -25,6 +25,7 @@ function Navbar() {
   let [searchText, setSearchText] = useState("");
   let dispatch = useDispatch();
   let [category, setCategory] = useState([]);
+
   let handleLessThanReg = /^(lessThan|less Than|ارخص من)\s+(\d+)$/i;
   let match = searchText.match(handleLessThanReg);
   let handleGreaterThanReg = /^(greaterThan|greater Than|اغلي من)\s+(\d+)$/i;
@@ -84,11 +85,17 @@ function Navbar() {
     }
     setSearchCategory(e.target.value);
   }
-  function handleLogout() {
-    localStorage.removeItem("userData");
-    logout;
-    navigate("/login");
-  }
+  const handleLogout = () => {
+    localStorage.removeItem("userId");
+    logout()
+      .then(() => {
+        const navigate = useNavigate();
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log("Error occurred during logout:", error);
+      });
+  };
   function handleSearch() {
     console.log(searchCategory);
     if (searchCategory == "all") {
@@ -205,7 +212,10 @@ function Navbar() {
   }, [i18n.language, dispatch, language]);
   return (
     <>
-      <div className="container-fluid px-0 bg-dark">
+      <div
+        className="container-fluid px-0 bg-dark "
+        style={{ position: "sticky", top: "0px", zIndex: "10" }}
+      >
         <div className="row m-0 align-items-center justify-content-center">
           <div className="col-lg-2 col-sm-6  logo col-md-4 d-flex flex-wrap justify-content-between">
             <NavLink to={"/"} className="col-6">
@@ -265,7 +275,8 @@ function Navbar() {
                     <option selected value={"Fashion"}>
                       {t("Fashion")}
                     </option>
-                  ) : (location.pathname == "/videogames" || location.pathname=="/videogames/BestSeller")  ? (
+                  ) : location.pathname == "/videogames" ||
+                    location.pathname == "/videogames/BestSeller" ? (
                     <option selected value={"video Games"}>
                       {t("VideoGames")}
                     </option>
@@ -291,8 +302,7 @@ function Navbar() {
                     </option>
                   ) : (
                     ""
-                  )
-                  }
+                  )}
                 </select>
               )}
               <input
@@ -384,7 +394,9 @@ function Navbar() {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <span className="fw-normal">{t("Hello")},{user.name}</span>
+                    <span className="fw-normal">
+                      {t("Hello")},{user.name}
+                    </span>
                     <br />
                     <span className="fw-bolder">{t("Account & Lists")}</span>
                   </a>

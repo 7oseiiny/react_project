@@ -1,8 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Books.css";
-import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
-import { FaRegStar, FaStar } from "react-icons/fa6";
 import Rate from "../rate/rate";
 import { PaginationControl } from "react-bootstrap-pagination-control";
 import { useTranslation } from "react-i18next";
@@ -55,10 +54,7 @@ export default function Books() {
     };
   }, [dispatch, change, page]);
 
-  // useEffect(() => {
-  //   dispatch(fetchcategory("books",page))
-  // }, [page])
-
+ 
   console.log(pages);
   var listbook = useSelector((state) => {
     return state.category.data;
@@ -78,7 +74,7 @@ export default function Books() {
         }
       }
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   }
   function isinfav(bookId) {
@@ -96,7 +92,7 @@ export default function Books() {
   function viewcart() {
     navigate("/cart");
   }
-  const [screenWidth, setScreen] = useState(window.innerWidth);
+  const [screenWidth] = useState(window.innerWidth);
 
   var outhors = [
     "1",

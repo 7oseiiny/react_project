@@ -16,6 +16,16 @@ export const fetchProductById =createAsyncThunk(
     }
 )
 
+export const updateQuantity = createAsyncThunk(
+    "product/updatequantity",
+    async ( prodId,quantity) => {
+      const response = await axiosInstance.patch(
+        `/product/updatequantityAdd/${prodId}`, quantity );   
+      return response.data.data;  
+    }
+
+  );
+
 
 
  const productsSlice =createSlice({
@@ -50,6 +60,18 @@ export const fetchProductById =createAsyncThunk(
             state.status='failed'
 
         },
+        [updateQuantity.fulfilled ]:(state , {payload})=>{
+            state.data=payload
+            state.status='success'
+        },
+        [updateQuantity.pending ]:(state )=>{
+            state.status='loading'
+
+        },
+        [updateQuantity.rejected ]:(state  )=>{
+            state.status='failed'
+
+        }
        
        
 
@@ -78,6 +100,7 @@ export default productsSlice.reducer
 /////////////////////////////////////
 
 // import { createSlice } from "@reduxjs/toolkit";
+import { updateUser } from './../../src/Services/user-auth';
 
 // const productSlice = createSlice({
 //     name: "products",

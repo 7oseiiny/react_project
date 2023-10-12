@@ -35,9 +35,10 @@ export default function Order() {
   }
 
   const initialOptions = {
-    clientId: "AUaJcic_8Sb70xnxkGT_R5n03MBqWEcogg19wC-EIxqa8dlssaNVRTS-hvuzDAacol3ltbW1DfT9lZP6",
-    currency: "USD",
+    clientId: "AT9ciZ8qp95huOUxlnLXSx-5p2lez9y7j33ZffvosAweWfvgR_3HWMHS-F8YtDLSJFsb6IvMVaB_mTFd",
+     currency: "USD",
     intent: "capture",
+
   };
 
   function paymentfun(e) {
