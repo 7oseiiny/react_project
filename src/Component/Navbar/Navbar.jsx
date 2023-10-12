@@ -4,20 +4,20 @@ import { ImHeart } from "react-icons/im";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import React, { useEffect, useState } from "react";
-import { Link, NavLink,useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { getLanguage } from "../../../store/Slice/LanguageSlice";
 import { getFilteredList } from "../../../store/Slice/filteredList";
 import axiosInstance from "../../axiosConfig/instance";
 import { useLocation } from "react-router-dom";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import { logout } from "../../Services/user-auth";
-import { fetchCart } from '../../../store/Slice/cartSlice';
-import { fetchuser } from '../../../store/Slice/userSlice';
-import { fetchfavorite } from '../../../store/Slice/favorite';
+import { fetchCart } from "../../../store/Slice/cartSlice";
+import { fetchuser } from "../../../store/Slice/userSlice";
+import { fetchfavorite } from "../../../store/Slice/favorite";
 function Navbar() {
   const location = useLocation();
   let { t, i18n } = useTranslation();
@@ -25,38 +25,52 @@ function Navbar() {
   let [searchText, setSearchText] = useState("");
   let dispatch = useDispatch();
   let [category, setCategory] = useState([]);
-  let handleLessThanReg=/^(lessThan|less Than|ارخص من)\s+(\d+)$/i;
-  let match=searchText.match(handleLessThanReg);
-  let handleGreaterThanReg=/^(greaterThan|greater Than|اغلي من)\s+(\d+)$/i;
-  let matchGreater=searchText.match(handleGreaterThanReg);
-  let discountRegEx=/^(discount|خصم اكبر من |خصم)\s+(\d+)$/i;
-  let matchDiscount=searchText.match(discountRegEx);
-  var fav = useSelector((state) => { try { return state.favorite.data.productId } catch { } })
-  let [totalItems, settotalItems] = useState(0)
-  let [totalItems_fav, settotalItems_fav] = useState(0)
-  let user = useSelector((state) => { return state.user.data })
-  var items = useSelector((state) => { return state.cart.data })
-  const navigate = useNavigate(); 
-  
+  let handleLessThanReg = /^(lessThan|less Than|ارخص من)\s+(\d+)$/i;
+  let match = searchText.match(handleLessThanReg);
+  let handleGreaterThanReg = /^(greaterThan|greater Than|اغلي من)\s+(\d+)$/i;
+  let matchGreater = searchText.match(handleGreaterThanReg);
+  let discountRegEx = /^(discount|خصم اكبر من |خصم)\s+(\d+)$/i;
+  let matchDiscount = searchText.match(discountRegEx);
+  var fav = useSelector((state) => {
+    try {
+      return state.favorite.data.productId;
+    } catch {}
+  });
+  let [totalItems, settotalItems] = useState(0);
+  let [totalItems_fav, settotalItems_fav] = useState(0);
+  let user = useSelector((state) => {
+    return state.user.data;
+  });
+  var items = useSelector((state) => {
+    return state.cart.data;
+  });
+  const navigate = useNavigate();
+
   try {
-    for (const item of items) { totalItems += item.quantity }
+    for (const item of items) {
+      totalItems += item.quantity;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+  useEffect(
+    function () {
+      dispatch(fetchCart());
+      dispatch(fetchuser());
+      dispatch(fetchfavorite());
 
-  } catch (err) { console.log(err) }
-  useEffect(function () {
-    dispatch(fetchCart())
-    dispatch(fetchuser())
-    dispatch(fetchfavorite())
-
-    axiosInstance
-      .get("category")
-      .then((data) => {
-        setCategory(data.data.data);
-        console.log(data.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  },  [dispatch]);
+      axiosInstance
+        .get("category")
+        .then((data) => {
+          setCategory(data.data.data);
+          console.log(data.data.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    [dispatch]
+  );
 
   let [searchCategory, setSearchCategory] = useState();
   function logValue(e) {
@@ -70,63 +84,62 @@ function Navbar() {
     }
     setSearchCategory(e.target.value);
   }
- function handleLogout (){
-  localStorage.removeItem('userData');
-   logout
-   navigate('/login')
- }
+  function handleLogout() {
+    localStorage.removeItem("userData");
+    logout;
+    navigate("/login");
+  }
   function handleSearch() {
     console.log(searchCategory);
     if (searchCategory == "all") {
-      if(searchText.match(handleLessThanReg)){
-        let price=match[2];
+      if (searchText.match(handleLessThanReg)) {
+        let price = match[2];
         axiosInstance
-        .get(`searchAll/lessThan/${price}`)
-        .then((data) => {
-          dispatch(getFilteredList(data.data));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      }else if(matchGreater){
-        let price=matchGreater[2];
+          .get(`searchAll/lessThan/${price}`)
+          .then((data) => {
+            dispatch(getFilteredList(data.data));
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else if (matchGreater) {
+        let price = matchGreater[2];
         axiosInstance
-        .get(`searchAll/greaterThan/${price}`)
-        .then((data) => {
-          dispatch(getFilteredList(data.data));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      }else if(matchDiscount){
-        let discount=matchDiscount[2];
+          .get(`searchAll/greaterThan/${price}`)
+          .then((data) => {
+            dispatch(getFilteredList(data.data));
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else if (matchDiscount) {
+        let discount = matchDiscount[2];
         axiosInstance
-        .get(`searchAll/discount/${discount}`)
-        .then((data) => {
-          dispatch(getFilteredList(data.data));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-
-      }else if(searchText){
+          .get(`searchAll/discount/${discount}`)
+          .then((data) => {
+            dispatch(getFilteredList(data.data));
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else if (searchText) {
         axiosInstance
-        .get(`searchAll/${searchText}`)
-        .then((data) => {
-          dispatch(getFilteredList(data.data));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      }else{
+          .get(`searchAll/${searchText}`)
+          .then((data) => {
+            dispatch(getFilteredList(data.data));
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else {
         axiosInstance
-        .get("product")
-        .then((data) => {
-          dispatch(getFilteredList(data.data.data));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+          .get("product")
+          .then((data) => {
+            dispatch(getFilteredList(data.data.data));
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     } else {
       let selectedCategory = category.find(
@@ -134,54 +147,54 @@ function Navbar() {
       );
       if (selectedCategory) {
         let categoryId = selectedCategory._id;
-        if(matchGreater){
-          let price=matchGreater[2];
+        if (matchGreater) {
+          let price = matchGreater[2];
           axiosInstance
-          .get(`searchByCategory/${categoryId}/greaterThan/${price}`)
-          .then((data) => {
-            dispatch(getFilteredList(data.data));
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-        }else if(match){
-          let price=match[2];
+            .get(`searchByCategory/${categoryId}/greaterThan/${price}`)
+            .then((data) => {
+              dispatch(getFilteredList(data.data));
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        } else if (match) {
+          let price = match[2];
           axiosInstance
-          .get(`searchByCategory/${categoryId}/lessThan/${price}`)
-          .then((data) => {
-            dispatch(getFilteredList(data.data));
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-        }else if(matchDiscount){
-          let discount=matchDiscount[2];
+            .get(`searchByCategory/${categoryId}/lessThan/${price}`)
+            .then((data) => {
+              dispatch(getFilteredList(data.data));
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        } else if (matchDiscount) {
+          let discount = matchDiscount[2];
           axiosInstance
-          .get(`searchByCategory/${categoryId}/discount/${discount}`)
-          .then((data) => {
-            dispatch(getFilteredList(data.data));
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-        }else if(searchText){
+            .get(`searchByCategory/${categoryId}/discount/${discount}`)
+            .then((data) => {
+              dispatch(getFilteredList(data.data));
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        } else if (searchText) {
           axiosInstance
-          .get(`searchByCategory/${categoryId}/${searchText}`)
-          .then((data) => {
-            dispatch(getFilteredList(data.data));
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-        }else{
+            .get(`searchByCategory/${categoryId}/${searchText}`)
+            .then((data) => {
+              dispatch(getFilteredList(data.data));
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        } else {
           axiosInstance
-          .get(`category/${categoryId}`)
-          .then((data) => {
-            dispatch(getFilteredList(data.data.data.products));
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+            .get(`category/${categoryId}`)
+            .then((data) => {
+              dispatch(getFilteredList(data.data.data.products));
+            })
+            .catch((err) => {
+              console.log(err);
+            });
         }
       }
     }
@@ -234,15 +247,15 @@ function Navbar() {
                 <select className="search-select" onClick={(e) => logValue(e)}>
                   {location.pathname == "/HomeProducts" ? (
                     <option value={"Home and Kitchen"}>
-                      {"Home and Kitchen"}
+                      {t("Home and Kitchen")}
                     </option>
                   ) : location.pathname == "/HomeProducts/Decor" ? (
                     <option value={"Home and Kitchen"}>
-                      {"Home and Kitchen"}
+                      {t("Home and Kitchen")}
                     </option>
                   ) : location.pathname == "/todayDeals" ? (
                     <option selected value={"Today Deals"}>
-                      Today Deals
+                      {t("todayDeals")}
                     </option>
                   ) : location.pathname == "/mobile" ? (
                     <option selected value={"Mobile Phones"}>
@@ -252,7 +265,7 @@ function Navbar() {
                     <option selected value={"Fashion"}>
                       {t("Fashion")}
                     </option>
-                  ) : location.pathname == "/videogames" ? (
+                  ) : (location.pathname == "/videogames" || location.pathname=="/videogames/BestSeller")  ? (
                     <option selected value={"video Games"}>
                       {t("VideoGames")}
                     </option>
@@ -266,11 +279,20 @@ function Navbar() {
                     </option>
                   ) : location.pathname == "/electronics" ? (
                     <option selected value={"Electronics"}>
-                    {t("Electronics")}
+                      {t("Electronics")}
+                    </option>
+                  ) : location.pathname == "/fashion/kids" ? (
+                    <option selected value={"Baby Fashion"}>
+                      {t("Baby Fashion")}
+                    </option>
+                  ) : location.pathname == "/fashion/men" ? (
+                    <option selected value={"Men Fashion"}>
+                      {t("Men Fashion")}
                     </option>
                   ) : (
                     ""
-                  )}
+                  )
+                  }
                 </select>
               )}
               <input
@@ -354,15 +376,19 @@ function Navbar() {
               </li>
               <li className="col-4 col-xs-6">
                 <div className="dropdown">
-                 
-                  <a className="btn text-white dropdown-toggle text-start" href="#" role="button" id="dropdownMenuLink"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <span className="fw-normal">Hello,{user.name}</span>
+                  <a
+                    className="btn text-white dropdown-toggle text-start"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <span className="fw-normal">{t("Hello")},{user.name}</span>
                     <br />
                     <span className="fw-bolder">{t("Account & Lists")}</span>
                   </a>
-                
-                  {/* <div
+                  <div
                     className="dropdown-menu text-center"
                     aria-labelledby="dropdownMenuLink"
                   >
@@ -390,50 +416,43 @@ function Navbar() {
                       </Link>{" "}
                     </small>
                     <div className="d-flex w-600px text-center">
-                      <div>
-                        <h5>{t("Your Lists")}</h5>
-                        <Link
-                          className="btn btn-none"
-                          to="/"
-                          style={{ textDecoration: "none", textColor: "black" }}
-                        >
-                          {t("Create a List")}
-                        </Link>
-                      </div>
-                      <div>
-                        <h5>{t("Your Account")}</h5>
-                        <Link
-                          className="btn btn-none"
-                          to="/"
-                          style={{ textDecoration: "none", textColor: "black" }}
-                        >
-                          {t("Your Account")}
-                        </Link>
-                        <br />
-                        <Link
-                          className="btn btn-none"
-                          to="/"
-                          style={{ textDecoration: "none", textColor: "black" }}
-                        >
-                          {t("Your Orders")}
-                        </Link>
-                      </div>
-                    </div>
-                  </div> */}
-                  <div className="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
-                    <button type="button" className="btn btn-warning text-center w-50 "><Link className="btn btn-none text-dark fw-bold " to="/login" style={{ textDecoration: "none" }}>Sign in</Link></button>
-                    <br />
-                    <small>New Customers?<Link className="btn btn-none text-primary " to="/" style={{ textDecoration: "none" }}>Start here.</Link> </small>
-                    <div className="d-flex w-600px text-center">
                       <Container>
                         <Row>
                           <Col>
-                            <Link className="btn btn-none" to="/" style={{ textDecoration: "none", textColor: "black" }}>Home</Link>
+                            <Link
+                              className="btn btn-none"
+                              to="/"
+                              style={{
+                                textDecoration: "none",
+                                textColor: "black",
+                              }}
+                            >
+                              {t("Home")}
+                            </Link>
                           </Col>
                           <Col>
-                            <h5>Your Account</h5>
-                            <Link className="btn btn-none" to="profile" style={{ textDecoration: "none", textColor: "black" }}>Your Account</Link><br />
-                            <Link className="btn btn-none" to="tracking" style={{ textDecoration: "none", textColor: "black" }}>Your Order</Link>
+                            <h5>{t("Your Account")}</h5>
+                            <Link
+                              className="btn btn-none"
+                              to="profile"
+                              style={{
+                                textDecoration: "none",
+                                textColor: "black",
+                              }}
+                            >
+                              {t("Your Account")}
+                            </Link>
+                            <br />
+                            <Link
+                              className="btn btn-none"
+                              to="tracking"
+                              style={{
+                                textDecoration: "none",
+                                textColor: "black",
+                              }}
+                            >
+                              {t("Your Orders")}
+                            </Link>
                           </Col>
                         </Row>
                       </Container>
@@ -441,36 +460,42 @@ function Navbar() {
                   </div>
                 </div>
               </li>
-              {/* <li className="col-2 col-xs-12 ">
-                <div>
-                  <span className="text-white-50 fs-6">{t("Returns")}</span>{" "}
-                  <br />
-                  <span className="fw-bold fs-">{t("Orders")}</span>
-                </div>
-              </li> */}
               <li className="col-2 col-xs-12 ">
                 <div>
-                  <Link className="btn btn-dark fw-bold fs-5" to="tracking" style={{ textDecoration: "none", textColor: "white" }}>Order</Link>
+                  <Link
+                    className="btn btn-dark fw-bold fs-5"
+                    to="tracking"
+                    style={{ textDecoration: "none", textColor: "white" }}
+                  >
+                    {t("Orders")}
+                  </Link>
                 </div>
               </li>
               <li className="col-3 col-xs-ms-2">
+                <NavLink
+                  className="links mx-3"
+                  to="favorite"
+                  style={{ textDecoration: "none" }}
+                >
+                  {" "}
+                  <ImHeart
+                    className="mx-1"
+                    to="favorite"
+                    color="white"
+                    size={20}
+                  />
+                  {fav ? fav.length : ""}
+                </NavLink>
 
-                <NavLink className="links mx-3" to="favorite" style={{ textDecoration: "none" }}> <ImHeart className='mx-1' to='favorite' color='white' size={20} />{fav ? fav.length : ""}</NavLink>
-
-
-                <NavLink className="links" to="cart" style={{ textDecoration: "none" }}><FaShoppingCart to='cart' color='white' size={25} /> {totalItems}</NavLink>
-
-
-              </li>
-              {/* <li className="col-3 col-xs-ms-2">
                 <NavLink
                   className="links"
                   to="cart"
                   style={{ textDecoration: "none" }}
                 >
-                  <FaShoppingCart to="cart" color="white" size={25} />
+                  <FaShoppingCart to="cart" color="white" size={25} />{" "}
+                  {totalItems}
                 </NavLink>
-              </li> */}
+              </li>
             </ul>
           </div>
         </div>
@@ -542,8 +567,23 @@ function Navbar() {
             >
               {t("books")}
             </NavLink>
-            <NavLink className="links px-2" to="profile" style={{ textDecoration: "none" }}>Profile</NavLink>
-            <NavLink className="links px-2" to="login" onClick={() => {handleLogout}} style={{ textDecoration: "none", color: "white" }}>Logout</NavLink>
+            <NavLink
+              className="links px-2"
+              to="profile"
+              style={{ textDecoration: "none" }}
+            >
+              {t("Profile")}
+            </NavLink>
+            <NavLink
+              className="links px-2"
+              to="login"
+              onClick={() => {
+                handleLogout;
+              }}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              {t("Logout")}
+            </NavLink>
           </div>
           <div className=" text-white">{t("Shop deals in Electronics")}</div>
         </div>

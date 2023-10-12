@@ -1,35 +1,42 @@
 import "./Mobile.css";
-import React, { useState } from "react";
+import React from "react";
 import { useEffect } from "react";
-import { FaStar, FaRegStar } from "react-icons/fa6";
 import "../TodayDeals/todayDealsLiftSide/leftSide.css";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchcategory } from "../../../store/Slice/categorySlice";
 import axiosInstance from "../../axiosConfig/instance";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LiftSide from "../TodayDeals/todayDealsLiftSide/liftSide";
+import { getFilteredList } from "../../../store/Slice/filteredList";
 
 export default function Mobile() {
   const { t } = useTranslation();
   let language = useSelector((state) => state.language.language);
   let navigate = useNavigate();
 
-  let [mobile, setmobile] = useState([]);
+  // let [mobile, setmobile] = useState([]);
+  let filteredList = useSelector((state) => state.filteredList.filteredList);
   let dispatch = useDispatch();
   useEffect(() => {
+    let isMounted = true;
     axiosInstance
       .get("category/651827dc6cc9fe1018cc5009")
       .then((data) => {
-        setmobile(data.data.data.products);
-        console.log(data.data.data.products);
+        if (isMounted) {
+          let products = data.data.data.products;
+          // setmobile(products);
+          dispatch(getFilteredList(products));
+        }
       })
       .catch((err) => {
         console.log(err);
       });
-    dispatch(fetchcategory("Mobile Phones"));
+
     return () => {
-      dispatch(fetchcategory([]));
+      return () => {
+        isMounted = false;
+        dispatch(getFilteredList([]));
+      };
     };
   }, []);
   function gotodetails(prodId) {
@@ -41,11 +48,11 @@ export default function Mobile() {
       <div className="row container-fluid m-0 justify-content-center">
         <LiftSide
           categoryId={"651827dc6cc9fe1018cc5009"}
-          lessThan={999}
-          between1={[1000, 1999]}
-          between2={[2000, 2999]}
-          between3={[3000, 4999]}
-          greaterThan={5000}
+          lessThan={3999}
+          between1={[4000, 5999]}
+          between2={[6000, 7999]}
+          between3={[8000, 9999]}
+          greaterThan={10000}
         />
         {/* Right Side  */}
         <div className="col-xl-10 col-md-9 col-8 container-fluid  sideRight justify-content-center align-content-center mt-4">
@@ -88,7 +95,7 @@ export default function Mobile() {
                   <img src="../assets/images/1.jpg" className="w-50" />
                   <img src="../assets/images/1.1.jpg" className="w-50" />
                 </div>
-                <div  className="col-12 col-md-6">
+                <div className="col-12 col-md-6">
                   <div className="row ps-1">
                     <div className="col-6 ps-0 pe-0">
                       <img src="../assets/images/2.jpg" className="w-100" />
@@ -155,10 +162,13 @@ export default function Mobile() {
       row 1  */}
             <div className="container">
               <div className="row">
-                {mobile.map((mob) => {
+                {filteredList.map((mob) => {
                   return (
                     <>
-                      <div key={mob._id}  className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">
+                      <div
+                        key={mob._id}
+                        className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center"
+                      >
                         <div className="card" style={{ width: "22rem" }}>
                           <img
                             src={mob.img}

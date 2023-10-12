@@ -2,14 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 
 export default function MainCards(props) {
   let language = useSelector((state) => state.language.language);
   const { t } = useTranslation();
+  let navigate=useNavigate()
+  function goToDetails(){
+    console.log(props.id)
+    navigate("/productdetails", { state: { productId: props.id } });
+  }
   return (
     <div
       className="card col-xl-3 col-md-6 col-12 overflow-hidden py-3"
-      style={{ height: "400px" }}
+      style={{ height: "400px" }} onClick={goToDetails}
     >
       <img
         className="pt-4 w-50 align-self-center h-50"
@@ -44,4 +51,5 @@ MainCards.propTypes = {
   img: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   discount: PropTypes.number,
+  id: PropTypes.string,
 };
