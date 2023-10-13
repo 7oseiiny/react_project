@@ -21,7 +21,7 @@ export default function TrackingOrder() {
        
         dispatch(updateQuantity(productId, quantity))
             .then(() => {
-                console.log("Quantity updated successfully");
+                console.log("Quantity updated successfully",productId, quantity);
             })
             .catch((error) => {
                 console.error("Failed to update quantity:", error);

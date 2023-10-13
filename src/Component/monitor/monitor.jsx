@@ -40,7 +40,7 @@ export default function Monitor() {
     dispatch(fetchCart());
     dispatch(fetchfavorite());
   }, [dispatch, change, page]);
-
+  let filteredList = useSelector((state) => state.filteredList.filteredList);
   var cart = useSelector((state) => {
     return state.cart.data;
   });
