@@ -12,6 +12,9 @@
        width: initial !important;
        max-height: 218px  !important;
        min-height: 216px !important;
+} 
+.paginated .pagination {
+ justify-content: center;
 }
 /* @media screen and (max-width: 9 68) {
 

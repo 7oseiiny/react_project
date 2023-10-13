@@ -102,7 +102,7 @@ export default function Monitor() {
                data.map((prd) => {
                 return (
                   <Card
-                    className="col-xl-3 col-lg-4 col-md-5 col-xs-8 col-5 mx-2 my-3"
+                    className="col-xl-3 col-lg-4 col-md-8 col-10  mx-2 my-3"
                     key={prd._id}
                   >
                     <Card.Img variant="top" className="img" src={prd.img} />
@@ -228,7 +228,9 @@ export default function Monitor() {
             </div>
           </div>
         </div>
-        <PaginationControl
+        <div className="paginated">
+
+        <PaginationControl 
           page={page}
           between={2}
           total={3}
@@ -238,6 +240,7 @@ export default function Monitor() {
             setchange(page);
           }}
         />
+        </div>
       </div>
     </>
   );
