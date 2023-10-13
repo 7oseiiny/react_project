@@ -7,7 +7,7 @@ export const fetchOrder=createAsyncThunk(
         // let userId="651cac675238c660afc16f53"
 
         const reaponse=await axiosInstance.get(`/order/getByUserId/${userId}`)
-        console.log(reaponse.data.data)
+        // console.log(reaponse.data.data)
         return  reaponse.data.data;
     }
 )
@@ -21,6 +21,17 @@ export const addOrder=createAsyncThunk(
         return  reaponse.data.data;
     }
 )
+
+export const cancelOrder = createAsyncThunk(
+    "Order/cancelOrder",
+    async ( orderId) => {
+      const response = await axiosInstance.patch(
+        `/order/${orderId}/cancel` );   
+      return response.data.data;  
+    }
+
+  );
+
 
 
 const OrderSlice =createSlice({

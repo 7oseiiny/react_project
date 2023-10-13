@@ -1,33 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import "./userInfo.css";
-import { fetchOrder } from "../../../store/Slice/orderSlice";
+import { cancelOrder, fetchOrder } from "../../../store/Slice/orderSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Badge from 'react-bootstrap/Badge';
-import { updateQuantity } from '../../../store/Slice/productsSlice';
 // import format from 'date-fns/format'
 
 export default function TrackingOrder() {
     var orders = useSelector((state) => { return state.order.data })
     const [isCancelled, setIsCancelled] = useState(false);
+    const [change, setchange] = useState();
 
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(fetchOrder());
-    }, [dispatch]);
+    }, [dispatch,change]);
 
-    const handleCancelOrder = (productId, quantity) => {
-        console.log(productId, quantity)
+    async function funCancelOrder(orderId){
+        await dispatch(cancelOrder(orderId))
+        setchange(orderId)
+    }
+
+    // const handleCancelOrder = (productId, quantity) => {
+    //     console.log(productId, quantity)
        
-        dispatch(updateQuantity(productId, quantity))
-            .then(() => {
-                console.log("Quantity updated successfully",productId, quantity);
-            })
-            .catch((error) => {
-                console.error("Failed to update quantity:", error);
-            });
-        setIsCancelled(true);
-    };
+    //     dispatch(updateQuantity(productId, quantity))
+    //         .then(() => {
+    //             console.log("Quantity updated successfully",productId, quantity);
+    //         })
+    //         .catch((error) => {
+    //             console.error("Failed to update quantity:", error);
+    //         });
+    //     setIsCancelled(true);
+    // };
 
     return (
         <>
@@ -46,7 +51,7 @@ export default function TrackingOrder() {
                         </thead>
                         <tbody >
                             {orders.map((order) => (
-                                <tr className="order-tr-light" key={order.id}>
+                                <tr  className="order-tr-light" key={order.id}>
                                     <td className="order-td">{order.createdAt}</td>
                                     <td className="order-td d-flex flex-column">
                                         {order.products.map((product) => (
@@ -65,26 +70,15 @@ export default function TrackingOrder() {
                                     </td>
                                     <td className="order-td">
 
-                                        <h3>
-                                            <Badge bg="warning" text="dark">
+                                        <h3 >
+                                            <Badge bg={`${order.status=="cancelled"?"danger":"warning"}`} text="dark">
                                                 {order.status}
                                             </Badge>
                                         </h3>
                                     </td>
                                     <td className="order-td">
                                         <div className='d-flex flex-column'>
-                                            {order.products.map((product) => (
-                                                <div  key={product.product._id}>
-                                                    <button
-                                                   
-                                                   className="btn btn-success m-2"
-                                                   onClick={() => handleCancelOrder(product.product._id, product.quantity)}
-                                               >
-                                                   {isCancelled ? 'Cancelled' : 'Cancel Order'}
-                                               </button>
-                                                </div>
-                                                
-                                            ))}
+                                           <button  className={`btn btn-danger ${order.status=="cancelled"?"d-none":""}`} onClick={()=>{funCancelOrder(`${order._id}`)}}>cancel order</button>
                                         </div>
                                     </td>
                                 </tr>

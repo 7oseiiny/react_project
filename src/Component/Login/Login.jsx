@@ -32,7 +32,7 @@ const Login = () => {
   const toggleShowPassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
-   
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setEmailTouched(true);
@@ -60,25 +60,25 @@ const Login = () => {
           localStorage.setItem("userId", JSON.stringify(userId));
           console.log(userId);
 
-   
-                
-                      // setIslogged(true)
-                      navigate('/')
-                  }
-            } catch (e) {
-                toast.error('Wrong Email or Password', {
-                    position: "buttom-center"
-                });
-            }
-        }
-        // window.location.reload ()
-    };
-    // const emailValid = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(email);
-    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-    const passwordValid = pwd.length >= 6;
 
-  
-     
+
+          // setIslogged(true)
+          navigate('/')
+        }
+      } catch (e) {
+        toast.error('Wrong Email or Password', {
+          position: "buttom-center"
+        });
+      }
+    }
+    // window.location.reload ()
+  };
+  // const emailValid = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(email);
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  const passwordValid = pwd.length >= 6;
+
+
+
   return (
     <>
       <div className="logo2">
@@ -95,17 +95,16 @@ const Login = () => {
               <input
                 type="email"
                 id="email"
-                className={`form-control ${
-                  (emailTouched && !email) || (emailTouched && !emailValid)
-                    ? "is-invalid"
-                    : emailValid
+                className={`form-control ${(emailTouched && !email) || (emailTouched && !emailValid)
+                  ? "is-invalid"
+                  : emailValid
                     ? "is-valid"
                     : ""
-                }`}
+                  }`}
                 value={email}
                 onChange={handleEmailChange}
                 onBlur={() => setEmailTouched(true)}
-                // required
+              // required
               />
               {emailTouched && !email && (
                 <div className="invalid-feedback">
@@ -124,13 +123,12 @@ const Login = () => {
                 <input
                   type={showPassword ? "text" : "password"}
                   id="password"
-                  className={`form-control ${
-                    passwordTouched && !passwordValid
-                      ? "is-invalid"
-                      : passwordValid
+                  className={`form-control ${passwordTouched && !passwordValid
+                    ? "is-invalid"
+                    : passwordValid
                       ? "is-valid"
                       : ""
-                  }`}
+                    }`}
                   value={pwd}
                   onChange={handlePasswordChange}
                   onBlur={() => setPasswordTouched(true)}

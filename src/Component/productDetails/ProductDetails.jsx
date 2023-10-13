@@ -25,9 +25,7 @@ import { fetchOrder } from "../../../store/Slice/orderSlice";
 import { useTranslation } from "react-i18next";
 
 export default function ProductDetails() {
-  const { t } = useTranslation();
   let language = useSelector((state) => state.language.language);
-
   let location = useLocation();
   let dispatch = useDispatch();
   let navigate = useNavigate();
@@ -128,10 +126,14 @@ export default function ProductDetails() {
   });
   console.log("orders", orders);
   function isInOrder(productId) {
+    console.log(productId);
+
     for (const x of orders) {
       for (const y of x.products) {
-        y._id == productId;
-        return true;
+        if (y.product._id == productId) {
+          console.log("--------");
+          return true;
+        }
       }
     }
   }
@@ -153,7 +155,7 @@ export default function ProductDetails() {
     const element = document.getElementById("rates");
     element.scrollIntoView();
   }
-
+const {t}=useTranslation();
   return (
     <>
       <div className="row justify-content-center ">
@@ -170,7 +172,7 @@ export default function ProductDetails() {
             to="/"
             style={{ textDecoration: "none", color: "rgb(0,113,165)" }}
           >
-            <p>
+             <p>
               {t("category")} :{" "}
               {language == "en"
                 ? prod("categoryId", "name_en")
@@ -179,7 +181,7 @@ export default function ProductDetails() {
           </NavLink>
           <div className="d-flex  align-items-end justify-content-between">
             <p style={{ fontSize: "1.4rem" }} className="p-0 px-2 m-0">
-              5.5
+              {prod("avg_rating") ? prod("avg_rating").toFixed(2) : ""}
             </p>
             <div style={{ fontSize: "1.22rem", color: "rgb(237,139,31)" }}>
               {" "}
@@ -202,7 +204,7 @@ export default function ProductDetails() {
             }}
           >
             <p className="p-0 m-0" style={{ color: "white" }}>
-              {t("discount")}
+            {t("discount")}
             </p>
           </div>
           <div className="d-flex py-3">
@@ -213,22 +215,20 @@ export default function ProductDetails() {
               {prod("price", "discount")}%
             </p>
             <p className=" m-0" style={{ paddingLeft: "20px " }}>
-              {language == "en" && t("EGP")} {language == "ar" && "00"}{" "}
+            {language == "en" && t("EGP")} {language == "ar" && "00"}{" "}
             </p>
             <p className="p-0 m-0" style={{ fontSize: "30px" }}>
               {prod("price", "new")}
             </p>
-            <p className=" m-0">
-              {language == "en" && "00"}
-              {language == "ar" && t("EGP")}
-            </p>
+            <p className=" m-0">{language == "en" && "00"}
+              {language == "ar" && t("EGP")}</p>
           </div>
           <div
             className="d-flex"
             style={{ color: "gray", fontSize: ".9rem", fontWeight: "600" }}
           >
             <p className="m-0">{t("Was")}</p>
-            <p className="m-0"> {prod("price", "old")} {t("EGP")}</p>
+            <p className="m-0"> {prod("price", "old")}  {t("EGP")}</p>
           </div>
           <p>
             {t("All prices include VAT.")} <br />
@@ -237,7 +237,7 @@ export default function ProductDetails() {
             {t("for 60 months with select banks")}
           </p>
           <hr />
-          {language == "en" && prod("info_en")
+          {language == "en" &&prod("info_en")
             ? prod("info_en").map((item) => {
                 const [key, value] = item.split(":");
                 return (
@@ -252,7 +252,7 @@ export default function ProductDetails() {
                 );
               })
             : ""}
-          {language == "ar" && prod("info_ar")
+            {language == "ar" && prod("info_ar")
             ? prod("info_ar").map((item) => {
                 const [key, value] = item.split(":");
                 return (
@@ -269,7 +269,7 @@ export default function ProductDetails() {
             : ""}
           <hr />
           <h5>{t("About this item")}</h5>
-          {language == "en" && prod("aboutItem_en")
+          {language == "en" &&prod("aboutItem_en")
             ? prod("aboutItem_en").map((item) => {
                 const [key, value] = item.split(":");
                 return (
@@ -284,7 +284,7 @@ export default function ProductDetails() {
                 );
               })
             : ""}
-          {language == "ar" && prod("aboutItem_ar")
+            {language == "ar" && prod("aboutItem_ar")
             ? prod("aboutItem_ar").map((item) => {
                 const [key, value] = item.split(":");
                 return (
@@ -300,28 +300,23 @@ export default function ProductDetails() {
               })
             : ""}
         </div>
-        <div
-          className="col-lg-3 col-md-3 col-sm-8 p-4  position-sticky"
-          style={{ top: "10px" }}
-        >
+        <div className="col-lg-3 col-md-3 col-sm-8 p-4  ">
           <div className="border border-1 p-2">
             <div className="d-flex py-2">
               <p className=" m-0 p-0" style={{ paddingLeft: "20px " }}>
-                {language == "en" && t("EGP")} {language == "ar" && "00"}{" "}
+              {language == "en" && t("EGP")} {language == "ar" && "00"}{" "}
               </p>
               <p className="p-0 m-0" style={{ fontSize: "30px" }}>
                 {prod("price", "new")}
               </p>
-              <p className=" m-0">
-                {language == "en" && "00"}
-                {language == "ar" && t("EGP")}
-              </p>
+              <p className=" m-0">{language == "en" && "00"}
+                {language == "ar" && t("EGP")}</p>
             </div>
             <a
               onClick={scrollto}
               style={{ textDecoration: "none", color: "rgb(0,113,165)" }}
             >
-              ({prod("num_rating")}) {t("rating")}
+              ({prod("num_rating")}) rating
             </a>
             <p style={{ fontWeight: "550", fontSize: ".9rem" }}>
               {" "}
@@ -348,14 +343,14 @@ export default function ProductDetails() {
                   <>
                     {t("Deliver To")} {user.address} - {user.name}
                   </>
-                )}
-                ‌
+                )} ‌
               </a>
             </div>
             <p
               className="p-0 m-0  my-2"
               style={{ color: "green", fontWeight: "600" }}
-            >{
+            >
+              {
               language === "en" ? (
                 <>
                   {prod("quantity")} {t("in stock")}
@@ -364,9 +359,10 @@ export default function ProductDetails() {
                 <>
                 {t("in stock")} {prod("quantity")} 
                 </>
-                ) }</p>
+                ) }
+            </p>
             <div className="d-flex align-items-center  my-2">
-              <p className="m-1">{t("Qty")} :</p>
+              <p className="m-1">{t("Qty")}:</p>
               <input
                 type="number"
                 onChange={(event) => {
@@ -447,7 +443,7 @@ export default function ProductDetails() {
             <div className="reviews col-md-3  ps-4">
               <h1 className="">{t("Reviews")}</h1>
               <Button
-                disabled={isInOrder(prod("_id"))}
+                disabled={!isInOrder(prod("_id"))}
                 variant="primary"
                 onClick={handleShow}
               >
@@ -456,7 +452,7 @@ export default function ProductDetails() {
 
               <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                  <Modal.Title>{t("Add Review")} </Modal.Title>
+                  <Modal.Title>Add review </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <Form>

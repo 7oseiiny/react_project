@@ -45,7 +45,6 @@ function Navbar() {
   var items = useSelector((state) => {
     return state.cart.data;
   });
-  const navigate = useNavigate();
 
   try {
     for (const item of items) {
@@ -59,7 +58,7 @@ function Navbar() {
       dispatch(fetchCart());
       dispatch(fetchuser());
       dispatch(fetchfavorite());
-
+      disB()
       axiosInstance
         .get("category")
         .then((data) => {
@@ -72,6 +71,7 @@ function Navbar() {
     },
     [dispatch]
   );
+  disB()
 
   let [searchCategory, setSearchCategory] = useState();
   function logValue(e) {
@@ -87,6 +87,7 @@ function Navbar() {
   }
   const handleLogout = () => {
     localStorage.removeItem("userId");
+    console.log("userId")
     logout()
       .then(() => {
         const navigate = useNavigate();
@@ -96,6 +97,10 @@ function Navbar() {
         console.log("Error occurred during logout:", error);
       });
   };
+
+  async function disB(){
+      window.history.forward(); // Move the user forward
+  }
   function handleSearch() {
     console.log(searchCategory);
     if (searchCategory == "all") {
@@ -317,7 +322,7 @@ function Navbar() {
               </div>
             </div>
           </div>
-          <div className="col-lg-5 col-sm-12  col-md-12 col-xs-12">
+          <div className="col-lg-5 col-sm-12  col-md-12 col-xs-12 divul">
             <ul className="list-unstyled  d-flex flex-wrap text-white align-items-center justify-content-between flex-column flex-sm-row flex-sm-justify-content-center">
               <li className="col-2 col-xs-6 justify-content-start">
                 <div className="dropdown">
@@ -589,9 +594,7 @@ function Navbar() {
             <NavLink
               className="links px-2"
               to="login"
-              onClick={() => {
-                handleLogout;
-              }}
+              onClick={handleLogout}
               style={{ textDecoration: "none", color: "white" }}
             >
               {t("Logout")}
