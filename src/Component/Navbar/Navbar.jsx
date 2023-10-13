@@ -317,7 +317,7 @@ function Navbar() {
               </div>
             </div>
           </div>
-          <div className="col-lg-5 col-sm-12  col-md-12 col-xs-12">
+          <div className="col-lg-5 col-sm-12  col-md-12 col-xs-12 divul">
             <ul className="list-unstyled  d-flex flex-wrap text-white align-items-center justify-content-between flex-column flex-sm-row flex-sm-justify-content-center">
               <li className="col-2 col-xs-6 justify-content-start">
                 <div className="dropdown">

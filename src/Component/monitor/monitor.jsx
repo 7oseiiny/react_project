@@ -1,23 +1,19 @@
+/* eslint-disable no-constant-condition */
 // import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './minetor.css'
 import React, { useEffect, useState } from "react"
 import LiftSide from '../TodayDeals/todayDealsLiftSide/liftSide';
 import '../TodayDeals/todayDealsLiftSide/leftSide.css'
-import { BsStarFill } from "react-icons/bs";
-import { BsStar } from "react-icons/bs";
-import { BsStarHalf } from "react-icons/bs";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchcategory, fetchcategorypage } from '../../../store/Slice/categorySlice';
 import { PaginationControl } from 'react-bootstrap-pagination-control';
-import axios from 'axios';
 import { MdFavorite, MdOutlineFavoriteBorder } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { addProductInCart, fetchCart } from "../../../store/Slice/cartSlice";
 // import "../TodayDeals/todayDealsLiftSide/leftSide.css";
 
 import { useTranslation } from "react-i18next";
-import { getFilteredList } from "../../../store/Slice/filteredList";
 import { addProductInfavorite, fetchfavorite } from '../../../store/Slice/favorite';
 
 export default function Monitor() {
@@ -83,7 +79,7 @@ export default function Monitor() {
   function gotodetails(prdId) {
     navigate("/productdetails", { state: { productId: prdId } });
   }
-  function viewcart() {
+  async function viewcart() {
     navigate("/cart")
   }
   return (
@@ -106,7 +102,7 @@ export default function Monitor() {
                data.map((prd) => {
                 return (
                   <Card
-                    className="col-xl-3 col-lg-4 col-md-5  col-5 mx-2 my-3"
+                    className="col-xl-3 col-lg-4 col-md-5 col-xs-8 col-5 mx-2 my-3"
                     key={prd._id}
                   >
                     <Card.Img variant="top" className="img" src={prd.img} />

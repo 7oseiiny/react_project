@@ -1,3 +1,8 @@
+@media (max-width: 600px) {
+    .divul {
+      display: none;
+    }
+  }
 
 .nav-page:hover{
     border: 1px solid white;
