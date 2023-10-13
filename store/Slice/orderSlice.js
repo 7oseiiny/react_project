@@ -7,7 +7,7 @@ export const fetchOrder=createAsyncThunk(
         // let userId="651cac675238c660afc16f53"
 
         const reaponse=await axiosInstance.get(`/order/getByUserId/${userId}`)
-        console.log(reaponse.data.data)
+        // console.log(reaponse.data.data)
         return  reaponse.data.data;
     }
 )
