@@ -45,7 +45,6 @@ function Navbar() {
   var items = useSelector((state) => {
     return state.cart.data;
   });
-  const navigate = useNavigate();
 
   try {
     for (const item of items) {
@@ -87,6 +86,7 @@ function Navbar() {
   }
   const handleLogout = () => {
     localStorage.removeItem("userId");
+    console.log("userId")
     logout()
       .then(() => {
         const navigate = useNavigate();
@@ -589,9 +589,7 @@ function Navbar() {
             <NavLink
               className="links px-2"
               to="login"
-              onClick={() => {
-                handleLogout;
-              }}
+              onClick={handleLogout}
               style={{ textDecoration: "none", color: "white" }}
             >
               {t("Logout")}

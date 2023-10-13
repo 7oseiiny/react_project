@@ -159,7 +159,7 @@ export default function ProductDetails() {
           <h4>{prod("title_en")}</h4>
           <NavLink to="/" style={{ textDecoration: "none", color: "rgb(0,113,165)" }}><p>catigory : {prod("categoryId", "name_en")}</p></NavLink>
           <div className='d-flex  align-items-end justify-content-between' >
-            <p style={{ fontSize: "1.4rem" }} className='p-0 px-2 m-0'>5.5</p>
+            <p style={{ fontSize: "1.4rem" }} className='p-0 px-2 m-0'>{prod("avg_rating")?prod("avg_rating").toFixed(2):""}</p>
             <div style={{ fontSize: "1.22rem", color: "rgb(237,139,31)" }}> <Rate rate={prod("avg_rating")} /></div>
             <a onClick={scrollto} style={{ textDecoration: "none", color: "rgb(0,113,165)" }}>({prod("num_rating")}) rating</a>
           </div>
@@ -217,7 +217,7 @@ export default function ProductDetails() {
 
 
         </div>
-        <div className="col-lg-3 col-md-3 col-sm-8 p-4  position-sticky" style={{ top: "10px" }} >
+        <div className="col-lg-3 col-md-3 col-sm-8 p-4  "  >
           <div className='border border-1 p-2' >
             <div className='d-flex py-2'>
               <p className=' m-0 p-0' style={{ paddingLeft: "20px " }} >EGP</p>
@@ -243,7 +243,6 @@ export default function ProductDetails() {
 
                 {fav ? <div className='p-2'>  {!isinfav(prod("_id")) ? <MdOutlineFavoriteBorder onClick={() => { addtofav(prod("_id")) }} style={{ fontSize: "25px", marginLeft: "10px" }}></MdOutlineFavoriteBorder> : <MdFavorite></MdFavorite>}</div> : ""}
               </div>
-
             </div>
 
           </div>
