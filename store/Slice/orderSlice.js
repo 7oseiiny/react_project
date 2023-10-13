@@ -22,6 +22,17 @@ export const addOrder=createAsyncThunk(
     }
 )
 
+export const cancelOrder = createAsyncThunk(
+    "Order/cancelOrder",
+    async ( orderId) => {
+      const response = await axiosInstance.patch(
+        `/order/${orderId}/cancel` );   
+      return response.data.data;  
+    }
+
+  );
+
+
 
 const OrderSlice =createSlice({
 
