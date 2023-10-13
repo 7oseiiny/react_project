@@ -3,13 +3,13 @@ import Slider from "react-slick";
 import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
-import React, { useState } from "react";
+import React from "react";
 import "../TodayDeals/todayDealsLiftSide/leftSide.css";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import LiftSide from "../TodayDeals/todayDealsLiftSide/liftSide";
-import { fetchcategory } from "../../../store/Slice/categorySlice";
+
 import { useDispatch } from "react-redux";
 import Rate from "../rate/rate";
 import axiosInstance from "../../axiosConfig/instance";

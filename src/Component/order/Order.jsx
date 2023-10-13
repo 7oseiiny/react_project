@@ -36,11 +36,11 @@ export default function Order() {
 
   const initialOptions = {
     clientId:
-      "AT9ciZ8qp95huOUxlnLXSx-5p2lez9y7j33ZffvosAweWfvgR_3HWMHS-F8YtDLSJFsb6IvMVaB_mTFd",
+      "AfuTZsBmJQUIbvVxMPnlbX3yVi9Cf5jii7RT98myCN1oXlo8YZBf8TKjGsuh9u2wvomW5Nl7kmRS1PDl",
     currency: "USD",
     intent: "capture",
   };
-
+console.log(initialOptions.clientId);
   function paymentfun(e) {
     setpayment(e);
   }
@@ -73,6 +73,7 @@ export default function Order() {
   }
   const onApprove = async (data, actions) => {
     await dispatch(addOrder());
+    console.log(data);
     navigate("/books");
     return actions.order.capture();
   };

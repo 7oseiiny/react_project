@@ -364,7 +364,9 @@ export default function VideoGames() {
                           style={{ width: "9rem", marginLeft: "6rem" }}
                         />
                         <div className="card-body">
-                          <p className="card-text">{prod.title_en}</p>
+                          <p className="card-text">
+                            {language == "en" ? prod.title_en : prod.title_ar}
+                          </p>
                           <div className="d-inline-block">
                             <BsStarFill color="#FFA41C" />
                             <BsStarFill color="#FFA41C" />
@@ -374,16 +376,21 @@ export default function VideoGames() {
                             31
                           </div>
                           <div className="d-flex">
-                            EGP
+                            {language == "en" && t("EGP")}{" "}
+                            {language == "ar" && "00"}{" "}
                             <sub>
                               <h3>{prod.price.new}</h3>
                             </sub>
-                            00
+                            {language == "en" && "00"}
+                            {language == "ar" && t("EGP")}
                             <span className="pt-3 me-2">
-                              List:{" "}
+                              {t("List")}{" "}
                               <span className="text-muted pt-3 text-decoration-line-through me-2">
                                 {" "}
-                                EGP{prod.price.old}.00
+                                {language == "en" && t("EGP")}{" "}
+                                {language == "ar" && "00"} {prod.price.old}.
+                                {language == "en" && "00"}
+                                {language == "ar" && t("EGP")}
                               </span>
                             </span>
                           </div>
@@ -393,14 +400,14 @@ export default function VideoGames() {
                               style={{ width: "50px" }}
                             />
                             <span>
-                              Get it as soon as
+                              {t("Get it as soon as")}
                               <span className="fw-bold">
                                 {" "}
-                                Saturday, September 9
+                                {t("Saturday, September 9")}
                               </span>
                             </span>
                           </div>
-                          <p>Fulfilled by Amazon - FREE Shipping</p>
+                          <p>{t("Fulfilled by Amazon - FREE Shipping")}</p>
                         </div>
                       </div>
                     </div>

@@ -33,10 +33,8 @@ export default function Mobile() {
       });
 
     return () => {
-      return () => {
-        isMounted = false;
-        dispatch(getFilteredList([]));
-      };
+      isMounted = false;
+      dispatch(getFilteredList([]));
     };
   }, []);
   function gotodetails(prodId) {
@@ -164,61 +162,59 @@ export default function Mobile() {
               <div className="row">
                 {filteredList.map((mob) => {
                   return (
-                    <>
-                      <div
-                        key={mob._id}
-                        className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center"
-                      >
-                        <div className="card" style={{ width: "22rem" }}>
-                          <img
-                            src={mob.img}
-                            className="card-img-top h-57 "
-                            onClick={() => {
-                              gotodetails(mob._id);
-                            }}
-                          />
-                          <div className="card-body">
-                            <p className="card-text">
-                              {language == "en" ? mob.title_en : mob.title_ar}
-                            </p>
-                          </div>
-                          <div className="d-inline-block">
-                            <i className="fa-solid fa-star text-warning"></i>
-                            <i className="fa-solid fa-star text-warning"></i>
-                            <i className="fa-solid fa-star text-warning"></i>
-                            <i className="fa-solid fa-star text-warning"></i>
-                            <i className="fa-solid fa-star-half-stroke text-warning"></i>
-                          </div>
-                          <div className="d-flex">
-                            {language == "en" && t("EGP")}{" "}
-                            {language == "ar" && "00"}{" "}
-                            <sub>
-                              <h3>{mob.price.new}</h3>
-                            </sub>
-                            {language == "en" && "00"}
-                            {language == "ar" && t("EGP")}
-                            <span className="pt-3 me-2">
-                              {t("List")}
-                              <span className="text-muted pt-3 text-decoration-line-through me-2">
-                                {mob.price.old}
-                              </span>
+                    <div
+                      key={mob._id}
+                      className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center"
+                    >
+                      <div className="card" style={{ width: "22rem" }}>
+                        <img
+                          src={mob.img}
+                          className="card-img-top h-57 "
+                          onClick={() => {
+                            gotodetails(mob._id);
+                          }}
+                        />
+                        <div className="card-body">
+                          <p className="card-text">
+                            {language == "en" ? mob.title_en : mob.title_ar}
+                          </p>
+                        </div>
+                        <div className="d-inline-block">
+                          <i className="fa-solid fa-star text-warning"></i>
+                          <i className="fa-solid fa-star text-warning"></i>
+                          <i className="fa-solid fa-star text-warning"></i>
+                          <i className="fa-solid fa-star text-warning"></i>
+                          <i className="fa-solid fa-star-half-stroke text-warning"></i>
+                        </div>
+                        <div className="d-flex">
+                          {language == "en" && t("EGP")}{" "}
+                          {language == "ar" && "00"}{" "}
+                          <sub>
+                            <h3>{mob.price.new}</h3>
+                          </sub>
+                          {language == "en" && "00"}
+                          {language == "ar" && t("EGP")}
+                          <span className="pt-3 me-2">
+                            {t("List")}
+                            <span className="text-muted pt-3 text-decoration-line-through me-2">
+                              {mob.price.old}
                             </span>
-                          </div>
-                          <div className="d-flex align-items-start me-3">
-                            <img
-                              src="../assets/images/images.png"
-                              width="80px"
-                              height="25px"
-                            />
-                            <p>
-                              {t("Get it as soon as")}{" "}
-                              <b>{t("tomorrow, Jul 31")}</b>
-                              {t("Fulfilled by Amazon - FREE Shipping")}
-                            </p>
-                          </div>
+                          </span>
+                        </div>
+                        <div className="d-flex align-items-start me-3">
+                          <img
+                            src="../assets/images/images.png"
+                            width="80px"
+                            height="25px"
+                          />
+                          <p>
+                            {t("Get it as soon as")}{" "}
+                            <b>{t("tomorrow, Jul 31")}</b>
+                            {t("Fulfilled by Amazon - FREE Shipping")}
+                          </p>
                         </div>
                       </div>
-                    </>
+                    </div>
                   );
                 })}
               </div>
