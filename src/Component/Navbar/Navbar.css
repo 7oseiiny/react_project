@@ -3,10 +3,10 @@
       display: none;
     }
   }
-*{
+/* *{
     overflow-x: hidden;
 
-}
+} */
 .nav-page:hover{
     border: 1px solid white;
 }
