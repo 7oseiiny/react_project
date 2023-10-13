@@ -58,7 +58,7 @@ function Navbar() {
       dispatch(fetchCart());
       dispatch(fetchuser());
       dispatch(fetchfavorite());
-
+      disB()
       axiosInstance
         .get("category")
         .then((data) => {
@@ -71,6 +71,7 @@ function Navbar() {
     },
     [dispatch]
   );
+  disB()
 
   let [searchCategory, setSearchCategory] = useState();
   function logValue(e) {
@@ -96,6 +97,10 @@ function Navbar() {
         console.log("Error occurred during logout:", error);
       });
   };
+
+  async function disB(){
+      window.history.forward(); // Move the user forward
+  }
   function handleSearch() {
     console.log(searchCategory);
     if (searchCategory == "all") {
