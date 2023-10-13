@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./leftSide.css";
 import { FaStar, FaRegStar } from "react-icons/fa6";
 import PropTypes from "prop-types";
 import axiosInstance from "../../../axiosConfig/instance";
 import { useDispatch } from "react-redux";
-import { getFilteredList } from "../../../../store/Slice/filteredList";
+import filteredList, { getFilteredList } from "../../../../store/Slice/filteredList";
 import { useTranslation } from "react-i18next";
 import { FaCheck } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
@@ -19,13 +19,41 @@ export default function LiftSide({
   greaterThan,
 }) {
   let Location = useLocation();
-  console.log(Location.pathname);
   const { t } = useTranslation();
   let dispatch = useDispatch();
+  let [subCategoryName, setSubCategoryName] = useState([]);
+  useEffect(
+    function () {
+      if (categoryId == "65186c48dff647423cf4def7") {
+        axiosInstance
+          .get(`searchBySubCategory/65186c48dff647423cf4def7`)
+          .then((data) => {
+            // console.log(data.data);
+            setSubCategoryName(data.data);
+            console.log(subCategoryName);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    },
+    [categoryId]
+  );
+  function getSubCategoryData(evt, id) {
+    if (evt.target.checked) {
+      axiosInstance.get(`subcategory/${id}`).then((data) => {
+        let products = data.data.data.products;
+        dispatch(getFilteredList(products))
+        console.log(filteredList);
+      });
+    } else {
+      console.log("Checkbox is unchecked");
+    }
+  }
   //  let filteredList=useSelector((state)=>state.filteredList.filteredList)
   function getAllProduct() {
     axiosInstance
-      .get("category/65186c48dff647423cf4def7")
+      .get(`category/${categoryId}`)
       .then((data) => {
         console.log(data.data.data.products);
         dispatch(getFilteredList(data.data.data.products));
@@ -50,6 +78,7 @@ export default function LiftSide({
       })
       .catch((err) => console.log(err));
   }
+
   function handleSearchByGreaterPrice(price) {
     axiosInstance
       .get(`searchByCategory/${categoryId}/greaterThan/${price}`)
@@ -151,308 +180,27 @@ export default function LiftSide({
               <p id="selectAll" className="fw-bold">
                 {t("Select All")}
               </p>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="AutomotiveCheckbox"
-                  id="AutomotiveCheckbox"
-                />
-                <label className="col-10 fw-bold" htmlFor="AutomotiveCheckbox">
-                  {t("Automotive")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="BabyFashionCheckbox"
-                  id="BabyFashionCheckbox"
-                />
-                <label className="col-10 fw-bold" htmlFor="BabyFashionCheckbox">
-                  {t("Baby Fashion")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="BabyProductsCheckbox"
-                  id="BabyProductsCheckbox"
-                />
-                <label
-                  className="col-10 fw-bold"
-                  htmlFor="BabyProductsCheckbox"
-                >
-                  {t("Baby Products")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="BeautyCheckbox"
-                  id="BeautyCheckbox"
-                />
-                <label className="col-10 fw-bold" htmlFor="BeautyCheckbox">
-                  {t("Beauty")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="BooksCheckbox"
-                  id="BooksCheckbox"
-                />
-                <label className="col-10 fw-bold" htmlFor="BooksCheckbox">
-                  {t("books")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="BoysFashionCheckbox"
-                  id="BoysFashionCheckbox"
-                />
-                <label className="col-10 fw-bold" htmlFor="BoysFashionCheckbox">
-                  {t("Boys` Fashion")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="Computers,Components&Accessories"
-                  id="ComputersComponents&Accessories"
-                />
-                <label
-                  className="col-10 fw-bold"
-                  htmlFor="ComputersComponents&Accessories"
-                >
-                  {t("Computers, Components & Accessories")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="ElectronicsCheckbox"
-                  id="ElectronicsCheckbox"
-                />
-                <label className="col-10 fw-bold" htmlFor="ElectronicsCheckbox">
-                  {t("Electronics")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="FashionCheckbox"
-                  id="FashionCheckbox"
-                />
-                <label className="col-10 fw-bold" htmlFor="FashionCheckbox">
-                  {t("Fashion")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="GardenCheckbox"
-                  id="GardenCheckbox"
-                />
-                <label className="col-10 fw-bold" htmlFor="GardenCheckbox">
-                  {t("Garden")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="GirlsFashionCheckbox"
-                  id="GirlsFashionCheckbox"
-                />
-                <label
-                  className="col-10 fw-bold"
-                  htmlFor="GirlsFashionCheckbox"
-                >
-                  {t("Girls` Fashion")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="GroceryCheckbox"
-                  id="GroceryCheckbox"
-                />
-                <label className="col-10 fw-bold" htmlFor="GroceryCheckbox">
-                  {t("Grocery")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="HealthHouseholdProducts"
-                  id="HealthHouseholdProducts"
-                />
-                <label
-                  className="col-10 fw-bold"
-                  htmlFor="HealthHouseholdProducts"
-                >
-                  {t("Health & Household Products")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="HomeKitchenCheckbox"
-                  id="HomeKitchenCheckbox"
-                />
-                <label className="col-10 fw-bold" htmlFor="HomeKitchenCheckbox">
-                  {t("Home & Kitchen")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="MensFashionCheckbox"
-                  id="MensFashionCheckbox"
-                />
-                <label className="col-10 fw-bold" htmlFor="MensFashionCheckbox">
-                  {t("Men`s Fashion")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="MobilephonesCheckbox"
-                  id="MobilephonesCheckbox"
-                />
-                <label
-                  className="col-10 fw-bold"
-                  htmlFor="MobilephonesCheckbox"
-                >
-                  {t("Mobile Phones & Communication Products")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="MusicalInstrumentsCheckbox"
-                  id="MusicalInstrumentsCheckbox"
-                />
-                <label
-                  className="col-10 fw-bold"
-                  htmlFor="MusicalInstrumentsCheckbox"
-                >
-                  {t("Musical Instruments")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="OfficeProductsCheckbox"
-                  id="OfficeProductsCheckbox"
-                />
-                <label
-                  className="col-10 fw-bold"
-                  htmlFor="OfficeProductsCheckbox"
-                >
-                  {t("Office Products")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="PerfumesFragrancesCheckbox"
-                  id="PerfumesFragrancesCheckbox"
-                />
-                <label
-                  className="col-10 fw-bold"
-                  htmlFor="PerfumesFragrancesCheckbox"
-                >
-                  {t("Perfumes & Fragrances")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="PetSuppliesCheckbox"
-                  id="PetSuppliesCheckbox"
-                />
-                <label className="col-10 fw-bold" htmlFor="PetSuppliesCheckbox">
-                  {t("Pet Supplies")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="SportsOutdoorsCheckbox"
-                  id="SportsOutdoorsCheckbox"
-                />
-                <label
-                  className="col-10 fw-bold"
-                  htmlFor="SportsOutdoorsCheckbox"
-                >
-                  {t("Sports & Outdoors")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="ToolsHomeCheckbox"
-                  id="ToolsHomeCheckbox"
-                />
-                <label className="col-10 fw-bold" htmlFor="ToolsHomeCheckbox">
-                  {t("Tools & Home Improvement")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="ToysCheckbox"
-                  id="ToysCheckbox"
-                />
-                <label className="col-10 fw-bold" htmlFor="ToysCheckbox">
-                  {t("Toys")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="VideoGamesCheckbox"
-                  id="VideoGamesCheckbox"
-                />
-                <label className="col-10 fw-bold" htmlFor="VideoGamesCheckbox">
-                  {t("VideoGames")}
-                </label>
-              </span>
-              <span className="d-flex flex-row justify-content-around align-items-baseline">
-                <input
-                  className="CategoryCheckBoxes col-1"
-                  type="checkbox"
-                  name="VideoGamesCheckbox"
-                  id="VideoGamesCheckbox"
-                />
-                <label className="col-10 fw-bold" htmlFor="VideoGamesCheckbox">
-                  {t("Women`s Fashion")}
-                </label>
-              </span>
+              {subCategoryName.map((item) => {
+                return (
+                  <span
+                    key={item._id}
+                    className="d-flex flex-row justify-content-around align-items-baseline"
+                  >
+                    <input
+                      className="CategoryCheckBoxes col-1"
+                      type="checkbox"
+                      name={`${item.name}`}
+                      id={`${item.name}`}
+                      onChange={(evt) => {
+                        getSubCategoryData(evt, item._id);
+                      }}
+                    />
+                    <label className="col-10 fw-bold" htmlFor={`${item.name}`}>
+                      {t(item.name)}
+                    </label>
+                  </span>
+                );
+              })}
             </section>
             <section className="d-flex flex-column pb-3">
               <h2>{t("Deal type")}</h2>

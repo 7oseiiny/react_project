@@ -17,6 +17,7 @@ import { addProductInCart, fetchCart } from "../../../store/Slice/cartSlice";
 // import "../TodayDeals/todayDealsLiftSide/leftSide.css";
 
 import { useTranslation } from "react-i18next";
+import { getFilteredList } from "../../../store/Slice/filteredList";
 import { addProductInfavorite, fetchfavorite } from '../../../store/Slice/favorite';
 
 export default function Monitor() {
@@ -100,8 +101,69 @@ export default function Monitor() {
           />
           <div className="col-xl-10 col-md-9 col-12">
             <div className="row d-flex justify-content-center">
-              <h1>Results</h1>{" "}
-              {data.map((prd) => {
+              <h1>{t("Results")}</h1>{" "}
+              {!filteredList.length>0 &&
+               data.map((prd) => {
+                return (
+                  <Card
+                    className="col-xl-3 col-lg-4 col-md-5  col-5 mx-2 my-3"
+                    key={prd._id}
+                  >
+                    <Card.Img variant="top" className="img" src={prd.img} />
+                    <Card.Body>
+                      <Card.Title className="title-wrapper">
+                        {language=="en"? prd.title_en:prd.title_ar}
+                      </Card.Title>
+                      <Card.Text className="m-0">
+                        <span className="fs-4">{t("Quantity")}</span>{" "}
+                        <span> {prd.quantity}</span>
+                      </Card.Text>
+                      <Card.Text className="m-0">
+                        <span className="fs-4"> {t("old price")}</span>{" "}
+                        {prd.price["old"]}
+                      </Card.Text>
+                      <Card.Text className="m-0">
+                        <span className="fs-4"> {t("new price")}</span>{" "}
+                        {prd.price["new"]}
+                      </Card.Text>
+                    </Card.Body>
+                    <div className="d-felx  ">
+                      <button
+                        onClick={() => {
+                          gotodetails(prd._id);
+                        }}
+                        className="btn btn-secondary m-2"
+                      >
+                        {t("details")}
+                      </button>
+                      {!isInCart(prd._id) ? (
+                        <button
+                          disabled={prd.quantity < 1}
+                          onClick={() => {
+                            addtocart(prd._id);
+                          }}
+                          className="btn btn-warning"
+                        >
+                          {t("add to cart")}
+                        </button>
+                      ) : (
+                        <button onClick={viewcart} className="btn btn-warning">
+                          {t("view cart")}
+                        </button>
+                      )}
+                      {true ? (
+                        <MdOutlineFavoriteBorder
+                          style={{ fontSize: "25px", marginLeft: "10px" }}
+                        ></MdOutlineFavoriteBorder>
+                      ) : (
+                        <MdFavorite></MdFavorite>
+                      )}
+                    </div>
+                  </Card>
+                );
+              })}
+              {filteredList.length>0 &&
+               filteredList.map((prd) => {
                 return (
                   <Card
                     className="col-xl-3 col-lg-4 col-md-5  col-5 mx-2 my-3"

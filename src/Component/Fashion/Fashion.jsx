@@ -16,6 +16,7 @@ import axiosInstance from "../../axiosConfig/instance";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LiftSide from "../TodayDeals/todayDealsLiftSide/liftSide";
+import { getFilteredList } from "../../../store/Slice/filteredList";
 export default function Fashion() {
   const { t } = useTranslation();
   let language = useSelector((state) => state.language.language);
@@ -24,23 +25,24 @@ export default function Fashion() {
     console.log(prodId);
     navigate("/productdetails", { state: { productId: prodId } });
   }
-  // var fashion = useSelector((state) => { return state.category.data })
-
-  let [myfash, setmyfash] = useState([]);
   let dispatch = useDispatch();
+  let filteredList = useSelector((state) => state.filteredList.filteredList);
   useEffect(() => {
+    let isMounted=true;
     axiosInstance
       .get("category/6518280c6cc9fe1018cc500d")
       .then((data) => {
-        setmyfash(data.data.data.products);
-        console.log(data.data.data.products);
+    let products=data.data.data.products
+        if(isMounted){
+          dispatch(getFilteredList(products))
+        }   
       })
       .catch((err) => {
         console.log(err);
       });
-    dispatch(fetchcategory("Fashion"));
     return () => {
-      dispatch(fetchcategory([]));
+      isMounted = false;
+      dispatch(getFilteredList([]));
     };
   }, []);
 
@@ -120,7 +122,7 @@ export default function Fashion() {
 
           <div>
             <Slider {...settings}>
-              {myfash.map((moda) => {
+              {filteredList.map((moda) => {
                 return (
                   <>
                     <div key={moda._id} className="card border-0">
@@ -442,7 +444,7 @@ export default function Fashion() {
 
           <div className="container">
             <div className="row">
-              {myfash.map((moda) => {
+              {filteredList.map((moda) => {
                 return (
                   <>
                     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-4 d-flex justify-content-center">

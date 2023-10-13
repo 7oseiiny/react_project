@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import MainCards from "../todayDealsComponents/MainCard";
 import { useDispatch, useSelector } from "react-redux";
 import axiosInstance from "../../../axiosConfig/instance";
@@ -9,20 +9,20 @@ export default function TodayMain() {
   let filteredList = useSelector((state) => state.filteredList.filteredList);
   const location = useLocation();
   let dispatch = useDispatch();
-  let [productList, setProductList] = useState([]);
+  // let [productList, setProductList] = useState([]);
 
   useEffect(() => {
     let isMounted = true;
     axiosInstance
       .get("category/65186c48dff647423cf4def7")
       .then((data) => {
-        const products = data.data.data.products;
-        setProductList(products);
-        dispatch(getFilteredList(products));
+        if(isMounted){
+          const products = data.data.data.products;
+          dispatch(getFilteredList(products));
+        }
       })
       .catch((err) => console.log(err));
       return () => {
-        
         isMounted = false;
         dispatch(getFilteredList([]));
       };
@@ -40,6 +40,7 @@ export default function TodayMain() {
               <MainCards
                 key={item._id}
                 img={item.img}
+                id={item._id}
                 title={language === "en" ? item.title_en : item.title_ar}
                 discount={item.price.discount}
               />

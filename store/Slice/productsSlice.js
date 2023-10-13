@@ -18,13 +18,12 @@ export const fetchProductById =createAsyncThunk(
 
 export const updateQuantity = createAsyncThunk(
     "product/updatequantity",
-    async ( productId ) => {
+    async ( prodId,quantity) => {
       const response = await axiosInstance.patch(
-        `/product/updatequantity/${productId}`,
-        { new_q } 
-      );
-      return response.data.data;
+        `/product/updatequantityAdd/${prodId}`, quantity );   
+      return response.data.data;  
     }
+
   );
 
 
@@ -61,6 +60,18 @@ export const updateQuantity = createAsyncThunk(
             state.status='failed'
 
         },
+        [updateQuantity.fulfilled ]:(state , {payload})=>{
+            state.data=payload
+            state.status='success'
+        },
+        [updateQuantity.pending ]:(state )=>{
+            state.status='loading'
+
+        },
+        [updateQuantity.rejected ]:(state  )=>{
+            state.status='failed'
+
+        }
        
        
 
