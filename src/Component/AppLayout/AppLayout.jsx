@@ -14,7 +14,7 @@ export default function AppLayout() {
   let user = useSelector((state) => { return state.user.data })
   let dispatch = useDispatch()
   let navigate = useNavigate()
-  let [display, setdisplay] = useState(location.pathname=='/login'?'':"d-none")
+  let [display, setdisplay] = useState(location.pathname=='/login'||location.pathname=='/CreateAccount'||localStorage.getItem('userId')?'':"d-none")
   
   
   function submet() {
