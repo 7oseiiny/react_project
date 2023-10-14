@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Login.css";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
@@ -77,6 +77,9 @@ const Login = () => {
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
   const passwordValid = pwd.length >= 6;
 
+  useEffect(()=>{
+    if(localStorage.getItem("userId")){navigate('/')}
+  })
 
 
   return (

@@ -99,7 +99,10 @@ function Navbar() {
   };
 
   async function disB(){
-      window.history.forward(); // Move the user forward
+      if (!localStorage.getItem('userId')) {
+        window.history.forward()
+      } // Move the user forward
+     
   }
   function handleSearch() {
     console.log(searchCategory);
