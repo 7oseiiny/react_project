@@ -4,6 +4,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import { useTranslation } from "react-i18next";
 import "./footer.css";
+import { Link} from "react-router-dom";
 function FooterCom() {
   let { t, i18n } = useTranslation();
 
@@ -15,9 +16,13 @@ function FooterCom() {
             <div className="sign-in-section mb-2">
               {t("See personalized recommendations")}
             </div>
-            <a className="signinbtn btn" href="#">
+            <Link
+              className="signinbtn btn  "
+              to="/login"
+              style={{ textDecoration: "none" }}
+            >
               {t("Sign in")}
-            </a>
+            </Link>
             <p>
               {t("New customer")}{" "}
               <a className="start-here text-decoration-none" href="#">
@@ -120,7 +125,7 @@ function FooterCom() {
               <ul className="footer-ul p-0">
                 <li className="footer-li">
                   <a className="footer-link" href="#">
-                   {t(" Amazon Business Card")}
+                    {t(" Amazon Business Card")}
                   </a>
                 </li>
                 <li className="footer-li">
@@ -145,7 +150,7 @@ function FooterCom() {
               <ul className="footer-ul p-0">
                 <li className="footer-li">
                   <a className="footer-link" href="#">
-                   {t("Amazon and COVID-19")}
+                    {t("Amazon and COVID-19")}
                   </a>
                 </li>
                 <li className="footer-li">
