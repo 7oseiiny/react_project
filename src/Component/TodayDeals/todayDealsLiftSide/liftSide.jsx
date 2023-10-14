@@ -3,8 +3,8 @@ import "./leftSide.css";
 import { FaStar, FaRegStar } from "react-icons/fa6";
 import PropTypes from "prop-types";
 import axiosInstance from "../../../axiosConfig/instance";
-import { useDispatch } from "react-redux";
-import filteredList, { getFilteredList } from "../../../../store/Slice/filteredList";
+import { useDispatch, useSelector } from "react-redux";
+import { getFilteredList } from "../../../../store/Slice/filteredList";
 import { useTranslation } from "react-i18next";
 import { FaCheck } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
@@ -22,13 +22,14 @@ export default function LiftSide({
   const { t } = useTranslation();
   let dispatch = useDispatch();
   let [subCategoryName, setSubCategoryName] = useState([]);
+  let filteredList = useSelector((state) => state.filteredList.filteredList);
   useEffect(
     function () {
       if (categoryId == "65186c48dff647423cf4def7") {
         axiosInstance
           .get(`searchBySubCategory/65186c48dff647423cf4def7`)
           .then((data) => {
-            // console.log(data.data);
+            console.log(data);
             setSubCategoryName(data.data);
             console.log(subCategoryName);
           })
@@ -36,21 +37,51 @@ export default function LiftSide({
             console.log(err);
           });
       }
+      return () => {
+        dispatch(getFilteredList([]));
+      };
     },
     [categoryId]
   );
+  let [checked, setChecked] = useState(false);
   function getSubCategoryData(evt, id) {
-    if (evt.target.checked) {
-      axiosInstance.get(`subcategory/${id}`).then((data) => {
-        let products = data.data.data.products;
-        dispatch(getFilteredList(products))
-        console.log(filteredList);
-      });
+    if (checked == true) {
+      if (evt.target.checked) {
+        axiosInstance
+          .get(`subcategory/${id}`)
+          .then((data) => {
+            let products = data.data.data.products;
+            let newData =
+              filteredList.length > 0
+                ? [...filteredList, ...products]
+                : [...products];
+
+            dispatch(getFilteredList(newData));
+          })
+          .catch((error) => {
+            console.error("Error fetching data from the API", error);
+          });
+      } else {
+        // Handle the case when the checkbox is unchecked
+        console.log("Checkbox is unchecked");
+        console.log(id);
+      }
     } else {
-      console.log("Checkbox is unchecked");
+      if (evt.target.checked) {
+        setChecked(true);
+        axiosInstance
+          .get(`subcategory/${id}`)
+          .then((data) => {
+            let products = data.data.data.products;
+            dispatch(getFilteredList(products));
+          })
+          .catch((error) => {
+            console.error("Error fetching data from the API", error);
+          });
+      }
     }
   }
-  //  let filteredList=useSelector((state)=>state.filteredList.filteredList)
+
   function getAllProduct() {
     axiosInstance
       .get(`category/${categoryId}`)

@@ -182,7 +182,7 @@ export default function Home() {
                       src="../assets/images/lap.jpg"
                       alt=""
                     />
-                    <span>Computer &Acssosres</span>
+                    <span>{t("Computers, Components & Accessories")}</span>
                   </div>
                   <div className="d-flex flex-column w-50">
                     <img
@@ -190,7 +190,7 @@ export default function Home() {
                       src="../assets/images/plystation.jpg"
                       alt=""
                     />
-                    <span>vido game</span>
+                    <span>{t("VideoGames")}</span>
                   </div>
                   <div className="d-flex flex-column w-50">
                     <img
@@ -198,7 +198,7 @@ export default function Home() {
                       src="../assets/images/baby.jpg"
                       alt=""
                     />
-                    <span> Baby</span>
+                    <span> {t("Baby")}</span>
                   </div>
                   <div className="d-flex flex-column w-50">
                     <img
@@ -206,11 +206,11 @@ export default function Home() {
                       src="../assets/images/lol.jpg"
                       alt=""
                     />
-                    <span>Toyes & game</span>
+                    <span>{t("Toys & Games")}</span>
                   </div>
                 </div>
                 <a href="#" className="card-link">
-                  Shop now
+                  {t("Shop now")}
                 </a>
               </div>
             </div>
@@ -218,14 +218,14 @@ export default function Home() {
           <div className="col-12 col-md-6  col-lg-3 mt-3 ">
             <div className="card h-100 err1">
               <div className="card-body justify-content-between d-flex flex-column">
-                <h5 className="card-title">Dresses</h5>
+                <h5 className="card-title">{t("Dresses")}</h5>
                 <img
                   className="w-100"
                   src="../assets/images/dress.jpg"
                   alt=""
                 />
                 <a href="#" className="card-link">
-                  Shop now
+                  {t("Shop now")}
                 </a>
               </div>
             </div>
@@ -233,14 +233,14 @@ export default function Home() {
           <div className="col-12 col-md-6  col-lg-3 mt-3 ">
             <div className="card h-100 err1">
               <div className="card-body justify-content-between d-flex flex-column">
-                <h5 className="card-title">Electronics</h5>
+                <h5 className="card-title">{t("Electronics")}</h5>
                 <img
                   className="w-100"
                   src="../assets/images/camera.jpg"
                   alt=""
                 />
                 <a href="#" className="card-link">
-                  See more
+                  {t("See more")}
                 </a>
               </div>
             </div>
@@ -248,10 +248,10 @@ export default function Home() {
           <div className="col-12 col-md-6  col-lg-3 mt-3 ">
             <div className="card h-100 err1">
               <div className="card-body justify-content-between d-flex flex-column">
-                <h5 className="card-title">Easy returns</h5>
+                <h5 className="card-title">{t("Easy returns")}</h5>
                 <img className="w-100" src="../assets/images/rool.jpg" alt="" />
                 <a href="#" className="card-link">
-                  Learn more
+                  {t("See more")}
                 </a>
               </div>
             </div>
@@ -259,14 +259,14 @@ export default function Home() {
           <div className="col-12 col-md-6  col-lg-3 mt-3 ">
             <div className="card h-100 err1">
               <div className="card-body justify-content-between d-flex flex-column">
-                <h5 className="card-title">Dresses</h5>
+                <h5 className="card-title">{t("Dresses")}</h5>
                 <img
                   className="w-100"
                   src="../assets/images/dress.jpg"
                   alt=""
                 />
                 <a href="#" className="card-link">
-                  Shop now
+                  {t("Shop now")}
                 </a>
               </div>
             </div>
@@ -275,7 +275,7 @@ export default function Home() {
             <div className="card h-100 err1">
               <div className="card-body justify-content-between d-flex flex-column">
                 <h5 className="card-title">
-                  Shop activity trackers and smartwatche
+                  {t("Shop activity trackers and smart watch")}
                 </h5>
                 <img
                   className="w-100"
@@ -283,7 +283,7 @@ export default function Home() {
                   alt=""
                 />
                 <a href="#" className="card-link">
-                  Show now
+                  {t("Shop now")}
                 </a>
               </div>
             </div>
@@ -292,7 +292,7 @@ export default function Home() {
             <div className="card h-100 err1">
               <div className="card-body justify-content-between d-flex flex-column">
                 <h5 className="card-title">
-                  Deals in Tools and Home Improvement
+                  {t("Deals in Tools and Home Improvement")}
                 </h5>
                 <img
                   className="w-100"
@@ -300,7 +300,7 @@ export default function Home() {
                   alt=""
                 />
                 <a href="#" className="card-link">
-                  Shop now
+                  {t("Shop now")}
                 </a>
               </div>
             </div>
@@ -308,10 +308,10 @@ export default function Home() {
           <div className="col-12 col-md-6  col-lg-3 mt-3 ">
             <div className="card h-100 err1">
               <div className="card-body justify-content-between d-flex flex-column">
-                <h5 className="card-title">Spring new arrivals</h5>
+                <h5 className="card-title">{t("Spring new arrivals")}</h5>
                 <img className="w-100" src="../assets/images/wem.jpg" alt="" />
                 <a href="#" className="card-link">
-                  Shop now
+                  {t("Shop now")}
                 </a>
               </div>
             </div>
@@ -319,10 +319,10 @@ export default function Home() {
           <div className="col-12 col-md-6  col-lg-3 mt-3 ">
             <div className="card h-100 err1">
               <div className="card-body justify-content-between d-flex flex-column">
-                <h5 className="card-title">Home refresh ideas</h5>
+                <h5 className="card-title">{t("Home refresh ideas")}</h5>
                 <img className="w-100" src="../assets/images/ket.jpg" alt="" />
                 <a href="#" className="card-link">
-                  Shop now
+                  {t("Shop now")}
                 </a>
               </div>
             </div>
@@ -330,10 +330,10 @@ export default function Home() {
           <div className="col-12 col-md-6  col-lg-3 mt-3 ">
             <div className="card h-100 err1">
               <div className="card-body justify-content-between d-flex flex-column">
-                <h5 className="card-title">Find your ideal TV</h5>
+                <h5 className="card-title">{t("Find your ideal TV")}</h5>
                 <img className="w-100" src="../assets/images/tvv.jpg" alt="" />
                 <a href="#" className="card-link">
-                  Shop now
+                  {t("Shop now")}
                 </a>
               </div>
             </div>
@@ -341,14 +341,14 @@ export default function Home() {
           <div className="col-12 col-md-6  col-lg-3 mt-3 ">
             <div className="card h-100 err1 ">
               <div className="card-body justify-content-between d-flex flex-column">
-                <h5 className="card-title">Shop school essentials</h5>
+                <h5 className="card-title">{t("Shop school essentials")}</h5>
                 <img
                   className="w-100"
                   src="../assets/images/books.jpg"
                   alt=""
                 />
                 <a href="#" className="card-link">
-                  Shop now
+                  {t("Shop now")}
                 </a>
               </div>
             </div>
@@ -356,10 +356,10 @@ export default function Home() {
           <div className="col-12 col-md-6  col-lg-3 mt-3 ">
             <div className="card h-100 err1">
               <div className="card-body justify-content-between d-flex flex-column">
-                <h5 className="card-title">Home & Kitchen Under $30</h5>
+                <h5 className="card-title">{t("Home & Kitchen Under $30")}</h5>
                 <img className="w-100" src="../assets/images/zoh.jpg" alt="" />
                 <a href="#" className="card-link">
-                  Shop now
+                  {t("Shop now")}
                 </a>
               </div>
             </div>
