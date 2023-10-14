@@ -59,10 +59,10 @@ export default function TrackingOrder() {
                                         ))}
                                     </td>
 
-                                    <td className="order-td">
+                                    <td className="order-td  ">
                                         {order.products.map((product) => (
                                             <h3 key={product.product._id}>
-                                                <Badge bg="dark" text="white">
+                                                <Badge bg="dark" text="white" className='mt-5'>
                                                     {product.quantity}
                                                 </Badge>
                                             </h3>
