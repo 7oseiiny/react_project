@@ -66,7 +66,7 @@ export default function Order() {
         },
         {
           label: "No",
-          onClick: () => {},
+          onClick: () => { },
         },
       ],
     });
@@ -142,22 +142,24 @@ export default function Order() {
                     }}
                   >
                     {/* <img style={{ height: "100px" }} src="public\assets\orderimage\PayPal-Logo.png" alt="" /> */}
-                    <PayPalButtons
-                      disabled={cart.length === 0}
-                      createOrder={(data, actions) => {
-                        return actions.order.create({
-                          purchase_units: [
-                            {
-                              amount: {
-                                value: (totalPrice + totalshipping).toFixed(2),
-                                currency_code: "USD",
+                    <div style={{zIndex:"0"}}>
+                      <PayPalButtons
+                        disabled={cart.length === 0}
+                        createOrder={(data, actions) => {
+                          return actions.order.create({
+                            purchase_units: [
+                              {
+                                amount: {
+                                  value: (totalPrice + totalshipping).toFixed(2),
+                                  currency_code: "USD",
+                                },
                               },
-                            },
-                          ],
-                        });
-                      }}
-                      onApprove={onApprove}
-                    />
+                            ],
+                          });
+                        }}
+                        onApprove={onApprove}
+                      />
+                    </div>
                   </div>
                 </label>
                 <label
